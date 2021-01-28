@@ -42,3 +42,37 @@ function showTab(evt, sectName){
 }
 
 /* ------------------------------- Home sliders -------------------------- */
+
+const science = 16;
+const space = 11;
+const tech = 13;
+
+var slides = [document.getElementById("slide-1"), document.getElementById("slide-2"),document.getElementById("slide-3")];
+
+setInterval(slideShow, 3000);
+
+function slideShow(){
+    let category,number;
+    slides.forEach(function(slide){
+        console.log(slide.id);
+        if (slide.id === "slide-1"){
+            category = "sp";
+            number = space;
+        }
+        else if (slide.id === "slide-2") {
+            category = "tech";
+            number = tech;
+        }
+        else if (slide.id === "slide-3") {
+            category = "sc";
+            number = science;
+        }
+        slide.innerHTML = changeImage(category,number);
+    });
+}
+
+
+function changeImage(category, number){
+    let rndNumber = Math.random();
+    return `<img scr="./images/${category}${Math.floor(rndNumber*space)}.jpg" alt="">`;
+}

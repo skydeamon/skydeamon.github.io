@@ -69,6 +69,7 @@
 }
 
 .home-banner {
+    overflow: hidden;
     width: 100%;
     height: 200px;
     background-color: blue;
@@ -91,4 +92,5 @@
     background-color: var(--clr-dark-freesia);
     color: var(--clr-white);
     font-size: 70px;
+    place-items: center;
 }

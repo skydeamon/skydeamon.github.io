@@ -6,7 +6,17 @@
 	<link rel="stylesheet" href="./css/main.css">
 </head>
 <body class="body">
-	<div class="banner"></div>
+	<div class="banner">
+		<div class="logo"></div>
+		<div class="contacts">
+			<ul>
+				<li>Facebook</li>
+				<li>Instagram</li>
+				<li>Github</li>
+				<li>Redit</li>
+			</ul>
+		</div>
+	</div>
 
 	<!-- Tab links -->
 	<script type="module" type="text/javascript" src="./js/app.js"></script>
@@ -23,10 +33,13 @@
 	<section id="Home" class="tabcontent">
 		<div class="home-banner">
 			<div class="profile-pic">
+				<img src="">
 			</div>
-			<div class="slider-1"></div>
-			<div class="slider-2"></div>
-			<div class="slider-3"></div>
+			<div class="row">
+				<div id="slide-1" class="column"></div>
+				<div id="slide-2" class="column"></div>
+				<div id="slide-3" class="column"></div>
+			</div>
 		</div>
 		<div class="home-content">
 			<div class="left">
