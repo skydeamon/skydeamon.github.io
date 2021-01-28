@@ -29,56 +29,58 @@
 			<div class="slider-3"></div>
 		</div>
 		<div class="home-content">
-			<ul>
-				<li>
-					<h4>About me:</h4>
-					<p>
-						I am an aspiring
-						Astrophysicist, Physicist and
-						Computer Scientist. I love
-						solving problems and I have
-						come across more questions
-						than answers.
-						I am an ardent problem
-						solver and my work in the
-						past has taught me soft skills
-						such as good
-						communication, handling
-						events, patience in the
-						working environment and
-						how to even handle the
-						working environment
-						generally.
-					</p>
-				</li>
-				<li>
-					<h4>Career Goals:</h4>
-					<p>
-						The discipline I have chosen
-						to follow is certainly a tough
-						one, regardless my goal is to
-						be able to publicize the ideas
-						that are at the forefront of
-						science. I also aim to change
-						people’s lives through the
-						technology they use, for
-						access to information and
-						ability to advance societies
-						to better life conditions.
-					</p>
-				</li>
-			</ul>
+			<div class="left">
+				<h4>About me:</h4>
+				<p>
+					I am an aspiring
+					Astrophysicist, Physicist and
+					Computer Scientist. I love
+					solving problems and I have
+					come across more questions
+					than answers.
+					I am an ardent problem
+					solver and my work in the
+					past has taught me soft skills
+					such as good
+					communication, handling
+					events, patience in the
+					working environment and
+					how to even handle the
+					working environment
+					generally.
+				</p>
+			</div>
+			<div class="right">
+				<h4>Career Goals:</h4>
+				<p>
+					The discipline I have chosen
+					to follow is certainly a tough
+					one, regardless my goal is to
+					be able to publicize the ideas
+					that are at the forefront of
+					science. I also aim to change
+					people’s lives through the
+					technology they use, for
+					access to information and
+					ability to advance societies
+					to better life conditions.
+				</p>
+			</div>
 		</div>
 	</section>
 
 	<section id="Projects" class="tabcontent">
-		<div class="tab-banner"></div>
+		<div class="tab-banner">
+			<div class="text-box"> What I have done!</div>
+		</div>
 		<div class="content">
 		</div>
 	</section>
 
 	<section id="Skills" class="tabcontent">
-		<div class="tab-banner"></div>
+		<div class="tab-banner">
+			<div class="text-box">What I can do!</div>
+		</div>
 		<div class="content">
 			<ul>
 				<li>
@@ -91,7 +93,7 @@
 				<li>
 					<h4>Intermediate in;</h4>
 					<p>
-						Physics, Astronomy, Computer Science, Microsoft Office, Matlab, MySQL, PHP, Mathematica, Latex, Linux.
+						Physics, Astronomy, Computer Science, Microsoft Office, Matlab, MySQL, Latex, Linux.
 					</p>
 				</li>
 				<li>
@@ -105,7 +107,9 @@
 	</section>
 
 	<section id="Interests" class="tabcontent">
-		<div class="tab-banner">Interests</div>
+		<div class="tab-banner">
+			<div class="text-box">What I like!</div>
+		</div>
 		<div class="content">
 			<ul>
 			</ul>
@@ -113,15 +117,24 @@
 	</section>
 
 	<section id="Experience" class="tabcontent">
-		<div class="tab-banner"></div>
+		<div class="tab-banner">
+			<div class="text-box">Where I have been</div>
+		</div>
 		<div class="content">
 			<ul>
+				<li>
+					<h4>Umuzi</h4>
+					<h5>Data Engineering Learnership</h5>
+					<p>
+						1/Dec/2020 -> Now
+					</p>
+				</li>
 				<li>
 					<h4>Direct Marketing, SWAT </h4>
 					<h5>Marketing representative</h5>
 					<p>
 						Cape Town, Western Cape, South Africa<br>
-						1-Feb-2018 to 30-June-2018
+						1/Feb/2018 -> 30/June/2018
 					</p>
 				</li>
 				<li>
@@ -137,7 +150,9 @@
 	</section>
 
 	<section id="Education" class="tabcontent">
-	  	<div class="tab-banner"></div>
+	  	<div class="tab-banner">
+			<div class="text-box">Where I was taught!</div>
+		</div>
 	  	<div class="content">
 		  	<ul>
 		  		<li>

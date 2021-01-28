@@ -1,3 +1,5 @@
+
+/* ---------------- Tab Menu -------------------------- */
 var tablinks = document.querySelectorAll(".tablinks");
 var tabcontent = document.querySelectorAll(".tabcontent");
 
@@ -10,7 +12,6 @@ tablinks.forEach(function(btn){
         displayContentNone();
         deactivateLink();
         const section = e.currentTarget.dataset.id;
-        console.log(section);
         showTab(e,section);
 
     });
@@ -39,3 +40,5 @@ function showTab(evt, sectName){
     document.getElementById(sectName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+/* ------------------------------- Home sliders -------------------------- */
