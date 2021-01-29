@@ -9,6 +9,7 @@
 <body class="body">
 	<div class="banner">
 		<div class="logo">
+			<img src="./images/name.png" width="300px">
 		</div>
 		<div class="contacts">
 			<div class="contact-me">Contact Me:</div>

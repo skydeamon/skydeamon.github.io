@@ -29,6 +29,11 @@
     height: 150px;
 }
 
+.logo {
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+
 .contact-me {
     display: inline-block;
 }
