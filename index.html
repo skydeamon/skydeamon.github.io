@@ -3,20 +3,34 @@
 <html lang="en">
 <head>
 	<!-- CSS ================================================== -->
+	<link rel="stylesheet" href="../fontawesome/css/all.css">
 	<link rel="stylesheet" href="./css/main.css">
 </head>
 <body class="body">
 	<div class="banner">
-		<div class="logo"></div>
+		<div class="logo">
+		</div>
 		<div class="contacts">
-			<ul>
-				<li>Facebook</li>
-				<li>Instagram</li>
-				<li>Github</li>
-				<li>Redit</li>
-			</ul>
+			<div class="contact-me">Contact Me:</div>
+			<a href="https://www.facebook.com/jade.makwela.94/" class="inline-block lightbox">
+				<i class="fab fa-facebook-square soc-img" loading="lazy" alt="facebook.com"></i>
+			</a>
+			<a href="https://www.instagram.com/jademakwela/" class="inline-block lightbox">
+				<i class="fab fa-instagram soc-img" loading="lazy" alt="instagram.com"></i>
+			</a>
+			<a href="" class="inline-block lightbox">
+				<i class="far fa-envelope soc-img" loading="lazy" alt="email us"></i>
+			</a>
+			<a href="https://github.com/skydeamon" class="inline-block lightbox">
+				<i class="fab fa-github soc-img" loading="lazy" alt="email us"></i>
+			</a>
+			<a href="https://www.linkedin.com/in/jade-makwela-6a79111a8/" class="inline-block lightbox">
+				<i class="fab fa-linkedin soc-img" loading="lazy" alt="email us"></i>
+			</a>
 		</div>
 	</div>
+
+	<img scr="ba1.jpg" alt="">
 
 	<!-- Tab links -->
 	<script type="module" type="text/javascript" src="./js/app.js"></script>
@@ -33,12 +47,18 @@
 	<section id="Home" class="tabcontent">
 		<div class="home-banner">
 			<div class="profile-pic">
-				<img src="">
+				<img scr="./images/sp0.jpg">
 			</div>
 			<div class="row">
-				<div id="slide-1" class="column"></div>
-				<div id="slide-2" class="column"></div>
-				<div id="slide-3" class="column"></div>
+				<div id="slide-1" class="column">
+					<img scr="./images/sp0.jpg" alt="">
+				</div>
+				<div id="slide-2" class="column">
+					<img scr="./images/tech0.jpg" alt="">
+				</div>
+				<div id="slide-3" class="column">
+					<img scr="./images/sc0.jpg" alt="">
+				</div>
 			</div>
 		</div>
 		<div class="home-content">
