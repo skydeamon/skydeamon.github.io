@@ -2,6 +2,7 @@
 /* ---------------- Tab Menu -------------------------- */
 var tablinks = document.querySelectorAll(".tablinks");
 var tabcontent = document.querySelectorAll(".tabcontent");
+var circles = document.querySelector(".circles")
 
 displayContentNone();
 document.getElementById("Home").style.display = "block";
@@ -13,9 +14,19 @@ tablinks.forEach(function(btn){
         deactivateLink();
         const section = e.currentTarget.dataset.id;
         showTab(e,section);
+        placeCircle(section);
 
     });
 });
+
+function placeCircle(sect){
+    if (sect === "Home"){
+        circles.style.float = "none";
+    }
+    else{
+        circles.style.float = "right";
+    }
+}
 
 function stopDefault(e){
     e.preventDefault();
@@ -54,7 +65,6 @@ setInterval(slideShow, 3000);
 function slideShow(){
     let category,number;
     slides.forEach(function(slide){
-        console.log(slide.id);
         if (slide.id === "slide-1"){
             category = "sp";
             number = space;
@@ -74,5 +84,5 @@ function slideShow(){
 
 function changeImage(category, number){
     let rndNumber = Math.random();
-    return `<img scr="./images/${category}${Math.floor(rndNumber*space)}.jpg" alt="">`;
+    return `<img scr="images/${category}${Math.floor(rndNumber*space)}.jpg" alt="" loading='lazy' width='214'>`;
 }

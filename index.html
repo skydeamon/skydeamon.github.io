@@ -12,25 +12,28 @@
 		</div>
 		<div class="contacts">
 			<div class="contact-me">Contact Me:</div>
-			<a href="https://www.facebook.com/jade.makwela.94/" class="inline-block lightbox">
-				<i class="fab fa-facebook-square soc-img" loading="lazy" alt="facebook.com"></i>
-			</a>
-			<a href="https://www.instagram.com/jademakwela/" class="inline-block lightbox">
-				<i class="fab fa-instagram soc-img" loading="lazy" alt="instagram.com"></i>
-			</a>
-			<a href="" class="inline-block lightbox">
-				<i class="far fa-envelope soc-img" loading="lazy" alt="email us"></i>
+			<a href="https://www.linkedin.com/in/jade-makwela-6a79111a8/" class="inline-block lightbox">
+				<i class="fab fa-linkedin soc-img" loading="lazy" alt="email us"></i>
+				<span>LinkedIn</span>
 			</a>
 			<a href="https://github.com/skydeamon" class="inline-block lightbox">
 				<i class="fab fa-github soc-img" loading="lazy" alt="email us"></i>
+				<span>Github</span>
 			</a>
-			<a href="https://www.linkedin.com/in/jade-makwela-6a79111a8/" class="inline-block lightbox">
-				<i class="fab fa-linkedin soc-img" loading="lazy" alt="email us"></i>
+			<a href="mailto:makwela.j.justice@gmail.com? subject=subject text" class="inline-block lightbox">
+				<i class="far fa-envelope soc-img" loading="lazy" alt="email us"></i>
+				<span>E-mail</span>
+			</a>
+			<a href="https://www.instagram.com/jademakwela/" class="inline-block lightbox">
+				<i class="fab fa-instagram soc-img" loading="lazy" alt="instagram.com"></i>
+				<span>Instagram</span>
+			</a>
+			<a href="https://www.facebook.com/jade.makwela.94/" class="inline-block lightbox">
+				<i class="fab fa-facebook-square soc-img" loading="lazy" alt="facebook.com"></i>
+				<span>Facebook</span>
 			</a>
 		</div>
 	</div>
-
-	<img scr="ba1.jpg" alt="">
 
 	<!-- Tab links -->
 	<script type="module" type="text/javascript" src="./js/app.js"></script>
@@ -41,6 +44,10 @@
 		<button data-id="Interests" class="tablinks">Interests</button>
 		<button data-id="Experience" class="tablinks">Experience</button>
 		<button data-id="Education" class="tablinks">Education</button>
+	</div>
+
+	<div class="circles">
+		<img src="./images/circles.svg" alt="" loading='lazy'>
 	</div>
 
 	<!-- Tab content -->
@@ -104,7 +111,7 @@
 
 	<section id="Projects" class="tabcontent">
 		<div class="tab-banner">
-			<div class="text-box"> What I have done!</div>
+			<div class="text-box">What I have done!</div>
 		</div>
 		<div class="content">
 		</div>
