@@ -48,7 +48,7 @@
 	</div>
 
 	<div class="circles">
-		<img src="./images/circles.svg" alt="" loading='lazy'>
+		<img src="./images/circles.svg" alt="Profile Picture" loading='lazy'>
 	</div>
 
 	<!-- Tab content -->
@@ -59,13 +59,13 @@
 			</div>
 			<div class="row">
 				<div id="slide-1" class="column">
-					<img scr="./images/sp0.jpg" alt="">
+					<img scr="./images/sp0.jpg" alt="sp0.jpg">
 				</div>
 				<div id="slide-2" class="column">
-					<img scr="./images/tech0.jpg" alt="">
+					<img scr="./images/tech0.jpg" alt="tech0.jpg">
 				</div>
 				<div id="slide-3" class="column">
-					<img scr="./images/sc0.jpg" alt="">
+					<img scr="./images/sc0.jpg" alt="sc0.jpg">
 				</div>
 			</div>
 		</div>
