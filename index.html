@@ -7,213 +7,209 @@
 	<link rel="stylesheet" href="./css/main.css">
 </head>
 <body class="body">
-	<div class="banner">
-		<div class="logo">
-			<img src="./images/name.png" width="300px">
-		</div>
-		<div class="contacts">
-			<div class="contact-me">Contact Me:</div>
-			<a href="https://www.linkedin.com/in/jade-makwela-6a79111a8/" class="inline-block lightbox">
-				<i class="fab fa-linkedin soc-img" loading="lazy" alt="email us"></i>
-				<span>LinkedIn</span>
-			</a>
-			<a href="https://github.com/skydeamon" class="inline-block lightbox">
-				<i class="fab fa-github soc-img" loading="lazy" alt="email us"></i>
-				<span>Github</span>
-			</a>
-			<a href="mailto:makwela.j.justice@gmail.com? subject=subject text" class="inline-block lightbox">
-				<i class="far fa-envelope soc-img" loading="lazy" alt="email us"></i>
-				<span>E-mail</span>
-			</a>
-			<a href="https://www.instagram.com/jademakwela/" class="inline-block lightbox">
-				<i class="fab fa-instagram soc-img" loading="lazy" alt="instagram.com"></i>
-				<span>Instagram</span>
-			</a>
-			<a href="https://www.facebook.com/jade.makwela.94/" class="inline-block lightbox">
-				<i class="fab fa-facebook-square soc-img" loading="lazy" alt="facebook.com"></i>
-				<span>Facebook</span>
-			</a>
-		</div>
-	</div>
-
-	<!-- Tab links -->
-	<script type="module" type="text/javascript" src="./js/app.js"></script>
-	<div class="tab">
-		<button data-id="Home" class="tablinks">Home</button>
-		<button data-id="Projects" class="tablinks">Projects</button>
-		<button data-id="Skills" class="tablinks">Skills</button>
-		<button data-id="Interests" class="tablinks">Interests</button>
-		<button data-id="Experience" class="tablinks">Experience</button>
-		<button data-id="Education" class="tablinks">Education</button>
-	</div>
-
-	<div class="circles">
-		<img src="./images/circles.svg" alt="Profile Picture" loading='lazy'>
-	</div>
-
-	<!-- Tab content -->
-	<section id="Home" class="tabcontent">
-		<div class="home-banner">
-			<div class="profile-pic">
-				<img scr="./images/sp0.jpg">
+	<div class="container">
+		<div class="banner">
+			<div class="logo">
+				<img src="./images/name.png" width="300px">
 			</div>
-			<div class="row">
-				<div id="slide-1" class="column">
-					<img scr="./images/sp0.jpg" alt="sp0.jpg">
+			<div class="contacts">
+				<div class="contact-me">Contact Me:</div>
+				<a href="https://www.linkedin.com/in/jade-makwela-6a79111a8/" class="inline-block lightbox">
+					<i class="fab fa-linkedin soc-img" loading="lazy" alt="email us"></i>
+					<span>LinkedIn</span>
+				</a>
+				<a href="https://github.com/skydeamon" class="inline-block lightbox">
+					<i class="fab fa-github soc-img" loading="lazy" alt="email us"></i>
+					<span>Github</span>
+				</a>
+				<a href="mailto:makwela.j.justice@gmail.com? subject=subject text" class="inline-block lightbox">
+					<i class="far fa-envelope soc-img" loading="lazy" alt="email us"></i>
+					<span>E-mail</span>
+				</a>
+				<a href="https://www.instagram.com/jademakwela/" class="inline-block lightbox">
+					<i class="fab fa-instagram soc-img" loading="lazy" alt="instagram.com"></i>
+					<span>Instagram</span>
+				</a>
+				<a href="https://www.facebook.com/jade.makwela.94/" class="inline-block lightbox">
+					<i class="fab fa-facebook-square soc-img" loading="lazy" alt="facebook.com"></i>
+					<span>Facebook</span>
+				</a>
+			</div>
+		</div>
+
+		<!-- Tab links -->
+		<script type="module" type="text/javascript" src="./js/app.js"></script>
+		<div class="tab row">
+			<button data-id="Home" class="tablinks active">Home</button>
+			<button data-id="Projects" class="tablinks">Projects</button>
+			<button data-id="Skills" class="tablinks">Skills</button>
+			<button data-id="Interests" class="tablinks">Interests</button>
+			<button data-id="Experience" class="tablinks">Experience</button>
+			<button data-id="Education" class="tablinks">Education</button>
+		</div>
+
+		<div class="circles">
+			<img src="./images/circles.svg" alt="Profile Picture" loading='lazy'>
+		</div>
+
+		<!-- Tab content -->
+		<section id="Home" class="tabcontent">
+			<div class="home-banner">
+				<div class="row">
+					<div class="col-4 profile-pic">
+						<img src="./images/sp0.jpg">
+					</div>
+					<div id="slide-1" class="col-4 slide">
+						<img src="./images/sp0.jpg" alt="sp0.jpg">
+					</div>
+					<div id="slide-2" class="col-4 slide">
+						<img src="./images/tech0.jpg" alt="tech0.jpg" >
+					</div>
+					<div id="slide-3" class="col-4 slide">
+						<img src="./images/sc0.jpg" alt="sc0.jpg">
+					</div>
 				</div>
-				<div id="slide-2" class="column">
-					<img scr="./images/tech0.jpg" alt="tech0.jpg">
+			</div>
+			<div class="content row">
+				<div class="col-2">
+					<h4>About me:</h4>
+					<p>
+						I am an aspiring
+						Astrophysicist, Physicist and
+						Computer Scientist. I love
+						solving problems and I have
+						come across more questions
+						than answers.
+						I am an ardent problem
+						solver and my work in the
+						past has taught me soft skills
+						such as good
+						communication, handling
+						events, patience in the
+						working environment and
+						how to even handle the
+						working environment
+						generally.
+					</p>
 				</div>
-				<div id="slide-3" class="column">
-					<img scr="./images/sc0.jpg" alt="sc0.jpg">
+				<div class="col-2">
+					<h4>Career Goals:</h4>
+					<p>
+						The discipline I have chosen
+						to follow is certainly a tough
+						one, regardless my goal is to
+						be able to publicize the ideas
+						that are at the forefront of
+						science. I also aim to change
+						people’s lives through the
+						technology they use, for
+						access to information and
+						ability to advance societies
+						to better life conditions.
+					</p>
 				</div>
 			</div>
-		</div>
-		<div class="home-content">
-			<div class="left">
-				<h4>About me:</h4>
-				<p>
-					I am an aspiring
-					Astrophysicist, Physicist and
-					Computer Scientist. I love
-					solving problems and I have
-					come across more questions
-					than answers.
-					I am an ardent problem
-					solver and my work in the
-					past has taught me soft skills
-					such as good
-					communication, handling
-					events, patience in the
-					working environment and
-					how to even handle the
-					working environment
-					generally.
-				</p>
-			</div>
-			<div class="right">
-				<h4>Career Goals:</h4>
-				<p>
-					The discipline I have chosen
-					to follow is certainly a tough
-					one, regardless my goal is to
-					be able to publicize the ideas
-					that are at the forefront of
-					science. I also aim to change
-					people’s lives through the
-					technology they use, for
-					access to information and
-					ability to advance societies
-					to better life conditions.
-				</p>
-			</div>
-		</div>
-	</section>
+		</section>
 
-	<section id="Projects" class="tabcontent">
-		<div class="tab-banner">
-			<div class="text-box">What I have done!</div>
-		</div>
-		<div class="content">
-		</div>
-	</section>
+		<section id="Projects" class="tabcontent">
+			<div class="tab-banner">
+				<div class="text-box">What I have done!</div>
+			</div>
+			<div class="content">
+			</div>
+		</section>
 
-	<section id="Skills" class="tabcontent">
-		<div class="tab-banner">
-			<div class="text-box">What I can do!</div>
-		</div>
-		<div class="content">
-			<ul>
-				<li>
+		<section id="Skills" class="tabcontent">
+			<div class="tab-banner">
+				<div class="text-box">What I can do!</div>
+			</div>
+			<div class="content row">
+				<div class="col-3">
 					<h4>Basic in;</h4>
 					<p>
 						Robotics, OpenOffice, Kotlin.<br>
 						Computer hardware and Support.
 					</p>
-				</li>
-				<li>
+				</div>
+				<div class="col-3">
 					<h4>Intermediate in;</h4>
 					<p>
-						Physics, Astronomy, Computer Science, Microsoft Office, Matlab, MySQL, Latex, Linux.
+						Physics, Astronomy, Computer Science<br>Microsoft Office, Matlab, MySQL, Latex, Linux.
 					</p>
-				</li>
-				<li>
+				</div>
+				<div class="col-3">
 					<h4>Advanced in;</h4>
 					<p>
-						Mathematics, Python, Java, JavaScript, HTML, CSS, PHP.
+						Mathematics, Python, Java<br>JavaScript, HTML, CSS, PHP.
 					</p>
-				</li>
-			</ul>
-		</div>
-	</section>
+				</div>
+			</div>
+		</section>
 
-	<section id="Interests" class="tabcontent">
-		<div class="tab-banner">
-			<div class="text-box">What I like!</div>
-		</div>
-		<div class="content">
-			<ul>
-			</ul>
-		</div>
-	</section>
+		<section id="Interests" class="tabcontent">
+			<div class="tab-banner">
+				<div class="text-box">What I like!</div>
+			</div>
+			<div class="content">
+				<ul>
+				</ul>
+			</div>
+		</section>
 
-	<section id="Experience" class="tabcontent">
-		<div class="tab-banner">
-			<div class="text-box">Where I have been</div>
-		</div>
-		<div class="content">
-			<ul>
-				<li>
+		<section id="Experience" class="tabcontent">
+			<div class="tab-banner">
+				<div class="text-box">Where I have been</div>
+			</div>
+			<div class="content row">
+				<div class="col-3">
 					<h4>Umuzi</h4>
 					<h5>Data Engineering Learnership</h5>
 					<p>
 						1/Dec/2020 -> Now
 					</p>
-				</li>
-				<li>
+				</div>
+				<div class="col-3">
 					<h4>Direct Marketing, SWAT </h4>
-					<h5>Marketing representative</h5>
+						<h5>Marketing representative</h5>
 					<p>
 						Cape Town, Western Cape, South Africa<br>
 						1/Feb/2018 -> 30/June/2018
 					</p>
-				</li>
-				<li>
+				</div>
+				<div class="col-3">
 					<h4>Department of Education, South Africa</h4>
 					<h5>Marking assistant</h5>
 					<p>
 						Tzaneen, Limpopo, South Africa<br>
 						2016-December
 					</p>
-				</li>
-			</ul>
-		</div>
-	</section>
+				</div>
+			</div>
+		</section>
 
-	<section id="Education" class="tabcontent">
-	  	<div class="tab-banner">
-			<div class="text-box">Where I was taught!</div>
-		</div>
-	  	<div class="content">
-		  	<ul>
-		  		<li>
-		  			<h4>University of Cape Town</h4>
-		  			<p>
-		  				Rondebosch, Cape Town Central, ZA 7700<br>
+		<section id="Education" class="tabcontent">
+		  	<div class="tab-banner">
+				<div class="text-box">Where I was taught!</div>
+			</div>
+		  	<div class="content row">
+			  	<div class+'col-2'>
+			  		<h4>University of Cape Town</h4>
+			  		<p>
+			  			Rondebosch, Cape Town Central, ZA 7700<br>
 						2015-2017: incomplete<br>
 						Physics and Astrophysics.
-		  			</p>
-				</li>
-		  		<li>
-		  			<h4>Phusela High School</h4>
+			  		</p>
+				</div>
+			  	<div class+'col-2'>
+			  		<h4>Phusela High School</h4>
 					<p>
 						Lenyenye, Limpopo, South Africa<br>
 						Matriculation 2014<br>
 						Specialized in science subjects.
 					</p>
-		  		</li>
-		  	</ul>
-	  	</div>
-	</section>
+			  	</div>
+		  	</div>
+		</section>
+	</div>
 </body>
 </html>

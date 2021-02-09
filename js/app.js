@@ -55,10 +55,11 @@ function showTab(evt, sectName){
 /* ------------------------------- Home sliders -------------------------- */
 
 const science = 17;
-const space = 12;
+const space = 11;
 const tech = 14;
+const dp = 1;
 
-var slides = document.querySelectorAll(".column");
+var slides = document.querySelectorAll(".slide");
 
 setInterval(slideShow, 3000);
 
@@ -77,6 +78,10 @@ function slideShow(){
             category = "sc";
             number = science;
         }
+        else{
+            category = "dp";
+            number = dp
+        }
         slide.innerHTML = changeImage(category,number);
     });
 }
@@ -84,5 +89,5 @@ function slideShow(){
 
 function changeImage(category, number){
     let rndNumber = Math.random();
-    return `<img scr="../images/${category}${Math.floor(rndNumber*space)}.jpg" alt="${category}${Math.floor(rndNumber*space)}.jpg" loading='lazy' width='214'>`;
+    return `<img src="../images/${category}${Math.floor(rndNumber*space)}.jpg" alt="${category}${Math.floor(rndNumber*space)}.jpg" loading='lazy'>`;
 }
