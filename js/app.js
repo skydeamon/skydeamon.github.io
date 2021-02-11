@@ -57,7 +57,6 @@ function showTab(evt, sectName){
 const science = 17;
 const space = 11;
 const tech = 14;
-const dp = 1;
 
 var slides = document.querySelectorAll(".slide");
 
@@ -78,10 +77,6 @@ function slideShow(){
             category = "sc";
             number = science;
         }
-        else{
-            category = "dp";
-            number = dp
-        }
         slide.innerHTML = changeImage(category,number);
     });
 }
@@ -91,3 +86,15 @@ function changeImage(category, number){
     let rndNumber = Math.random();
     return `<img src="../images/${category}${Math.floor(rndNumber*space)}.jpg" alt="${category}${Math.floor(rndNumber*space)}.jpg" loading='lazy'>`;
 }
+
+/* ------------------------------- Mobile Menu -------------------------- */
+
+var bars = document.querySelector(".icon-bars");
+
+bars.addEventListener("click", function(btn){
+    if (btn.style.display === "block"){
+        btn.style.display = "none";
+    }else{
+        btn.style.display = "block";
+    }
+});

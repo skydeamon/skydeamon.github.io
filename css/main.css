@@ -64,37 +64,13 @@ h4 {
   font-size: 0.875rem;
 }
 p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   color: var(--clr-grey-5);
 }
-@media screen and (min-width: 800px) {
-  h1 {
-    font-size: 4rem;
-  }
-  h2 {
-    font-size: 2.5rem;
-  }
-  h3 {
-    font-size: 1.75rem;
-  }
-  h4 {
-    font-size: 1rem;
-  }
-  body {
-    font-size: 1rem;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    line-height: 1;
-  }
-}
+
 
 .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 25px 0;
+    width: 100%
 }
 
 .banner {
@@ -103,18 +79,18 @@ p {
 }
 
 .logo {
-    display: inline-block;
+    width: 100%
     margin-top: 1.5rem;
 }
 
-.contact-me {
-    display: inline-block;
+.contacts{
+    margin-top: 0.5rem;
+    width: 100%;
+    padding-left: 0.4rem;
 }
 
-.contacts{
-    margin-top: 2.5rem;
-    float: right;
-    transition
+.contact-me {
+    display: none;
 }
 
 span {
@@ -125,10 +101,6 @@ span {
     margin: 2.5rem 0.6rem;
     box-shadow: var(--blue-shadow);
     color: black;
-}
-
-.contacts:hover span {
-    display: inline-block;
 }
 
 .row {
@@ -145,17 +117,20 @@ span {
 /* Style the tab */
 .tab {
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tablinks {
-  flex-basis: 33%;
-  padding: 30%;
+  flex-basis: (100/3)%;
+  flex-wrap: wrap;
+  padding: 5%;
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
     background-color: inherit;
-    float: left;
     border: none;
     outline: none;
     cursor: pointer;
@@ -178,6 +153,14 @@ span {
     font-weight: 400;
 }
 
+.icon-bars {
+    display: inline-block;
+}
+
+.bar-btn {
+  padding: 10px;
+}
+
 /* Style the tab content */
 .tabcontent {
     display: block;
@@ -186,23 +169,21 @@ span {
     border-top: none;
 }
 
-.circles {
-    margin-bottom: -30vh;
-    box-shadow: var(--light-shadow);
-}
-
 .home-banner {
     width: 100%;
     height: 200px;
     overflow: hidden;
-
 }
 
 .home-banner img {
     justify-content: center;
     align-items: center;
-    width: 220px;
+    width: 90%;
     box-shadow: var(--dark-shadow);
+}
+
+.slide {
+  display: none;
 }
 
 
@@ -213,24 +194,57 @@ span {
 }
 
 .text-box {
-    max-width: 1000px;
+    max-width: 90%;
     max-height: 200px;
     margin: auto auto;
     background-color: var(--clr-dark-freesia);
     color: var(--clr-white);
-    font-size: 70px;
+    font-size: 50px;
     place-items: center;
     margin-top: 50px;
     box-shadow: var(--dark-shadow);
-    z-index: -100;
+    z-index: 100;
+}
+
+.exp {
+    font-size: 35px;
 }
 
 .content {
-  margin-top: 30px;
   padding-right: 20px;
 }
 
-@media screen and (min-width: 600px) {
+
+@media only screen and (min-width: 768px) {
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 25px 0;
+  }
+
+  .logo {
+    float: left;
+    width: 50%;
+  }
+
+  .contacts {
+    float: right;
+    margin-top: 2.5rem;
+    width: 50%;
+  }
+
+  .contact-me {
+    display: inline-block;
+  }
+
+  .tab {
+    display: flex;
+  }
+
+  .slide {
+    display: block;
+  }
 
   .col-2 .col-3 .col-4 {
     flex-wrap: nowrap;
@@ -254,5 +268,48 @@ span {
 
   .tablinks {
     flex-basis: (100/6)%;
+    flex-wrap: nowrap;
   }
+
+  .text-box {
+    font-size: 70px;
+  }
+
+  .exp {
+    font-size: 70px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 0;
+  }
+
+  .contacts:hover span {
+    display: inline-block;
+}
 }

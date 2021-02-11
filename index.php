@@ -2,6 +2,21 @@
 
 <html lang="en">
 <head>
+	<title>Jade makwela</title>
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="https://skydeamon.github.io/">
+	<meta property="og:url" content="https://www.croghetbylisa.co.za/">
+	<meta property="og:description"content="">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@">
+	<meta name="twitter:title" content="https://skydeamon.github.io/">
+	<meta name="twitter:description" content="">
+
 	<!-- CSS ================================================== -->
 	<link rel="stylesheet" href="../fontawesome/css/all.css">
 	<link rel="stylesheet" href="./css/main.css">
@@ -39,7 +54,7 @@
 
 		<!-- Tab links -->
 		<script type="module" type="text/javascript" src="./js/app.js"></script>
-		<div class="tab row">
+		<div class="tab">
 			<button data-id="Home" class="tablinks active">Home</button>
 			<button data-id="Projects" class="tablinks">Projects</button>
 			<button data-id="Skills" class="tablinks">Skills</button>
@@ -48,16 +63,12 @@
 			<button data-id="Education" class="tablinks">Education</button>
 		</div>
 
-		<div class="circles">
-			<img src="./images/circles.svg" alt="Profile Picture" loading='lazy'>
-		</div>
-
 		<!-- Tab content -->
 		<section id="Home" class="tabcontent">
 			<div class="home-banner">
 				<div class="row">
 					<div class="col-4 profile-pic">
-						<img src="./images/sp0.jpg">
+						<img src="./images/test_img/dp0.jpg">
 					</div>
 					<div id="slide-1" class="col-4 slide">
 						<img src="./images/sp0.jpg" alt="sp0.jpg">
@@ -158,13 +169,14 @@
 
 		<section id="Experience" class="tabcontent">
 			<div class="tab-banner">
-				<div class="text-box">Where I have been</div>
+				<div class="text-box exp">Where I have been!</div>
 			</div>
 			<div class="content row">
 				<div class="col-3">
 					<h4>Umuzi</h4>
 					<h5>Data Engineering Learnership</h5>
 					<p>
+						Remote Work<br>
 						1/Dec/2020 -> Now
 					</p>
 				</div>
