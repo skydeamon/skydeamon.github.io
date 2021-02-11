@@ -282,16 +282,16 @@ span {
 
 @media only screen and (min-width: 1200px) {
   h1 {
-    font-size: 4rem;
+    font-size: 5rem;
   }
   h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   h3 {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
   h4 {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   body {
     font-size: 1rem;
@@ -300,7 +300,13 @@ span {
   h2,
   h3,
   h4 {
-    line-height: 1;
+    line-height: 2;
+    letter-spacing: 2px;
+  }
+
+  p {
+    line-height: 1.2;
+    letter-spacing: 2px;
   }
 
   .container {

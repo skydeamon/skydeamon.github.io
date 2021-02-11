@@ -84,7 +84,7 @@ function slideShow(){
 
 function changeImage(category, number){
     let rndNumber = Math.random();
-    return `<img src="../images/${category}${Math.floor(rndNumber*space)}.jpg" alt="${category}${Math.floor(rndNumber*space)}.jpg" loading='lazy'>`;
+    return `<img src="../images/slideshow/${category}${Math.floor(rndNumber*number)}.jpg" alt="${category}${Math.floor(rndNumber*number)}.jpg" loading='lazy'>`;
 }
 
 /* ------------------------------- Mobile Menu -------------------------- */

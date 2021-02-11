@@ -25,7 +25,7 @@
 	<div class="container">
 		<div class="banner">
 			<div class="logo">
-				<img src="./images/name.png" width="300px">
+				<img src="./images/logo/name.png" width="300px">
 			</div>
 			<div class="contacts">
 				<div class="contact-me">Contact Me:</div>
@@ -71,13 +71,13 @@
 						<img src="./images/test_img/dp0.jpg">
 					</div>
 					<div id="slide-1" class="col-4 slide">
-						<img src="./images/sp0.jpg" alt="sp0.jpg">
+						<img src="./images/slideshow/sp0.jpg" alt="sp0.jpg">
 					</div>
 					<div id="slide-2" class="col-4 slide">
-						<img src="./images/tech0.jpg" alt="tech0.jpg" >
+						<img src="./images/slideshow/tech0.jpg" alt="tech0.jpg" >
 					</div>
 					<div id="slide-3" class="col-4 slide">
-						<img src="./images/sc0.jpg" alt="sc0.jpg">
+						<img src="./images/slideshow/sc0.jpg" alt="sc0.jpg">
 					</div>
 				</div>
 			</div>
@@ -204,16 +204,24 @@
 				<div class="text-box">Where I was taught!</div>
 			</div>
 		  	<div class="content row">
-			  	<div class+'col-2'>
-			  		<h4>University of Cape Town</h4>
+		  		<div class="col-3">
+					<h4><a href+"Umuzi.org">Umuzi</a></h4>
+					<h5>Data Engineering Learnership</h5>
+					<p>
+						Data Engineering - <a href="python.org">python</a> programming.<br>
+						1/Dec/2020 -> Now
+					</p>
+				</div>
+			  	<div class+'col-3'>
+			  		<h4><a href+"uct.co.za">University of Cape Town</a></h4>
 			  		<p>
 			  			Rondebosch, Cape Town Central, ZA 7700<br>
 						2015-2017: incomplete<br>
 						Physics and Astrophysics.
 			  		</p>
 				</div>
-			  	<div class+'col-2'>
-			  		<h4>Phusela High School</h4>
+			  	<div class+'col-3'>
+			  		<h4><a href+"">Phusela High School</a></h4>
 					<p>
 						Lenyenye, Limpopo, South Africa<br>
 						Matriculation 2014<br>
