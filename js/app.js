@@ -1,32 +1,36 @@
+/* ---------------- DOM selectors -------------------------- */
 
-/* ---------------- Tab Menu -------------------------- */
+var phone = window.matchMedia("(max-width: 768px)");
+var bars = document.querySelector(".icon");
+var tabs = document.querySelector(".tab");
 var tablinks = document.querySelectorAll(".tablinks");
 var tabcontent = document.querySelectorAll(".tabcontent");
-var circles = document.querySelector(".circles")
+var slides = document.querySelectorAll(".slide");
+
+/* ---------------- Variables -------------------------- */
+const science = 17;
+const space = 11;
+const tech = 14;
+
+/* ---------------- Tab Menu -------------------------- */
 
 displayContentNone();
 document.getElementById("Home").style.display = "block";
 
 tablinks.forEach(function(btn){
     btn.addEventListener("click",function(e){
-        //stopDefault(e);
+        stopDefault(e);
         displayContentNone();
         deactivateLink();
         const section = e.currentTarget.dataset.id;
         showTab(e,section);
-        placeCircle(section);
+        if (phone.matches){
+            tabs.style.display = "none";
+        }
+
 
     });
 });
-
-function placeCircle(sect){
-    if (sect === "Home"){
-        circles.style.float = "none";
-    }
-    else{
-        circles.style.float = "right";
-    }
-}
 
 function stopDefault(e){
     e.preventDefault();
@@ -53,12 +57,6 @@ function showTab(evt, sectName){
 }
 
 /* ------------------------------- Home sliders -------------------------- */
-
-const science = 17;
-const space = 11;
-const tech = 14;
-
-var slides = document.querySelectorAll(".slide");
 
 setInterval(slideShow, 3000);
 
@@ -89,10 +87,8 @@ function changeImage(category, number){
 
 /* ------------------------------- Mobile Menu -------------------------- */
 
-var bars = document.querySelector(".icon");
-
-bars.addEventListener("click", function(){
-    var tabs = document.querySelector(".tab")
+bars.addEventListener("click", function(e){
+    stopDefault(e);
     if (tabs.style.display === "block"){
         tabs.style.display = "none";
     }else{
