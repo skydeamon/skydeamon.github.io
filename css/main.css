@@ -64,7 +64,7 @@ h4 {
   font-size: 0.875rem;
 }
 p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   color: var(--clr-grey-5);
 }
 
@@ -131,8 +131,10 @@ span {
       box-shadow: var(--light-shadow);
   }
 
-.menu-icon {
-    margin-left: 50vw;
+.icon {
+    padding-left: 50vw;
+    padding-right: 50vw;
+    background-color: var(--clr-dark-freesia)
 }
 
 .bar-btn {
