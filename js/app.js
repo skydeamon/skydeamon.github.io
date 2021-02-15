@@ -9,7 +9,7 @@ document.getElementById("Home").style.display = "block";
 
 tablinks.forEach(function(btn){
     btn.addEventListener("click",function(e){
-        stopDefault(e);
+        //stopDefault(e);
         displayContentNone();
         deactivateLink();
         const section = e.currentTarget.dataset.id;
@@ -89,12 +89,13 @@ function changeImage(category, number){
 
 /* ------------------------------- Mobile Menu -------------------------- */
 
-var bars = document.querySelector(".icon-bars");
+var bars = document.querySelector(".icon");
 
-bars.addEventListener("click", function(btn){
-    if (btn.style.display === "block"){
-        btn.style.display = "none";
+bars.addEventListener("click", function(){
+    var tabs = document.querySelector(".tab")
+    if (tabs.style.display === "block"){
+        tabs.style.display = "none";
     }else{
-        btn.style.display = "block";
+        tabs.style.display = "block";
     }
 });

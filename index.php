@@ -50,17 +50,22 @@
 					<span>Facebook</span>
 				</a>
 			</div>
+
+		</div>
+
+		<div class="menu-icon">
+			<a class="icon"><i class="fa fa-bars"></i></a>
 		</div>
 
 		<!-- Tab links -->
 		<script type="module" type="text/javascript" src="./js/app.js"></script>
 		<div class="tab">
-			<button data-id="Home" class="tablinks active">Home</button>
-			<button data-id="Projects" class="tablinks">Projects</button>
-			<button data-id="Skills" class="tablinks">Skills</button>
-			<button data-id="Interests" class="tablinks">Interests</button>
-			<button data-id="Experience" class="tablinks">Experience</button>
-			<button data-id="Education" class="tablinks">Education</button>
+			<a data-id="Home" class="tablinks active">Home</a>
+			<a data-id="Projects" class="tablinks">Projects</a>
+			<a data-id="Skills" class="tablinks">Skills</a>
+			<a data-id="Interests" class="tablinks">Interests</a>
+			<a data-id="Experience" class="tablinks">Experience</a>
+			<a data-id="Education" class="tablinks">Education</a>
 		</div>
 
 		<!-- Tab content -->
@@ -68,7 +73,7 @@
 			<div class="home-banner">
 				<div class="row">
 					<div class="col-4 profile-pic">
-						<img src="./images/test_img/dp0.jpg">
+						<img src="./images/test_img/dp1.jpg">
 					</div>
 					<div id="slide-1" class="col-4 slide">
 						<img src="./images/slideshow/sp0.jpg" alt="sp0.jpg">
@@ -173,7 +178,7 @@
 			</div>
 			<div class="content row">
 				<div class="col-3">
-					<h4>Umuzi</h4>
+					<h4>Junior Tech Leader <a href+"Umuzi.org">Umuzi</a></h4>
 					<h5>Data Engineering Learnership</h5>
 					<p>
 						Remote Work<br>
