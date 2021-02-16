@@ -1,6 +1,6 @@
 /* ---------------- DOM selectors -------------------------- */
 
-var phone = window.matchMedia("(max-width: 768px)");
+var phone = window.matchMedia("(max-width: 767px)");
 var bars = document.querySelector(".icon");
 var tabs = document.querySelector(".tab");
 var tablinks = document.querySelectorAll(".tablinks");

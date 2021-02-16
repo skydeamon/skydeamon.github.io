@@ -179,16 +179,13 @@ span {
     margin: auto auto;
     background-color: var(--clr-dark-freesia);
     color: var(--clr-white);
-    font-size: 50px;
+    font-size: 35px;
     place-items: center;
     margin-top: 50px;
     box-shadow: var(--dark-shadow);
     z-index: 100;
 }
 
-.exp {
-    font-size: 35px;
-}
 
 .content {
   padding-right: 20px;
@@ -198,7 +195,7 @@ span {
 @media only screen and (min-width: 768px) {
 
   .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 25px 0;
   }
@@ -261,20 +258,12 @@ span {
     flex-wrap: nowrap;
   }
 
-  .text-box {
-    font-size: 70px;
-  }
-
-  .exp {
-    font-size: 70px;
-  }
-
   /* Style the buttons that are used to open the tab content */
   .tab a {
       background-color: inherit;
       cursor: pointer;
-      padding: 14px 16px;
-      margin: 10px 20px;
+      padding: 4.5px 4.5px;
+      margin: 5px 15px;
       transition: 0.3s;
       box-shadow: var(--light-shadow);
   }
@@ -290,6 +279,10 @@ span {
       box-shadow: none;
       font-size: 16px;
       font-weight: 400;
+  }
+
+  .text-box {
+    font-size: 40px;
   }
 }
 
@@ -330,5 +323,18 @@ span {
 
   .contacts:hover span {
     display: inline-block;
+  }
+
+  .tab a {
+      background-color: inherit;
+      cursor: pointer;
+      padding: 14px 16px;
+      margin: 10px 20px;
+      transition: 0.3s;
+      box-shadow: var(--light-shadow);
+  }
+
+  .text-box {
+    font-size: 70px;
   }
 }

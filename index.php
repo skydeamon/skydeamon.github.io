@@ -206,7 +206,7 @@
 
 		<section id="Education" class="tabcontent">
 		  	<div class="tab-banner">
-				<div class="text-box">Where I was taught!</div>
+				<div class="text-box exp">Where I was taught!</div>
 			</div>
 		  	<div class="content row">
 		  		<div class="col-3">
