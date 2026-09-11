@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jade Makwela — AI Engineer Portfolio</title>
+  <meta name="description" content="AI/LLM Engineer portfolio — RAG, LangChain, FastAPI, and production data platform experience">
+  <link rel="stylesheet" href="../shared_styles.css">
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --primary-light: #8b5cf6;
+      --primary-dark: #6d28d9;
+      --accent: #a78bfa;
+    }
+    .cv-header {
+      background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">🖨️ Print / PDF</button>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cv-container">
+    <header class="cv-header">
+      <h1>Jade Makwela</h1>
+      <p class="subtitle">Senior Data / AI Engineer — LLM Applications &amp; Data Platforms</p>
+      <div class="contact-info">
+        <a href="mailto:makwela.j.justice@gmail.com">📧 makwela.j.justice@gmail.com</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">🔗 LinkedIn</a>
+        <span class="separator">|</span>
+        <a href="https://github.com/skydeamon" target="_blank">💻 GitHub</a>
+        <span class="separator">|</span>
+        <span>📍 Cape Town, South Africa</span>
+      </div>
+    </header>
+
+    <div class="cv-content">
+      <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p>
+          Senior data/AI engineer with <strong>5+ years</strong> building production data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, Athena, and Airflow. Hands-on with <strong>LLM application patterns</strong> (RAG, function calling, prompt strategies, basic guardrails) and FastAPI integration. Known for end-to-end ownership, rigorous data quality, and cross-functional collaboration with product/analyst teams. Seeking to apply agentic workflows, RAG pipelines, and evaluation practices to deliver safe, traceable AI features.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">AI / LLM Projects</h2>
+        <div class="project-item">
+          <div class="project-title">
+            <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank">RAG Service (PoC) — Agentic RAG LLM Demo</a>
+          </div>
+          <p class="project-description">FastAPI endpoint with retrieval pipeline (vector index + metadata filters). Templated prompts with deterministic output schema. Evaluation harness for regression testing. Function-calling pattern with LangChain/LangGraph.</p>
+          <div class="project-tech"><span>Python</span><span>FastAPI</span><span>LangChain</span><span>LangGraph</span><span>RAG</span></div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Traceability &amp; QA System</div>
+          <p class="project-description">Citation-style answer formatting, per-response logs (inputs, context chunks, outputs), and required-field checks for auditability in clinical and education contexts.</p>
+          <div class="project-tech"><span>Python</span><span>Logging</span><span>Citation Formatting</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Core LLM/AI Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>LLM Application Patterns</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">RAG</span>
+              <span class="skill-tag primary">Function Calling</span>
+              <span class="skill-tag">Multi-Step Tool Use</span>
+              <span class="skill-tag">Guardrails</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Frameworks</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">LangChain / LangGraph</span>
+              <span class="skill-tag primary">FastAPI</span>
+              <span class="skill-tag">FAISS</span>
+              <span class="skill-tag">pgvector</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Data Platform (Foundation)</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">PySpark on EMR/Glue</span>
+              <span class="skill-tag primary">Apache Airflow</span>
+              <span class="skill-tag">Kafka</span>
+              <span class="skill-tag">dbt</span>
+              <span class="skill-tag">Medallion Architecture</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Evaluation &amp; Safety</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Prompt Templates</span>
+              <span class="skill-tag">Offline Eval Sets</span>
+              <span class="skill-tag">Regression Harnesses</span>
+              <span class="skill-tag">Citation-Style Responses</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Impact Highlights</h2>
+        <ul style="padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.8;">
+          <li><strong>~35% pipeline runtime reduction</strong> and <strong>~22% EMR cost savings</strong></li>
+          <li><strong>Freshness D+1 → H+1</strong> with event-driven ingestion</li>
+          <li><strong>90%+ data-quality coverage</strong> via dbt tests and contracts</li>
+          <li><strong>Deployment: days → hours</strong> with standardized CI/CD</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+          <div class="education-degree">BSc Physics &amp; Astrophysics</div>
+          <div class="education-school">University of Cape Town</div>
+          <div class="education-date">2015 — 2017</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div style="text-align: center; padding: var(--space-xl); background: var(--bg-tertiary); border-radius: var(--radius-lg);">
+          <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">View the complete AI Engineer CV</p>
+          <a href="../cv_ai_engineer.html" class="control-btn" style="display: inline-flex; text-decoration: none; margin-right: var(--space-sm);">Full CV</a>
+          <a href="mailto:makwela.j.justice@gmail.com?subject=AI%20Engineering%20Opportunity" class="control-btn secondary" style="display: inline-flex; text-decoration: none;">Contact Me</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

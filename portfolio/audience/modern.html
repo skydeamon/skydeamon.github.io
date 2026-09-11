@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jade Makwela — Modern CV</title>
+  <meta name="description" content="Modern creative CV — visual timeline layout for startups and creative companies">
+  <link rel="stylesheet" href="../shared_styles.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --accent: #8b5cf6;
+      --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    }
+    .cv-header {
+      background: var(--gradient);
+    }
+    .sidebar {
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+    }
+    .skill-bar-fill {
+      background: var(--gradient);
+    }
+    .stat-number {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .timeline::before {
+      background: var(--gradient);
+    }
+    .timeline-item::before {
+      background: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">🖨️ Print / PDF</button>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cv-container">
+    <header class="cv-header">
+      <h1>Jade Makwela</h1>
+      <p class="subtitle">Senior Data Engineer · AI/LLM Practitioner · Full Stack Developer</p>
+      <div class="contact-info">
+        <a href="mailto:makwela.j.justice@gmail.com">📧 makwela.j.justice@gmail.com</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">🔗 LinkedIn</a>
+        <span class="separator">|</span>
+        <a href="https://github.com/skydeamon" target="_blank">💻 GitHub</a>
+        <span class="separator">|</span>
+        <span>📍 Cape Town, South Africa</span>
+      </div>
+    </header>
+
+    <div class="cv-content">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">35%</div>
+          <div class="stat-label">Runtime Reduction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">22%</div>
+          <div class="stat-label">Cost Savings</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">90%+</div>
+          <div class="stat-label">Data Quality</div>
+        </div>
+      </div>
+
+      <div class="two-column">
+        <div class="main-content" style="padding: 0;">
+          <section class="section">
+            <h2 class="section-title">About Me</h2>
+            <p>
+              Data is everywhere — it's my job to find it, extract it, transform it, and deliver it to the business. With <strong>5+ years</strong> building enterprise data platforms on AWS, I combine deep technical expertise in PySpark, Airflow, and Kafka with a passion for AI/LLM applications. I lead teams, build pipelines, and bridge the gap between technical execution and business outcomes.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Experience Timeline</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-date">Jun 2025 — Present</div>
+                <div class="experience-title">Lead Full Stack Developer</div>
+                <div class="experience-company">Ibitse · Remote</div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-xs);">Leading engineering standards, CI/CD, and backend services (TypeScript/Node).</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Oct 2023 — Present</div>
+                <div class="experience-title">Lead Analyst Programmer / Data Engineer</div>
+                <div class="experience-company">Old Mutual South Africa · Cape Town</div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-xs);">PySpark on EMR/Glue, Airflow, Kafka, dbt, FastAPI. 35% runtime reduction, 22% cost savings.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Dec 2022 — Oct 2023</div>
+                <div class="experience-title">Analyst Programmer</div>
+                <div class="experience-company">Old Mutual South Africa</div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-xs);">ETL pipelines from DB2 to S3. PySpark, Airflow, dbt.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Sep 2021 — Nov 2022</div>
+                <div class="experience-title">Data Engineer</div>
+                <div class="experience-company">Old Mutual South Africa</div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-xs);">Data quality in medallion architecture golden layer.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Dec 2020 — Sep 2021</div>
+                <div class="experience-title">Data Engineer (Internship)</div>
+                <div class="experience-company">Umuzi.org</div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-xs);">RESTful APIs with Django/FastAPI.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="project-item">
+              <div class="project-title">
+                <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank">Agentic RAG LLM Demo</a>
+              </div>
+              <p class="project-description">FastAPI + LangChain RAG pipeline with vector search, function calling, and evaluation harness.</p>
+              <div class="project-tech"><span>Python</span><span>FastAPI</span><span>LangChain</span><span>RAG</span></div>
+            </div>
+            <div class="project-item">
+              <div class="project-title">High-Throughput PySpark Curation</div>
+              <p class="project-description">Multi-TB dataset curation into Parquet/Iceberg with deduping and incremental MERGE.</p>
+              <div class="project-tech"><span>PySpark</span><span>EMR</span><span>Iceberg</span></div>
+            </div>
+            <div class="project-item">
+              <div class="project-title">Kafka → Lakehouse Ingestion</div>
+              <p class="project-description">Event-driven ingestion with idempotent landing and H+1 freshness.</p>
+              <div class="project-tech"><span>Kafka</span><span>Airflow</span><span>S3</span></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+              <div class="education-degree">BSc Physics &amp; Astrophysics</div>
+              <div class="education-school">University of Cape Town</div>
+              <div class="education-date">2015 — 2017</div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="sidebar">
+          <section class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skill-bar">
+              <div class="skill-bar-header"><span>Python</span><span>95%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-header"><span>PySpark</span><span>90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-header"><span>SQL</span><span>90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-header"><span>AWS</span><span>85%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-header"><span>Airflow</span><span>85%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-header"><span>Kafka</span><span>70%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-header"><span>dbt</span><span>70%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-header"><span>FastAPI</span><span>75%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 75%;"></div></div>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-header"><span>LangChain</span><span>60%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 60%;"></div></div>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-header"><span>TypeScript</span><span>50%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 50%;"></div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="language-item">
+              <span class="language-name">English</span>
+              <span class="language-level">Professional</span>
+            </div>
+            <div class="language-item">
+              <span class="language-name">Sepedi</span>
+              <span class="language-level">Native</span>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Interests</h2>
+            <div class="skill-tags">
+              <span class="skill-tag">AI/LLM</span>
+              <span class="skill-tag">Astrophysics</span>
+              <span class="skill-tag">Open Source</span>
+              <span class="skill-tag">IoT</span>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Availability</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Full-time · Contract · Remote-friendly</p>
+          </section>
+        </aside>
+      </div>
+
+      <section class="section" style="margin-top: var(--space-xl);">
+        <div style="text-align: center; padding: var(--space-xl); background: var(--bg-tertiary); border-radius: var(--radius-lg);">
+          <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">View the complete Modern CV</p>
+          <a href="../cv_modern.html" class="control-btn" style="display: inline-flex; text-decoration: none; margin-right: var(--space-sm);">Full CV</a>
+          <a href="mailto:makwela.j.justice@gmail.com?subject=Opportunity" class="control-btn secondary" style="display: inline-flex; text-decoration: none;">Contact Me</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

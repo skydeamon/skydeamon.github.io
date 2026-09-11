@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jade Makwela — General CV</title>
+  <meta name="description" content="Professional portfolio of Jade Makwela — Senior Data Engineer, AI/LLM Practitioner, Full Stack Developer">
+  <link rel="stylesheet" href="../shared_styles.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --accent: #7c3aed;
+    }
+    .cv-header {
+      background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+    }
+    .skill-bar-fill {
+      background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+    }
+  </style>
+</head>
+<body>
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span> Dark
+    </button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print CV">
+      🖨️ Print / PDF
+    </button>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cv-container">
+    <header class="cv-header">
+      <h1>Jade Makwela</h1>
+      <p class="subtitle">Senior Data Engineer · AI/LLM Practitioner · Full Stack Developer</p>
+      <div class="contact-info">
+        <a href="mailto:makwela.j.justice@gmail.com">📧 makwela.j.justice@gmail.com</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">🔗 LinkedIn</a>
+        <span class="separator">|</span>
+        <a href="https://github.com/skydeamon" target="_blank">💻 GitHub</a>
+        <span class="separator">|</span>
+        <span>📍 Cape Town, South Africa</span>
+      </div>
+    </header>
+
+    <div class="cv-content">
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">35%</div>
+          <div class="stat-label">Runtime Reduction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">22%</div>
+          <div class="stat-label">Cost Savings</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">90%+</div>
+          <div class="stat-label">Data Quality</div>
+        </div>
+      </div>
+
+      <!-- Professional Summary -->
+      <section class="section" aria-label="Professional Summary">
+        <h2 class="section-title">Professional Summary</h2>
+        <p>
+          Experienced Technology Leader and Lead Developer with <strong>5+ years</strong> building enterprise-grade data platforms and applications on AWS. Proficient in Python, PySpark, and ETL development with deep expertise in AWS services (EMR, Glue, Redshift, Athena, Lambda, Step Functions). Demonstrated success in implementing proof of concepts, leading data analytics solutions, and bridging technical execution with business outcomes. Strong in software architecture, infrastructure setup, and full-stack application development. Passionate about building robust, cloud-ready solutions that drive business growth and innovation.
+        </p>
+      </section>
+
+      <!-- Experience -->
+      <section class="section" aria-label="Experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Lead Full Stack Developer</div>
+              <div class="experience-company">Ibitse</div>
+            </div>
+            <div class="text-right">
+              <div class="experience-date">Jun 2025 — Present</div>
+              <div class="experience-location">Remote</div>
+            </div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Led engineering standards (coding conventions, CI/CD, Git branching) and contributed to backend services (TypeScript/Node)</li>
+              <li>Designed application architecture and set up infrastructure for scalable, secure deployments</li>
+            </ul>
+          </div>
+        </div>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Lead Analyst Programmer / Data Engineer</div>
+              <div class="experience-company">Old Mutual South Africa</div>
+            </div>
+            <div class="text-right">
+              <div class="experience-date">Oct 2023 — Present</div>
+              <div class="experience-location">Cape Town, Hybrid</div>
+            </div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Lead a team producing data analytics solutions and APIs</li>
+              <li>Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow</li>
+              <li><strong>Impact:</strong> 35% runtime reduction, 22% cost savings, 90%+ data quality, H+1 freshness</li>
+            </ul>
+          </div>
+        </div>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Analyst Programmer / Data Engineer</div>
+              <div class="experience-company">Old Mutual South Africa</div>
+            </div>
+            <div class="text-right">
+              <div class="experience-date">Sep 2021 — Oct 2023</div>
+              <div class="experience-location">Cape Town</div>
+            </div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>ETL pipelines from on-premises databases (DB2) to AWS S3</li>
+              <li>Data quality pipelines in medallion architecture golden layer</li>
+            </ul>
+          </div>
+        </div>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Data Engineer (Internship)</div>
+              <div class="experience-company">Umuzi.org</div>
+            </div>
+            <div class="text-right">
+              <div class="experience-date">Dec 2020 — Sep 2021</div>
+              <div class="experience-location">Johannesburg</div>
+            </div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Built RESTful APIs (Django/FastAPI) and data wrangling pipelines</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="section" aria-label="Skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Core Stack</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">Python</span>
+              <span class="skill-tag primary">PySpark</span>
+              <span class="skill-tag primary">SQL</span>
+              <span class="skill-tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>AWS</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">EMR</span>
+              <span class="skill-tag primary">Glue</span>
+              <span class="skill-tag primary">S3</span>
+              <span class="skill-tag">Redshift</span>
+              <span class="skill-tag">Athena</span>
+              <span class="skill-tag">Lambda</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Data Tools</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">Airflow</span>
+              <span class="skill-tag primary">Kafka</span>
+              <span class="skill-tag">dbt</span>
+              <span class="skill-tag">Iceberg</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>AI/LLM</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">LangChain</span>
+              <span class="skill-tag">FastAPI</span>
+              <span class="skill-tag">Vector Search</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="section" aria-label="Education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+          <div class="education-degree">BSc Physics &amp; Astrophysics</div>
+          <div class="education-school">University of Cape Town</div>
+          <div class="education-date">2015 — 2017</div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section" aria-label="View Full CV">
+        <div style="text-align: center; padding: var(--space-xl); background: var(--bg-tertiary); border-radius: var(--radius-lg);">
+          <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">Need the complete CV?</p>
+          <a href="../cv_job_application.html" class="control-btn" style="display: inline-flex; text-decoration: none; margin-right: var(--space-sm);">View Full CV</a>
+          <a href="mailto:makwela.j.justice@gmail.com?subject=Contact" class="control-btn secondary" style="display: inline-flex; text-decoration: none;">Email Me</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

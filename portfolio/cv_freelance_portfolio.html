@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jade Makwela — Freelance CV</title>
+  <meta name="description" content="Freelance CV of Jade Makwela - Contract Data Engineer, AI/LLM Consultant">
+  <link rel="stylesheet" href="shared_styles.css">
+  <style>
+    :root {
+      --primary: #ea580c;
+      --primary-light: #f97316;
+      --primary-dark: #c2410c;
+      --accent: #fb923c;
+    }
+    .cv-header {
+      background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%);
+    }
+  </style>
+</head>
+<body>
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span> Dark
+    </button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print CV">
+      🖨️ Print / PDF
+    </button>
+    <a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cv-container">
+    <!-- Header -->
+    <header class="cv-header">
+      <h1>Jade Makwela</h1>
+      <p class="subtitle">Freelance Data Engineer & AI Consultant</p>
+      <div class="contact-info">
+        <a href="mailto:makwela.j.justice@gmail.com">📧 makwela.j.justice@gmail.com</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">🔗 LinkedIn</a>
+        <span class="separator">|</span>
+        <a href="https://github.com/skydeamon" target="_blank">💻 GitHub</a>
+        <span class="separator">|</span>
+        <span>📍 Cape Town, South Africa (Remote)</span>
+      </div>
+    </header>
+
+    <div class="cv-content">
+      <!-- Availability Banner -->
+      <section class="section" aria-label="Availability">
+        <h2 class="section-title">Availability</h2>
+        <div style="background: var(--bg-tertiary); padding: var(--space-md); border-radius: var(--radius-md); border-left: 4px solid var(--primary);">
+          <p style="color: var(--text-primary); font-weight: 600;">✅ Available for contract engagements</p>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: var(--space-xs);">
+            <strong>Engagement:</strong> 2–4 month contracts · Full-time (40 hrs/week) or Part-time<br>
+            <strong>Rate:</strong> R550–R640/hr (negotiable based on scope)<br>
+            <strong>Location:</strong> Remote — time-zone friendly with UK/EU/US overlap<br>
+            <strong>Start:</strong> Immediate
+          </p>
+        </div>
+      </section>
+
+      <!-- Professional Summary -->
+      <section class="section" aria-label="Professional Summary">
+        <h2 class="section-title">Professional Summary</h2>
+        <p>
+          Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS. Specializing in <strong>PySpark pipelines, lakehouse architecture, streaming ingestion, and AI/LLM data preparation</strong>. Proven track record of delivering measurable impact: 35% pipeline runtime reduction, 22% cost savings, and 90%+ data quality coverage. Available for contract engagements where rapid, high-quality delivery matters.
+        </p>
+      </section>
+
+      <!-- Services Offered -->
+      <section class="section" aria-label="Services">
+        <h2 class="section-title">Services Offered</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Data Engineering</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">ETL/ELT Pipeline Development</span>
+              <span class="skill-tag primary">Data Warehouse Design</span>
+              <span class="skill-tag">Lakehouse Architecture</span>
+              <span class="skill-tag">Streaming Ingestion</span>
+              <span class="skill-tag">Data Quality & Governance</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>AI/LLM Services</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">RAG Pipeline Development</span>
+              <span class="skill-tag primary">LLM Data Preparation</span>
+              <span class="skill-tag">AI Training Data Curation</span>
+              <span class="skill-tag">Evaluation Harnesses</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Cloud & Infrastructure</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">AWS Architecture</span>
+              <span class="skill-tag">CI/CD Setup</span>
+              <span class="skill-tag">Infrastructure as Code</span>
+              <span class="skill-tag">Cost Optimization</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Consulting</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Data Strategy</span>
+              <span class="skill-tag">Architecture Reviews</span>
+              <span class="skill-tag">Team Mentoring</span>
+              <span class="skill-tag">Proof of Concepts</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Impact Metrics -->
+      <section class="section" aria-label="Impact Metrics">
+        <h2 class="section-title">Proven Impact</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">35%</div>
+            <div class="stat-label">Pipeline Runtime Reduction</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">22%</div>
+            <div class="stat-label">Compute Cost Savings</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">90%+</div>
+            <div class="stat-label">Data Quality Coverage</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">H+1</div>
+            <div class="stat-label">Data Freshness</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Professional Experience -->
+      <section class="section" aria-label="Professional Experience">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Lead Analyst / Data Engineer</div>
+              <div class="experience-company">Old Mutual South Africa</div>
+            </div>
+            <div class="text-right">
+              <div class="experience-date">Sep 2021 — Present</div>
+              <div class="experience-location">Cape Town, Hybrid</div>
+            </div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Owned production PySpark pipelines on AWS EMR/Glue with Airflow orchestration</li>
+              <li>Designed Kafka-enabled ingestion with idempotent S3 landing and replay strategies</li>
+              <li>Applied lakehouse practices with Parquet/Iceberg tables via Athena/Trino</li>
+              <li>Instituted DataOps guardrails: Git PRs, dbt CI, CloudWatch metrics, dataset SLAs</li>
+              <li>Built FastAPI services exposing curated data with validation and schema checks</li>
+              <li>Prototyped LLM-ready datasets and retrieval indexes for RAG applications</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Lead Full Stack Developer</div>
+              <div class="experience-company">Ibitse</div>
+            </div>
+            <div class="text-right">
+              <div class="experience-date">Jun 2025 — Present</div>
+              <div class="experience-location">Remote</div>
+            </div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Led engineering standards and contributed to backend services (TypeScript/Node)</li>
+              <li>Designed cloud-ready infrastructure aligned with stakeholder expectations</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Data Engineer</div>
+              <div class="experience-company">Umuzi.org</div>
+            </div>
+            <div class="text-right">
+              <div class="experience-date">Dec 2020 — Sep 2021</div>
+              <div class="experience-location">Johannesburg</div>
+            </div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Built RESTful APIs (Django/FastAPI) and data wrangling pipelines</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Selected Projects -->
+      <section class="section" aria-label="Selected Projects">
+        <h2 class="section-title">Selected Projects</h2>
+
+        <div class="project-item">
+          <div class="project-title">
+            <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank">Agentic RAG LLM Demo</a>
+          </div>
+          <p class="project-description">
+            FastAPI endpoint with retrieval pipeline (vector index + metadata filters). Templated prompts with deterministic output schema. Evaluation harness for regression testing. Function-calling with LangChain/LangGraph.
+          </p>
+          <div class="project-tech">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>LangChain</span>
+            <span>RAG</span>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-title">High-Throughput PySpark Curation on EMR/Glue</div>
+          <p class="project-description">
+            Architected PySpark jobs to cleanse, deduplicate, and conform multi-TB datasets into Parquet/Iceberg tables. Window-based deduping, semantic validations, incremental MERGE patterns.
+          </p>
+          <div class="project-tech">
+            <span>PySpark</span>
+            <span>EMR</span>
+            <span>Iceberg</span>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-title">Event-Driven Ingestion with Kafka → Lakehouse</div>
+          <p class="project-description">
+            Kafka-first ingestion with idempotent S3 landing, watermarking for late events, and Airflow-managed replay. Improved freshness to H+1.
+          </p>
+          <div class="project-tech">
+            <span>Kafka</span>
+            <span>EMR</span>
+            <span>Airflow</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Skills -->
+      <section class="section" aria-label="Technical Skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Core Stack</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">Python</span>
+              <span class="skill-tag primary">PySpark</span>
+              <span class="skill-tag primary">SQL</span>
+              <span class="skill-tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>AWS</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">EMR</span>
+              <span class="skill-tag primary">Glue</span>
+              <span class="skill-tag primary">S3</span>
+              <span class="skill-tag">Redshift</span>
+              <span class="skill-tag">Athena</span>
+              <span class="skill-tag">Lambda</span>
+              <span class="skill-tag">Step Functions</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Data Tools</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">Airflow</span>
+              <span class="skill-tag primary">Kafka</span>
+              <span class="skill-tag">dbt</span>
+              <span class="skill-tag">Iceberg</span>
+              <span class="skill-tag">Parquet</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>AI/LLM</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">LangChain</span>
+              <span class="skill-tag">LangGraph</span>
+              <span class="skill-tag">FastAPI</span>
+              <span class="skill-tag">Vector Search</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="section" aria-label="Education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+          <div class="education-degree">Bachelor of Science (BSc) in Physics and Astrophysics</div>
+          <div class="education-school">University of Cape Town, South Africa</div>
+          <div class="education-date">2015 — 2017</div>
+        </div>
+      </section>
+
+      <!-- Languages -->
+      <section class="section" aria-label="Languages">
+        <h2 class="section-title">Languages</h2>
+        <div class="language-item">
+          <span class="language-name">English</span>
+          <span class="language-level">Professional Working Proficiency</span>
+        </div>
+        <div class="language-item">
+          <span class="language-name">Sepedi (Northern Sotho)</span>
+          <span class="language-level">Native Speaker</span>
+        </div>
+      </section>
+
+      <!-- References -->
+      <section class="section" aria-label="References">
+        <h2 class="section-title">References</h2>
+        <p style="color: var(--text-muted); font-style: italic;">
+          Client references available upon request.
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

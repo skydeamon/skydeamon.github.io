@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jade Makwela — Freelance Portfolio</title>
+  <meta name="description" content="Freelance Data Engineer & AI Consultant — contract engagements, rates, and availability">
+  <link rel="stylesheet" href="../shared_styles.css">
+  <style>
+    :root {
+      --primary: #ea580c;
+      --primary-light: #f97316;
+      --primary-dark: #c2410c;
+      --accent: #fb923c;
+    }
+    .cv-header {
+      background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">🖨️ Print / PDF</button>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cv-container">
+    <header class="cv-header">
+      <h1>Jade Makwela</h1>
+      <p class="subtitle">Freelance Data Engineer &amp; AI Consultant</p>
+      <div class="contact-info">
+        <a href="mailto:makwela.j.justice@gmail.com">📧 makwela.j.justice@gmail.com</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">🔗 LinkedIn</a>
+        <span class="separator">|</span>
+        <a href="https://github.com/skydeamon" target="_blank">💻 GitHub</a>
+        <span class="separator">|</span>
+        <span>📍 Cape Town, South Africa (Remote)</span>
+      </div>
+    </header>
+
+    <div class="cv-content">
+      <!-- Availability Banner -->
+      <section class="section">
+        <h2 class="section-title">Availability</h2>
+        <div style="background: var(--bg-tertiary); padding: var(--space-md); border-radius: var(--radius-md); border-left: 4px solid var(--primary);">
+          <p style="color: var(--text-primary); font-weight: 600;">✅ Available for contract engagements</p>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: var(--space-xs);">
+            <strong>Engagement:</strong> 2–4 month contracts · Full-time (40 hrs/week) or Part-time<br>
+            <strong>Rate:</strong> R550–R640/hr (negotiable based on scope)<br>
+            <strong>Location:</strong> Remote — time-zone friendly with UK/EU/US overlap<br>
+            <strong>Start:</strong> Immediate
+          </p>
+        </div>
+      </section>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">35%</div>
+          <div class="stat-label">Pipeline Runtime Reduction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">22%</div>
+          <div class="stat-label">Compute Cost Savings</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">90%+</div>
+          <div class="stat-label">Data Quality Coverage</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">H+1</div>
+          <div class="stat-label">Data Freshness</div>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title">Services Offered</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Data Engineering</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">ETL/ELT Pipeline Development</span>
+              <span class="skill-tag primary">Data Warehouse Design</span>
+              <span class="skill-tag">Lakehouse Architecture</span>
+              <span class="skill-tag">Streaming Ingestion</span>
+              <span class="skill-tag">Data Quality &amp; Governance</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>AI/LLM Services</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">RAG Pipeline Development</span>
+              <span class="skill-tag primary">LLM Data Preparation</span>
+              <span class="skill-tag">AI Training Data Curation</span>
+              <span class="skill-tag">Evaluation Harnesses</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Cloud &amp; Infrastructure</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">AWS Architecture</span>
+              <span class="skill-tag">CI/CD Setup</span>
+              <span class="skill-tag">Cost Optimization</span>
+              <span class="skill-tag">Infrastructure as Code</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Consulting</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Data Strategy</span>
+              <span class="skill-tag">Architecture Reviews</span>
+              <span class="skill-tag">Team Mentoring</span>
+              <span class="skill-tag">Proof of Concepts</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="project-item">
+          <div class="project-title">
+            <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank">Agentic RAG LLM Demo</a>
+          </div>
+          <p class="project-description">FastAPI endpoint with retrieval pipeline, evaluation harness, and LangChain/LangGraph function-calling.</p>
+          <div class="project-tech"><span>Python</span><span>FastAPI</span><span>LangChain</span><span>RAG</span></div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">High-Throughput PySpark Curation on EMR/Glue</div>
+          <p class="project-description">Multi-TB dataset curation into Parquet/Iceberg with deduping and incremental MERGE patterns.</p>
+          <div class="project-tech"><span>PySpark</span><span>EMR</span><span>Iceberg</span></div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Event-Driven Ingestion with Kafka → Lakehouse</div>
+          <p class="project-description">Kafka-first ingestion with idempotent S3 landing, watermarking, and Airflow-managed replay.</p>
+          <div class="project-tech"><span>Kafka</span><span>EMR</span><span>Airflow</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+          <div class="education-degree">BSc Physics &amp; Astrophysics</div>
+          <div class="education-school">University of Cape Town</div>
+          <div class="education-date">2015 — 2017</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div style="text-align: center; padding: var(--space-xl); background: var(--bg-tertiary); border-radius: var(--radius-lg);">
+          <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">View the complete Freelance CV</p>
+          <a href="../cv_freelance_portfolio.html" class="control-btn" style="display: inline-flex; text-decoration: none; margin-right: var(--space-sm);">Full CV</a>
+          <a href="mailto:makwela.j.justice@gmail.com?subject=Freelance%20Engagement" class="control-btn secondary" style="display: inline-flex; text-decoration: none;">Contact Me</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

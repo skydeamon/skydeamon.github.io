@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Letter — Executive</title>
+  <link rel="stylesheet" href="shared_styles.css">
+  <style>
+    :root {
+      --primary: #111827;
+      --primary-light: #1f2937;
+      --primary-dark: #000000;
+      --accent: #374151;
+    }
+  </style>
+</head>
+<body>
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span> Dark
+    </button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">
+      🖨️ Print / PDF
+    </button>
+    <a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cover-letter">
+    <!-- Sender -->
+    <div class="cover-letter-header">
+      <h1 style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-xs);">Jade Makwela</h1>
+      <p style="color: var(--text-muted);">
+        Cape Town, South Africa<br>
+        📧 makwela.j.justice@gmail.com<br>
+        🔗 linkedin.com/in/jade-makwela-6a79111a8
+      </p>
+    </div>
+
+    <!-- Date -->
+    <div class="cover-letter-date">
+      <p>[Date]</p>
+    </div>
+
+    <!-- Recipient -->
+    <div class="cover-letter-recipient">
+      <p>
+        [Recipient Name]<br>
+        [Title]<br>
+        [Company Name]<br>
+        [Company Address]<br>
+        [City, Country]
+      </p>
+    </div>
+
+    <!-- Subject -->
+    <div style="margin-bottom: var(--space-lg);">
+      <p><strong>RE: Application for [Leadership Position — e.g., Head of Data Engineering / CTO]</strong></p>
+    </div>
+
+    <!-- Body -->
+    <div class="cover-letter-body">
+      <p>Dear [Recipient Name],</p>
+
+      <p>
+        I am writing to express my interest in the <span class="highlight">[Leadership Position]</span> at <span class="highlight">[Company Name]</span>. As a technology leader with 5+ years of experience spanning data engineering, software architecture, and team management, I have a proven ability to build high-performing teams, establish engineering excellence, and deliver measurable business outcomes.
+      </p>
+
+      <p>
+        <strong>Leadership experience:</strong>
+      </p>
+
+      <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
+        <li><strong>Team Leadership:</strong> Currently leading a team of analysts at Old Mutual, producing data analytics solutions and APIs that feed business-critical applications</li>
+        <li><strong>Engineering Standards:</strong> Established coding conventions, CI/CD pipelines, and Git workflows adopted across the team — reducing deployment lead time from days to hours</li>
+        <li><strong>Start-up Leadership:</strong> Serving as Lead Full Stack Developer at Ibitse, overseeing the development team, managing project timelines, and aligning technical delivery with stakeholder expectations</li>
+        <li><strong>Strategic Vision:</strong> Implemented proof of concepts for new technologies, transitioning them from experimental tools to production-ready services used by business</li>
+      </ul>
+
+      <p>
+        <strong>Measurable business impact:</strong>
+      </p>
+
+      <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
+        <li><strong>35% reduction</strong> in critical pipeline runtime through technical leadership and optimization</li>
+        <li><strong>22% reduction</strong> in compute costs — directly improving the bottom line</li>
+        <li><strong>90%+ data quality coverage</strong> — enabling trustworthy, decision-grade data</li>
+        <li><strong>H+1 data freshness</strong> — enabling faster, more responsive business decisions</li>
+      </ul>
+
+      <p>
+        My leadership philosophy is built on three pillars: <span class="highlight">clear standards</span> that everyone follows, <span class="highlight">measurable outcomes</span> that everyone understands, and <span class="highlight">psychological safety</span> that enables everyone to contribute. I believe great engineering organizations are built by creating the conditions where talented people do their best work.
+      </p>
+
+      <p>
+        I am particularly drawn to <span class="highlight">[Company Name]</span> because [specific reason — e.g., "your vision for data-driven transformation" or "your commitment to building world-class engineering teams"]. I am confident that my combination of technical depth, leadership experience, and business acumen would make me a valuable addition to your leadership team.
+      </p>
+
+      <p>
+        I would welcome the opportunity to discuss how I can contribute to your organization's success. I am available for a conversation at your convenience.
+      </p>
+    </div>
+
+    <!-- Closing -->
+    <div class="cover-letter-closing">
+      <p>Thank you for your time and consideration.</p>
+      <p style="margin-top: var(--space-md);">
+        Sincerely,<br><br>
+        <strong>Jade Makwela</strong>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

@@ -1,240 +1,431 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-	<title>Jade makwela</title>
+	<title>Jade Makwela — Senior Data Engineer &amp; AI Practitioner</title>
 
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="Personal portfolio of Jade Makwela - Astrophysicist, Physicist and Computer Scientist">
+	<meta name="description" content="Portfolio of Jade Makwela — Senior Data Engineer, AI/LLM Practitioner and Full Stack Developer based in Cape Town, South Africa. Building enterprise data platforms on AWS with PySpark, Airflow, Kafka and RAG applications." />
+	<meta name="author" content="Jade Makwela" />
+	<meta name="keywords" content="Jade Makwela, Data Engineer, AI Engineer, PySpark, AWS, RAG, LLM, Cape Town, South Africa" />
 
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="Jade Makwela - Portfolio">
+	<meta property="og:title" content="Jade Makwela — Senior Data Engineer &amp; AI Practitioner">
 	<meta property="og:url" content="https://skydeamon.github.io/">
-	<meta property="og:description" content="Personal portfolio of Jade Makwela">
+	<meta property="og:description" content="Senior Data Engineer, AI/LLM Practitioner and Full Stack Developer. Building enterprise data platforms on AWS.">
+	<meta property="og:image" content="https://skydeamon.github.io/images/test_img/dp1.jpg">
 
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Jade Makwela - Portfolio">
-	<meta name="twitter:description" content="Personal portfolio of Jade Makwela">
+	<meta name="twitter:title" content="Jade Makwela — Senior Data Engineer &amp; AI Practitioner">
+	<meta name="twitter:description" content="Senior Data Engineer, AI/LLM Practitioner and Full Stack Developer.">
+	<meta name="twitter:image" content="https://skydeamon.github.io/images/test_img/dp1.jpg">
 
-	<!-- CSS ================================================== -->
+	<link rel="icon" type="image/png" href="images/logo/name.png">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+	<!-- CSS -->
 	<link rel="stylesheet" href="./fontawesome/css/all.css">
 	<link rel="stylesheet" href="./css/main.css">
 </head>
-<body class="body">
-	<div class="container">
-		<div class="banner">
-			<div class="logo">
-				<img src="./images/logo/name.png" width="300px">
-			</div>
-			<div class="contacts">
-				<div class="contact-me">Contact Me:</div>
-				<a href="https://www.linkedin.com/in/jade-makwela-6a79111a8/" class="inline-block lightbox">
-					<i class="fab fa-linkedin soc-img" loading="lazy" alt="email us"></i>
-					<span>LinkedIn</span>
-				</a>
-				<a href="https://github.com/skydeamon" class="inline-block lightbox">
-					<i class="fab fa-github soc-img" loading="lazy" alt="email us"></i>
-					<span>Github</span>
-				</a>
-				<a href="mailto:makwela.j.justice@gmail.com?subject=Contact" class="inline-block lightbox">
-					<i class="far fa-envelope soc-img" loading="lazy" alt="email us"></i>
-					<span>E-mail</span>
-				</a>
-				<a href="https://www.instagram.com/jademakwela/" class="inline-block lightbox">
-					<i class="fab fa-instagram soc-img" loading="lazy" alt="instagram.com"></i>
-					<span>Instagram</span>
-				</a>
-				<a href="https://www.facebook.com/jade.makwela.94/" class="inline-block lightbox">
-					<i class="fab fa-facebook-square soc-img" loading="lazy" alt="facebook.com"></i>
-					<span>Facebook</span>
-				</a>
-			</div>
+<body>
 
+	<!-- ===================== NAVBAR ===================== -->
+	<header class="navbar" id="navbar">
+		<div class="nav-inner">
+			<a href="#home" class="nav-brand" aria-label="Jade Makwela — home">
+				<img src="./images/logo/name.png" alt="Jade Makwela" class="nav-logo">
+			</a>
+
+			<nav class="nav-links" id="nav-links" aria-label="Primary">
+				<a href="#about" class="nav-link">About</a>
+				<a href="#experience" class="nav-link">Experience</a>
+				<a href="#projects" class="nav-link">Projects</a>
+				<a href="#skills" class="nav-link">Skills</a>
+				<a href="#audience" class="nav-link">CVs</a>
+				<a href="#contact" class="nav-link">Contact</a>
+			</nav>
+
+			<div class="nav-actions">
+				<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+					<i class="fas fa-moon" id="theme-icon"></i>
+				</button>
+				<button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+					<i class="fas fa-bars"></i>
+				</button>
+			</div>
 		</div>
+	</header>
 
-		<div class="menu-icon">
-			<a class="icon"><i class="fa fa-bars"></i></a>
+	<!-- ===================== HERO ===================== -->
+	<section class="hero" id="home">
+		<div class="hero-inner">
+			<div class="hero-photo">
+				<img src="./images/test_img/dp1.jpg" alt="Jade Makwela" class="hero-img">
+			</div>
+			<div class="hero-content">
+				<p class="hero-eyebrow">Hello, I'm</p>
+				<h1 class="hero-name">Jade Makwela</h1>
+				<p class="hero-title">Senior Data Engineer · AI/LLM Practitioner · Full Stack Developer</p>
+				<p class="hero-sub">I build enterprise data platforms on AWS — and the AI applications that run on them. Based in Cape Town, South Africa.</p>
+
+				<div class="hero-cta">
+					<a href="#projects" class="btn btn-primary">View Work</a>
+					<a href="#contact" class="btn btn-outline">Contact Me</a>
+				</div>
+
+				<div class="hero-social">
+					<a href="https://www.linkedin.com/in/jade-makwela-6a79111a8/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+					<a href="https://github.com/skydeamon" target="_blank" rel="noopener" aria-label="GitHub" class="social-btn"><i class="fab fa-github"></i></a>
+					<a href="mailto:makwela.j.justice@gmail.com?subject=Contact" aria-label="Email" class="social-btn"><i class="far fa-envelope"></i></a>
+					<a href="https://www.instagram.com/jademakwela/" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn"><i class="fab fa-instagram"></i></a>
+				</div>
+			</div>
 		</div>
+	</section>
 
-		<!-- Tab links -->
-		<script type="module" src="./js/app.js"></script>
-		<div class="tab">
-			<a data-id="Home" class="tablinks active">Home</a>
-			<a data-id="Projects" class="tablinks">Projects</a>
-			<a data-id="Skills" class="tablinks">Skills</a>
-			<a data-id="Interests" class="tablinks">Interests</a>
-			<a data-id="Experience" class="tablinks">Experience</a>
-			<a data-id="Education" class="tablinks">Education</a>
+	<!-- ===================== ABOUT ===================== -->
+	<section class="section" id="about">
+		<div class="container">
+			<h2 class="section-title reveal">About Me</h2>
+			<div class="about-grid">
+				<div class="about-text reveal">
+					<p>
+						Data is everywhere — it's my job to find it, extract it, transform it, and deliver it to the business. With <strong>5+ years</strong> building enterprise data platforms on AWS, I combine deep technical expertise in <strong>PySpark, Airflow, and Kafka</strong> with a passion for <strong>AI/LLM applications</strong>.
+					</p>
+					<p>
+						I lead teams, build pipelines, and bridge the gap between technical execution and business outcomes. From medallion-architecture lakehouses to RAG pipelines with evaluation harnesses, I own problems end-to-end — and I care deeply about data quality, traceability, and measurable impact.
+					</p>
+					<p>
+						My foundation in <strong>Physics &amp; Astrophysics</strong> (UCT) shaped how I think: rigorously, quantitatively, and always asking the next question.
+					</p>
+				</div>
+				<div class="about-facts reveal">
+					<div class="fact-item"><span class="fact-label">Location</span><span class="fact-value">Cape Town, South Africa</span></div>
+					<div class="fact-item"><span class="fact-label">Focus</span><span class="fact-value">Data Platforms · AI/LLM · Leadership</span></div>
+					<div class="fact-item"><span class="fact-label">Experience</span><span class="fact-value">5+ years</span></div>
+					<div class="fact-item"><span class="fact-label">Availability</span><span class="fact-value">Full-time · Contract</span></div>
+				</div>
+			</div>
 		</div>
+	</section>
 
-		<!-- Tab content -->
-		<section id="Home" class="tabcontent">
-			<div class="home-banner">
-				<div class="row">
-					<div class="col-4 profile-pic">
-						<img src="./images/test_img/dp1.jpg" alt="Jade Makwela">
+	<!-- ===================== IMPACT STATS ===================== -->
+	<section class="section section-alt" id="impact">
+		<div class="container">
+			<h2 class="section-title reveal">Impact</h2>
+			<div class="stats-grid">
+				<div class="stat-card reveal">
+					<div class="stat-number">35%</div>
+					<div class="stat-label">Pipeline Runtime Reduction</div>
+				</div>
+				<div class="stat-card reveal">
+					<div class="stat-number">22%</div>
+					<div class="stat-label">Compute Cost Savings</div>
+				</div>
+				<div class="stat-card reveal">
+					<div class="stat-number">90%+</div>
+					<div class="stat-label">Data Quality Coverage</div>
+				</div>
+				<div class="stat-card reveal">
+					<div class="stat-number">H+1</div>
+					<div class="stat-label">Data Freshness</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== EXPERIENCE ===================== -->
+	<section class="section" id="experience">
+		<div class="container">
+			<h2 class="section-title reveal">Experience</h2>
+			<div class="timeline">
+
+				<div class="timeline-item reveal">
+					<div class="timeline-dot"></div>
+					<div class="timeline-card">
+						<div class="timeline-date">Jun 2025 — Present</div>
+						<h3 class="timeline-role">Lead Full Stack Developer</h3>
+						<div class="timeline-company">Ibitse · Remote</div>
+						<p>Leading engineering standards, CI/CD, and backend services (TypeScript/Node) for a start-up. Aligning product and engineering on release scope and acceptance criteria.</p>
 					</div>
-					<div id="slide-1" class="col-4 slide">
-						<img src="./images/slideshow/sp0.jpg" alt="sp0.jpg">
+				</div>
+
+				<div class="timeline-item reveal">
+					<div class="timeline-dot"></div>
+					<div class="timeline-card">
+						<div class="timeline-date">Oct 2023 — Present</div>
+						<h3 class="timeline-role">Lead Analyst Programmer / Data Engineer</h3>
+						<div class="timeline-company">Old Mutual South Africa · Cape Town</div>
+						<p>Leading a team building data analytics solutions. PySpark on EMR/Glue, Airflow, Kafka, dbt, FastAPI. Delivered 35% runtime reduction and 22% cost savings.</p>
 					</div>
-					<div id="slide-2" class="col-4 slide">
-						<img src="./images/slideshow/tech0.jpg" alt="tech0.jpg" >
+				</div>
+
+				<div class="timeline-item reveal">
+					<div class="timeline-dot"></div>
+					<div class="timeline-card">
+						<div class="timeline-date">Dec 2022 — Oct 2023</div>
+						<h3 class="timeline-role">Analyst Programmer</h3>
+						<div class="timeline-company">Old Mutual South Africa · Cape Town</div>
+						<p>ETL pipelines from on-premises DB2 to AWS S3. PySpark, Airflow, dbt, and server administration.</p>
 					</div>
-					<div id="slide-3" class="col-4 slide">
-						<img src="./images/slideshow/sc0.jpg" alt="sc0.jpg">
+				</div>
+
+				<div class="timeline-item reveal">
+					<div class="timeline-dot"></div>
+					<div class="timeline-card">
+						<div class="timeline-date">Sep 2021 — Nov 2022</div>
+						<h3 class="timeline-role">Data Engineer</h3>
+						<div class="timeline-company">Old Mutual South Africa · Cape Town</div>
+						<p>Data quality pipelines in the golden layer of a medallion architecture. AWS, Airflow, Spark.</p>
 					</div>
 				</div>
-			</div>
-			<div class="content row">
-				<div class="col-2">
-					<h4>About me:</h4>
-					<p>
-						I am an aspiring
-						Astrophysicist, Physicist and
-						Computer Scientist. I love
-						solving problems and I have
-						come across more questions
-						than answers.
-						I am an ardent problem
-						solver and my work in the
-						past has taught me soft skills
-						such as good
-						communication, handling
-						events, patience in the
-						working environment and
-						how to even handle the
-						working environment
-						generally.
-					</p>
-				</div>
-				<div class="col-2">
-					<h4>Career Goals:</h4>
-					<p>
-						The discipline I have chosen
-						to follow is certainly a tough
-						one, regardless my goal is to
-						be able to publicize the ideas
-						that are at the forefront of
-						science. I also aim to change
-						people’s lives through the
-						technology they use, for
-						access to information and
-						ability to advance societies
-						to better life conditions.
-					</p>
-				</div>
-			</div>
-		</section>
 
-		<section id="Projects" class="tabcontent">
-			<div class="tab-banner">
-				<div class="text-box">What I have done!</div>
-			</div>
-			<div class="content">
-			</div>
-		</section>
+				<div class="timeline-item reveal">
+					<div class="timeline-dot"></div>
+					<div class="timeline-card">
+						<div class="timeline-date">Dec 2020 — Sep 2021</div>
+						<h3 class="timeline-role">Data Engineer (Internship)</h3>
+						<div class="timeline-company">Umuzi.org · Johannesburg</div>
+						<p>RESTful APIs with Django/FastAPI. Data wrangling pipelines and analytics endpoints.</p>
+					</div>
+				</div>
 
-		<section id="Skills" class="tabcontent">
-			<div class="tab-banner">
-				<div class="text-box">What I can do!</div>
 			</div>
-			<div class="content row">
-				<div class="col-3">
-					<h4>Basic in;</h4>
-					<p>
-						Robotics, OpenOffice, Kotlin.<br>
-						Computer hardware and Support.
-					</p>
-				</div>
-				<div class="col-3">
-					<h4>Intermediate in;</h4>
-					<p>
-						Physics, Astronomy, Computer Science<br>Microsoft Office, Matlab, MySQL, Latex, Linux.
-					</p>
-				</div>
-				<div class="col-3">
-					<h4>Advanced in;</h4>
-					<p>
-						Mathematics, Python, Java<br>JavaScript, HTML, CSS, PHP.
-					</p>
-				</div>
-			</div>
-		</section>
+		</div>
+	</section>
 
-		<section id="Interests" class="tabcontent">
-			<div class="tab-banner">
-				<div class="text-box">What I like!</div>
-			</div>
-			<div class="content">
-				<ul>
-				</ul>
-			</div>
-		</section>
+	<!-- ===================== PROJECTS ===================== -->
+	<section class="section section-alt" id="projects">
+		<div class="container">
+			<h2 class="section-title reveal">Projects</h2>
+			<div class="projects-grid">
 
-		<section id="Experience" class="tabcontent">
-			<div class="tab-banner">
-				<div class="text-box exp">Where I have been!</div>
-			</div>
-			<div class="content row">
-				<div class="col-3">
-					<h4>Junior Tech Leader <a href="https://umuzi.org">Umuzi</a></h4>
-					<h5>Data Engineering Learnership</h5>
-					<p>
-						Remote Work<br>
-						1/Dec/2020 -> Now
-					</p>
-				</div>
-				<div class="col-3">
-					<h4>Direct Marketing, SWAT </h4>
-						<h5>Marketing representative</h5>
-					<p>
-						Cape Town, Western Cape, South Africa<br>
-						1/Feb/2018 -> 30/June/2018
-					</p>
-				</div>
-				<div class="col-3">
-					<h4>Department of Education, South Africa</h4>
-					<h5>Marking assistant</h5>
-					<p>
-						Tzaneen, Limpopo, South Africa<br>
-						2016-December
-					</p>
-				</div>
-			</div>
-		</section>
+				<article class="project-card reveal">
+					<div class="project-top">
+						<h3 class="project-title">
+							<a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank" rel="noopener">Agentic RAG LLM Demo <i class="fas fa-external-link-alt"></i></a>
+						</h3>
+					</div>
+					<p class="project-desc">FastAPI + LangChain RAG pipeline with vector search, function calling, and an evaluation harness for regression testing.</p>
+					<div class="project-tech">
+						<span>Python</span><span>FastAPI</span><span>LangChain</span><span>RAG</span>
+					</div>
+				</article>
 
-		<section id="Education" class="tabcontent">
-		  	<div class="tab-banner">
-				<div class="text-box exp">Where I was taught!</div>
+				<article class="project-card reveal">
+					<div class="project-top">
+						<h3 class="project-title">High-Throughput PySpark Curation</h3>
+					</div>
+					<p class="project-desc">Multi-TB dataset curation into Parquet/Iceberg with window-based deduping, semantic validations, and incremental MERGE.</p>
+					<div class="project-tech">
+						<span>PySpark</span><span>EMR</span><span>Iceberg</span>
+					</div>
+				</article>
+
+				<article class="project-card reveal">
+					<div class="project-top">
+						<h3 class="project-title">Kafka → Lakehouse Ingestion</h3>
+					</div>
+					<p class="project-desc">Event-driven ingestion with idempotent S3 landing, watermarking for late events, and Airflow-managed replay. H+1 freshness.</p>
+					<div class="project-tech">
+						<span>Kafka</span><span>Airflow</span><span>S3</span>
+					</div>
+				</article>
+
+				<article class="project-card reveal">
+					<div class="project-top">
+						<h3 class="project-title">Data Contracts &amp; Quality Gates</h3>
+					</div>
+					<p class="project-desc">dbt source freshness, column contracts, and tests (not_null, unique, relationships) blocking publishes on failure.</p>
+					<div class="project-tech">
+						<span>dbt</span><span>Glue Catalog</span><span>Athena</span>
+					</div>
+				</article>
+
 			</div>
-		  	<div class="content row">
-		  		<div class="col-3">
-					<h4><a href="https://umuzi.org">Umuzi</a></h4>
-					<h5>Data Engineering Learnership</h5>
-					<p>
-						Data Engineering - <a href="https://python.org">python</a> programming.<br>
-						1/Dec/2020 -> Now
-					</p>
+		</div>
+	</section>
+
+	<!-- ===================== SKILLS ===================== -->
+	<section class="section" id="skills">
+		<div class="container">
+			<h2 class="section-title reveal">Skills</h2>
+			<div class="skills-grid">
+
+				<div class="skill-group reveal">
+					<h3 class="skill-group-title">Core Stack</h3>
+					<div class="skill-tags">
+						<span class="skill-tag primary">Python</span>
+						<span class="skill-tag primary">PySpark</span>
+						<span class="skill-tag primary">SQL</span>
+						<span class="skill-tag">TypeScript</span>
+					</div>
 				</div>
-		  	<div class="col-3">
-		  		<h4><a href="https://www.uct.ac.za">University of Cape Town</a></h4>
-			  		<p>
-			  			Rondebosch, Cape Town Central, ZA 7700<br>
-						2015-2017: incomplete<br>
-						Physics and Astrophysics.
-			  		</p>
+
+				<div class="skill-group reveal">
+					<h3 class="skill-group-title">AWS</h3>
+					<div class="skill-tags">
+						<span class="skill-tag primary">EMR</span>
+						<span class="skill-tag primary">Glue</span>
+						<span class="skill-tag primary">S3</span>
+						<span class="skill-tag">Redshift</span>
+						<span class="skill-tag">Athena</span>
+						<span class="skill-tag">Lambda</span>
+						<span class="skill-tag">Step Functions</span>
+					</div>
 				</div>
-		  	<div class="col-3">
-		  		<h4><a href="">Phusela High School</a></h4>
-					<p>
-						Lenyenye, Limpopo, South Africa<br>
-						Matriculation 2014<br>
-						Specialized in science subjects.
-					</p>
-			  	</div>
-		  	</div>
-		</section>
-	</div>
+
+				<div class="skill-group reveal">
+					<h3 class="skill-group-title">Data Tools</h3>
+					<div class="skill-tags">
+						<span class="skill-tag primary">Airflow</span>
+						<span class="skill-tag primary">Kafka</span>
+						<span class="skill-tag">dbt</span>
+						<span class="skill-tag">Iceberg</span>
+						<span class="skill-tag">Parquet</span>
+					</div>
+				</div>
+
+				<div class="skill-group reveal">
+					<h3 class="skill-group-title">AI / LLM</h3>
+					<div class="skill-tags">
+						<span class="skill-tag">LangChain</span>
+						<span class="skill-tag">LangGraph</span>
+						<span class="skill-tag">FastAPI</span>
+						<span class="skill-tag">Vector Search</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== EDUCATION ===================== -->
+	<section class="section section-alt" id="education">
+		<div class="container">
+			<h2 class="section-title reveal">Education</h2>
+			<div class="education-grid">
+				<div class="education-card reveal">
+					<h3 class="education-degree">BSc Physics &amp; Astrophysics</h3>
+					<div class="education-school">University of Cape Town</div>
+					<div class="education-date">2015 — 2017</div>
+					<p class="education-detail">Mathematics · Applied Mathematics · Computer Science · Physics · Astronomy</p>
+				</div>
+				<div class="education-card reveal">
+					<h3 class="education-degree">National Senior Certificate</h3>
+					<div class="education-school">Phusela High School</div>
+					<div class="education-date">2014</div>
+					<p class="education-detail">Mathematics · Physical Science · English · Sepedi</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== AUDIENCE / CVs ===================== -->
+	<section class="section" id="audience">
+		<div class="container">
+			<h2 class="section-title reveal">Explore My CVs</h2>
+			<p class="section-sub reveal">Tailored CVs and showcase pages for different audiences — pick the one that fits.</p>
+			<div class="audience-grid">
+
+				<a href="portfolio/audience/general.html" class="audience-card reveal">
+					<div class="audience-icon"><i class="fas fa-briefcase"></i></div>
+					<h3>General</h3>
+					<p>Balanced CV for any data or software engineering role.</p>
+				</a>
+
+				<a href="portfolio/audience/data-engineer.html" class="audience-card reveal">
+					<div class="audience-icon"><i class="fas fa-database"></i></div>
+					<h3>Data Engineer</h3>
+					<p>PySpark, AWS, and data platform engineering deep-dive.</p>
+				</a>
+
+				<a href="portfolio/audience/ai-engineer.html" class="audience-card reveal">
+					<div class="audience-icon"><i class="fas fa-robot"></i></div>
+					<h3>AI Engineer</h3>
+					<p>RAG, LLM patterns, and AI/ML application experience.</p>
+				</a>
+
+				<a href="portfolio/audience/academic.html" class="audience-card reveal">
+					<div class="audience-icon"><i class="fas fa-graduation-cap"></i></div>
+					<h3>Academic</h3>
+					<p>Research interests, publications, and teaching.</p>
+				</a>
+
+				<a href="portfolio/audience/freelance.html" class="audience-card reveal">
+					<div class="audience-icon"><i class="fas fa-handshake"></i></div>
+					<h3>Freelance</h3>
+					<p>Contract engagements, rates, and availability.</p>
+				</a>
+
+				<a href="portfolio/audience/executive.html" class="audience-card reveal">
+					<div class="audience-icon"><i class="fas fa-user-tie"></i></div>
+					<h3>Executive</h3>
+					<p>Leadership, vision, and business impact focus.</p>
+				</a>
+
+				<a href="portfolio/audience/modern.html" class="audience-card reveal">
+					<div class="audience-icon"><i class="fas fa-palette"></i></div>
+					<h3>Modern / Creative</h3>
+					<p>Visual showcase for startups and creative teams.</p>
+				</a>
+
+			</div>
+			<div class="audience-cta reveal">
+				<a href="portfolio/index.html" class="btn btn-outline">Browse Full CV Collection <i class="fas fa-arrow-right"></i></a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== CONTACT ===================== -->
+	<section class="section section-alt" id="contact">
+		<div class="container">
+			<h2 class="section-title reveal">Let's Work Together</h2>
+			<p class="section-sub reveal">Open to full-time roles, contract engagements, and interesting problems.</p>
+			<div class="contact-grid reveal">
+				<a href="mailto:makwela.j.justice@gmail.com?subject=Contact" class="contact-card">
+					<i class="far fa-envelope contact-icon"></i>
+					<span class="contact-label">Email</span>
+					<span class="contact-value">makwela.j.justice@gmail.com</span>
+				</a>
+				<a href="https://www.linkedin.com/in/jade-makwela-6a79111a8/" target="_blank" rel="noopener" class="contact-card">
+					<i class="fab fa-linkedin-in contact-icon"></i>
+					<span class="contact-label">LinkedIn</span>
+					<span class="contact-value">in/jade-makwela-6a79111a8</span>
+				</a>
+				<a href="https://github.com/skydeamon" target="_blank" rel="noopener" class="contact-card">
+					<i class="fab fa-github contact-icon"></i>
+					<span class="contact-label">GitHub</span>
+					<span class="contact-value">github.com/skydeamon</span>
+				</a>
+				<div class="contact-card">
+					<i class="fas fa-map-marker-alt contact-icon"></i>
+					<span class="contact-label">Location</span>
+					<span class="contact-value">Cape Town, South Africa</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== FOOTER ===================== -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-inner">
+				<p>© <span id="year">2026</span> Jade Makwela. Built with care in Cape Town.</p>
+				<div class="footer-links">
+					<a href="https://www.linkedin.com/in/jade-makwela-6a79111a8/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+					<a href="https://github.com/skydeamon" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+					<a href="mailto:makwela.j.justice@gmail.com?subject=Contact" aria-label="Email"><i class="far fa-envelope"></i></a>
+					<a href="https://www.instagram.com/jademakwela/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="./js/app.js"></script>
 </body>
 </html>

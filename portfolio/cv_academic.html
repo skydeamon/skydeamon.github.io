@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jade Makwela — Academic CV</title>
+  <meta name="description" content="Academic CV of Jade Makwela - BSc Physics & Astrophysics, Data Engineering researcher">
+  <link rel="stylesheet" href="shared_styles.css">
+  <style>
+    :root {
+      --primary: #1f2937;
+      --primary-light: #374151;
+      --primary-dark: #111827;
+      --accent: #4b5563;
+    }
+    .cv-header {
+      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    }
+  </style>
+</head>
+<body>
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span> Dark
+    </button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print CV">
+      🖨️ Print / PDF
+    </button>
+    <a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cv-container">
+    <!-- Header -->
+    <header class="cv-header">
+      <h1>Jade Makwela</h1>
+      <p class="subtitle">BSc Physics & Astrophysics · Data Engineering Researcher</p>
+      <div class="contact-info">
+        <a href="mailto:makwela.j.justice@gmail.com">📧 makwela.j.justice@gmail.com</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">🔗 LinkedIn</a>
+        <span class="separator">|</span>
+        <a href="https://github.com/skydeamon" target="_blank">💻 GitHub</a>
+        <span class="separator">|</span>
+        <span>📍 Cape Town, South Africa</span>
+      </div>
+    </header>
+
+    <div class="cv-content">
+      <!-- Research Interests -->
+      <section class="section" aria-label="Research Interests">
+        <h2 class="section-title">Research Interests</h2>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Data Engineering</span>
+          <span class="skill-tag primary">Machine Learning Infrastructure</span>
+          <span class="skill-tag primary">LLM Applications & RAG</span>
+          <span class="skill-tag">Astrophysics Data Analysis</span>
+          <span class="skill-tag">Distributed Computing</span>
+          <span class="skill-tag">Data Quality & Governance</span>
+          <span class="skill-tag">Streaming Data Systems</span>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="section" aria-label="Education">
+        <h2 class="section-title">Education</h2>
+
+        <div class="education-item">
+          <div class="education-degree">Bachelor of Science (BSc) in Physics and Astrophysics</div>
+          <div class="education-school">University of Cape Town, South Africa</div>
+          <div class="education-date">Feb 2015 — Nov 2017</div>
+          <div class="education-details">
+            <p><strong>Major Subjects:</strong> Physics, Astrophysics, Mathematics, Applied Mathematics, Computer Science, Astronomy</p>
+            <p><strong>Relevant Coursework:</strong> Computational Physics, Data Analysis Methods, Statistical Mechanics, Electromagnetism, Quantum Mechanics, Stellar Astrophysics</p>
+          </div>
+        </div>
+
+        <div class="education-item">
+          <div class="education-degree">National Senior Certificate</div>
+          <div class="education-school">Phusela High School</div>
+          <div class="education-date">Jan 2009 — Dec 2014</div>
+          <div class="education-details">
+            <p><strong>Subjects:</strong> Mathematics, Physical Science, English, Sepedi</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Academic & Professional Experience -->
+      <section class="section" aria-label="Professional Experience">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Lead Analyst / Data Engineer</div>
+              <div class="experience-company">Old Mutual South Africa</div>
+            </div>
+            <div class="text-right">
+              <div class="experience-date">Sep 2021 — Present</div>
+              <div class="experience-location">Cape Town, Hybrid</div>
+            </div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Lead a team producing data analytics solutions, data sources, and APIs for business applications</li>
+              <li>Owned production PySpark pipelines on AWS EMR/Glue with Airflow orchestration</li>
+              <li>Designed data contracts, marts, and SCD2 dimensions; published dbt docs and lineage</li>
+              <li>Built FastAPI services exposing curated data with validation and schema checks</li>
+              <li>Prototyped LLM-ready datasets and retrieval indexes for RAG applications</li>
+              <li>Introduced evaluation harnesses comparing prompt variants with factual checks</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Lead Full Stack Developer</div>
+              <div class="experience-company">Ibitse</div>
+            </div>
+            <div class="text-right">
+              <div class="experience-date">Jun 2025 — Present</div>
+              <div class="experience-location">Remote</div>
+            </div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Led engineering standards and contributed to backend services (TypeScript/Node)</li>
+              <li>Aligned product and engineering on release scope and acceptance criteria</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Data Engineer</div>
+              <div class="experience-company">Umuzi.org</div>
+            </div>
+            <div class="text-right">
+              <div class="experience-date">Dec 2020 — Sep 2021</div>
+              <div class="experience-location">Johannesburg</div>
+            </div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Built RESTful APIs (Django/FastAPI) exposing backend data to front-end applications</li>
+              <li>Collaborated on data wrangling pipelines and analytics endpoints</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section class="section" aria-label="Publications">
+        <h2 class="section-title">Publications & Technical Writing</h2>
+        <div class="project-item">
+          <div class="project-title">Building a RAG Pipeline on AWS: Lessons from a PoC</div>
+          <p class="project-description">
+            Technical write-up documenting the architecture, challenges, and learnings from implementing a Retrieval-Augmented Generation pipeline using FastAPI, LangChain, and vector search on AWS infrastructure. (In progress)
+          </p>
+          <div class="project-tech">
+            <span>RAG</span>
+            <span>AWS</span>
+            <span>FastAPI</span>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Data Quality Gates in Medallion Architecture</div>
+          <p class="project-description">
+            Internal technical documentation on implementing dbt tests, data contracts, and quality gates across bronze/silver/gold layers for enterprise data platforms. (Internal at Old Mutual)
+          </p>
+          <div class="project-tech">
+            <span>dbt</span>
+            <span>Data Quality</span>
+            <span>Medallion</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research Projects -->
+      <section class="section" aria-label="Research Projects">
+        <h2 class="section-title">Research & Technical Projects</h2>
+
+        <div class="project-item">
+          <div class="project-title">
+            <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank">Agentic RAG LLM Demo</a>
+          </div>
+          <p class="project-description">
+            FastAPI endpoint with retrieval pipeline (vector index + metadata filters). Templated prompts with deterministic output schema. Evaluation harness for regression testing. Function-calling with LangChain/LangGraph.
+          </p>
+          <div class="project-tech">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>LangChain</span>
+            <span>RAG</span>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-title">High-Throughput PySpark Curation on EMR/Glue</div>
+          <p class="project-description">
+            Architected PySpark jobs to cleanse, deduplicate, and conform multi-TB datasets into Parquet/Iceberg tables. Window-based deduping, semantic validations, incremental MERGE patterns.
+          </p>
+          <div class="project-tech">
+            <span>PySpark</span>
+            <span>EMR</span>
+            <span>Iceberg</span>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-title">Event-Driven Ingestion with Kafka → Lakehouse</div>
+          <p class="project-description">
+            Kafka-first ingestion with idempotent S3 landing, watermarking for late events, and Airflow-managed replay. Improved freshness to H+1.
+          </p>
+          <div class="project-tech">
+            <span>Kafka</span>
+            <span>EMR</span>
+            <span>Airflow</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Teaching & Mentoring -->
+      <section class="section" aria-label="Teaching">
+        <h2 class="section-title">Teaching & Mentoring</h2>
+        <ul style="padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.8;">
+          <li><strong>Umuzi.org Alumni Mentor</strong> — Mentoring aspiring data engineers in Python, SQL, and API development (2021–Present)</li>
+          <li><strong>Team Lead & Technical Mentor</strong> — Leading a team of analysts at Old Mutual; mentoring in PySpark, dbt, and data modeling best practices</li>
+          <li><strong>Knowledge Sharing</strong> — Internal technical documentation and lineage publishing for downstream consumers</li>
+        </ul>
+      </section>
+
+      <!-- Technical Skills -->
+      <section class="section" aria-label="Technical Skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Programming</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">Python</span>
+              <span class="skill-tag primary">SQL</span>
+              <span class="skill-tag primary">PySpark</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Data & Compute</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">AWS EMR/Glue</span>
+              <span class="skill-tag primary">Apache Airflow</span>
+              <span class="skill-tag">Apache Kafka</span>
+              <span class="skill-tag">dbt</span>
+              <span class="skill-tag">Redshift</span>
+              <span class="skill-tag">Athena</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Research Tools</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Jupyter</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">Matplotlib</span>
+              <span class="skill-tag">SciPy</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Academic Skills</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Technical Writing</span>
+              <span class="skill-tag">Data Analysis</span>
+              <span class="skill-tag">Statistical Methods</span>
+              <span class="skill-tag">Scientific Computing</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Languages -->
+      <section class="section" aria-label="Languages">
+        <h2 class="section-title">Languages</h2>
+        <div class="language-item">
+          <span class="language-name">English</span>
+          <span class="language-level">Professional Working Proficiency</span>
+        </div>
+        <div class="language-item">
+          <span class="language-name">Sepedi (Northern Sotho)</span>
+          <span class="language-level">Native Speaker</span>
+        </div>
+      </section>
+
+      <!-- Professional Affiliations -->
+      <section class="section" aria-label="Affiliations">
+        <h2 class="section-title">Professional Affiliations</h2>
+        <ul style="padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.8;">
+          <li>Umuzi.org — Alumni & Mentor</li>
+          <li>University of Cape Town — Alumni</li>
+          <li>Open Source Community — GitHub (skydeamon)</li>
+        </ul>
+      </section>
+
+      <!-- References -->
+      <section class="section" aria-label="References">
+        <h2 class="section-title">References</h2>
+        <p style="color: var(--text-muted); font-style: italic;">
+          Academic and professional references available upon request.
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

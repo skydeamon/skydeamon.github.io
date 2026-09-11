@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Letter — Data Engineer</title>
+  <link rel="stylesheet" href="shared_styles.css">
+  <style>
+    :root {
+      --primary: #0d9488;
+      --primary-light: #14b8a6;
+      --primary-dark: #0f766e;
+      --accent: #06b6d4;
+    }
+  </style>
+</head>
+<body>
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span> Dark
+    </button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">
+      🖨️ Print / PDF
+    </button>
+    <a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cover-letter">
+    <!-- Sender -->
+    <div class="cover-letter-header">
+      <h1 style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-xs);">Jade Makwela</h1>
+      <p style="color: var(--text-muted);">
+        Cape Town, South Africa<br>
+        📧 makwela.j.justice@gmail.com<br>
+        🔗 linkedin.com/in/jade-makwela-6a79111a8
+      </p>
+    </div>
+
+    <!-- Date -->
+    <div class="cover-letter-date">
+      <p>[Date]</p>
+    </div>
+
+    <!-- Recipient -->
+    <div class="cover-letter-recipient">
+      <p>
+        Hiring Manager<br>
+        [Company Name]<br>
+        [Company Address]<br>
+        [City, Country]
+      </p>
+    </div>
+
+    <!-- Subject -->
+    <div style="margin-bottom: var(--space-lg);">
+      <p><strong>RE: Application for Senior Data Engineer Position</strong></p>
+    </div>
+
+    <!-- Body -->
+    <div class="cover-letter-body">
+      <p>Dear Hiring Manager,</p>
+
+      <p>
+        I am writing to apply for the <span class="highlight">Senior Data Engineer</span> position at <span class="highlight">[Company Name]</span>. With 5+ years of experience building enterprise-grade data platforms on AWS — including PySpark pipelines on EMR/Glue, Kafka-driven streaming ingestion, and lakehouse architectures — I am confident I can deliver immediate value to your data team.
+      </p>
+
+      <p>
+        In my current role as <span class="highlight">Lead Analyst / Data Engineer at Old Mutual South Africa</span>, I own business-critical data pipelines end-to-end. Key achievements include:
+      </p>
+
+      <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
+        <li><strong>~35% pipeline runtime reduction</strong> and <strong>~22% EMR cost savings</strong> via partition pruning, predicate pushdown, and join tuning</li>
+        <li><strong>Data freshness from D+1 to H+1</strong> by designing event-driven ingestion with Kafka, idempotent S3 landing, and replay strategies</li>
+        <li><strong>90%+ critical data-quality coverage</strong> by implementing dbt tests (not_null, unique, relationships) and Airflow monitors</li>
+        <li><strong>Deployment lead time from days to hours</strong> by standardizing CI/CD with Azure DevOps and AWS CodePipeline</li>
+      </ul>
+
+      <p>
+        My technical stack aligns closely with your requirements: <span class="highlight">Python, PySpark, AWS (EMR, Glue, S3, Redshift, Athena, Lambda, Step Functions), Apache Airflow, Apache Kafka, dbt, and Docker</span>. I have deep experience with medallion/lakehouse patterns (Parquet/Iceberg), dimensional modeling (facts/dims, SCD Type 2), and DataOps practices including testing, observability, and SLAs.
+      </p>
+
+      <p>
+        I am particularly excited about the opportunity at <span class="highlight">[Company Name]</span> because [specific reason — e.g., "your focus on building scalable data infrastructure for AI applications" or "your commitment to data-driven decision making"]. I believe my combination of technical depth, proven impact, and collaborative approach would make me a strong addition to your team.
+      </p>
+
+      <p>
+        I would welcome the opportunity to discuss how my experience can contribute to your data platform. I am available for an interview at your convenience.
+      </p>
+    </div>
+
+    <!-- Closing -->
+    <div class="cover-letter-closing">
+      <p>Thank you for your time and consideration.</p>
+      <p style="margin-top: var(--space-md);">
+        Sincerely,<br><br>
+        <strong>Jade Makwela</strong>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

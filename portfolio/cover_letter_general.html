@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Letter — General</title>
+  <link rel="stylesheet" href="shared_styles.css">
+</head>
+<body>
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span> Dark
+    </button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">
+      🖨️ Print / PDF
+    </button>
+    <a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cover-letter">
+    <!-- Sender -->
+    <div class="cover-letter-header">
+      <h1 style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-xs);">Jade Makwela</h1>
+      <p style="color: var(--text-muted);">
+        Cape Town, South Africa<br>
+        📧 makwela.j.justice@gmail.com<br>
+        🔗 linkedin.com/in/jade-makwela-6a79111a8
+      </p>
+    </div>
+
+    <!-- Date -->
+    <div class="cover-letter-date">
+      <p>[Date]</p>
+    </div>
+
+    <!-- Recipient -->
+    <div class="cover-letter-recipient">
+      <p>
+        Hiring Manager<br>
+        [Company Name]<br>
+        [Company Address]<br>
+        [City, Country]
+      </p>
+    </div>
+
+    <!-- Subject -->
+    <div style="margin-bottom: var(--space-lg);">
+      <p><strong>RE: Application for [Position Title]</strong></p>
+    </div>
+
+    <!-- Body -->
+    <div class="cover-letter-body">
+      <p>Dear Hiring Manager,</p>
+
+      <p>
+        I am writing to express my interest in the <span class="highlight">[Position Title]</span> position at <span class="highlight">[Company Name]</span>. With over 5 years of experience building enterprise-grade data platforms and applications on AWS, I bring a unique combination of deep technical expertise, leadership experience, and a passion for leveraging data to drive business outcomes.
+      </p>
+
+      <p>
+        In my current role as <span class="highlight">Lead Analyst Programmer at Old Mutual South Africa</span>, I lead a team producing data analytics solutions and APIs that feed business-critical applications. I have delivered measurable impact:
+      </p>
+
+      <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
+        <li><strong>35% reduction</strong> in critical pipeline runtime through PySpark optimization</li>
+        <li><strong>22% reduction</strong> in EMR compute costs via partition pruning and join tuning</li>
+        <li><strong>90%+ data quality coverage</strong> through dbt contracts and automated tests</li>
+        <li><strong>Deployment lead time from days to hours</strong> via standardized CI/CD</li>
+      </ul>
+
+      <p>
+        Beyond my data engineering expertise, I serve as <span class="highlight">Lead Full Stack Developer at Ibitse</span>, where I oversee a development team, establish engineering standards, and ensure alignment between technical delivery and business objectives. This dual perspective — deep technical execution combined with leadership and stakeholder management — allows me to deliver solutions that are both technically excellent and business-aligned.
+      </p>
+
+      <p>
+        I am particularly drawn to <span class="highlight">[Company Name]</span> because of [specific reason related to the company — e.g., "your commitment to innovation in the financial services sector" or "your focus on building scalable data infrastructure"]. I am confident that my experience in [relevant skill area] and my track record of delivering measurable results would make me a valuable addition to your team.
+      </p>
+
+      <p>
+        I would welcome the opportunity to discuss how my skills and experience align with your team's needs. I am available for an interview at your convenience and can provide professional references upon request.
+      </p>
+    </div>
+
+    <!-- Closing -->
+    <div class="cover-letter-closing">
+      <p>Thank you for your time and consideration.</p>
+      <p style="margin-top: var(--space-md);">
+        Sincerely,<br><br>
+        <strong>Jade Makwela</strong>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jade Makwela — Academic Portfolio</title>
+  <meta name="description" content="Academic portfolio — BSc Physics & Astrophysics, Data Engineering Researcher">
+  <link rel="stylesheet" href="../shared_styles.css">
+  <style>
+    :root {
+      --primary: #1f2937;
+      --primary-light: #374151;
+      --primary-dark: #111827;
+      --accent: #4b5563;
+    }
+    .cv-header {
+      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">🖨️ Print / PDF</button>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cv-container">
+    <header class="cv-header">
+      <h1>Jade Makwela</h1>
+      <p class="subtitle">BSc Physics &amp; Astrophysics · Data Engineering Researcher</p>
+      <div class="contact-info">
+        <a href="mailto:makwela.j.justice@gmail.com">📧 makwela.j.justice@gmail.com</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">🔗 LinkedIn</a>
+        <span class="separator">|</span>
+        <a href="https://github.com/skydeamon" target="_blank">💻 GitHub</a>
+        <span class="separator">|</span>
+        <span>📍 Cape Town, South Africa</span>
+      </div>
+    </header>
+
+    <div class="cv-content">
+      <section class="section">
+        <h2 class="section-title">Research Interests</h2>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Data Engineering</span>
+          <span class="skill-tag primary">Machine Learning Infrastructure</span>
+          <span class="skill-tag primary">LLM Applications &amp; RAG</span>
+          <span class="skill-tag">Astrophysics Data Analysis</span>
+          <span class="skill-tag">Distributed Computing</span>
+          <span class="skill-tag">Data Quality &amp; Governance</span>
+          <span class="skill-tag">Streaming Data Systems</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+          <div class="education-degree">Bachelor of Science (BSc) in Physics and Astrophysics</div>
+          <div class="education-school">University of Cape Town</div>
+          <div class="education-date">Feb 2015 — Nov 2017</div>
+          <div class="education-details">
+            <p><strong>Major Subjects:</strong> Physics, Astrophysics, Mathematics, Applied Mathematics, Computer Science, Astronomy</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Publications &amp; Technical Writing</h2>
+        <div class="project-item">
+          <div class="project-title">Building a RAG Pipeline on AWS: Lessons from a PoC</div>
+          <p class="project-description">Technical write-up on architecture, challenges, and learnings from implementing a Retrieval-Augmented Generation pipeline using FastAPI, LangChain, and vector search on AWS. (In progress)</p>
+          <div class="project-tech"><span>RAG</span><span>AWS</span><span>FastAPI</span></div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Data Quality Gates in Medallion Architecture</div>
+          <p class="project-description">Internal documentation on dbt tests, data contracts, and quality gates across bronze/silver/gold layers for enterprise data platforms.</p>
+          <div class="project-tech"><span>dbt</span><span>Data Quality</span><span>Medallion</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Teaching &amp; Mentoring</h2>
+        <ul style="padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.8;">
+          <li><strong>Umuzi.org Alumni Mentor</strong> — Mentoring aspiring data engineers in Python, SQL, and API development (2021–Present)</li>
+          <li><strong>Team Lead &amp; Technical Mentor</strong> — Leading analysts at Old Mutual; mentoring in PySpark, dbt, and data modeling best practices</li>
+          <li><strong>Knowledge Sharing</strong> — Internal technical documentation and lineage publishing for downstream consumers</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Programming</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">Python</span>
+              <span class="skill-tag primary">SQL</span>
+              <span class="skill-tag primary">PySpark</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Research Tools</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Jupyter</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">Matplotlib</span>
+              <span class="skill-tag">SciPy</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Data &amp; Compute</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">AWS EMR/Glue</span>
+              <span class="skill-tag primary">Apache Airflow</span>
+              <span class="skill-tag">Apache Kafka</span>
+              <span class="skill-tag">dbt</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Academic Skills</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Technical Writing</span>
+              <span class="skill-tag">Data Analysis</span>
+              <span class="skill-tag">Statistical Methods</span>
+              <span class="skill-tag">Scientific Computing</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div style="text-align: center; padding: var(--space-xl); background: var(--bg-tertiary); border-radius: var(--radius-lg);">
+          <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">View the complete Academic CV</p>
+          <a href="../cv_academic.html" class="control-btn" style="display: inline-flex; text-decoration: none; margin-right: var(--space-sm);">Full CV</a>
+          <a href="mailto:makwela.j.justice@gmail.com?subject=Academic%20Opportunity" class="control-btn secondary" style="display: inline-flex; text-decoration: none;">Contact Me</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

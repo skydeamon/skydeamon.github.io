@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jade Makwela — Data Engineer Portfolio</title>
+  <meta name="description" content="Data Engineer portfolio — PySpark, AWS, Airflow, Kafka, and data platform engineering showcase">
+  <link rel="stylesheet" href="../shared_styles.css">
+  <style>
+    :root {
+      --primary: #0d9488;
+      --primary-light: #14b8a6;
+      --primary-dark: #0f766e;
+      --accent: #06b6d4;
+    }
+    .cv-header {
+      background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">🖨️ Print / PDF</button>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cv-container">
+    <header class="cv-header">
+      <h1>Jade Makwela</h1>
+      <p class="subtitle">Senior Data Engineer — PySpark, AWS &amp; Data Platforms</p>
+      <div class="contact-info">
+        <a href="mailto:makwela.j.justice@gmail.com">📧 makwela.j.justice@gmail.com</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">🔗 LinkedIn</a>
+        <span class="separator">|</span>
+        <a href="https://github.com/skydeamon" target="_blank">💻 GitHub</a>
+        <span class="separator">|</span>
+        <span>📍 Cape Town, South Africa</span>
+      </div>
+    </header>
+
+    <div class="cv-content">
+      <!-- Impact Metrics -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">35%</div>
+          <div class="stat-label">Pipeline Runtime Reduction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">22%</div>
+          <div class="stat-label">Compute Cost Savings</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">90%+</div>
+          <div class="stat-label">Data Quality Coverage</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">H+1</div>
+          <div class="stat-label">Data Freshness</div>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title">Summary</h2>
+        <p>
+          Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, and Athena. Strong in Kafka-driven ingestion, Airflow orchestration, and DataOps (CI/CD, testing, observability). Experienced in medallion/lakehouse patterns (Parquet/Iceberg), large-scale batch and streaming, and rigorous data quality for analytics and ML readiness.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Key Projects</h2>
+        <div class="project-item">
+          <div class="project-title">High-Throughput PySpark Curation on EMR/Glue</div>
+          <p class="project-description">Architected PySpark jobs to cleanse, deduplicate, and conform multi-TB datasets into Parquet/Iceberg tables. Window-based deduping, semantic validations, incremental MERGE.</p>
+          <div class="project-tech"><span>PySpark</span><span>EMR</span><span>Iceberg</span></div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Event-Driven Ingestion with Kafka → Lakehouse</div>
+          <p class="project-description">Kafka-first ingestion with idempotent S3 landing, watermarking for late events, and Airflow-managed replay. H+1 freshness.</p>
+          <div class="project-tech"><span>Kafka</span><span>EMR</span><span>Airflow</span></div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Data Contracts &amp; Quality Gates</div>
+          <p class="project-description">dbt source freshness and column contracts, tests blocking publishes on failure. 90%+ critical data-quality coverage.</p>
+          <div class="project-tech"><span>dbt</span><span>Glue Catalog</span><span>Athena</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Programming</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">Python</span>
+              <span class="skill-tag primary">SQL</span>
+              <span class="skill-tag primary">PySpark</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>AWS</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">EMR</span>
+              <span class="skill-tag primary">Glue</span>
+              <span class="skill-tag primary">S3</span>
+              <span class="skill-tag primary">Redshift</span>
+              <span class="skill-tag">Athena</span>
+              <span class="skill-tag">Lambda</span>
+              <span class="skill-tag">Step Functions</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Data &amp; Orchestration</h4>
+            <div class="skill-tags">
+              <span class="skill-tag primary">Apache Airflow</span>
+              <span class="skill-tag primary">Apache Kafka</span>
+              <span class="skill-tag">dbt</span>
+              <span class="skill-tag">Iceberg</span>
+              <span class="skill-tag">Parquet</span>
+              <span class="skill-tag">Medallion Architecture</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>DataOps &amp; Quality</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">CI/CD</span>
+              <span class="skill-tag">dbt Tests</span>
+              <span class="skill-tag">CloudWatch</span>
+              <span class="skill-tag">SLAs</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Terraform</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+          <div class="education-degree">BSc Physics &amp; Astrophysics</div>
+          <div class="education-school">University of Cape Town</div>
+          <div class="education-date">2015 — 2017</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div style="text-align: center; padding: var(--space-xl); background: var(--bg-tertiary); border-radius: var(--radius-lg);">
+          <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">View the complete Data Engineer CV</p>
+          <a href="../cv_data_engineer.html" class="control-btn" style="display: inline-flex; text-decoration: none; margin-right: var(--space-sm);">Full CV</a>
+          <a href="mailto:makwela.j.justice@gmail.com?subject=Data%20Engineering%20Opportunity" class="control-btn secondary" style="display: inline-flex; text-decoration: none;">Contact Me</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

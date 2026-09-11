@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Letter — Freelance</title>
+  <link rel="stylesheet" href="shared_styles.css">
+  <style>
+    :root {
+      --primary: #ea580c;
+      --primary-light: #f97316;
+      --primary-dark: #c2410c;
+      --accent: #fb923c;
+    }
+  </style>
+</head>
+<body>
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span> Dark
+    </button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">
+      🖨️ Print / PDF
+    </button>
+    <a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cover-letter">
+    <!-- Sender -->
+    <div class="cover-letter-header">
+      <h1 style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-xs);">Jade Makwela</h1>
+      <p style="color: var(--text-muted);">
+        Cape Town, South Africa (Remote)<br>
+        📧 makwela.j.justice@gmail.com<br>
+        🔗 linkedin.com/in/jade-makwela-6a79111a8<br>
+        💻 github.com/skydeamon
+      </p>
+    </div>
+
+    <!-- Date -->
+    <div class="cover-letter-date">
+      <p>[Date]</p>
+    </div>
+
+    <!-- Recipient -->
+    <div class="cover-letter-recipient">
+      <p>
+        [Client Name]<br>
+        [Company Name]<br>
+        [Company Address]<br>
+        [City, Country]
+      </p>
+    </div>
+
+    <!-- Subject -->
+    <div style="margin-bottom: var(--space-lg);">
+      <p><strong>RE: Contract Engagement — [Project/Service Description]</strong></p>
+    </div>
+
+    <!-- Body -->
+    <div class="cover-letter-body">
+      <p>Dear [Client Name],</p>
+
+      <p>
+        I am writing to offer my services as a <span class="highlight">freelance Data Engineer and AI Consultant</span> for your [project/initiative]. With 5+ years building enterprise-grade data platforms on AWS and hands-on experience with AI/LLM applications, I can help you deliver results quickly and reliably.
+      </p>
+
+      <p>
+        <strong>What I can deliver:</strong>
+      </p>
+
+      <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
+        <li><strong>Data Engineering:</strong> ETL/ELT pipelines, data warehouse design, lakehouse architecture, streaming ingestion, data quality & governance</li>
+        <li><strong>AI/LLM:</strong> RAG pipeline development, LLM data preparation, AI training data curation, evaluation harnesses</li>
+        <li><strong>Cloud & Infrastructure:</strong> AWS architecture, CI/CD setup, cost optimization, infrastructure as code</li>
+        <li><strong>Consulting:</strong> Data strategy, architecture reviews, proof of concepts, team mentoring</li>
+      </ul>
+
+      <p>
+        <strong>Proven track record:</strong>
+      </p>
+
+      <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
+        <li><strong>35% pipeline runtime reduction</strong> and <strong>22% compute cost savings</strong> at Old Mutual</li>
+        <li><strong>90%+ data quality coverage</strong> through dbt contracts and automated testing</li>
+        <li><strong>Data freshness from D+1 to H+1</strong> via event-driven architecture</li>
+        <li><strong>Deployment lead time from days to hours</strong> through CI/CD standardization</li>
+      </ul>
+
+      <p>
+        <strong>Engagement details:</strong>
+      </p>
+
+      <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
+        <li><strong>Availability:</strong> Immediate — 2–4 month contracts, full-time (40 hrs/week) or part-time</li>
+        <li><strong>Rate:</strong> R550–R640/hr (negotiable based on scope and engagement length)</li>
+        <li><strong>Location:</strong> Remote — time-zone friendly with UK/EU/US overlap</li>
+        <li><strong>Communication:</strong> Daily standups, weekly demos, transparent progress reporting</li>
+      </ul>
+
+      <p>
+        I pride myself on <span class="highlight">rapid onboarding, clear communication, and delivering working solutions</span> — not just documentation. I would welcome the opportunity to discuss your project requirements and how I can help.
+      </p>
+    </div>
+
+    <!-- Closing -->
+    <div class="cover-letter-closing">
+      <p>Thank you for your consideration. I look forward to hearing from you.</p>
+      <p style="margin-top: var(--space-md);">
+        Best regards,<br><br>
+        <strong>Jade Makwela</strong>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

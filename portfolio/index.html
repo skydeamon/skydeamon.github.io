@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jade Makwela — CV Collection</title>
+  <link rel="stylesheet" href="shared_styles.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      min-height: 100vh;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+      background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+      color: white;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .hero .tagline {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+    .hero .contact {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+    .hero .contact a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    .hero .contact a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .category-title {
+      text-align: center;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #718096;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+    .badge {
+      display: inline-block;
+      background: #3182ce;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #718096;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span> Dark
+    </button>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">🏠 Home</a>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>Jade Makwela</h1>
+    <p class="tagline">Senior Data Engineer | AI/LLM Practitioner | Full Stack Developer</p>
+    <div class="contact">
+      <a href="mailto:makwela.j.justice@gmail.com">makwela.j.justice@gmail.com</a>
+      <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">LinkedIn</a>
+      <a href="https://github.com/skydeamon" target="_blank">GitHub</a>
+      <span>Cape Town, South Africa</span>
+    </div>
+  </header>
+
+  <div class="index-container">
+    <!-- Audience Showcase Pages -->
+    <p class="category-title">Audience Showcase Pages</p>
+    <div class="cv-grid">
+      <a href="audience/general.html" class="cv-card">
+        <div class="cv-card-icon">📋</div>
+        <h3>General Portfolio</h3>
+        <p>Balanced showcase for any data or software engineering role.</p>
+      </a>
+      <a href="audience/data-engineer.html" class="cv-card">
+        <div class="cv-card-icon">🗄️</div>
+        <h3>Data Engineer Portfolio</h3>
+        <p>PySpark, AWS, and data platform engineering deep-dive.</p>
+      </a>
+      <a href="audience/ai-engineer.html" class="cv-card">
+        <div class="cv-card-icon">🤖</div>
+        <h3>AI Engineer Portfolio</h3>
+        <p>RAG, LLM patterns, and AI/ML application experience.</p>
+      </a>
+      <a href="audience/academic.html" class="cv-card">
+        <div class="cv-card-icon">🎓</div>
+        <h3>Academic Portfolio</h3>
+        <p>Research interests, publications, and teaching.</p>
+      </a>
+      <a href="audience/freelance.html" class="cv-card">
+        <div class="cv-card-icon">💼</div>
+        <h3>Freelance Portfolio</h3>
+        <p>Contract engagements, rates, and availability.</p>
+      </a>
+      <a href="audience/executive.html" class="cv-card">
+        <div class="cv-card-icon">👔</div>
+        <h3>Executive Portfolio</h3>
+        <p>Leadership, vision, and business impact focus.</p>
+      </a>
+      <a href="audience/modern.html" class="cv-card">
+        <div class="cv-card-icon">🎨</div>
+        <h3>Modern Portfolio</h3>
+        <p>Visual showcase for startups and creative teams.</p>
+      </a>
+    </div>
+
+    <!-- CV Variants -->
+    <p class="category-title">Curriculum Vitae</p>
+    <div class="cv-grid">
+      <a href="cv_job_application.html" class="cv-card">
+        <div class="cv-card-icon">📋</div>
+        <h3>General CV <span class="badge">Job Applications</span></h3>
+        <p>Balanced, professional CV suitable for any data or software engineering role. Comprehensive coverage of all skills and experience.</p>
+      </a>
+      <a href="cv_data_engineer.html" class="cv-card">
+        <div class="cv-card-icon">🗄️</div>
+        <h3>Data Engineer CV <span class="badge">DE Roles</span></h3>
+        <p>Technical deep-dive into PySpark, AWS, Airflow, Kafka, and data platform engineering. Metric-rich with quantified impact.</p>
+      </a>
+      <a href="cv_ai_engineer.html" class="cv-card">
+        <div class="cv-card-icon">🤖</div>
+        <h3>AI Engineer CV <span class="badge">AI/LLM Roles</span></h3>
+        <p>Highlights RAG, LLM patterns, FastAPI integration, and AI/ML exploration. For AI-focused positions.</p>
+      </a>
+      <a href="cv_academic.html" class="cv-card">
+        <div class="cv-card-icon">🎓</div>
+        <h3>Academic CV <span class="badge">Research</span></h3>
+        <p>Formal format emphasizing education, research interests, and publications. For academic or PhD positions.</p>
+      </a>
+      <a href="cv_freelance_portfolio.html" class="cv-card">
+        <div class="cv-card-icon">💼</div>
+        <h3>Freelance CV <span class="badge">Contract</span></h3>
+        <p>Contract-focused with rate information, availability, and rapid delivery emphasis. For freelance engagements.</p>
+      </a>
+      <a href="cv_executive.html" class="cv-card">
+        <div class="cv-card-icon">👔</div>
+        <h3>Executive CV <span class="badge">Leadership</span></h3>
+        <p>Strategic leadership focus for CTO, VP, or Director positions. Emphasizes vision, team building, and business impact.</p>
+      </a>
+      <a href="cv_minimal.html" class="cv-card">
+        <div class="cv-card-icon">📄</div>
+        <h3>Minimal CV <span class="badge">ATS-Friendly</span></h3>
+        <p>Plain text, no graphics. Optimized for Applicant Tracking Systems. Maximum parseability.</p>
+      </a>
+      <a href="cv_modern.html" class="cv-card">
+        <div class="cv-card-icon">🎨</div>
+        <h3>Modern CV <span class="badge">Creative</span></h3>
+        <p>Visual timeline layout with skill bars, infographic stats, and sidebar. For startups and creative companies.</p>
+      </a>
+    </div>
+
+    <!-- Cover Letters -->
+    <p class="category-title">Cover Letters</p>
+    <div class="cv-grid">
+      <a href="cover_letter_general.html" class="cv-card">
+        <div class="cv-card-icon">✉️</div>
+        <h3>General Cover Letter</h3>
+        <p>Professional cover letter suitable for any application. Balanced narrative of skills and experience.</p>
+      </a>
+      <a href="cover_letter_data_engineer.html" class="cv-card">
+        <div class="cv-card-icon">📊</div>
+        <h3>Data Engineer Cover Letter</h3>
+        <p>Tailored for data engineering roles. Emphasizes PySpark, AWS, and pipeline expertise.</p>
+      </a>
+      <a href="cover_letter_ai_engineer.html" class="cv-card">
+        <div class="cv-card-icon">🧠</div>
+        <h3>AI Engineer Cover Letter</h3>
+        <p>Focused on AI/LLM engineering. Highlights RAG, LLM patterns, and production data experience.</p>
+      </a>
+      <a href="cover_letter_freelance.html" class="cv-card">
+        <div class="cv-card-icon">⚡</div>
+        <h3>Freelance Cover Letter</h3>
+        <p>Contract engagement focused. Quick delivery, rate information, and availability.</p>
+      </a>
+      <a href="cover_letter_executive.html" class="cv-card">
+        <div class="cv-card-icon">🚀</div>
+        <h3>Executive Cover Letter</h3>
+        <p>Leadership and vision-focused for senior positions. Strategic impact and team building.</p>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Last updated: September 2026 · All documents are print-ready (Ctrl+P / Cmd+P)</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

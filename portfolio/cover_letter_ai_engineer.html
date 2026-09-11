@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Letter — AI Engineer</title>
+  <link rel="stylesheet" href="shared_styles.css">
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --primary-light: #8b5cf6;
+      --primary-dark: #6d28d9;
+      --accent: #a78bfa;
+    }
+  </style>
+</head>
+<body>
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span> Dark
+    </button>
+    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">
+      🖨️ Print / PDF
+    </button>
+    <a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+  </div>
+
+  <div class="cover-letter">
+    <!-- Sender -->
+    <div class="cover-letter-header">
+      <h1 style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-xs);">Jade Makwela</h1>
+      <p style="color: var(--text-muted);">
+        Cape Town, South Africa<br>
+        📧 makwela.j.justice@gmail.com<br>
+        🔗 linkedin.com/in/jade-makwela-6a79111a8<br>
+        💻 github.com/skydeamon
+      </p>
+    </div>
+
+    <!-- Date -->
+    <div class="cover-letter-date">
+      <p>[Date]</p>
+    </div>
+
+    <!-- Recipient -->
+    <div class="cover-letter-recipient">
+      <p>
+        Hiring Manager<br>
+        [Company Name]<br>
+        [Company Address]<br>
+        [City, Country]
+      </p>
+    </div>
+
+    <!-- Subject -->
+    <div style="margin-bottom: var(--space-lg);">
+      <p><strong>RE: Application for AI Engineer / LLM Engineer Position</strong></p>
+    </div>
+
+    <!-- Body -->
+    <div class="cover-letter-body">
+      <p>Dear Hiring Manager,</p>
+
+      <p>
+        I am writing to apply for the <span class="highlight">AI Engineer</span> position at <span class="highlight">[Company Name]</span>. I am a senior data/AI engineer with 5+ years building production data platforms on AWS, combined with hands-on experience in <span class="highlight">LLM application patterns</span> — RAG, function calling, prompt strategies, and evaluation harnesses. I am passionate about building safe, traceable AI features that deliver real value.
+      </p>
+
+      <p>
+        My AI/LLM experience includes:
+      </p>
+
+      <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
+        <li><strong>RAG Service (PoC):</strong> Built a FastAPI endpoint with retrieval pipeline (vector index + metadata filters), templated prompts with deterministic output schema, and an evaluation harness for regression testing — <a href="https://github.com/skydeamon/agentic-rag-llm-demo" style="color: var(--primary);">github.com/skydeamon/agentic-rag-llm-demo</a></li>
+        <li><strong>Function-Calling Pattern:</strong> Orchestrated tool-use steps with LangChain/LangGraph for structured queries; added guardrails for empty context, fallback paths, and safe defaults</li>
+        <li><strong>Traceability & QA:</strong> Implemented citation-style answer formatting, per-response logs (inputs, context chunks, outputs), and required-field checks for auditability</li>
+        <li><strong>LLM-Ready Data:</strong> Partnered with analysts and data scientists to prototype LLM-ready datasets and retrieval indexes for future RAG use</li>
+      </ul>
+
+      <p>
+        What sets me apart is my <span class="highlight">production data engineering foundation</span>. I have deep experience building the data infrastructure that AI systems depend on: PySpark pipelines on AWS EMR/Glue, Kafka-driven ingestion, lakehouse architectures (Parquet/Iceberg), and rigorous data quality practices (90%+ coverage via dbt tests). I understand that reliable AI starts with reliable data.
+      </p>
+
+      <p>
+        I am particularly drawn to <span class="highlight">[Company Name]</span> because [specific reason — e.g., "your mission to bring AI to clinical contexts" or "your focus on education technology"]. My familiarity with IEC 62304/ISO 13485 expectations around software lifecycle and verification/validation workflows aligns well with your commitment to safety and compliance.
+      </p>
+
+      <p>
+        I would welcome the opportunity to discuss how my combination of data engineering depth and AI application experience can contribute to your team. I am available for an interview at your convenience.
+      </p>
+    </div>
+
+    <!-- Closing -->
+    <div class="cover-letter-closing">
+      <p>Thank you for your time and consideration.</p>
+      <p style="margin-top: var(--space-md);">
+        Sincerely,<br><br>
+        <strong>Jade Makwela</strong>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>
