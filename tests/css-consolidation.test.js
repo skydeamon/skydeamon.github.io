@@ -100,3 +100,15 @@ test('portfolio/index.html links portfolio-hub.css', () => {
   const content = fs.readFileSync(path.join(ROOT, 'portfolio/index.html'), 'utf8');
   assert.ok(content.includes('portfolio-hub.css'), 'hub missing portfolio-hub.css link');
 });
+
+test('portfolio.css dark-mode block comes after the light/:root block (cascade fix)', () => {
+  const css = fs.readFileSync(path.join(ROOT, 'css/portfolio.css'), 'utf8');
+  const lightIdx = css.indexOf('[data-theme="light"], :root');
+  const darkIdx = css.indexOf('[data-theme="dark"]');
+  assert.ok(lightIdx !== -1, 'portfolio.css missing [data-theme="light"], :root block');
+  assert.ok(darkIdx !== -1, 'portfolio.css missing [data-theme="dark"] block');
+  assert.ok(
+    darkIdx > lightIdx,
+    '[data-theme="dark"] must appear AFTER [data-theme="light"], :root so dark vars win the cascade'
+  );
+});

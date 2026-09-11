@@ -1,0 +1,9 @@
+{
+  "name": "skydeamon-testenv-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "description": "E2E test venv (Playwright full journeys, local or deployed via BASE_URL).",
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

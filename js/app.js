@@ -16,23 +16,22 @@
   // Initial theme: localStorage > system preference > light
   const storedTheme = localStorage.getItem('theme');
   const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = SiteLogic.getInitialTheme(storedTheme, systemDark);
 
-  if (storedTheme) {
-    root.setAttribute('data-theme', storedTheme);
-  } else if (systemDark) {
-    root.setAttribute('data-theme', 'dark');
+  if (initialTheme) {
+    root.setAttribute('data-theme', initialTheme);
   }
 
   function updateThemeIcon() {
     const isDark = root.getAttribute('data-theme') === 'dark';
-    themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    themeIcon.className = SiteLogic.themeIconClass(isDark);
   }
 
   updateThemeIcon();
 
   themeToggle.addEventListener('click', function () {
     const current = root.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
+    const next = SiteLogic.computeNextTheme(current);
     root.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
     updateThemeIcon();
