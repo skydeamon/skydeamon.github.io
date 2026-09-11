@@ -1,0 +1,50 @@
+/* ============================================
+   MINIMAL CV — ATS-Friendly plain styles
+   Extracted from cv_minimal.html inline <style>.
+   ============================================ */
+
+/* ATS-Friendly: Plain, parseable, no graphics, no columns */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: #000000;
+  background: #ffffff;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+}
+h1 { font-size: 22pt; margin-bottom: 4px; }
+h2 {
+  font-size: 13pt;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 3px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+h3 { font-size: 11pt; margin-top: 12px; }
+p { margin-bottom: 6px; }
+ul { margin-left: 20px; margin-bottom: 8px; }
+li { margin-bottom: 3px; }
+.contact { margin-bottom: 12px; }
+.job-header { font-weight: bold; }
+.job-date { font-style: italic; }
+.skills-line { margin-bottom: 4px; }
+a { color: #000; text-decoration: none; }
+.print-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 16px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+}
+@media print {
+  .print-btn { display: none; }
+  body { padding: 0; }
+}
