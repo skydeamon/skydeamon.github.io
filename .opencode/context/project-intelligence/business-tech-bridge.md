@@ -1,4 +1,4 @@
-<!-- Context: project-intelligence/bridge | Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
+<!-- Context: project-intelligence/business-tech-bridge| Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
 
 # Business ↔ Tech Bridge
 

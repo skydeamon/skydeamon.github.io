@@ -1,4 +1,4 @@
-<!-- Context: core/creation | Priority: high | Version: 1.1 | Updated: 2026-02-15 -->
+<!-- Context: core/context-system/guides/creation| Priority: high | Version: 1.1 | Updated: 2026-02-15 -->
 
 # Context File Creation Standards
 

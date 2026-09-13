@@ -1,4 +1,4 @@
-<!-- Context: workflows/external-libraries-scenarios | Priority: medium | Version: 1.0 | Updated: 2026-02-05 -->
+<!-- Context: core/workflows/external-libraries-scenarios| Priority: medium | Version: 1.0 | Updated: 2026-02-05 -->
 # External Libraries: Common Scenarios
 
 **Purpose**: Real-world examples of using ExternalScout

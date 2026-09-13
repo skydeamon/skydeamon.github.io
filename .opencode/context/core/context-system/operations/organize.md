@@ -1,4 +1,4 @@
-<!-- Context: core/organize | Priority: medium | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/context-system/operations/organize| Priority: medium | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Organize Operation
 
@@ -186,39 +186,4 @@ Agent suggests best option based on:
 
 ---
 
-## Examples
-
-### Organize Flat Directory
-```bash
-/context organize development/
-```
-
-### Dry-Run First
-```bash
-/context organize development/ --dry-run
-```
-
-### Organize Multiple
-```bash
-/context organize development/
-/context organize core/
-```
-
----
-
-## Success Criteria
-
-- [ ] All files in function folders (not flat)?
-- [ ] Ambiguous files resolved?
-- [ ] Conflicts handled?
-- [ ] README.md created/updated?
-- [ ] All references fixed?
-- [ ] Backup created?
-- [ ] User approved changes?
-
----
-
-## Related
-
-- standards/structure.md - Folder organization rules
-- guides/workflows.md - Interactive examples
+**Related**: `core/context-system/guides/workflows.md`

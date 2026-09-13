@@ -1,4 +1,4 @@
-<!-- Context: core/navigation | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/standards/navigation| Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Core Standards Navigation
 
@@ -17,9 +17,9 @@
 | `project-intelligence.md` | What and why | ⭐⭐⭐⭐ | Onboarding, understanding projects |
 | `project-intelligence-management.md` | How to manage | ⭐⭐⭐ | Managing intelligence files |
 | `code-analysis.md` | Analysis approaches | ⭐⭐⭐ | Analyzing code, debugging |
-| `typescript.md` | Universal TypeScript patterns | ⭐⭐⭐⭐ | Writing/reviewing TypeScript code |
-| `csharp.md` | Universal C# / .NET patterns | ⭐⭐⭐⭐ | Writing/reviewing C# code |
-| `csharp-project-structure.md` | ASP.NET Core project structure (Minimal APIs, CQRS, EF Core + PostgreSQL) | ⭐⭐⭐⭐ | Starting or structuring a C# API project |
+| `typescript/` | Universal TypeScript patterns (9 files) | ⭐⭐⭐⭐ | Writing/reviewing TypeScript code |
+| `csharp/` | Universal C# / .NET patterns (9 files) | ⭐⭐⭐⭐ | Writing/reviewing C# code |
+| `csharp-project-structure/` | ASP.NET Core project structure (Minimal APIs, CQRS, EF Core + PostgreSQL) (7 files) | ⭐⭐⭐⭐ | Starting or structuring a C# API project |
 
 ---
 
@@ -30,16 +30,16 @@
 2. Load `security-patterns.md` (high)
 
 **For TypeScript code**:
-1. Load `typescript.md` (critical)
+1. Load `typescript/overview.md` (critical)
 2. Load `code-quality.md` (high)
 
 **For C# / .NET code**:
-1. Load `csharp.md` (critical)
+1. Load `csharp/overview.md` (critical)
 2. Load `code-quality.md` (high)
 
 **For C# API project structure**:
-1. Load `csharp-project-structure.md` (critical)
-2. Load `csharp.md` (high)
+1. Load `csharp-project-structure/overview.md` (critical)
+2. Load `csharp/overview.md` (high)
 
 **For testing**:
 1. Load `test-coverage.md` (critical)

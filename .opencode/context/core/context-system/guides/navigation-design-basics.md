@@ -1,4 +1,4 @@
-<!-- Context: core/navigation-design-basics | Priority: high | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/context-system/guides/navigation-design-basics| Priority: high | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Guide: Designing Navigation Files
 
@@ -56,16 +56,14 @@
 ## Structure
 
 ```
-openagents-repo/
+portfolio-site/
 ├── navigation.md
-├── quick-start.md
 ├── concepts/
-│   └── subagent-testing-modes.md
+│   └── test-venv-isolation.md
 ├── guides/
-│   ├── adding-agent.md
-│   └── testing-agent.md
+│   └── running-tests.md
 └── lookup/
-    └── commands.md
+    └── test-inventory.md
 ```
 ```
 

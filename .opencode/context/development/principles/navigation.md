@@ -1,4 +1,4 @@
-<!-- Context: development/navigation | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: development/principles/navigation| Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Development Principles Navigation
 
@@ -11,7 +11,7 @@
 | File | Topic | Priority | Load When |
 |------|-------|----------|-----------|
 | `clean-code.md` | Clean code practices | ⭐⭐⭐⭐ | Writing any code |
-| `api-design.md` | API design principles | ⭐⭐⭐⭐ | Designing APIs |
+| `api-design/` | API design principles (6 files: overview, rest, graphql, frontend-client, versioning, auth) | ⭐⭐⭐⭐ | Designing APIs |
 
 ---
 
@@ -22,7 +22,7 @@
 2. Also load: `../../core/standards/code-quality.md` (critical)
 
 **For API development**:
-1. Load `api-design.md` (high)
+1. Load `api-design/overview.md` (high)
 2. Also load: `../../core/standards/code-quality.md` (critical)
 
 ---

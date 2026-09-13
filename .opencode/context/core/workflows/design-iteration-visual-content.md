@@ -1,4 +1,4 @@
-<!-- Context: workflows/design-iteration-visual-content | Priority: medium | Version: 1.0 | Updated: 2025-12-09 -->
+<!-- Context: core/workflows/design-iteration-visual-content| Priority: medium | Version: 1.0 | Updated: 2025-12-09 -->
 # Visual Content Generation
 
 ## When to Use Image Specialist

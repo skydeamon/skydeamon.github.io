@@ -1,4 +1,4 @@
-<!-- Context: project-intelligence/notes | Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
+<!-- Context: project-intelligence/living-notes| Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
 
 # Living Notes
 

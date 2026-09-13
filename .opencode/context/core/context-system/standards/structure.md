@@ -1,12 +1,7 @@
-<!-- Context: core/structure | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
-
+<!-- Context: core/context-system/standards/structure| Priority: critical | Version: 1.0 | Updated: 2026-09-11 -->
 # Context Structure
 
 **Purpose**: Function-based folder organization for easy discovery
-
-**Last Updated**: 2026-01-06
-
----
 
 ## Core Structure
 
@@ -36,97 +31,15 @@
     └── {framework}.md
 ```
 
----
-
 ## Folder Purposes
 
-### concepts/
-**Purpose**: Core ideas, definitions, "what is it?"
-
-**Contains**:
-- Fundamental concepts
-- Design patterns
-- Architecture decisions
-- System principles
-
-**Examples**:
-- `concepts/authentication.md`
-- `concepts/state-management.md`
-- `concepts/mvi-principle.md`
-
----
-
-### examples/
-**Purpose**: Minimal working code examples
-
-**Contains**:
-- Code snippets that work as-is
-- Minimal reproductions
-- Common patterns in action
-
-**Examples**:
-- `examples/jwt-auth-example.md`
-- `examples/react-hooks-example.md`
-- `examples/api-call-example.md`
-
-**Rule**: Examples should be <30 lines of code, fully functional
-
----
-
-### guides/
-**Purpose**: Step-by-step workflows, "how to do X"
-
-**Contains**:
-- Numbered procedures
-- Setup instructions
-- Implementation workflows
-- Migration guides
-
-**Examples**:
-- `guides/setting-up-auth.md`
-- `guides/deploying-api.md`
-- `guides/migrating-to-v2.md`
-
-**Rule**: Steps should be actionable (not theoretical)
-
----
-
-### lookup/
-**Purpose**: Quick reference tables, commands, paths
-
-**Contains**:
-- Command lists
-- File locations
-- API endpoints
-- Configuration options
-- Keyboard shortcuts
-
-**Examples**:
-- `lookup/cli-commands.md`
-- `lookup/file-locations.md`
-- `lookup/api-endpoints.md`
-
-**Rule**: Must be in table/list format (scannable)
-
----
-
-### errors/
-**Purpose**: Common errors, gotchas, edge cases
-
-**Contains**:
-- Error messages + fixes
-- Common pitfalls
-- Edge cases
-- Troubleshooting
-
-**Examples**:
-- `errors/react-errors.md`
-- `errors/nextjs-build-errors.md`
-- `errors/auth-errors.md`
-
-**Rule**: Group by framework/topic, not one file per error
-
----
+| Folder | Purpose | Contains | Rule |
+|--------|---------|----------|------|
+| `concepts/` | Core ideas, definitions | Fundamental concepts, design patterns, architecture decisions | — |
+| `examples/` | Minimal working code | Code snippets that work as-is, minimal reproductions | <30 lines of code, fully functional |
+| `guides/` | Step-by-step workflows | Numbered procedures, setup instructions, migration guides | Steps actionable (not theoretical) |
+| `lookup/` | Quick reference | Command lists, file locations, API endpoints, config options | Table/list format (scannable) |
+| `errors/` | Common errors, gotchas | Error messages + fixes, pitfalls, edge cases | Group by framework/topic, not one file per error |
 
 ## navigation.md Requirement
 
@@ -141,43 +54,30 @@
 **Example**:
 ```markdown
 # Development Context
-
 **Purpose**: Core development patterns, errors, and examples
 
----
-
 ## Quick Navigation
-
 ### Concepts
 | File | Description | Priority |
 |------|-------------|----------|
 | concepts/auth.md | Authentication patterns | critical |
-
 ### Examples
 | File | Description | Priority |
 |------|-------------|----------|
 | examples/jwt.md | JWT auth example | high |
-
 ### Errors
 | File | Description | Priority |
 |------|-------------|----------|
 | errors/react.md | Common React errors | high |
 
----
-
 ## Loading Strategy
-
 **For auth work**: 
 1. Load concepts/auth.md
 2. Load examples/jwt.md
 3. Reference guides/setup-auth.md if needed
 ```
 
----
-
 ## Categorization Rules
-
-When organizing a file, ask:
 
 | Question | Folder |
 |----------|--------|
@@ -186,8 +86,6 @@ When organizing a file, ask:
 | Does it explain **how to do** something? | `guides/` |
 | Is it **quick reference** data? | `lookup/` |
 | Does it document an **error/issue**? | `errors/` |
-
----
 
 ## Anti-Patterns ❌
 
@@ -206,24 +104,15 @@ development/
 ```
 development/
 ├── navigation.md
-├── concepts/
-│   └── authentication.md
-├── examples/
-│   └── jwt-example.md
-├── guides/
-│   └── setting-up-auth.md
-├── lookup/
-│   └── api-endpoints.md
-└── errors/
-    └── auth-errors.md
+├── concepts/    └── authentication.md
+├── examples/    └── jwt-example.md
+├── guides/      └── setting-up-auth.md
+├── lookup/      └── api-endpoints.md
+└── errors/      └── auth-errors.md
 ```
 **Benefit**: Instantly know file purpose by location
 
----
-
 ## Validation
-
-Before committing context structure:
 
 - [ ] All categories have navigation.md?
 - [ ] Files are in function folders (not flat)?
@@ -231,10 +120,4 @@ Before committing context structure:
 - [ ] Priority levels assigned?
 - [ ] Loading strategy documented?
 
----
-
-## Related
-
-- mvi-principle.md - What to extract
-- templates.md - File formats
-- creation.md - How to create files
+**Related**: `core/context-system/standards/templates.md`

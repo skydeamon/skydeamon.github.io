@@ -1,24 +1,8 @@
-<!-- Context: ui/scrollytelling-headphone | Priority: high | Version: 1.0 | Updated: 2026-02-15 -->
-
----
-description: "Full Next.js implementation of scroll-linked image sequence animation"
----
-
+<!-- Context: ui/web/design/examples/scrollytelling-headphone| Priority: high | Version: 1.0 | Updated: 2026-09-11 -->
 # Example: Scrollytelling Headphone Animation
-
-**Purpose**: Full Next.js implementation of scroll-linked image sequence animation
-
-**Last Updated**: 2026-01-07
-
----
-
-## Overview
-
-Complete working example of "Zenith X" headphone scrollytelling page using Next.js 14, Framer Motion, and Canvas.
+**Purpose**: Full Next.js implementation of scroll-linked image sequence animation.
 
 **Tech Stack**: Next.js 14 (App Router) + Framer Motion + Canvas + Tailwind CSS
-
----
 
 ## File Structure
 
@@ -32,8 +16,6 @@ public/
 └── frames/
     └── frame_0001.webp through frame_0120.webp
 ```
-
----
 
 ## 1. globals.css
 
@@ -50,8 +32,6 @@ public/
 }
 ```
 
----
-
 ## 2. app/page.tsx
 
 ```tsx
@@ -65,8 +45,6 @@ export default function Home() {
   )
 }
 ```
-
----
 
 ## 3. components/HeadphoneScroll.tsx
 
@@ -94,7 +72,6 @@ export default function HeadphoneScroll() {
   const frameIndex = useTransform(scrollYProgress, [0, 1], [0, FRAME_COUNT - 1])
   const [currentFrame, setCurrentFrame] = useState(0)
 
-  // Update current frame
   useEffect(() => {
     return frameIndex.on('change', (latest) => {
       setCurrentFrame(Math.round(latest))
@@ -112,40 +89,26 @@ export default function HeadphoneScroll() {
           img.onload = () => resolve(img)
         })
       })
-
       const loaded = await Promise.all(promises)
       setImages(loaded)
       setLoading(false)
     }
-
     loadImages()
   }, [])
 
   // Render current frame to canvas
   useEffect(() => {
     if (!canvasRef.current || !images.length) return
-
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
     if (!ctx) return
-
     const img = images[currentFrame]
-
-    // Set canvas size
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
-
-    // Clear and draw centered
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    
-    const scale = Math.min(
-      canvas.width / img.width,
-      canvas.height / img.height
-    )
-    
+    const scale = Math.min(canvas.width / img.width, canvas.height / img.height)
     const x = (canvas.width - img.width * scale) / 2
     const y = (canvas.height - img.height * scale) / 2
-    
     ctx.drawImage(img, x, y, img.width * scale, img.height * scale)
   }, [currentFrame, images])
 
@@ -178,9 +141,7 @@ export default function HeadphoneScroll() {
         className="pointer-events-none fixed inset-0 flex items-center justify-center"
       >
         <div className="text-center">
-          <h1 className="text-7xl font-bold tracking-tight text-white/90">
-            Zenith X
-          </h1>
+          <h1 className="text-7xl font-bold tracking-tight text-white/90">Zenith X</h1>
           <p className="mt-4 text-xl text-white/60">Pure Sound.</p>
         </div>
       </motion.div>
@@ -189,18 +150,14 @@ export default function HeadphoneScroll() {
         style={{ opacity: text1 }}
         className="pointer-events-none fixed inset-y-0 left-20 flex items-center"
       >
-        <p className="text-4xl font-bold tracking-tight text-white/90">
-          Precision Engineering.
-        </p>
+        <p className="text-4xl font-bold tracking-tight text-white/90">Precision Engineering.</p>
       </motion.div>
 
       <motion.div
         style={{ opacity: text2 }}
         className="pointer-events-none fixed inset-y-0 right-20 flex items-center"
       >
-        <p className="text-4xl font-bold tracking-tight text-white/90">
-          Titanium Drivers.
-        </p>
+        <p className="text-4xl font-bold tracking-tight text-white/90">Titanium Drivers.</p>
       </motion.div>
 
       <motion.div
@@ -208,9 +165,7 @@ export default function HeadphoneScroll() {
         className="pointer-events-none fixed inset-0 flex items-center justify-center"
       >
         <div className="text-center">
-          <h2 className="text-6xl font-bold tracking-tight text-white/90">
-            Hear Everything.
-          </h2>
+          <h2 className="text-6xl font-bold tracking-tight text-white/90">Hear Everything.</h2>
           <button className="pointer-events-auto mt-8 rounded-full bg-white px-8 py-3 text-lg font-semibold text-black transition hover:bg-white/90">
             Pre-Order Now
           </button>
@@ -221,17 +176,13 @@ export default function HeadphoneScroll() {
 }
 ```
 
----
-
 ## Key Implementation Details
 
-**Line 15-18**: `useScroll` tracks scroll progress from container start to end
-**Line 21**: `useTransform` maps 0-1 scroll to 0-119 frame index
-**Line 32-46**: Preload all 120 frames using Promise.all
-**Line 49-70**: Draw current frame to canvas, scaled and centered
-**Line 73-76**: Text opacity transforms for fade in/out at specific scroll positions
-
----
+- `useScroll` tracks scroll progress from container start to end
+- `useTransform` maps 0-1 scroll to 0-119 frame index
+- Preload all 120 frames using Promise.all
+- Draw current frame to canvas, scaled and centered
+- Text opacity transforms for fade in/out at specific scroll positions
 
 ## Usage
 
@@ -240,26 +191,10 @@ export default function HeadphoneScroll() {
 3. Copy code into respective files
 4. Run: `npm run dev`
 
----
-
 ## Customization
+- **Change frame count**: Update `FRAME_COUNT` constant
+- **Adjust scroll length**: Change `h-[400vh]` to `h-[300vh]` or `h-[500vh]`
+- **Modify text timing**: Update transform ranges
+- **Change colors**: Update `bg-[#050505]` to match your image background
 
-**Change frame count**: Update `FRAME_COUNT` constant (line 7)
-**Adjust scroll length**: Change `h-[400vh]` to `h-[300vh]` or `h-[500vh]` (line 120)
-**Modify text timing**: Update transform ranges in lines 73-76
-**Change colors**: Update `bg-[#050505]` to match your image background
-
----
-
-## Related
-
-- concepts/scroll-linked-animations.md - Understanding the technique
-- guides/scrollytelling-setup.md - Getting started
-- lookup/scroll-animation-prompts.md - Generating image sequences
-
----
-
-## References
-
-- [Framer Motion Docs](https://www.framer.com/motion/)
-- [Next.js App Router](https://nextjs.org/docs/app)
+**Related**: `ui/web/design/guides/building-scrollytelling-pages.md`, `ui/web/design/lookup/scroll-animation-prompts.md`

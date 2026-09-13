@@ -1,4 +1,4 @@
-<!-- Context: core/navigation | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/workflows/navigation| Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Core Workflows Navigation
 
@@ -57,4 +57,3 @@
 ## Related
 
 - **Standards** → `../standards/navigation.md`
-- **OpenAgents Control Delegation** → `../../openagents-repo/guides/subagent-invocation.md`

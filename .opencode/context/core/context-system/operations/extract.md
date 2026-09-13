@@ -1,4 +1,4 @@
-<!-- Context: core/extract | Priority: medium | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/context-system/operations/extract| Priority: medium | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Extract Operation
 
@@ -195,8 +195,4 @@ Files created:
 
 ---
 
-## Related
-
-- standards/mvi.md - What to extract
-- guides/compact.md - How to minimize
-- guides/workflows.md - Interactive examples
+**Related**: `core/context-system/guides/workflows.md`

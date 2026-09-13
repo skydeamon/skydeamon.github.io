@@ -1,4 +1,4 @@
-<!-- Context: core/context-paths | Priority: low | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/system/context-paths| Priority: low | Version: 1.0 | Updated: 2026-02-15 -->
 
 ---
 id: context-paths

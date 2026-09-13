@@ -1,4 +1,4 @@
-<!-- Context: workflows/component-planning | Priority: high | Version: 1.0 -->
+<!-- Context: core/workflows/component-planning | Priority: high | Version: 1.0 | Updated: 2026-09-11 -->
 
 # Component-Based Planning Workflow
 

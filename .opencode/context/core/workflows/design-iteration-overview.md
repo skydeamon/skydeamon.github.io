@@ -1,4 +1,4 @@
-<!-- Context: workflows/design-iteration-overview | Priority: high | Version: 1.0 | Updated: 2025-12-09 -->
+<!-- Context: core/workflows/design-iteration-overview| Priority: high | Version: 1.0 | Updated: 2025-12-09 -->
 # Design Iteration Workflow - Overview
 
 ## Overview

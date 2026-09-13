@@ -1,4 +1,4 @@
-<!-- Context: core/managing-tasks | Priority: high | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/task-management/guides/managing-tasks| Priority: high | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Guide: Managing Task Lifecycle
 

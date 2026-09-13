@@ -30,4 +30,4 @@
 
 - `core/standards/code-quality.md` — pure functions, modular design
 - `core/standards/test-coverage.md` — AAA, what to test
-- `ui/web/ui-styling-standards.md` — CSS specificity & theming
+- `ui/web/foundations/css-framework.md` — CSS specificity & theming

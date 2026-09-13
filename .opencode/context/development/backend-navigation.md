@@ -1,4 +1,4 @@
-<!-- Context: development/navigation | Priority: low | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: development/backend-navigation| Priority: low | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Backend Development Navigation
 
@@ -46,7 +46,7 @@ development/backend/           # [future]
 |------|------|
 | **REST API** | `backend/api-patterns/rest-design.md` [future] |
 | **GraphQL** | `backend/api-patterns/graphql-design.md` [future] |
-| **API design principles** | `principles/api-design.md` |
+| **API design principles** | `principles/api-design/overview.md` |
 | **Node.js** | `backend/nodejs/express-patterns.md` [future] |
 | **Python** | `backend/python/fastapi-patterns.md` [future] |
 | **Auth (JWT)** | `backend/authentication/jwt-patterns.md` [future] |
@@ -74,6 +74,6 @@ development/backend/           # [future]
 
 ## Related Context
 
-- **API Design Principles** → `principles/api-design.md`
+- **API Design Principles** → `principles/api-design/overview.md`
 - **Core Standards** → `../core/standards/code-quality.md`
 - **Data Patterns** → `data/navigation.md` [future]

@@ -1,4 +1,4 @@
-<!-- Context: core/update | Priority: medium | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/context-system/operations/update| Priority: medium | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Update Operation
 
@@ -196,42 +196,4 @@ Rollback available if needed.
 
 ---
 
-## Examples
-
-### Framework Update
-```bash
-/context update for Next.js 15
-/context update for React 19
-```
-
-### API Changes
-```bash
-/context update for Stripe API v2024
-/context update for OpenAI API breaking changes
-```
-
-### Library Update
-```bash
-/context update for Tailwind CSS v4
-```
-
----
-
-## Success Criteria
-
-- [ ] User described changes?
-- [ ] All affected files found?
-- [ ] Diff preview shown?
-- [ ] User approved changes?
-- [ ] Backup created?
-- [ ] Migration notes added?
-- [ ] All references validated?
-- [ ] All files still <200 lines?
-
----
-
-## Related
-
-- guides/workflows.md - Interactive diff examples
-- standards/mvi.md - Maintain MVI format
-- operations/error.md - Adding migration notes
+**Related**: `core/context-system/guides/workflows.md`, `core/context-system/operations/error.md`

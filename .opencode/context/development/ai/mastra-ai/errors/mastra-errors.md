@@ -1,4 +1,4 @@
-<!-- Context: development/mastra-errors | Priority: medium | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: development/ai/mastra-ai/errors/mastra-errors| Priority: medium | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Errors: Mastra Implementation
 

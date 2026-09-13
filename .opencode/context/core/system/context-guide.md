@@ -1,4 +1,4 @@
-<!-- Context: core/context-guide | Priority: low | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/system/context-guide| Priority: low | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Context System Guide
 

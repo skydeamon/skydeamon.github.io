@@ -1,4 +1,4 @@
-<!-- Context: development/storage | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: development/ai/mastra-ai/concepts/storage| Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Concept: Mastra Data Storage
 

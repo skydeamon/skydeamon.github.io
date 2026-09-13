@@ -1,4 +1,4 @@
-<!-- Context: workflows/review | Priority: high | Version: 2.0 | Updated: 2025-01-21 -->
+<!-- Context: core/workflows/code-review| Priority: high | Version: 2.0 | Updated: 2025-01-21 -->
 
 # Code Review Guidelines
 

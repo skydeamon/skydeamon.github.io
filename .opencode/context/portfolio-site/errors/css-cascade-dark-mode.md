@@ -18,7 +18,7 @@ grep -n '\[data-theme=' css/portfolio.css
 # [data-theme="light"], :root must appear BEFORE [data-theme="dark"]
 ```
 
-**Reference**: `.opencode/context/ui/web/ui-styling-standards.md` (specificity & cascade)
+**Reference**: `.opencode/context/ui/web/foundations/specificity.md` (specificity & cascade)
 
 **Related**:
 - `lookup/test-inventory.md` — integration test asserting computed colors change

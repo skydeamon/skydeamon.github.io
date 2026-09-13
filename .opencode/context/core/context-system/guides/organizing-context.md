@@ -1,4 +1,4 @@
-<!-- Context: core/organizing-context | Priority: high | Version: 1.1 | Updated: 2026-02-15 -->
+<!-- Context: core/context-system/guides/organizing-context| Priority: high | Version: 1.1 | Updated: 2026-02-15 -->
 
 # Guide: Organizing Context by Concern
 
@@ -23,7 +23,7 @@
 └── errors/       # Troubleshooting
 ```
 
-**Example**: `openagents-repo/`
+**Example**: `portfolio-site/`
 
 ---
 
@@ -87,14 +87,13 @@ mkdir -p {category}/{subcategory}
 
 ## Pattern Examples
 
-### Function-Based (openagents-repo/)
+### Function-Based (portfolio-site/)
 ```
-openagents-repo/
-├── concepts/agents.md
-├── examples/subagent-example.md
-├── guides/creating-agents.md
-├── lookup/commands.md
-└── errors/tool-errors.md
+portfolio-site/
+├── concepts/test-venv-isolation.md
+├── guides/running-tests.md
+├── lookup/test-inventory.md
+└── errors/css-cascade-dark-mode.md
 ```
 
 ### Concern-Based (development/)
@@ -116,7 +115,8 @@ ui/
 ├── web/
 │   ├── design/
 │   ├── animation/
-│   └── react-patterns.md
+│   └── foundations/
+│       └── react-patterns.md
 └── terminal/
     └── cli-design.md
 ```

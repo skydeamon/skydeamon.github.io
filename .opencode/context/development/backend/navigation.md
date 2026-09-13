@@ -1,4 +1,4 @@
-<!-- Context: development/navigation | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: development/backend/navigation| Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Backend Development Navigation
 
@@ -46,12 +46,12 @@ backend/
 
 Use specialized navigation: `../backend-navigation.md`
 
-Also see: `../principles/api-design.md`
+Also see: `../principles/api-design/overview.md`
 
 ---
 
 ## Related Context
 
 - **Backend Navigation** → `../backend-navigation.md`
-- **API Design Principles** → `../principles/api-design.md`
+- **API Design Principles** → `../principles/api-design/overview.md`
 - **Core Standards** → `../../core/standards/code-quality.md`

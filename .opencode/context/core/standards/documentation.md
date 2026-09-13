@@ -1,4 +1,4 @@
-<!-- Context: standards/docs | Priority: critical | Version: 2.0 | Updated: 2025-01-21 -->
+<!-- Context: core/standards/documentation| Priority: critical | Version: 2.0 | Updated: 2025-01-21 -->
 
 # Documentation Standards
 

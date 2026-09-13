@@ -184,17 +184,4 @@ scrollHint: 800ms ∞×3 [Y±5]
 
 ---
 
-## References
-
-- [Web Animation API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)
-- [CSS Easing Functions](https://easings.net/)
-- [Animation Performance](https://web.dev/animations-guide/)
-- [Reduced Motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
-
----
-
-## Related Files
-
-- [Animation Basics](./animation-basics.md) - Fundamentals
-- [Animation Components](./animation-components.md) - Common UI patterns
-- [Loading Animations](./animation-loading.md) - Loading states
+**Related**: `ui/web/animation-basics.md`, `ui/web/animation-components.md`, `ui/web/animation-loading.md`

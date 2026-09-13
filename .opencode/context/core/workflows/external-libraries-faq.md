@@ -1,4 +1,4 @@
-<!-- Context: workflows/external-libraries-faq | Priority: medium | Version: 1.0 | Updated: 2026-02-05 -->
+<!-- Context: core/workflows/external-libraries-faq| Priority: medium | Version: 1.0 | Updated: 2026-02-05 -->
 # External Libraries: FAQ
 
 **Purpose**: Troubleshooting and common questions about ExternalScout

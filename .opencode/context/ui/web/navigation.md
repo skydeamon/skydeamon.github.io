@@ -1,4 +1,4 @@
-<!-- Context: ui/navigation | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: ui/web/navigation | Priority: critical | Version: 1.1 | Updated: 2026-09-11 -->
 
 # Web UI Context
 
@@ -20,13 +20,27 @@
 | [animation-loading.md](animation-loading.md) | Skeleton, spinner, progress animations | medium |
 | [animation-forms.md](animation-forms.md) | Form input and validation animations | medium |
 | [animation-advanced.md](animation-advanced.md) | Recipes, best practices, accessibility | medium |
-| [ui-styling-standards.md](ui-styling-standards.md) | CSS frameworks, Tailwind patterns, styling best practices | high |
-| [react-patterns.md](react-patterns.md) | Modern React patterns, hooks, component design | high |
-| [design-systems.md](design-systems.md) | Design system principles and component libraries | medium |
-| [images-guide.md](images-guide.md) | Placeholder and responsive images | medium |
-| [icons-guide.md](icons-guide.md) | Icon systems (Lucide, Heroicons, FA) | medium |
-| [fonts-guide.md](fonts-guide.md) | Font loading and optimization | medium |
-| [cdn-resources.md](cdn-resources.md) | CDN libraries and resources | medium |
+
+### Foundations (split from ui-styling-standards, design-systems, react-patterns)
+
+| File | Description | Priority |
+|------|-------------|----------|
+| [foundations/overview.md](foundations/overview.md) | Styling + design system + React patterns overview | high |
+| [foundations/css-framework.md](foundations/css-framework.md) | CSS frameworks, Tailwind patterns | high |
+| [foundations/responsive.md](foundations/responsive.md) | Responsive design, breakpoints | high |
+| [foundations/color.md](foundations/color.md) | Color usage, dark mode | high |
+| [foundations/specificity.md](foundations/specificity.md) | CSS specificity & cascade | high |
+| [foundations/layout.md](foundations/layout.md) | Layout patterns | high |
+| [foundations/typography.md](foundations/typography.md) | Typography standards | high |
+| [foundations/components.md](foundations/components.md) | Component styling | high |
+| [foundations/accessibility.md](foundations/accessibility.md) | Accessibility standards | high |
+| [foundations/performance.md](foundations/performance.md) | CSS performance | medium |
+| [foundations/design-systems.md](foundations/design-systems.md) | Design system principles | medium |
+| [foundations/react-patterns.md](foundations/react-patterns.md) | Modern React patterns, hooks | high |
+| [foundations/react-components.md](foundations/react-components.md) | React component design | high |
+| [foundations/react-hooks.md](foundations/react-hooks.md) | Custom hooks patterns | high |
+| [foundations/react-state.md](foundations/react-state.md) | State management | high |
+| [foundations/react-performance.md](foundations/react-performance.md) | React performance optimization | medium |
 
 ### Subcategories
 
@@ -39,9 +53,9 @@
 ## Loading Strategy
 
 ### For general web UI work:
-1. Load `ui-styling-standards.md` (CSS frameworks, Tailwind)
-2. Load `react-patterns.md` (component patterns)
-3. Reference `animation-patterns.md` (if animations needed)
+1. Load `foundations/css-framework.md` (CSS frameworks, Tailwind)
+2. Load `foundations/react-patterns.md` (component patterns)
+3. Reference `animation-advanced.md` (if animations needed)
 
 ### For animation work:
 1. Load `animation-basics.md` (fundamentals, timing, easing)
@@ -76,25 +90,10 @@ CSS animations, micro-interactions, and UI transitions split into focused module
 
 **Key topics**: Animation micro-syntax, 60fps performance, reduced motion, chat UI animations, component patterns
 
-### ui-styling-standards.md
-CSS framework usage, Tailwind CSS patterns, responsive design, and styling best practices.
+### foundations/ (ui-styling-standards, design-systems, react-patterns)
+CSS framework usage, Tailwind CSS patterns, responsive design, design system principles, and React component patterns split into focused modules.
 
-**Key topics**: Utility-first CSS, component styling, responsive breakpoints, dark mode
-
-### react-patterns.md
-Modern React patterns including functional components, hooks, state management, and performance optimization.
-
-**Key topics**: Custom hooks, context API, code splitting, memoization
-
-### design-systems.md
-Design system principles, component libraries, and maintaining consistency across applications.
-
-**Key topics**: Design tokens, component APIs, documentation, versioning
-
-### images-guide.md, icons-guide.md, fonts-guide.md, cdn-resources.md
-Managing design assets in web applications - split into focused guides.
-
-**Key topics**: Placeholder images, icon libraries (Lucide, Heroicons), web fonts, CDN resources
+**Key topics**: Utility-first CSS, component styling, responsive breakpoints, dark mode, design tokens, custom hooks, memoization
 
 ---
 
@@ -102,7 +101,6 @@ Managing design assets in web applications - split into focused guides.
 
 - `ui/terminal/` - Terminal UI patterns
 - `development/` - General development patterns
-- `product/` - Product design and UX strategy
 
 ---
 
@@ -113,6 +111,7 @@ Managing design assets in web applications - split into focused guides.
 ---
 
 ## Statistics
-- Core files: 8
+- Core files: 6 (animation)
+- Foundations: 16 files
 - Subcategories: 1 (design/)
-- **Total context files**: 8 + design subcategory
+- **Total context files**: 6 + 16 + design subcategory

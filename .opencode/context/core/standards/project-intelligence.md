@@ -1,4 +1,4 @@
-<!-- Context: standards/intelligence | Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
+<!-- Context: core/standards/project-intelligence| Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
 
 # Project Intelligence
 

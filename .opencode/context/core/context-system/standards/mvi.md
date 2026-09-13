@@ -1,4 +1,4 @@
-<!-- Context: core/mvi | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/context-system/standards/mvi| Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
 
 # MVI Principle (Minimal Viable Information)
 

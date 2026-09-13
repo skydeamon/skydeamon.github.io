@@ -1,4 +1,4 @@
-<!-- Context: core/task-commands | Priority: high | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/task-management/lookup/task-commands| Priority: high | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Lookup: Task CLI Commands
 
@@ -178,27 +178,4 @@ All enhanced fields are optional and backward compatible. See `../standards/enha
 
 ---
 
-## Planning Workflow Integration
-
-For multi-stage orchestration workflows, use these planning agents before task creation:
-
-| Agent | Purpose | Output |
-|-------|---------|--------|
-| **ArchitectureAnalyzer** | DDD bounded context identification | `.tmp/architecture/contexts.json` |
-| **StoryMapper** | User journey and story mapping | `.tmp/story-maps/map.json` |
-| **PrioritizationEngine** | RICE/WSJF scoring | `.tmp/backlog/prioritized.json` |
-| **ContractManager** | API contract definition | `.tmp/contracts/{service}.json` |
-| **ADRManager** | Architecture decision records | `docs/adr/` |
-
-These agents populate enhanced schema fields (bounded_context, contracts, related_adrs, rice_score, etc.) automatically.
-
-See `.opencode/context/core/workflows/multi-stage-orchestration.md` for the complete workflow.
-
----
-
-## Related
-
-- `../standards/task-schema.md` - Base JSON schema reference
-- `../standards/enhanced-task-schema.md` - Extended schema with advanced features
-- `../guides/managing-tasks.md` - Workflow guide
-- `../workflows/multi-stage-orchestration.md` - Planning workflow
+**Related**: `../standards/task-schema.md`, `../standards/enhanced-task-schema.md`

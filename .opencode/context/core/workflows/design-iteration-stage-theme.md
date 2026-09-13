@@ -1,4 +1,4 @@
-<!-- Context: workflows/design-iteration-stage-theme | Priority: high | Version: 1.0 | Updated: 2025-12-09 -->
+<!-- Context: core/workflows/design-iteration-stage-theme| Priority: high | Version: 1.0 | Updated: 2025-12-09 -->
 # Stage 2: Theme Design
 
 **Purpose**: Define colors, typography, spacing, and visual style
@@ -80,5 +80,5 @@ Key Design Decisions:
 - [Overview](./design-iteration-overview.md)
 - [Stage 1: Layout](./design-iteration-stage-layout.md)
 - [Stage 3: Animation](./design-iteration-stage-animation.md)
-- [Design Systems Context](../../ui/web/design-systems.md)
-- [UI Styling Standards](../../ui/web/ui-styling-standards.md)
+- [Design Systems Context](../../ui/web/foundations/design-systems.md)
+- [UI Styling Standards](../../ui/web/foundations/css-framework.md)

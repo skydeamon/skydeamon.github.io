@@ -1,4 +1,4 @@
-<!-- Context: workflows/design-iteration-stage-animation | Priority: high | Version: 1.0 | Updated: 2025-12-09 -->
+<!-- Context: core/workflows/design-iteration-stage-animation| Priority: high | Version: 1.0 | Updated: 2025-12-09 -->
 # Stage 3: Animation Design
 
 **Purpose**: Define micro-interactions and transitions

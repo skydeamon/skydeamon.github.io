@@ -1,4 +1,4 @@
-<!-- Context: workflows/design-iteration-plan-file | Priority: high | Version: 1.0 | Updated: 2025-12-09 -->
+<!-- Context: core/workflows/design-iteration-plan-file| Priority: high | Version: 1.0 | Updated: 2025-12-09 -->
 # Design Plan File (MANDATORY)
 
 **CRITICAL**: Before starting any design work, create a persistent design plan file.

@@ -1,4 +1,4 @@
-<!-- Context: core/task-schema | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: core/task-management/standards/task-schema| Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Standard: Task JSON Schema
 
@@ -193,9 +193,4 @@ Both formats work. Agents handle both automatically.
 
 ---
 
-## Related
-
-- `enhanced-task-schema.md` - Extended schema with advanced features
-- `../guides/splitting-tasks.md` - How to decompose features
-- `../guides/managing-tasks.md` - Lifecycle workflow
-- `../lookup/task-commands.md` - CLI reference
+**Related**: `enhanced-task-schema.md`, `../lookup/task-commands.md`

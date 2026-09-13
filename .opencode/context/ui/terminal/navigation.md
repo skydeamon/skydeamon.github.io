@@ -1,4 +1,4 @@
-<!-- Context: ui/navigation | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: ui/terminal/navigation| Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Terminal UI Context
 

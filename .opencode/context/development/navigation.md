@@ -18,22 +18,19 @@ development/
 ├── principles/                # Universal (language-agnostic)
 │   ├── navigation.md
 │   ├── clean-code.md
-│   └── api-design.md
+│   └── api-design/             # overview, rest, graphql, versioning, auth
 │
 ├── frameworks/                # Full-stack frameworks
 │   ├── navigation.md
-│   └── tanstack-start/
+│   └── tanstack-start/        # (future)
 │
 ├── ai/                        # AI & Agents
 │   ├── navigation.md
-│   └── mastra-ai/
+│   └── mastra-ai/             # concepts/guides/lookup/errors
 │
 ├── frontend/                  # Client-side
 │   ├── navigation.md
-│   ├── when-to-delegate.md    # When to use frontend-specialist
-│   └── react/
-│       ├── navigation.md
-│       └── react-patterns.md
+│   └── when-to-delegate.md    # When to use frontend-specialist
 │
 ├── backend/                   # Server-side (future)
 │   ├── navigation.md
@@ -71,7 +68,7 @@ development/
 | **Backend/API** | `backend-navigation.md` |
 | **Full-stack** | `fullstack-navigation.md` |
 | **Clean code** | `principles/clean-code.md` |
-| **API design** | `principles/api-design.md` |
+| **API design** | `principles/api-design/overview.md` |
 
 ---
 

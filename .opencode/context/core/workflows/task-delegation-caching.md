@@ -1,4 +1,4 @@
-<!-- Context: workflows/delegation-caching | Priority: medium | Version: 1.0 | Updated: 2026-02-05 -->
+<!-- Context: core/workflows/task-delegation-caching| Priority: medium | Version: 1.0 | Updated: 2026-02-05 -->
 # Context Caching for Delegation
 
 **Purpose**: Cache discovered context to avoid re-discovery overhead in repeated tasks

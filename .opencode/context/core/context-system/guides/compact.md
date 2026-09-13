@@ -1,4 +1,4 @@
-<!-- Context: core/compact | Priority: high | Version: 1.1 | Updated: 2026-02-15 -->
+<!-- Context: core/context-system/guides/compact| Priority: high | Version: 1.1 | Updated: 2026-02-15 -->
 
 # Context Compaction (Minimization)
 

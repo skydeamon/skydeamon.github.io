@@ -1,4 +1,4 @@
-<!-- Context: core/navigation | Priority: critical | Version: 1.1 | Updated: 2026-09-11 -->
+<!-- Context: navigation | Priority: critical | Version: 1.1 | Updated: 2026-09-11 -->
 
 # Context Navigation
 
@@ -14,7 +14,6 @@
 ├── development/            # Software development (all stacks)
 ├── ui/                     # Visual design & UX
 ├── data/                   # Data engineering & analytics
-├── project/                # Project-specific
 ├── project-intelligence/   # Tech stack & patterns
 └── portfolio-site/         # This repo's site + test pyramid
 ```
@@ -43,6 +42,5 @@
 **development/** - All development → `development/navigation.md`
 **ui/** - Design & UX → `ui/navigation.md`
 **data/** - Data engineering → `data/navigation.md`
-**project/** - Project-specific → `project/navigation.md`
 **project-intelligence/** - Tech stack & patterns → `project-intelligence/navigation.md`
 **portfolio-site/** - This repo's site + tests → `portfolio-site/navigation.md`

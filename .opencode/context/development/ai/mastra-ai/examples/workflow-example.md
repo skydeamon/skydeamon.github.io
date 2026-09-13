@@ -1,4 +1,4 @@
-<!-- Context: development/workflow-example | Priority: high | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: development/ai/mastra-ai/examples/workflow-example| Priority: high | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Example: Document Ingestion Workflow
 

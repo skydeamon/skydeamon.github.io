@@ -1,4 +1,4 @@
-<!-- Context: workflows/delegation-specialists | Priority: high | Version: 1.0 | Updated: 2026-02-05 -->
+<!-- Context: core/workflows/task-delegation-specialists| Priority: high | Version: 1.0 | Updated: 2026-02-05 -->
 # When to Delegate to Specialists
 
 **Purpose**: Guidance on when to delegate to specific specialist agents

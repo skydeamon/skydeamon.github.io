@@ -1,4 +1,4 @@
-<!-- Context: development/navigation | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: development/integration/navigation| Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Integration Navigation
 
@@ -35,4 +35,4 @@ integration/
 ## Related Context
 
 - **Backend Navigation** → `../backend-navigation.md`
-- **API Design** → `../principles/api-design.md`
+- **API Design** → `../principles/api-design/overview.md`

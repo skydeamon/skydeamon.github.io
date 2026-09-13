@@ -1,4 +1,4 @@
-<!-- Context: development/clean-code | Priority: low | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: development/principles/clean-code| Priority: low | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Clean Code Principles
 

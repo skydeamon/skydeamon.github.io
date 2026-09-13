@@ -1,5 +1,4 @@
-<!-- Context: core/migrate | Priority: medium | Version: 1.0 | Updated: 2026-02-15 -->
-
+<!-- Context: core/context-system/operations/migrate| Priority: medium | Version: 1.0 | Updated: 2026-02-15 -->
 # Context Migrate Operation
 
 **Purpose**: Copy context files from global (`~/.config/opencode/context/`) to local (`.opencode/context/`) so they're project-specific and git-committed.
@@ -197,27 +196,4 @@ Choose [1/2] (default: 1): _
 
 ---
 
-## Error Handling
-
-**Permission denied:**
-```
-Error: Cannot write to .opencode/context/project-intelligence/
-Check directory permissions and try again.
-```
-
-**Global path not found:**
-```
-No global OpenCode config found at ~/.config/opencode/
-
-If you installed to a custom location, set OPENCODE_INSTALL_DIR:
-  export OPENCODE_INSTALL_DIR=/your/custom/path
-  /context migrate
-```
-
----
-
-## Related
-
-- `/add-context` — Create new project intelligence (interactive wizard)
-- `/context harvest` — Extract knowledge from summaries
-- Context path resolution: `.opencode/context/core/system/context-paths.md`
+**Related**: `core/context-system/operations/harvest.md`

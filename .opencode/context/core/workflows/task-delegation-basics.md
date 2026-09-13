@@ -1,4 +1,4 @@
-<!-- Context: workflows/delegation | Priority: high | Version: 3.1 | Updated: 2026-02-05 -->
+<!-- Context: core/workflows/task-delegation-basics| Priority: high | Version: 3.1 | Updated: 2026-02-05 -->
 # Delegation Context Template
 
 ## Quick Reference

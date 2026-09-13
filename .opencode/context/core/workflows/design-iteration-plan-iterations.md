@@ -1,4 +1,4 @@
-<!-- Context: workflows/design-iteration-plan-iterations | Priority: high | Version: 1.0 | Updated: 2025-12-09 -->
+<!-- Context: core/workflows/design-iteration-plan-iterations| Priority: high | Version: 1.0 | Updated: 2025-12-09 -->
 # Handling Plan File Edits and Iterations
 
 ## User Edits Plan File Directly

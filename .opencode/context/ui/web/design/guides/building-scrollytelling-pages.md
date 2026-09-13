@@ -1,16 +1,8 @@
-<!-- Context: ui/building-scrollytelling-pages | Priority: high | Version: 1.0 | Updated: 2026-02-15 -->
-
----
-description: "Step-by-step implementation of scroll-linked image sequence animations"
----
+<!-- Context: ui/web/design/guides/building-scrollytelling-pages| Priority: high | Version: 1.0 | Updated: 2026-09-11 -->
 
 # Guide: Building Scrollytelling Pages
 
-**Purpose**: Step-by-step implementation of scroll-linked image sequence animations
-
-**Last Updated**: 2026-01-07
-
----
+**Purpose**: Step-by-step implementation of scroll-linked image sequence animations.
 
 ## Prerequisites
 
@@ -19,40 +11,21 @@ description: "Step-by-step implementation of scroll-linked image sequence animat
 - Tailwind CSS configured
 - Image sequence ready (60-240 WebP frames)
 
----
+## Steps
 
-## Step 1: Generate Image Sequences
+### 1. Generate Image Sequences
+Create start/end frames with AI tools, then interpolate with video tools (Runway, Pika).
 
-Use nano banana or AI image tools to create start/end frames, then generate interpolation:
+**Start frame prompt**: "Ultra-premium product photography of [product] on matte black surface, minimalistic studio shoot, deep black background with subtle gradient, soft rim lighting, cinematic, high contrast, luxury aesthetic, sharp focus, no clutter, DSLR 85mm f/1.8, photorealistic"
 
-**Start frame prompt**:
-```
-Ultra-premium product photography of [product] on matte black surface,
-minimalistic studio shoot, deep black background with subtle gradient,
-soft rim lighting, cinematic, high contrast, luxury aesthetic, sharp focus,
-no clutter, DSLR 85mm f/1.8, photorealistic
-```
+**End frame prompt**: "Exploded technical diagram of same [product], every component separated and floating in alignment, against deep black studio background, visible internal structure, hyper-realistic, studio rim lighting, cinematic, high contrast, no labels, photorealistic"
 
-**End frame prompt**:
-```
-Exploded technical diagram of same [product], every component separated
-and floating in alignment, against deep black studio background, visible
-internal structure, hyper-realistic, studio rim lighting, cinematic,
-high contrast, no labels, photorealistic
-```
-
-**Generate video**: Use AI video tools (Runway, Pika) to interpolate between frames.
-
-**Export frames**: Use ffmpeg or ezgif to split video into 120+ WebP images.
-
+**Export frames**:
 ```bash
 ffmpeg -i animation.mp4 -vf fps=30 frame_%04d.webp
 ```
 
----
-
-## Step 2: Project Structure
-
+### 2. Project Structure
 ```
 app/
 ├── page.tsx                    # Main landing page
@@ -62,19 +35,11 @@ app/
 public/
 └── frames/
     ├── frame_0001.webp        # 120+ frames
-    ├── frame_0002.webp
     └── ...
 ```
 
----
-
-## Step 3: Setup globals.css
-
+### 3. Setup globals.css
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   body {
     @apply bg-[#050505] text-white antialiased;
@@ -83,136 +48,61 @@ public/
 }
 ```
 
----
+### 4. Create Scroll Component
+**Key patterns**: container with `h-[400vh]` for long scroll; canvas with `sticky top-0` stays fixed; `useScroll` tracks progress (0-1); `useTransform` maps progress to frame index; `useEffect` preloads all images.
 
-## Step 4: Create Scroll Component
-
-**Key patterns**:
-- Container with `h-[400vh]` for long scroll
-- Canvas with `sticky top-0` stays fixed
-- `useScroll` tracks scroll progress (0-1)
-- `useTransform` maps progress to frame index
-- `useEffect` preloads all images
-
-**Core logic**:
 ```tsx
 const { scrollYProgress } = useScroll({ target: containerRef })
 const frameIndex = useTransform(scrollYProgress, [0, 1], [0, 119])
 ```
 
----
-
-## Step 5: Implement Preloader
-
+### 5. Implement Preloader
 Always preload images before starting animation:
-
 ```tsx
 useEffect(() => {
-  const loadImages = async () => {
-    const promises = Array.from({ length: 120 }, (_, i) => {
-      return new Promise((resolve) => {
-        const img = new Image()
-        img.src = `/frames/frame_${String(i + 1).padStart(4, '0')}.webp`
-        img.onload = () => resolve(img)
-      })
+  const promises = Array.from({ length: 120 }, (_, i) => {
+    return new Promise((resolve) => {
+      const img = new Image()
+      img.src = `/frames/frame_${String(i + 1).padStart(4, '0')}.webp`
+      img.onload = () => resolve(img)
     })
-    
-    const loaded = await Promise.all(promises)
-    setImages(loaded)
-    setLoading(false)
-  }
-  
-  loadImages()
+  })
+  Promise.all(promises).then(setImages).then(() => setLoading(false))
 }, [])
 ```
 
----
-
-## Step 6: Canvas Rendering
-
+### 6. Canvas Rendering
 Draw current frame to canvas on every scroll update:
-
 ```tsx
 useEffect(() => {
   if (!canvasRef.current || !images.length) return
-  
   const canvas = canvasRef.current
   const ctx = canvas.getContext('2d')
-  const img = images[Math.round(currentFrame)]
-  
-  // Scale canvas to window
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
-  
-  // Draw centered
-  ctx.drawImage(img, 
-    (canvas.width - img.width) / 2, 
-    (canvas.height - img.height) / 2
-  )
+  ctx.drawImage(images[Math.round(currentFrame)],
+    (canvas.width - img.width) / 2,
+    (canvas.height - img.height) / 2)
 }, [currentFrame, images])
 ```
 
----
-
-## Step 7: Add Text Overlays
-
+### 7. Add Text Overlays
 Fade text in/out at specific scroll positions:
-
 ```tsx
 <motion.div
-  style={{
-    opacity: useTransform(scrollYProgress, 
-      [0.25, 0.30, 0.35], // Fade in 25-30%, out 35%
-      [0, 1, 0]
-    )
-  }}
+  style={{ opacity: useTransform(scrollYProgress, [0.25, 0.30, 0.35], [0, 1, 0]) }}
   className="absolute left-20 text-4xl font-bold"
->
-  Precision Engineering.
-</motion.div>
+>Precision Engineering.</motion.div>
 ```
 
----
+### 8. Match Backgrounds
+**CRITICAL**: Page background MUST match image background exactly. Use eyedropper tool on first frame, set exact hex in globals.css. Test: image edges should be invisible.
 
-## Step 8: Match Backgrounds
+### 9. Optimize Performance
+Add `style={{ willChange: 'transform' }}` to canvas; throttle redraws with `requestAnimationFrame` on mobile.
 
-**CRITICAL**: Page background MUST match image background exactly.
-
-1. Open first frame in image editor
-2. Use eyedropper tool on background (e.g., `#050505`)
-3. Set page background to exact same color in globals.css
-4. Test: Image edges should be invisible
-
----
-
-## Step 9: Optimize Performance
-
-```tsx
-// Add GPU hint
-<canvas 
-  ref={canvasRef}
-  className="sticky top-0 h-screen w-full"
-  style={{ willChange: 'transform' }}
-/>
-
-// Throttle redraws on mobile
-useEffect(() => {
-  let rafId
-  const render = () => {
-    // Draw logic here
-    rafId = requestAnimationFrame(render)
-  }
-  render()
-  return () => cancelAnimationFrame(rafId)
-}, [])
-```
-
----
-
-## Step 10: Add Loading State
-
+### 10. Add Loading State
 Show spinner while frames load:
-
 ```tsx
 {loading && (
   <div className="fixed inset-0 flex items-center justify-center bg-[#050505]">
@@ -221,31 +111,14 @@ Show spinner while frames load:
 )}
 ```
 
----
-
 ## Common Issues & Fixes
 
-### Images not loading
-- Check file paths match exactly (case-sensitive)
-- Verify all frames exist in `/public/frames/`
-- Open browser console for 404 errors
-
-### Stuttering animation
-- Ensure all images preloaded before starting
-- Use WebP (not PNG/JPEG)
-- Check canvas size isn't too large
-
-### Visible image edges
-- Background colors don't match exactly
-- Use eyedropper tool, not guessing
-- Check for gradients in image background
-
-### Mobile performance
-- Reduce frame count (use every 2nd frame)
-- Debounce with requestAnimationFrame
-- Consider disabling on small screens
-
----
+| Issue | Fix |
+|-------|-----|
+| Images not loading | Check file paths match exactly; verify frames exist; check console for 404s |
+| Stuttering animation | Ensure preload complete; use WebP; check canvas size |
+| Visible image edges | Background colors don't match exactly; use eyedropper not guessing |
+| Mobile performance | Reduce frame count; debounce with rAF; consider disabling on small screens |
 
 ## Testing Checklist
 
@@ -257,17 +130,4 @@ Show spinner while frames load:
 - [ ] Works on mobile (or gracefully disabled)
 - [ ] No console errors
 
----
-
-## Related
-
-- concepts/scroll-linked-animations.md - Understanding the technique
-- examples/headphone-scrollytelling.md - Full code example
-- lookup/animation-image-prompts.md - Prompts for frame generation
-
----
-
-## References
-
-- [Next.js Image Optimization](https://nextjs.org/docs/app/building-your-application/optimizing/images)
-- [Framer Motion useScroll](https://www.framer.com/motion/use-scroll/)
+**Related**: `ui/web/design/examples/scrollytelling-headphone.md`, `ui/web/design/lookup/scroll-animation-prompts.md`

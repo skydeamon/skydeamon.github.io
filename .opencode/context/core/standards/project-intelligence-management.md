@@ -1,10 +1,8 @@
-<!-- Context: standards/intelligence-mgmt | Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
+<!-- Context: core/standards/project-intelligence-management| Priority: high | Version: 1.0 | Updated: 2026-09-11 -->
 
 # Project Intelligence Management
 
-> **What**: How to manage project intelligence files and folders.
-> **When**: Use this guide when adding, updating, or removing intelligence files.
-> **Related**: See `project-intelligence.md` for what and why.
+**Purpose**: How to manage project intelligence files and folders.
 
 ## Quick Reference
 
@@ -15,38 +13,17 @@
 | Add subfolder | Create folder + `navigation.md` + update parent nav |
 | Remove file | Rename `.deprecated.md` + archive, don't delete |
 
----
-
 ## Update Existing Files
 
-**When**:
-- Business changes → Update `business-domain.md`
-- New decision → Add to `decisions-log.md`
-- New issues → Update `living-notes.md`
-- Feature launch → Update `business-tech-bridge.md`
-- Stack changes → Update `technical-domain.md`
+**When**: Business changes → `business-domain.md`; new decision → `decisions-log.md`; new issues → `living-notes.md`; feature launch → `business-tech-bridge.md`; stack changes → `technical-domain.md`.
 
-**Process**:
-1. Edit the file
-2. Update frontmatter:
-   ```html
-   <!-- Context: {category} | Priority: {level} | Version: {X.Y} | Updated: {YYYY-MM-DD} -->
-   ```
-3. Keep under 200 lines
-4. Commit with message like: `docs: Update business-domain.md with new market focus`
-
----
+**Process**: Edit file → update frontmatter (`<!-- Context: {category} | Priority: {level} | Version: {X.Y} | Updated: {YYYY-MM-DD} -->`) → keep <200 lines → commit.
 
 ## Add New Files
 
-**When**:
-- New domain area needs dedicated docs
-- Existing file exceeds 200 lines
-- Specialized context requires separation
+**When**: New domain area needs dedicated docs; existing file exceeds 200 lines; specialized context requires separation.
 
-**Naming**:
-- Kebab-case: `user-research.md`, `api-docs.md`
-- Descriptive: filename tells you what's inside
+**Naming**: Kebab-case, descriptive (`user-research.md`, `api-docs.md`).
 
 **Template**:
 ```html
@@ -57,102 +34,43 @@
 > One-line purpose statement
 
 ## Quick Reference
-
 - **Purpose**: [What this covers]
 - **Update When**: [Triggers]
 - **Related Files**: [Links]
 
 ## Content
-
 [Follow patterns from existing files]
 
 ## Related Files
-
 - [File 1] - [Description]
 ```
 
-**Process**:
-1. Create file in `project-intelligence/`
-2. Add frontmatter with `project-intelligence/{filename}`
-3. Follow existing file patterns
-4. Keep under 200 lines
-5. Add to `navigation.md`
-
----
+**Process**: Create file → add frontmatter → follow existing patterns → keep <200 lines → add to `navigation.md`.
 
 ## Create Subfolders
 
-**When**:
-- 5+ related files need grouping
-- Subdomain warrants separation (e.g., `api/`, `mobile/`, `integrations/`)
-- Improves navigation clarity
+**When**: 5+ related files need grouping; subdomain warrants separation; improves navigation clarity.
 
 **Structure**:
 ```
 project-intelligence/
 ├── navigation.md           # Root nav
-├── [new-subfolder]/        # Create this
+├── [new-subfolder]/
 │   ├── navigation.md       # Subfolder nav required
 │   ├── file-1.md
 │   └── file-2.md
 ```
 
-**Process**:
-1. Create folder: `mkdir project-intelligence/{name}/`
-2. Create `navigation.md` inside:
-   ```html
-   <!-- Context: project-intelligence/{name}/nav | Priority: medium | Version: 1.0 | Updated: {YYYY-MM-DD} -->
-   
-   # {Name} Navigation
-   
-   > Quick overview
-   
-   ## Files
-   
-   | File | Purpose |
-   |------|---------|
-   | `file-1.md` | [Desc] |
-   ```
-3. Add content files
-4. Update root `navigation.md` with subfolder entry
-
-**Rule**: Every subfolder MUST have `navigation.md`. Avoid nesting deeper than 2 levels (e.g., `project-intelligence/domain/subdomain/`) to prevent context fragmentation.
-
----
+**Rule**: Every subfolder MUST have `navigation.md`. Avoid nesting deeper than 2 levels to prevent context fragmentation.
 
 ## Remove/Deprecate Files
 
-**When**:
-- Content moved elsewhere
-- File no longer relevant
-- Merged with another file
+**Process**: Rename `filename.md` → `filename.deprecated.md` → add frontmatter (`<!-- DEPRECATED: {date} - {Reason} -->`, `<!-- REPLACED BY: {new-file.md} -->`) → add banner (`> ⚠️ **DEPRECATED**: See `new-file.md``) → mark deprecated in `navigation.md`.
 
-**Process**:
-1. Rename: `filename.md` → `filename.deprecated.md`
-2. Add frontmatter:
-   ```html
-   <!-- DEPRECATED: {YYYY-MM-DD} - {Reason} -->
-   <!-- REPLACED BY: {new-file.md} -->
-   ```
-3. Add banner at top:
-   > ⚠️ **DEPRECATED**: See `new-file.md` for current info
-4. Mark as deprecated in `navigation.md`
-
-**Never Delete**:
-- Decision history (archive instead)
-- Lessons learned (move to `living-notes.md`)
-- Context that might be needed later
-
----
+**Never Delete**: Decision history, lessons learned, context that might be needed later.
 
 ## Version Tracking
 
-**Frontmatter**:
-```html
-<!-- Context: {category} | Priority: {level} | Version: {MAJOR.MINOR} | Updated: {YYYY-MM-DD} -->
-```
-
-**Version Rules**:
 | Change | Version |
 |--------|---------|
 | New file | 1.0 |
@@ -162,88 +80,16 @@ project-intelligence/
 
 **Date**: Always `YYYY-MM-DD`
 
----
-
 ## Quality Standards
 
-**Line Limits**:
-- Files: <200 lines
-- Sections: 3-7 per file
+- Files <200 lines; sections 3-7 per file
+- Required: frontmatter, Quick Reference, Related files sections
 
-**Required Elements**:
-- Frontmatter with all fields
-- Quick Reference section
-- Related files section
-
-**Anti-Patterns**:
-❌ Mix concerns in one file
-❌ Exceed 200 lines
-❌ Delete files (archive instead)
-❌ Skip frontmatter
-❌ Duplicate information
-
-✅ Keep focused and scannable
-✅ Archive deprecated content
-✅ Use frontmatter consistently
-✅ Link to related files
-
----
+**Anti-Patterns**: ❌ mix concerns ❌ exceed 200 lines ❌ delete files (archive instead) ❌ skip frontmatter ❌ duplicate info
 
 ## Governance
 
-**Ownership**:
-| Area | Owner | Responsibility |
-|------|-------|----------------|
-| Business domain | Product Owner | Keep current, accurate |
-| Technical domain | Tech Lead | Keep current, accurate |
-| Decisions log | Tech Lead | Document decisions |
-| Living notes | Team | Keep active items current |
+- **Ownership**: Business domain → Product Owner; Technical domain → Tech Lead; Decisions log → Tech Lead; Living notes → Team
+- **Review cadence**: Quick review per PR; full review quarterly; archive review semi-annually
 
-**Review Cadence**:
-| Activity | Frequency |
-|----------|-----------|
-| Quick review | Per PR |
-| Full review | Quarterly |
-| Archive review | Semi-annually |
-
----
-
-## Checklist
-
-### Add New Intelligence File
-- [ ] Follow naming convention
-- [ ] Add complete frontmatter
-- [ ] Include Quick Reference
-- [ ] Keep under 200 lines
-- [ ] Add to navigation.md
-- [ ] Link from related files
-- [ ] Version: 1.0
-
-### Update Existing File
-- [ ] Make targeted changes
-- [ ] Update version/date in frontmatter
-- [ ] Verify <200 lines
-- [ ] Update navigation if needed
-- [ ] Update related files
-
-### Create Subfolder
-- [ ] Verify warranted (5+ files)
-- [ ] Create folder with kebab-case name
-- [ ] Create `navigation.md` inside
-- [ ] Add subfolder to parent navigation
-- [ ] Create content files
-
-### Deprecate File
-- [ ] Rename with `.deprecated.md`
-- [ ] Add deprecation frontmatter
-- [ ] Add deprecation banner
-- [ ] Mark deprecated in navigation
-- [ ] Document replacement
-
----
-
-## Related Files
-
-- **Standard**: `project-intelligence.md`
-- **Project Intelligence**: `../../project-intelligence/navigation.md`
-- **Context System**: `../context-system.md`
+**Related**: `core/context-system.md`, `core/standards/project-intelligence.md`

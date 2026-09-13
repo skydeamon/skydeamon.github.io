@@ -174,17 +174,6 @@ describe('Component', () => {
 
 ---
 
-## Language-Specific Implementations
-
-These patterns are language-agnostic. For language-specific implementations:
-
-**TypeScript/JavaScript**: See project context for Next.js, React, Node.js patterns
-**Python**: See project context for FastAPI, Django patterns
-**Go**: See project context for Go-specific patterns
-**Rust**: See project context for Rust-specific patterns
-
----
-
 ## Quick Checklist
 
 Before committing code, verify:
@@ -199,12 +188,4 @@ Before committing code, verify:
 
 ---
 
-## Additional Resources
 
-For more detailed guidelines, see:
-- `standards/code-quality.md` - Comprehensive code standards
-- `standards/security-patterns.md` - Detailed pattern catalog
-- `standards/test-coverage.md` - Testing best practices
-- `standards/documentation.md` - Documentation guidelines
-- `standards/code-analysis.md` - Code analysis framework
-- `workflows/code-review.md` - Code review process

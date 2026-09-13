@@ -1,4 +1,4 @@
-<!-- Context: ui/scroll-linked-animations | Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: ui/web/design/concepts/scroll-linked-animations| Priority: critical | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Concept: Scroll-Linked Animations
 

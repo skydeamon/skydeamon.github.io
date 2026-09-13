@@ -1,4 +1,4 @@
-<!-- Context: project-intelligence/decisions | Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
+<!-- Context: project-intelligence/decisions-log| Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
 
 # Decisions Log
 

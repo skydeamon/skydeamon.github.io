@@ -1,4 +1,4 @@
-<!-- Context: development/navigation | Priority: low | Version: 1.0 | Updated: 2026-02-15 -->
+<!-- Context: development/fullstack-navigation| Priority: low | Version: 1.0 | Updated: 2026-02-15 -->
 
 # Full-Stack Development Navigation
 
@@ -18,7 +18,7 @@ API:      development/backend/api-patterns/rest-design.md [future]
 
 ### T3 Stack (Next.js, tRPC, Prisma, Tailwind)
 ```
-Frontend: development/frontend/react/ + ui/web/ui-styling-standards.md [future]
+Frontend: development/frontend/react/ + ui/web/foundations/css-framework.md [future]
 Backend:  development/backend/nodejs/ + api-patterns/trpc-patterns.md [future]
 Data:     development/data/orm-patterns/prisma.md [future]
 ```
@@ -48,14 +48,14 @@ API:      development/backend/api-patterns/rest-design.md [future]
 ## Common Workflows
 
 **New API endpoint**:
-1. `principles/api-design.md` (principles)
+1. `principles/api-design/overview.md` (principles)
 2. `backend/api-patterns/rest-design.md` (approach) [future]
 3. `backend/nodejs/express-patterns.md` (implementation) [future]
 
 **New React feature**:
 1. `frontend/react/component-architecture.md` (structure) [future]
 2. `frontend/react/hooks-patterns.md` (logic) [future]
-3. `ui/web/ui-styling-standards.md` (styling)
+3. `ui/web/foundations/css-framework.md` (styling)
 
 **Database integration**:
 1. `data/sql-patterns/` or `data/nosql-patterns/` (approach) [future]
@@ -71,5 +71,5 @@ API:      development/backend/api-patterns/rest-design.md [future]
 ## Related Context
 
 - **Clean Code** → `principles/clean-code.md`
-- **API Design** → `principles/api-design.md`
+- **API Design** → `principles/api-design/overview.md`
 - **Core Standards** → `../core/standards/navigation.md`
