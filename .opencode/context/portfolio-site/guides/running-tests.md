@@ -1,4 +1,4 @@
-<!-- Context: portfolio-site/guides/running-tests | Priority: high | Version: 1.0 | Updated: 2026-09-11 -->
+<!-- Context: portfolio-site/guides/running-tests | Priority: high | Version: 1.1 | Updated: 2026-09-13 -->
 
 # Guide: Running the Test Pyramid
 
@@ -7,8 +7,8 @@
 **Steps**:
 1. **Provision venvs** (once, idempotent): `npm run venv:setup`
    - If Linux headless libs missing: `sudo npx --prefix testenv/integration playwright install-deps chromium`
-2. **Static + unit** (no browser): `npm test` → 31 tests (20 static contract + 11 unit)
-3. **Integration** (local server, auto-started): `npm run test:integration` → 42 tests
+2. **Static + unit** (no browser): `npm test` → 85 tests (51 static contract + 34 unit)
+3. **Integration** (local server, auto-started): `npm run test:integration` → 48 tests
 4. **E2E** (local server): `npm run test:e2e` → 4 journeys
 5. **Deployed** (after push): wait for GitHub Pages rebuild, then:
    - `npm run test:e2e:deployed` (same journeys vs live site)
