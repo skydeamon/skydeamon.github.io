@@ -361,7 +361,7 @@
         '<strong>Familiarity (self-study):</strong> IEC 62304/ISO 13485 expectations around software lifecycle, documentation, and verification/validation workflows',
       ],
       technicalStack: [
-        { label: 'Languages', value: 'Python, SQL, PySpark; Java (basic); TypeScript (6 months)' },
+        { label: 'Languages', value: 'Python, SQL, PySpark; Java (basic); TypeScript (15 months)' },
         { label: 'Frameworks', value: 'FastAPI, Django, LangChain/LangGraph (working knowledge), LlamaIndex (working knowledge)' },
         { label: 'Data & Compute', value: 'AWS EMR/Glue, S3, Athena, Redshift; Apache Kafka; Airflow; dbt (Athena + Glue Catalog)' },
         { label: 'Lakehouse', value: 'Parquet, Iceberg; Trino/Athena; medallion architecture; dimensional modeling (facts/dims, SCD Type 2)' },

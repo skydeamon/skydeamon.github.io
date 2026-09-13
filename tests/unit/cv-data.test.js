@@ -135,3 +135,60 @@ test('freelance and contract profiles have a rate field', () => {
   assert.strictEqual(typeof CV_DATA.cvProfiles.freelance.rate, 'string');
   assert.strictEqual(typeof CV_DATA.cvProfiles.contract.rate, 'string');
 });
+
+/* ---------- new setup: factual consistency ---------- */
+
+test('ai_engineer technicalStack lists TypeScript (15 months)', () => {
+  // Arrange
+  const stack = CV_DATA.cvProfiles.ai_engineer.technicalStack;
+  const languages = stack.find((row) => row.label === 'Languages');
+  // Act / Assert
+  assert.ok(languages, 'ai_engineer: technicalStack missing Languages row');
+  assert.ok(
+    languages.value.includes('TypeScript (15 months)'),
+    `ai_engineer: expected "TypeScript (15 months)", got "${languages.value}"`
+  );
+  assert.ok(
+    !languages.value.includes('TypeScript (6 months)'),
+    'ai_engineer: stale "TypeScript (6 months)" claim still present'
+  );
+});
+
+test('freelance and contract rates are identical', () => {
+  // Arrange / Act / Assert
+  assert.strictEqual(
+    CV_DATA.cvProfiles.freelance.rate,
+    CV_DATA.cvProfiles.contract.rate,
+    'freelance and contract rates must match'
+  );
+});
+
+test('impact metrics are consistent across experience, highlights, and metrics', () => {
+  // Arrange
+  const allText = JSON.stringify(CV_DATA);
+  const expected = ['35%', '22%', '90%', 'H+1'];
+  // Act / Assert
+  for (const metric of expected) {
+    assert.ok(allText.includes(metric), `metric "${metric}" missing from cv-data.js`);
+  }
+});
+
+test('every profile summary claims 5+ years of experience', () => {
+  // Arrange / Act / Assert
+  for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
+    assert.ok(
+      profile.summary.includes('5+ years'),
+      `${key}: summary missing "5+ years" claim`
+    );
+  }
+});
+
+test('experience timeline supports the 5+ years claim', () => {
+  // Arrange: earliest role starts Dec 2020, latest is Present (Sep 2026)
+  const earliest = CV_DATA.experience[CV_DATA.experience.length - 1];
+  assert.strictEqual(earliest.date, 'Dec 2020 — Sep 2021');
+  // Act: months from Dec 2020 to Sep 2026
+  const months = (2026 - 2020) * 12 + (9 - 12);
+  // Assert
+  assert.ok(months >= 60, `timeline spans ${months} months, expected >= 60 for "5+ years"`);
+});

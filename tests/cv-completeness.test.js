@@ -96,3 +96,43 @@ test('every profile has a non-empty summary', () => {
     assert.ok(profile.summary.length > 0, `${key}: summary empty`);
   }
 });
+
+/* ---------- new setup: description + bullets ---------- */
+
+test('every profile has a non-empty description', () => {
+  // Arrange / Act / Assert
+  for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
+    assert.strictEqual(typeof profile.description, 'string', `${key}: description missing`);
+    assert.ok(profile.description.length > 0, `${key}: description empty`);
+  }
+});
+
+test('every profile has experienceBullets as an object with canonical role keys', () => {
+  // Arrange
+  const canonicalKeys = CV_DATA.experience.map((job) => job.roleKey);
+  // Act / Assert
+  for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
+    assert.ok(
+      profile.experienceBullets && typeof profile.experienceBullets === 'object',
+      `${key}: experienceBullets missing or not an object`
+    );
+    for (const bulletKey of Object.keys(profile.experienceBullets)) {
+      assert.ok(
+        canonicalKeys.includes(bulletKey),
+        `${key}: experienceBullets has unknown role "${bulletKey}"`
+      );
+    }
+  }
+});
+
+test('every non-empty experienceBullets entry is a non-empty array', () => {
+  // Arrange / Act / Assert
+  for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
+    for (const [roleKey, bullets] of Object.entries(profile.experienceBullets || {})) {
+      assert.ok(
+        Array.isArray(bullets) && bullets.length > 0,
+        `${key}: experienceBullets.${roleKey} empty`
+      );
+    }
+  }
+});

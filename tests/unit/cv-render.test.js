@@ -113,3 +113,16 @@ test('rendered CVs never skip from h2 to h4', () => {
     }
   }
 });
+
+/* ---------- new setup: nav controls ---------- */
+
+test('renderControls includes theme toggle, print, "← CVs", and Home links', () => {
+  // Arrange
+  const controls = CVRenderer.renderControls();
+  // Act / Assert
+  assert.ok(controls.includes('theme-toggle'), 'missing theme toggle button');
+  assert.ok(controls.includes('print-btn'), 'missing print button');
+  assert.ok(controls.includes('← CVs'), 'missing "← CVs" link');
+  assert.ok(controls.includes('href="index.html"'), 'missing hub link');
+  assert.ok(controls.includes('href="../index.html"'), 'missing root Home link');
+});
