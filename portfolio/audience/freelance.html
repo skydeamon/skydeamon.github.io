@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="../../css/portfolio.css">
   <link rel="stylesheet" href="../../css/themes.css">
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jade Makwela — Freelance Portfolio</title>
   <meta name="description" content="Freelance Data Engineer & AI Consultant — contract engagements, rates, and availability">
@@ -11,8 +11,9 @@
 <body data-theme="freelance">
   <div class="controls">
     <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
-    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">🖨️ Print / PDF</button>
-    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+    <button class="control-btn secondary" id="print-btn" aria-label="Print">🖨️ Print / PDF</button>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
+    <a href="../../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
   </div>
 
   <div class="cv-container">
@@ -22,9 +23,9 @@
       <div class="contact-info">
         <a href="mailto:makwela.j.justice@gmail.com">📧 makwela.j.justice@gmail.com</a>
         <span class="separator">|</span>
-        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">🔗 LinkedIn</a>
+        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
         <span class="separator">|</span>
-        <a href="https://github.com/skydeamon" target="_blank">💻 GitHub</a>
+        <a href="https://github.com/skydeamon" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
         <span class="separator">|</span>
         <span>📍 Cape Town, South Africa (Remote)</span>
       </div>
@@ -68,7 +69,7 @@
         <h2 class="section-title">Services Offered</h2>
         <div class="skills-grid">
           <div class="skill-category">
-            <h4>Data Engineering</h4>
+            <h3>Data Engineering</h4>
             <div class="skill-tags">
               <span class="skill-tag primary">ETL/ELT Pipeline Development</span>
               <span class="skill-tag primary">Data Warehouse Design</span>
@@ -78,7 +79,7 @@
             </div>
           </div>
           <div class="skill-category">
-            <h4>AI/LLM Services</h4>
+            <h3>AI/LLM Services</h4>
             <div class="skill-tags">
               <span class="skill-tag primary">RAG Pipeline Development</span>
               <span class="skill-tag primary">LLM Data Preparation</span>
@@ -87,7 +88,7 @@
             </div>
           </div>
           <div class="skill-category">
-            <h4>Cloud &amp; Infrastructure</h4>
+            <h3>Cloud &amp; Infrastructure</h4>
             <div class="skill-tags">
               <span class="skill-tag primary">AWS Architecture</span>
               <span class="skill-tag">CI/CD Setup</span>
@@ -96,12 +97,12 @@
             </div>
           </div>
           <div class="skill-category">
-            <h4>Consulting</h4>
+            <h3>Consulting</h4>
             <div class="skill-tags">
               <span class="skill-tag">Data Strategy</span>
               <span class="skill-tag">Architecture Reviews</span>
               <span class="skill-tag">Team Mentoring</span>
-              <span class="skill-tag">Proof of Concepts</span>
+              <span class="skill-tag">Proof of Concept</span>
             </div>
           </div>
         </div>
@@ -111,7 +112,7 @@
         <h2 class="section-title">Selected Projects</h2>
         <div class="project-item">
           <div class="project-title">
-            <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank">Agentic RAG LLM Demo</a>
+            <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank" rel="noopener noreferrer">Agentic RAG LLM Demo</a>
           </div>
           <p class="project-description">FastAPI endpoint with retrieval pipeline, evaluation harness, and LangChain/LangGraph function-calling.</p>
           <div class="project-tech"><span>Python</span><span>FastAPI</span><span>LangChain</span><span>RAG</span></div>
@@ -154,7 +155,9 @@
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
     }
+    document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
   </script>
 </body>
 </html>

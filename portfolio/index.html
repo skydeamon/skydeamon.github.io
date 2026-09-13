@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="../css/portfolio.css">
   <link rel="stylesheet" href="../css/portfolio-hub.css">
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jade Makwela — CV Collection</title>
   </head>
@@ -22,8 +22,8 @@
     <p class="tagline">Senior Data Engineer | AI/LLM Practitioner | Full Stack Developer</p>
     <div class="contact">
       <a href="mailto:makwela.j.justice@gmail.com">makwela.j.justice@gmail.com</a>
-      <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">LinkedIn</a>
-      <a href="https://github.com/skydeamon" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/skydeamon" target="_blank" rel="noopener noreferrer">GitHub</a>
       <span>Cape Town, South Africa</span>
     </div>
   </header>
@@ -95,7 +95,7 @@
       <a href="cv_freelance_portfolio.html" class="cv-card">
         <div class="cv-card-icon">💼</div>
         <h3>Freelance CV <span class="badge">Contract</span></h3>
-        <p>Contract-focused with rate information, availability, and rapid delivery emphasis. For freelance engagements.</p>
+        <p>Contract-focused with a services overview and rapid delivery emphasis. For freelance engagements.</p>
       </a>
       <a href="cv_executive.html" class="cv-card">
         <div class="cv-card-icon">👔</div>
@@ -111,6 +111,41 @@
         <div class="cv-card-icon">🎨</div>
         <h3>Modern CV <span class="badge">Creative</span></h3>
         <p>Visual timeline layout with skill bars, infographic stats, and sidebar. For startups and creative companies.</p>
+      </a>
+    </div>
+
+    <!-- Engagement CVs -->
+    <p class="category-title">Engagement CVs</p>
+    <div class="cv-grid">
+      <a href="cv_full_time.html" class="cv-card">
+        <div class="cv-card-icon">🏢</div>
+        <h3>Full-Time CV <span class="badge">Full-Time</span></h3>
+        <p>Styled CV for full-time employment. Data-engineer theme with availability and work authorization details.</p>
+      </a>
+      <a href="cv_contract.html" class="cv-card">
+        <div class="cv-card-icon">📄</div>
+        <h3>Contract CV <span class="badge">Contract</span></h3>
+        <p>Styled CV for 2–4 month contract engagements. Freelance theme with rate and availability details.</p>
+      </a>
+      <a href="cv_part_time.html" class="cv-card">
+        <div class="cv-card-icon">🕐</div>
+        <h3>Part-Time CV <span class="badge">Part-Time</span></h3>
+        <p>Styled CV for part-time engagements (20–30 hrs/week). General theme with flexible scheduling details.</p>
+      </a>
+      <a href="cv_full_time_ats.html" class="cv-card">
+        <div class="cv-card-icon">📋</div>
+        <h3>Full-Time ATS <span class="badge">ATS-Friendly</span></h3>
+        <p>Plain-text, ATS-optimized CV for full-time roles. No graphics, maximum parseability.</p>
+      </a>
+      <a href="cv_contract_ats.html" class="cv-card">
+        <div class="cv-card-icon">📋</div>
+        <h3>Contract ATS <span class="badge">ATS-Friendly</span></h3>
+        <p>Plain-text, ATS-optimized CV for contract engagements. No graphics, maximum parseability.</p>
+      </a>
+      <a href="cv_part_time_ats.html" class="cv-card">
+        <div class="cv-card-icon">📋</div>
+        <h3>Part-Time ATS <span class="badge">ATS-Friendly</span></h3>
+        <p>Plain-text, ATS-optimized CV for part-time roles. No graphics, maximum parseability.</p>
       </a>
     </div>
 
@@ -156,6 +191,7 @@
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
     }
   </script>
 </body>

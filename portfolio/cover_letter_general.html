@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="../css/portfolio.css">
   <link rel="stylesheet" href="../css/themes.css">
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cover Letter — General</title>
   </head>
@@ -13,7 +13,7 @@
     <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
       <span id="theme-icon">🌙</span> Dark
     </button>
-    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">
+    <button class="control-btn secondary" id="print-btn" aria-label="Print">
       🖨️ Print / PDF
     </button>
     <a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
@@ -66,7 +66,7 @@
       <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
         <li><strong>35% reduction</strong> in critical pipeline runtime through PySpark optimization</li>
         <li><strong>22% reduction</strong> in EMR compute costs via partition pruning and join tuning</li>
-        <li><strong>90%+ data quality coverage</strong> through dbt contracts and automated tests</li>
+        <li><strong>90%+ data-quality coverage</strong> through dbt contracts and automated tests</li>
         <li><strong>Deployment lead time from days to hours</strong> via standardized CI/CD</li>
       </ul>
 
@@ -100,7 +100,9 @@
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
     }
+    document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
   </script>
 </body>
 </html>

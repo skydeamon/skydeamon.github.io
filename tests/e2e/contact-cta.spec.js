@@ -18,5 +18,5 @@ test('contact CTA exposes email, mailto, and social profiles', async ({ page }) 
     .locator('#contact a[href*="linkedin.com"]')
     .first()
     .getAttribute('href');
-  expect(linkedin).toBe('https://www.linkedin.com/in/jade-makwela-6a79111a8/');
+  expect(linkedin).toBe('https://linkedin.com/in/jade-makwela-6a79111a8');
 });

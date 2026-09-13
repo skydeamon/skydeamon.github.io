@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="../../css/portfolio.css">
   <link rel="stylesheet" href="../../css/themes.css">
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jade Makwela — AI Engineer Portfolio</title>
   <meta name="description" content="AI/LLM Engineer portfolio — RAG, LangChain, FastAPI, and production data platform experience">
@@ -11,8 +11,9 @@
 <body data-theme="ai-engineer">
   <div class="controls">
     <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
-    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">🖨️ Print / PDF</button>
-    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+    <button class="control-btn secondary" id="print-btn" aria-label="Print">🖨️ Print / PDF</button>
+    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
+    <a href="../../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
   </div>
 
   <div class="cv-container">
@@ -22,9 +23,9 @@
       <div class="contact-info">
         <a href="mailto:makwela.j.justice@gmail.com">📧 makwela.j.justice@gmail.com</a>
         <span class="separator">|</span>
-        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank">🔗 LinkedIn</a>
+        <a href="https://linkedin.com/in/jade-makwela-6a79111a8" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
         <span class="separator">|</span>
-        <a href="https://github.com/skydeamon" target="_blank">💻 GitHub</a>
+        <a href="https://github.com/skydeamon" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
         <span class="separator">|</span>
         <span>📍 Cape Town, South Africa</span>
       </div>
@@ -42,7 +43,7 @@
         <h2 class="section-title">AI / LLM Projects</h2>
         <div class="project-item">
           <div class="project-title">
-            <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank">RAG Service (PoC) — Agentic RAG LLM Demo</a>
+            <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank" rel="noopener noreferrer">RAG Service (PoC) — Agentic RAG LLM Demo</a>
           </div>
           <p class="project-description">FastAPI endpoint with retrieval pipeline (vector index + metadata filters). Templated prompts with deterministic output schema. Evaluation harness for regression testing. Function-calling pattern with LangChain/LangGraph.</p>
           <div class="project-tech"><span>Python</span><span>FastAPI</span><span>LangChain</span><span>LangGraph</span><span>RAG</span></div>
@@ -58,7 +59,7 @@
         <h2 class="section-title">Core LLM/AI Skills</h2>
         <div class="skills-grid">
           <div class="skill-category">
-            <h4>LLM Application Patterns</h4>
+            <h3>LLM Application Patterns</h4>
             <div class="skill-tags">
               <span class="skill-tag primary">RAG</span>
               <span class="skill-tag primary">Function Calling</span>
@@ -67,7 +68,7 @@
             </div>
           </div>
           <div class="skill-category">
-            <h4>Frameworks</h4>
+            <h3>Frameworks</h4>
             <div class="skill-tags">
               <span class="skill-tag primary">LangChain / LangGraph</span>
               <span class="skill-tag primary">FastAPI</span>
@@ -76,7 +77,7 @@
             </div>
           </div>
           <div class="skill-category">
-            <h4>Data Platform (Foundation)</h4>
+            <h3>Data Platform (Foundation)</h4>
             <div class="skill-tags">
               <span class="skill-tag primary">PySpark on EMR/Glue</span>
               <span class="skill-tag primary">Apache Airflow</span>
@@ -86,7 +87,7 @@
             </div>
           </div>
           <div class="skill-category">
-            <h4>Evaluation &amp; Safety</h4>
+            <h3>Evaluation &amp; Safety</h4>
             <div class="skill-tags">
               <span class="skill-tag">Prompt Templates</span>
               <span class="skill-tag">Offline Eval Sets</span>
@@ -133,7 +134,9 @@
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
     }
+    document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
   </script>
 </body>
 </html>

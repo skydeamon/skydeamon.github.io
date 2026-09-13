@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="../css/portfolio.css">
   <link rel="stylesheet" href="../css/themes.css">
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cover Letter — Freelance</title>
   </head>
@@ -13,7 +13,7 @@
     <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
       <span id="theme-icon">🌙</span> Dark
     </button>
-    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">
+    <button class="control-btn secondary" id="print-btn" aria-label="Print">
       🖨️ Print / PDF
     </button>
     <a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
@@ -68,7 +68,7 @@
         <li><strong>Data Engineering:</strong> ETL/ELT pipelines, data warehouse design, lakehouse architecture, streaming ingestion, data quality & governance</li>
         <li><strong>AI/LLM:</strong> RAG pipeline development, LLM data preparation, AI training data curation, evaluation harnesses</li>
         <li><strong>Cloud & Infrastructure:</strong> AWS architecture, CI/CD setup, cost optimization, infrastructure as code</li>
-        <li><strong>Consulting:</strong> Data strategy, architecture reviews, proof of concepts, team mentoring</li>
+        <li><strong>Consulting:</strong> Data strategy, architecture reviews, proof-of-concept evaluations, team mentoring</li>
       </ul>
 
       <p>
@@ -77,7 +77,7 @@
 
       <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
         <li><strong>35% pipeline runtime reduction</strong> and <strong>22% compute cost savings</strong> at Old Mutual</li>
-        <li><strong>90%+ data quality coverage</strong> through dbt contracts and automated testing</li>
+        <li><strong>90%+ data-quality coverage</strong> through dbt contracts and automated testing</li>
         <li><strong>Data freshness from D+1 to H+1</strong> via event-driven architecture</li>
         <li><strong>Deployment lead time from days to hours</strong> through CI/CD standardization</li>
       </ul>
@@ -115,7 +115,9 @@
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
     }
+    document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
   </script>
 </body>
 </html>

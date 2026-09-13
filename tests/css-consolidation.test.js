@@ -10,10 +10,12 @@ const VALID_THEMES = ['general', 'data-engineer', 'ai-engineer', 'academic', 'fr
 
 // Pages that intentionally keep the default navy palette (no inline theme block existed).
 const NO_THEME_PAGES = [
-  'portfolio/cv_job_application.html',
   'portfolio/cover_letter_general.html',
   'portfolio/cv_minimal.html',
   'portfolio/index.html',
+  'portfolio/cv_full_time_ats.html',
+  'portfolio/cv_contract_ats.html',
+  'portfolio/cv_part_time_ats.html',
 ];
 
 test('no references to the old shared_styles.css remain', () => {
@@ -61,7 +63,7 @@ test('every themed page links themes.css and has a valid data-theme', () => {
       assert.ok(content.includes('themes.css'), `${rel}: themed page missing themes.css link`);
     }
   }
-  assert.strictEqual(themed.length, 17, 'expected exactly 17 themed pages');
+  assert.strictEqual(themed.length, 21, 'expected exactly 21 themed pages');
 });
 
 test('pages without data-theme are exactly the default-palette set', () => {
@@ -82,14 +84,15 @@ test('themes.css defines all 7 theme selectors', () => {
   }
 });
 
-test('portfolio pages link portfolio.css (cv_minimal links cv-minimal.css instead)', () => {
+test('portfolio pages link portfolio.css (cv_minimal and *_ats pages link cv-minimal.css instead)', () => {
   for (const file of htmlFiles()) {
     const rel = path.relative(ROOT, file);
     if (!rel.startsWith('portfolio/')) continue;
     const content = fs.readFileSync(file, 'utf8');
-    if (rel === 'portfolio/cv_minimal.html') {
-      assert.ok(content.includes('cv-minimal.css'), 'cv_minimal must link cv-minimal.css');
-      assert.ok(!content.includes('portfolio.css'), 'cv_minimal must not link portfolio.css');
+    const isAts = rel === 'portfolio/cv_minimal.html' || rel.endsWith('_ats.html');
+    if (isAts) {
+      assert.ok(content.includes('cv-minimal.css'), `${rel} must link cv-minimal.css`);
+      assert.ok(!content.includes('portfolio.css'), `${rel} must not link portfolio.css`);
     } else {
       assert.ok(content.includes('portfolio.css'), `${rel} missing portfolio.css link`);
     }

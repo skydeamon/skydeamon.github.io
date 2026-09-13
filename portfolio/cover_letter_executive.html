@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="../css/portfolio.css">
   <link rel="stylesheet" href="../css/themes.css">
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cover Letter — Executive</title>
   </head>
@@ -13,7 +13,7 @@
     <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
       <span id="theme-icon">🌙</span> Dark
     </button>
-    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">
+    <button class="control-btn secondary" id="print-btn" aria-label="Print">
       🖨️ Print / PDF
     </button>
     <a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
@@ -68,7 +68,7 @@
         <li><strong>Team Leadership:</strong> Currently leading a team of analysts at Old Mutual, producing data analytics solutions and APIs that feed business-critical applications</li>
         <li><strong>Engineering Standards:</strong> Established coding conventions, CI/CD pipelines, and Git workflows adopted across the team — reducing deployment lead time from days to hours</li>
         <li><strong>Start-up Leadership:</strong> Serving as Lead Full Stack Developer at Ibitse, overseeing the development team, managing project timelines, and aligning technical delivery with stakeholder expectations</li>
-        <li><strong>Strategic Vision:</strong> Implemented proof of concepts for new technologies, transitioning them from experimental tools to production-ready services used by business</li>
+        <li><strong>Strategic Vision:</strong> Implemented proof-of-concept evaluations for new technologies, transitioning them from experimental tools to production-ready services used by business</li>
       </ul>
 
       <p>
@@ -78,7 +78,7 @@
       <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
         <li><strong>35% reduction</strong> in critical pipeline runtime through technical leadership and optimization</li>
         <li><strong>22% reduction</strong> in compute costs — directly improving the bottom line</li>
-        <li><strong>90%+ data quality coverage</strong> — enabling trustworthy, decision-grade data</li>
+        <li><strong>90%+ data-quality coverage</strong> — enabling trustworthy, decision-grade data</li>
         <li><strong>H+1 data freshness</strong> — enabling faster, more responsive business decisions</li>
       </ul>
 
@@ -112,7 +112,9 @@
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
     }
+    document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
   </script>
 </body>
 </html>

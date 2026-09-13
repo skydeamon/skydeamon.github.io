@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="../css/portfolio.css">
   <link rel="stylesheet" href="../css/themes.css">
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cover Letter — Data Engineer</title>
   </head>
@@ -13,7 +13,7 @@
     <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
       <span id="theme-icon">🌙</span> Dark
     </button>
-    <button class="control-btn secondary" onclick="window.print()" aria-label="Print">
+    <button class="control-btn secondary" id="print-btn" aria-label="Print">
       🖨️ Print / PDF
     </button>
     <a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
@@ -60,7 +60,7 @@
       </p>
 
       <p>
-        In my current role as <span class="highlight">Lead Analyst / Data Engineer at Old Mutual South Africa</span>, I own business-critical data pipelines end-to-end. Key achievements include:
+        In my current role as <span class="highlight">Lead Analyst Programmer / Data Engineer at Old Mutual South Africa</span>, I own business-critical data pipelines end-to-end. Key achievements include:
       </p>
 
       <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
@@ -100,7 +100,9 @@
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
     }
+    document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
   </script>
 </body>
 </html>

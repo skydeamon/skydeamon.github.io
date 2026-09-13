@@ -29,7 +29,6 @@ p { margin-bottom: 6px; }
 ul { margin-left: 20px; margin-bottom: 8px; }
 li { margin-bottom: 3px; }
 .contact { margin-bottom: 12px; }
-.job-header { font-weight: bold; }
 .job-date { font-style: italic; }
 .skills-line { margin-bottom: 4px; }
 a { color: #000; text-decoration: none; }
@@ -44,7 +43,21 @@ a { color: #000; text-decoration: none; }
   cursor: pointer;
   font-size: 12px;
 }
+.nav-links {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  font-size: 12px;
+}
+.nav-links a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 12px;
+}
 @media print {
   .print-btn { display: none; }
+  .nav-links { display: none; }
   body { padding: 0; }
 }

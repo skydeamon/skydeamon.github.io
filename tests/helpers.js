@@ -8,7 +8,7 @@ const ROOT = path.resolve(__dirname, '..');
 /** Recursively collect files with the given extension, skipping VCS/tooling dirs. */
 function walk(dir, ext, out = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name === '.git' || entry.name === '.opencode' || entry.name === 'node_modules') continue;
+    if (entry.name === '.git' || entry.name === '.opencode' || entry.name === 'node_modules' || entry.name === 'testenv') continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) walk(full, ext, out);
     else if (entry.name.endsWith(ext)) out.push(full);
