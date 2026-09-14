@@ -1,7 +1,7 @@
 /* ============================================
-   MINIMAL CV — ATS-Friendly styled layout
+   MINIMAL CV — Engagement-friendly styled layout
    Profile-matched accent via var(--accent).
-   Flat HTML structure for ATS parseability.
+   Flat HTML structure for maximum parseability.
    ============================================ */
 
 :root {
@@ -12,7 +12,12 @@
   --card-bg: #f0f0f3;
 }
 
-/* ATS-Friendly: flat, parseable, no columns, no grids */
+/* Profile-matched accent via body[data-theme] (matches themes.css accents) */
+[data-theme="general"] { --accent: #2563eb; }
+[data-theme="data-engineer"] { --accent: #0d9488; }
+[data-theme="freelance"] { --accent: #ea580c; }
+
+/* Engagement-friendly: flat, parseable, no columns, no grids */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -88,40 +93,37 @@ li:last-child { margin-bottom: 0; }
 a { color: var(--text); text-decoration: none; }
 
 /* --- Nav / Print controls (hidden on print) --- */
-.print-btn {
+.controls {
   position: fixed;
   top: 10px;
   right: 10px;
-  padding: 8px 16px;
-  background: var(--text);
+  display: flex;
+  gap: 8px;
+  z-index: 1000;
+}
+.control-btn {
+  background: var(--accent);
   color: #fff;
   border: none;
+  padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 12px;
-}
-.print-btn:hover { background: var(--accent); }
-
-.nav-links {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 100;
-  font-size: 12px;
-}
-.nav-links a {
-  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 4px;
   text-decoration: none;
-  font-weight: bold;
-  margin-right: 12px;
 }
-.nav-links a:hover { color: var(--accent); }
+.control-btn:hover { background: var(--text); }
+.control-btn.secondary {
+  background: var(--text);
+}
+.control-btn.secondary:hover { background: var(--accent); }
 
 /* --- Print --- */
 @media print {
   :root { --accent: #000; --text: #000; --muted: #333; --bg: #fff; --card-bg: #f5f5f5; }
-  .print-btn { display: none; }
-  .nav-links { display: none; }
+  .controls { display: none !important; }
   body { padding: 0; background: #fff; }
   h1 { border-bottom-color: #000; }
   h2 { border-left-color: #000; color: #000; }
