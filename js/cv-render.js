@@ -84,51 +84,6 @@
     return wrapSection(title, '<div class="skills-grid">' + skillCategories(categories, data) + '</div>');
   }
 
-  function renderSkillBars(profile) {
-    var bars = (profile.skillBars || [])
-      .map(function (bar) {
-        return (
-          '<div class="skill-bar">' +
-          '<div class="skill-bar-header"><span>' + bar.name + '</span><span>' + bar.level + '%</span></div>' +
-          '<div class="skill-bar-track"><div class="skill-bar-fill" style="width: ' + bar.level + '%;"></div></div>' +
-          '</div>'
-        );
-      })
-      .join('');
-    return wrapSection('Skills', bars);
-  }
-
-  function renderTimeline(profile, data) {
-    var items = data.experience
-      .map(function (job) {
-        var bullets = (profile.experienceBullets && profile.experienceBullets[job.roleKey]) || job.bullets;
-        return (
-          '<div class="timeline-item">' +
-          '<div class="timeline-date">' + job.date + '</div>' +
-          '<div class="experience-title">' + job.title + '</div>' +
-          '<div class="experience-company">' + job.company + ' · ' + job.location + '</div>' +
-          '<ul class="timeline-bullets">' + bulletList(bullets) + '</ul>' +
-          '</div>'
-        );
-      })
-      .join('');
-    return wrapSection('Experience', '<div class="timeline">' + items + '</div>');
-  }
-
-  function renderStatsGrid(profile) {
-    var cards = (profile.stats || [])
-      .map(function (stat) {
-        return (
-          '<div class="stat-card">' +
-          '<div class="stat-number">' + stat.number + '</div>' +
-          '<div class="stat-label">' + stat.label + '</div>' +
-          '</div>'
-        );
-      })
-      .join('');
-    return '<div class="stats-grid">' + cards + '</div>';
-  }
-
   function renderExperienceList(profile, data) {
     var items = data.experience
       .map(function (job) {
@@ -250,18 +205,6 @@
 
   function renderHealthcareCompliance(profile) {
     return wrapSection('Healthcare & Compliance', '<ul>' + bulletList(profile.healthcareCompliance) + '</ul>');
-  }
-
-  function renderTechnicalStack(profile) {
-    var rows = profile.technicalStack
-      .map(function (row) {
-        return '<p><strong>' + row.label + ':</strong> ' + row.value + '</p>';
-      })
-      .join('');
-    return wrapSection(
-      'Technical Stack',
-      '<div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">' + rows + '</div>'
-    );
   }
 
   function renderServices(profile, data) {
@@ -435,15 +378,6 @@
     'skills-grid': function (profile, data) {
       return renderSkillsGrid(profile, data, 'skills', 'Technical Skills');
     },
-    'skills-grid-ai': function (profile, data) {
-      return renderSkillsGrid(profile, data, 'skillsAI', 'Core LLM/AI Competencies');
-    },
-    'skills-grid-data': function (profile, data) {
-      return renderSkillsGrid(profile, data, 'skillsData', 'Data Platform & Systems Engineering');
-    },
-    'skill-bars': renderSkillBars,
-    timeline: renderTimeline,
-    'stats-grid': renderStatsGrid,
     experience: renderExperienceList,
     projects: renderProjects,
     education: renderEducation,
@@ -458,7 +392,6 @@
     publications: renderPublications,
     teaching: renderTeaching,
     'healthcare-compliance': renderHealthcareCompliance,
-    'technical-stack': renderTechnicalStack,
     services: renderServices,
     references: renderReferences,
     'research-interests': renderResearchInterests,
@@ -515,36 +448,10 @@
 
   function renderCV(profile, data) {
     var header = renderHeader(profile, data);
-    var content;
-
-    if (profile.layout && profile.layout.type === 'two-column') {
-      var mainSections = profile.layout.main
-        .map(function (name) { return renderSection(name, profile, data); })
-        .join('');
-      var sidebarSections = profile.layout.sidebar
-        .map(function (name) { return renderSection(name, profile, data); })
-        .join('');
-      var stats = profile.sectionOrder.indexOf('stats-grid') !== -1 ? renderStatsGrid(profile) : '';
-      content =
-        '<div class="cv-content">' +
-        stats +
-        '<div class="two-column">' +
-        '<div class="main-content" style="padding: 0;">' + mainSections + '</div>' +
-        '<aside class="sidebar" aria-label="Sidebar">' + sidebarSections + '</aside>' +
-        '</div>' +
-        '</div>';
-    } else {
-      var sections = profile.sectionOrder
-        .map(function (name) {
-          if (name === 'stats-grid') {
-            return wrapSection('Proven Impact', renderStatsGrid(profile));
-          }
-          return renderSection(name, profile, data);
-        })
-        .join('');
-      content = '<div class="cv-content">' + sections + '</div>';
-    }
-
+    var sections = profile.sectionOrder
+      .map(function (name) { return renderSection(name, profile, data); })
+      .join('');
+    var content = '<div class="cv-content">' + sections + '</div>';
     return header + content;
   }
 

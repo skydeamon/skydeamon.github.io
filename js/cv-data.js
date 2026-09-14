@@ -230,12 +230,6 @@
         primary: [],
       },
     ],
-    stats: [
-      { number: '35%', label: 'Pipeline Runtime Reduction' },
-      { number: '22%', label: 'Compute Cost Savings' },
-      { number: '90%+', label: 'Data Quality Coverage' },
-      { number: 'H+1', label: 'Data Freshness' },
-    ],
   };
 
   /* ---------- CV Profiles ---------- */
@@ -247,11 +241,15 @@
       subtitle: 'Senior Data Engineer · AI/LLM Practitioner · Full Stack Developer',
       description: 'Professional CV of Jade Makwela — Senior Data Engineer, AI/LLM Practitioner, Full Stack Developer',
       employmentType: 'full-time',
-      availability: [],
+      availability: [
+        { label: 'Availability', value: 'Full-time employment' },
+        { label: 'Location', value: 'Cape Town, South Africa (Remote-friendly)' },
+        { label: 'Work Authorization', value: 'South African Citizen' },
+      ],
       summary:
         'Experienced Technology Leader and Lead Developer with <strong>5+ years</strong> building enterprise-grade data platforms and applications on AWS. Proficient in Python, PySpark, and ETL development with deep expertise in AWS services (EMR, Glue, Redshift, Athena, Lambda, Step Functions). Demonstrated success in implementing proof-of-concept evaluations, leading data analytics solutions, and bridging technical execution with business outcomes. Strong in software architecture, infrastructure setup, and full-stack application development. Passionate about building robust, cloud-ready solutions that drive business growth and innovation.',
-      sectionOrder: ['summary', 'skills-grid', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'interests', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks'],
+      sectionOrder: ['summary', 'skills-grid', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'interests', 'availability', 'references'],
+      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
       experienceBullets: {},
     },
 
@@ -266,17 +264,8 @@
       targetRole: 'Staff / Senior Data Engineer — AI Training Data (Contract)',
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade, cloud data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, and Athena. Strong in Kafka-driven ingestion, Airflow orchestration, and DataOps (CI/CD, testing, observability). Experienced in medallion/lakehouse patterns (Parquet/Iceberg), large-scale batch and streaming, and rigorous data quality for analytics and ML readiness. Seeking a Staff-level contract to architect and build high-throughput curation systems for AI-training datasets.',
-      sectionOrder: ['target-role', 'summary', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'languages', 'references'],
-      skills: [
-        { title: 'Programming', tags: ['Python (Advanced)', 'SQL (Advanced)', 'PySpark', 'Java (Basic)', 'TypeScript'], primary: ['Python (Advanced)', 'SQL (Advanced)', 'PySpark'] },
-        { title: 'Distributed & Lakehouse', tags: ['Apache Spark', 'Apache Iceberg', 'Parquet', 'Trino/Athena', 'Medallion Architecture'], primary: ['Apache Spark', 'Apache Iceberg', 'Parquet'] },
-        { title: 'Streaming & Events', tags: ['Apache Kafka', 'AWS Kinesis', 'AWS SQS', 'Event-Driven Patterns'], primary: ['Apache Kafka'] },
-        { title: 'Cloud (AWS)', tags: ['EMR', 'Glue', 'S3', 'Redshift', 'Athena', 'Lambda', 'Step Functions', 'IAM', 'VPC'], primary: ['EMR', 'Glue', 'S3', 'Redshift'] },
-        { title: 'Orchestration & DataOps', tags: ['Apache Airflow', 'dbt', 'Git', 'Azure DevOps', 'AWS CodePipeline'], primary: ['Apache Airflow', 'dbt'] },
-        { title: 'Data Quality & Governance', tags: ['dbt Tests', 'Alation Catalog', 'Data Contracts', 'SLAs', 'Observability'], primary: ['dbt Tests'] },
-        { title: 'Data Modeling', tags: ['Dimensional Modeling', 'SCD Type 2', 'Facts & Dimensions', 'Medallion (Bronze/Silver/Gold)'], primary: ['Dimensional Modeling', 'SCD Type 2'] },
-        { title: 'Containers & Infra', tags: ['Docker', 'Terraform', 'Linux'], primary: [] },
-      ],
+      sectionOrder: ['target-role', 'summary', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
       impactHighlights: [
         '<strong>~35% pipeline runtime reduction</strong> via partition pruning, predicate pushdown, and join tuning on PySpark/EMR',
         '<strong>~22% monthly compute cost reduction</strong> through optimization of EMR cluster usage and job efficiency',
@@ -316,23 +305,8 @@
       availability: [],
       summary:
         'Senior data/AI engineer with <strong>5+ years</strong> building production data platforms and APIs on AWS using Python, PySpark, EMR/Glue, Redshift, Athena, and Airflow. Hands-on with <strong>LLM application patterns</strong> (RAG, function calling, prompt strategies, basic guardrails) and FastAPI integration. Known for end-to-end ownership, rigorous data quality, and cross-functional collaboration with product/analyst teams. Seeking to apply agentic workflows, RAG pipelines, and evaluation practices to deliver safe, traceable AI features in clinical and education contexts.',
-      sectionOrder: ['summary', 'skills-grid-ai', 'skills-grid-data', 'impact-highlights', 'experience', 'projects', 'healthcare-compliance', 'education', 'technical-stack', 'languages', 'references'],
-      skillsAI: [
-        { title: 'LLM Application Patterns', tags: ['Retrieval-Augmented Generation (RAG)', 'Function Calling', 'Multi-Step Tool Use', 'Output Post-Processing', 'Guardrail Hooks'], primary: ['Retrieval-Augmented Generation (RAG)', 'Function Calling'] },
-        { title: 'Frameworks', tags: ['LangChain / LangGraph', 'LlamaIndex', 'FAISS', 'pgvector'], primary: ['LangChain / LangGraph', 'LlamaIndex'] },
-        { title: 'Backend Integration', tags: ['FastAPI', 'Django', 'Request/Response Contracts', 'Observability', 'Rate Limiting'], primary: ['FastAPI'] },
-        { title: 'Evaluation & Quality', tags: ['Prompt Templates', 'Offline Eval Sets', 'Regression Harnesses', 'Factuality Heuristics'], primary: [] },
-        { title: 'Safety & Traceability', tags: ['Deterministic Contexts', 'Citation-Style Responses', 'Input Validation', 'PII Handling'], primary: [] },
-        { title: 'RAG Data Design', tags: ['Chunking / Token Budgets', 'Metadata Enrichment', 'Freshness Pipelines', 'Cache Strategies'], primary: [] },
-      ],
-      skillsData: [
-        { title: 'AWS Services', tags: ['EMR', 'Glue (Jobs/Crawlers/Triggers)', 'S3', 'Athena', 'Redshift', 'Lambda', 'Step Functions', 'IAM', 'VPC'], primary: ['EMR', 'Glue (Jobs/Crawlers/Triggers)', 'S3'] },
-        { title: 'Distributed Processing', tags: ['PySpark on EMR/Glue', 'Partitioning', 'Predicate Pushdown', 'Broadcast Joins', 'File Compaction'], primary: ['PySpark on EMR/Glue'] },
-        { title: 'Streaming & Events', tags: ['Kafka Patterns', 'Idempotent Landing', 'Watermarking', 'Replay Strategies'], primary: ['Kafka Patterns'] },
-        { title: 'Orchestration & DataOps', tags: ['Apache Airflow', 'CI/CD (Git/ADO/CodePipeline)', 'dbt (Athena + Glue Catalog)'], primary: ['Apache Airflow'] },
-        { title: 'Modeling & Lakehouse', tags: ['Medallion (Bronze/Silver/Gold)', 'Dimensional Modeling', 'SCD Type 2', 'Parquet / Iceberg'], primary: ['Medallion (Bronze/Silver/Gold)'] },
-        { title: 'APIs & Services', tags: ['RESTful API Design', 'FastAPI/Django', 'Contract Tests', 'Versioned Releases'], primary: ['RESTful API Design'] },
-      ],
+      sectionOrder: ['summary', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'healthcare-compliance', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
       impactHighlights: [
         '<strong>~35% pipeline runtime reduction</strong> and <strong>~22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
         '<strong>Freshness D+1 → H+1</strong> with event-driven ingestion and robust late-arrival handling',
@@ -360,13 +334,6 @@
         '<strong>Safety practices:</strong> Controlled prompts/context, schema validation, explicit fallbacks, and logging to support traceability of AI-assisted features',
         '<strong>Familiarity (self-study):</strong> IEC 62304/ISO 13485 expectations around software lifecycle, documentation, and verification/validation workflows',
       ],
-      technicalStack: [
-        { label: 'Languages', value: 'Python, SQL, PySpark; Java (basic); TypeScript (15 months)' },
-        { label: 'Frameworks', value: 'FastAPI, Django, LangChain/LangGraph (working knowledge), LlamaIndex (working knowledge)' },
-        { label: 'Data & Compute', value: 'AWS EMR/Glue, S3, Athena, Redshift; Apache Kafka; Airflow; dbt (Athena + Glue Catalog)' },
-        { label: 'Lakehouse', value: 'Parquet, Iceberg; Trino/Athena; medallion architecture; dimensional modeling (facts/dims, SCD Type 2)' },
-        { label: 'DevOps', value: 'Git, Azure DevOps, AWS CodePipeline; Docker; Terraform (exposure)' },
-      ],
     },
 
     /* ---- Academic ---- */
@@ -380,13 +347,8 @@
       summary:
         'Data engineering researcher with a BSc in Physics & Astrophysics and <strong>5+ years</strong> building production data platforms on AWS. Research interests span machine learning infrastructure, LLM applications & RAG, and data quality & governance. Experienced in mentoring aspiring data engineers and publishing technical documentation for enterprise data platforms.',
       researchInterests: ['Data Engineering', 'Machine Learning Infrastructure', 'LLM Applications & RAG', 'Astrophysics Data Analysis', 'Distributed Computing', 'Data Quality & Governance', 'Streaming Data Systems'],
-      sectionOrder: ['research-interests', 'education', 'experience', 'publications', 'research-projects', 'teaching', 'skills-grid', 'languages', 'affiliations', 'references'],
-      skills: [
-        { title: 'Programming', tags: ['Python', 'SQL', 'PySpark', 'Java', 'TypeScript'], primary: ['Python', 'SQL', 'PySpark'] },
-        { title: 'Data & Compute', tags: ['AWS EMR/Glue', 'Apache Airflow', 'Apache Kafka', 'dbt', 'Redshift', 'Athena'], primary: ['AWS EMR/Glue', 'Apache Airflow'] },
-        { title: 'Research Tools', tags: ['Jupyter', 'NumPy', 'Pandas', 'Matplotlib', 'SciPy'], primary: [] },
-        { title: 'Academic Skills', tags: ['Technical Writing', 'Data Analysis', 'Statistical Methods', 'Scientific Computing'], primary: [] },
-      ],
+      sectionOrder: ['summary', 'research-interests', 'skills-grid', 'experience', 'projects', 'publications', 'teaching', 'research-projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
       experienceBullets: {
         om_lead: [
           'Lead a team producing data analytics solutions, data sources, and APIs for business applications',
@@ -459,13 +421,8 @@
         'Technology leader with <strong>5+ years</strong> of experience spanning data engineering, software architecture, and team leadership. Currently leading a team of analysts at Old Mutual while serving as Lead Full Stack Developer for a start-up. Proven ability to translate business requirements into scalable technical solutions, establish engineering standards, and drive measurable business outcomes. Combines deep technical expertise in AWS, Python, and data platforms with strong stakeholder management and strategic thinking.',
       leadershipPhilosophy:
         '"Great engineering organizations are built on three pillars: <strong>clear standards</strong> that everyone follows, <strong>measurable outcomes</strong> that everyone understands, and <strong>psychological safety</strong> that enables everyone to contribute. My role as a leader is to create the conditions where talented people do their best work — then get out of their way."',
-      sectionOrder: ['summary', 'leadership-philosophy', 'skills-grid', 'impact-highlights', 'experience', 'education', 'languages', 'references'],
-      skills: [
-        { title: 'Team Leadership', tags: ['Team Management', 'Mentoring & Coaching', 'Performance Management', 'Cross-Functional Collaboration'], primary: ['Team Management', 'Mentoring & Coaching'] },
-        { title: 'Strategic', tags: ['Architecture Strategy', 'Technology Roadmapping', 'Proof of Concept Leadership', 'Cost Optimization'], primary: ['Architecture Strategy', 'Technology Roadmapping'] },
-        { title: 'Delivery', tags: ['Project Management', 'Agile/Scrum', 'CI/CD Implementation', 'Quality Assurance'], primary: ['Project Management', 'Agile/Scrum'] },
-        { title: 'Business', tags: ['Stakeholder Engagement', 'Vendor Management', 'Budget Management', 'Risk Assessment'], primary: [] },
-      ],
+      sectionOrder: ['summary', 'leadership-philosophy', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
       impactHighlights: [
         '<strong>Led team of analysts</strong> producing data analytics solutions and APIs for business applications',
         '<strong>Established engineering standards</strong> (coding conventions, CI/CD, Git branching) adopted across the team',
@@ -515,15 +472,10 @@
       rate: 'R550–R640/hr',
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS. Specializing in <strong>PySpark pipelines, lakehouse architecture, streaming ingestion, and AI/LLM data preparation</strong>. Proven track record of delivering measurable impact: 35% pipeline runtime reduction, 22% cost savings, and 90%+ data-quality coverage.',
-      sectionOrder: ['summary', 'services', 'stats-grid', 'experience', 'projects', 'skills-grid', 'education', 'languages', 'references'],
-      skills: [
-        { title: 'Core Stack', tags: ['Python', 'PySpark', 'SQL', 'TypeScript'], primary: ['Python', 'PySpark', 'SQL'] },
-        { title: 'AWS', tags: ['EMR', 'Glue', 'S3', 'Redshift', 'Athena', 'Lambda', 'Step Functions'], primary: ['EMR', 'Glue', 'S3'] },
-        { title: 'Data Tools', tags: ['Airflow', 'Kafka', 'dbt', 'Iceberg', 'Parquet'], primary: ['Airflow', 'Kafka'] },
-        { title: 'AI/LLM', tags: ['LangChain', 'LangGraph', 'FastAPI', 'Vector Search'], primary: [] },
-      ],
+      sectionOrder: ['summary', 'skills-grid', 'services', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
       services: sharedSections.services,
-      stats: sharedSections.stats,
+      impactHighlights: sharedSections.impactHighlights,
       experienceBullets: {
         om_lead: [
           'Owned production PySpark pipelines on AWS EMR/Glue with Airflow orchestration',
@@ -553,30 +505,8 @@
       availability: [],
       summary:
         "Data is everywhere — it's my job to find it, extract it, transform it, and deliver it to the business. With <strong>5+ years</strong> building enterprise data platforms on AWS, I combine deep technical expertise in PySpark, Airflow, and Kafka with a passion for AI/LLM applications. I lead teams, build pipelines, and bridge the gap between technical execution and business outcomes.",
-      sectionOrder: ['stats-grid', 'summary', 'timeline', 'projects', 'education', 'skill-bars', 'languages', 'certifications', 'interests', 'references'],
-      layout: {
-        type: 'two-column',
-        main: ['summary', 'timeline', 'projects', 'education'],
-        sidebar: ['skill-bars', 'languages', 'certifications', 'interests', 'references'],
-      },
-      stats: [
-        { number: '5+', label: 'Years Experience' },
-        { number: '35%', label: 'Runtime Reduction' },
-        { number: '22%', label: 'Cost Savings' },
-        { number: '90%+', label: 'Data Quality' },
-      ],
-      skillBars: [
-        { name: 'Python', level: 95 },
-        { name: 'PySpark', level: 90 },
-        { name: 'SQL', level: 90 },
-        { name: 'AWS', level: 85 },
-        { name: 'Airflow', level: 85 },
-        { name: 'Kafka', level: 70 },
-        { name: 'dbt', level: 70 },
-        { name: 'FastAPI', level: 75 },
-        { name: 'LangChain', level: 60 },
-        { name: 'TypeScript', level: 50 },
-      ],
+      sectionOrder: ['summary', 'skills-grid', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'interests', 'availability', 'references'],
+      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
       experienceBullets: {
         ibitse: ['Leading engineering standards, CI/CD, and backend services (TypeScript/Node) for a start-up.'],
         om_lead: ['Leading a team building data analytics solutions. PySpark on EMR/Glue, Airflow, Kafka, dbt, FastAPI. 35% runtime reduction, 22% cost savings.'],
@@ -601,8 +531,8 @@
       ],
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, and Athena. Experienced in medallion/lakehouse patterns, streaming ingestion with Kafka, Airflow orchestration, and DataOps. Proven track record: 35% pipeline runtime reduction, 22% cost savings, 90%+ data-quality coverage. Seeking a full-time role where I can lead data platform engineering and deliver measurable business impact.',
-      sectionOrder: ['summary', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks'],
+      sectionOrder: ['summary', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
       impactHighlights: sharedSections.impactHighlights,
       experienceBullets: {},
     },
@@ -623,10 +553,10 @@
       rate: 'R550–R640/hr',
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS. Specializing in <strong>PySpark pipelines, lakehouse architecture, streaming ingestion, and AI/LLM data preparation</strong>. Proven impact: 35% runtime reduction, 22% cost savings, 90%+ data-quality coverage. Available for 2–4 month contract engagements where rapid, high-quality delivery matters.',
-      sectionOrder: ['summary', 'services', 'stats-grid', 'experience', 'projects', 'skills-grid', 'education', 'certifications', 'languages', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks'],
+      sectionOrder: ['summary', 'skills-grid', 'services', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
       services: sharedSections.services,
-      stats: sharedSections.stats,
+      impactHighlights: sharedSections.impactHighlights,
       experienceBullets: {
         om_lead: [
           'Owned production PySpark pipelines on AWS EMR/Glue with Airflow orchestration',
@@ -661,8 +591,8 @@
       ],
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS. Deep expertise in PySpark, AWS, Airflow, Kafka, and data quality. Available for part-time engagements (20–30 hrs/week) with flexible scheduling across time zones. Ideal for teams needing senior data engineering support without a full-time commitment.',
-      sectionOrder: ['summary', 'skills-grid', 'experience', 'projects', 'education', 'certifications', 'languages', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks'],
+      sectionOrder: ['summary', 'skills-grid', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
       experienceBullets: {},
     },
   };

@@ -138,18 +138,21 @@ test('freelance and contract profiles have a rate field', () => {
 
 /* ---------- new setup: factual consistency ---------- */
 
-test('ai_engineer technicalStack lists TypeScript (15 months)', () => {
+test('ai_engineer skills resolve to canonical categories including TypeScript', () => {
   // Arrange
-  const stack = CV_DATA.cvProfiles.ai_engineer.technicalStack;
-  const languages = stack.find((row) => row.label === 'Languages');
+  const profile = CV_DATA.cvProfiles.ai_engineer;
+  const programming = CV_DATA.skills.programming;
   // Act / Assert
-  assert.ok(languages, 'ai_engineer: technicalStack missing Languages row');
   assert.ok(
-    languages.value.includes('TypeScript (15 months)'),
-    `ai_engineer: expected "TypeScript (15 months)", got "${languages.value}"`
+    profile.skills.includes('programming'),
+    'ai_engineer: skills missing canonical "programming" category'
   );
   assert.ok(
-    !languages.value.includes('TypeScript (6 months)'),
+    programming.tags.includes('TypeScript'),
+    'ai_engineer: canonical programming category missing TypeScript'
+  );
+  assert.ok(
+    !JSON.stringify(CV_DATA).includes('TypeScript (6 months)'),
     'ai_engineer: stale "TypeScript (6 months)" claim still present'
   );
 });

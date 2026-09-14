@@ -38,6 +38,8 @@ test('every section renderer produces non-empty output for its profile', () => {
   // Act / Assert
   for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
     for (const section of profile.sectionOrder) {
+      // availability is conditionally rendered: empty when the profile has no data
+      if (section === 'availability' && (!profile.availability || profile.availability.length === 0)) continue;
       const html = renderers[section](profile, CV_DATA);
       assert.ok(
         typeof html === 'string' && html.length > 0,
