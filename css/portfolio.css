@@ -553,15 +553,6 @@ body {
   border-bottom: 2px solid var(--primary);
 }
 
-.cover-letter-date {
-  color: var(--text-muted);
-  margin-bottom: var(--space-lg);
-}
-
-.cover-letter-recipient {
-  margin-bottom: var(--space-lg);
-}
-
 .cover-letter-body p {
   margin-bottom: var(--space-md);
   color: var(--text-secondary);
