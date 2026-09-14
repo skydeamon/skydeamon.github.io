@@ -27,7 +27,7 @@
       degree: 'Bachelor of Science (BSc) in Physics and Astrophysics',
       school: 'University of Cape Town, South Africa',
       date: 'Feb 2015 — Nov 2017',
-      details: 'Mathematics and Applied Mathematics · Computer Science · Physics · Astronomy',
+      details: 'Physics, Astrophysics, Mathematics, Applied Mathematics, Computer Science, Astronomy',
     },
     {
       degree: 'National Senior Certificate',
@@ -373,8 +373,8 @@
     academic: {
       theme: 'academic',
       title: 'Jade Makwela — Academic CV',
-      subtitle: 'BSc Physics & Astrophysics · Data Engineering Researcher',
-      description: 'Academic CV of Jade Makwela — BSc Physics & Astrophysics, Data Engineering researcher',
+      subtitle: 'Bachelor of Science (BSc) in Physics and Astrophysics · Data Engineering Researcher',
+      description: 'Academic CV of Jade Makwela — Bachelor of Science (BSc) in Physics and Astrophysics, Data Engineering researcher',
       employmentType: 'full-time',
       availability: [],
       summary:
