@@ -1,48 +1,107 @@
 /* ============================================
-   MINIMAL CV — ATS-Friendly plain styles
-   Extracted from cv_minimal.html inline <style>.
+   MINIMAL CV — ATS-Friendly styled layout
+   Profile-matched accent via var(--accent).
+   Flat HTML structure for ATS parseability.
    ============================================ */
 
-/* ATS-Friendly: Plain, parseable, no graphics, no columns */
+:root {
+  --accent: #1a1a2e;          /* fallback if <body> omits --accent */
+  --text: #1a1a2e;
+  --muted: #555;
+  --bg: #fafafa;
+  --card-bg: #f0f0f3;
+}
+
+/* ATS-Friendly: flat, parseable, no columns, no grids */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 11pt;
-  line-height: 1.5;
-  color: #000000;
-  background: #ffffff;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
   max-width: 800px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 48px 40px 40px;
 }
-h1 { font-size: 22pt; margin-bottom: 4px; }
+
+h1 {
+  font-size: 24pt;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+
 h2 {
-  font-size: 13pt;
+  font-size: 12pt;
   text-transform: uppercase;
-  border-bottom: 1px solid #000;
-  padding-bottom: 3px;
-  margin-top: 24px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+  margin-top: 32px;
   margin-bottom: 10px;
 }
-h3 { font-size: 11pt; margin-top: 12px; }
+
+h3 {
+  font-size: 10.5pt;
+  font-weight: bold;
+  color: #333;
+  margin-top: 14px;
+  margin-bottom: 2px;
+}
+
 p { margin-bottom: 6px; }
-ul { margin-left: 20px; margin-bottom: 8px; }
-li { margin-bottom: 3px; }
-.contact { margin-bottom: 12px; }
-.job-date { font-style: italic; }
-.skills-line { margin-bottom: 4px; }
-a { color: #000; text-decoration: none; }
+ul { margin-left: 20px; margin-bottom: 10px; }
+li { margin-bottom: 4px; }
+li:last-child { margin-bottom: 0; }
+
+.contact {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+  color: var(--muted);
+}
+
+.job-date {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 10pt;
+  margin-bottom: 4px;
+}
+
+.skills-line {
+  margin-bottom: 5px;
+  background: var(--card-bg);
+  padding: 4px 10px;
+  border-radius: 3px;
+  line-height: 1.7;
+}
+
+.skills-line strong {
+  color: var(--text);
+}
+
+a { color: var(--text); text-decoration: none; }
+
+/* --- Nav / Print controls (hidden on print) --- */
 .print-btn {
   position: fixed;
   top: 10px;
   right: 10px;
   padding: 8px 16px;
-  background: #000;
+  background: var(--text);
   color: #fff;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
   font-size: 12px;
 }
+.print-btn:hover { background: var(--accent); }
+
 .nav-links {
   position: fixed;
   top: 10px;
@@ -51,13 +110,21 @@ a { color: #000; text-decoration: none; }
   font-size: 12px;
 }
 .nav-links a {
-  color: #000;
+  color: var(--text);
   text-decoration: none;
   font-weight: bold;
   margin-right: 12px;
 }
+.nav-links a:hover { color: var(--accent); }
+
+/* --- Print --- */
 @media print {
+  :root { --accent: #000; --text: #000; --muted: #333; --bg: #fff; --card-bg: #f5f5f5; }
   .print-btn { display: none; }
   .nav-links { display: none; }
-  body { padding: 0; }
+  body { padding: 0; background: #fff; }
+  h1 { border-bottom-color: #000; }
+  h2 { border-left-color: #000; color: #000; }
+  .skills-line { background: none; padding: 0; border-radius: 0; }
+  .contact { border-bottom-color: #ccc; }
 }
