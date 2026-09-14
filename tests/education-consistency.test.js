@@ -22,10 +22,10 @@ const AUDIENCE_PAGES = [
 ];
 
 const ATS_PAGES = [
-  'portfolio/cv_full_time_ats.html',
-  'portfolio/cv_contract_ats.html',
-  'portfolio/cv_part_time_ats.html',
-  'portfolio/cv_minimal.html',
+  'portfolio/cv/ats/full-time.html',
+  'portfolio/cv/ats/contract.html',
+  'portfolio/cv/ats/part-time.html',
+  'portfolio/cv/ats/minimal.html',
 ];
 
 /* ---------- canonical data ---------- */

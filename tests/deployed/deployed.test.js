@@ -35,8 +35,8 @@ test('deployed consolidated CSS assets and portfolio pages return 200', async (t
     '/css/cv-minimal.css',
     '/portfolio/index.html',
     '/portfolio/audience/ai-engineer.html',
-    '/portfolio/cv_modern.html',
-    '/portfolio/cv_minimal.html',
+    '/portfolio/cv/modern.html',
+    '/portfolio/cv/ats/minimal.html',
   ];
   for (const p of paths) {
     let result;

@@ -20,8 +20,8 @@
 | Group | Theme toggle | Icon | Print | Theme target |
 |-------|-------------|------|-------|--------------|
 | Root `index.html` | `#theme-toggle` | `#theme-icon` (i.fas) | — | `<html data-theme>` + `localStorage['theme']` |
-| Portfolio (22 pages: 10 renderer CVs, 5 cover letters, 7 audience) | `button.control-btn` | `#theme-icon` (span 🌙/☀️) | `button.control-btn.secondary` | `<html data-theme>` (in-page only) |
-| ATS + minimal (4 pages: `cv_*_ats.html`, `cv_minimal.html`) | none | none | `button.print-btn` | none (no dark mode) |
+| Portfolio (22 pages: 10 renderer CVs in `cv/`, 5 cover letters in `cover-letters/`, 7 audience in `audience/`) | `button.control-btn` | `#theme-icon` (span 🌙/☀️) | `button.control-btn.secondary` | `<html data-theme>` (in-page only) |
+| ATS + minimal (4 pages in `cv/ats/`: `minimal.html`, `contract.html`, `full-time.html`, `part-time.html`) | none | none | `button.print-btn` | none (no dark mode) |
 
 ## Accent Themes (`<body data-theme>`)
 
@@ -29,7 +29,7 @@
 
 ## Key Journeys (e2e)
 
-Root → `a.audience-card[href="portfolio/audience/ai-engineer.html"]` → `a[href="../cv_ai_engineer.html"]` ("Full CV") → `a[href="index.html"]` (← CVs) → `a[href="../index.html"]` (Home).
+Root → `a.audience-card[href="portfolio/audience/ai-engineer.html"]` → `a[href="../cv/ai-engineer.html"]` ("Full CV") → `a[href="../index.html"]` (← CVs) → `a[href="../../index.html"]` (Home).
 
 **Reference**: `.opencode/context/core/standards/test-coverage.md`
 

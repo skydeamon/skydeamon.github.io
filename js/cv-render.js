@@ -350,8 +350,8 @@
       '<span id="theme-icon">🌙</span> Dark' +
       '</button>' +
       '<button class="control-btn secondary" id="print-btn" aria-label="Print CV">🖨️ Print / PDF</button>' +
-      '<a href="index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>' +
-      '<a href="../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>' +
+      '<a href="../index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>' +
+      '<a href="../../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>' +
       '</div>'
     );
   }

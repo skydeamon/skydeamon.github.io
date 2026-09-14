@@ -12,11 +12,11 @@ test('hub -> audience -> CV -> hub -> root navigation', async ({ page }) => {
   await expect(page.locator('body')).toHaveAttribute('data-theme', 'ai-engineer');
 
   // Audience -> full CV
-  await page.click('a[href="../cv_ai_engineer.html"]');
-  await expect(page).toHaveURL(/cv_ai_engineer\.html$/);
+  await page.click('a[href="../cv/ai-engineer.html"]');
+  await expect(page).toHaveURL(/\/cv\/ai-engineer\.html$/);
 
   // CV -> back to hub
-  await page.click('a[href="index.html"]');
+  await page.click('a[href="../index.html"]');
   await expect(page).toHaveURL(/portfolio\/index\.html$/);
 
   // Hub -> root home
