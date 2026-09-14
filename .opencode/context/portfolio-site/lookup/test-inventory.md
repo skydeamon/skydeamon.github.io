@@ -1,4 +1,4 @@
-<!-- Context: portfolio-site/lookup/test-inventory | Priority: medium | Version: 1.1 | Updated: 2026-09-13 -->
+<!-- Context: portfolio-site/lookup/test-inventory | Priority: medium | Version: 1.2 | Updated: 2026-09-14 -->
 
 # Lookup: Test Inventory & DOM Hooks
 
@@ -8,7 +8,7 @@
 
 | Command | Env | Runs | Count |
 |---------|-----|------|-------|
-| `npm test` | system Node | static contract + unit | 93 |
+| `npm test` | system Node | static contract + unit | 98 |
 | `npm run test:unit` | system Node | unit only | 34 |
 | `npm run test:integration` | `testenv/integration` | browser, local server | 48 |
 | `npm run test:e2e` | `testenv/e2e` | journeys, local server | 4 |
@@ -21,7 +21,7 @@
 |-------|-------------|------|-------|--------------|
 | Root `index.html` | `#theme-toggle` | `#theme-icon` (i.fas) | — | `<html data-theme>` + `localStorage['theme']` |
 | Portfolio (22 pages: 10 renderer CVs in `cv/`, 5 cover letters in `cover-letters/`, 7 audience in `audience/`) | `button.control-btn` | `#theme-icon` (span 🌙/☀️) | `button.control-btn.secondary` | `<html data-theme>` (in-page only) |
-| Engagement (4 pages in `cv/engagement/`: `minimal.html`, `contract.html`, `full-time.html`, `part-time.html`) | none | none | `button.control-btn.secondary` | none (no dark mode) |
+| Engagement (4 pages in `cv/engagement/`: `minimal.html`, `contract.html`, `full-time.html`, `part-time.html`) | none | none | `button.control-btn.secondary#print-btn` | `<body data-theme>` (accent via cv-minimal.css mapping) |
 
 ## Accent Themes (`<body data-theme>`)
 
