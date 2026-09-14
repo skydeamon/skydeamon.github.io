@@ -88,3 +88,14 @@ test('portfolio hub uses h2 category titles (no h1 -> h3 skip)', () => {
   assert.deepStrictEqual(levels.slice(0, 3), [1, 2, 3], 'hub should start h1 -> h2 -> h3');
   assert.ok(content.includes('<h2 class="category-title">'), 'hub missing h2 category titles');
 });
+
+test('no HTML file contains escaped tag entities in text (would render as literal tags)', () => {
+  for (const file of htmlFiles()) {
+    const content = fs.readFileSync(file, 'utf8');
+    const rel = path.relative(ROOT, file);
+    assert.ok(
+      !content.includes('&lt;') && !content.includes('&gt;'),
+      `${rel}: contains escaped tag entities (&lt;/&gt;) that render as literal text`
+    );
+  }
+});

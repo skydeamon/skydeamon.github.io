@@ -8,7 +8,7 @@
 
 | Command | Env | Runs | Count |
 |---------|-----|------|-------|
-| `npm test` | system Node | static contract + unit | 92 |
+| `npm test` | system Node | static contract + unit | 93 |
 | `npm run test:unit` | system Node | unit only | 34 |
 | `npm run test:integration` | `testenv/integration` | browser, local server | 48 |
 | `npm run test:e2e` | `testenv/e2e` | journeys, local server | 4 |
