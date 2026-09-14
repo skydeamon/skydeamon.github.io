@@ -7,6 +7,7 @@ const path = require('node:path');
 const { ROOT, htmlFiles } = require('./helpers');
 
 const CV_DATA = require(path.join(ROOT, 'js', 'cv-data.js'));
+const CVRenderer = require(path.join(ROOT, 'js', 'cv-render.js'));
 
 const BSC = CV_DATA.education[0];
 const NSC = CV_DATA.education[1];
@@ -19,13 +20,6 @@ const AUDIENCE_PAGES = [
   'portfolio/audience/freelance.html',
   'portfolio/audience/modern.html',
   'portfolio/audience/academic.html',
-];
-
-const ENGAGEMENT_PAGES = [
-  'portfolio/cv/engagement/full-time.html',
-  'portfolio/cv/engagement/contract.html',
-  'portfolio/cv/engagement/part-time.html',
-  'portfolio/cv/engagement/minimal.html',
 ];
 
 /* ---------- canonical data ---------- */
@@ -73,16 +67,22 @@ test('root index.html shows canonical BSc and NSC blocks', () => {
   assert.ok(content.includes(NSC.details), 'root: missing NSC subject list');
 });
 
-test('every engagement page shows canonical BSc and NSC blocks', () => {
-  for (const rel of ENGAGEMENT_PAGES) {
-    const content = fs.readFileSync(path.join(ROOT, rel), 'utf8');
-    assert.ok(content.includes(BSC.degree), `${rel}: missing canonical BSc degree`);
-    assert.ok(content.includes('University of Cape Town, South Africa'), `${rel}: missing canonical school`);
-    assert.ok(content.includes('Feb 2015 — Nov 2017'), `${rel}: missing canonical BSc date`);
-    assert.ok(content.includes(BSC.details), `${rel}: missing canonical BSc subject list`);
-    assert.ok(content.includes(NSC.degree), `${rel}: missing NSC degree`);
-    assert.ok(content.includes('Jan 2009 — Dec 2014'), `${rel}: missing canonical NSC date`);
-    assert.ok(content.includes(NSC.details), `${rel}: missing NSC subject list`);
+test('every engagement page renders canonical BSc and NSC blocks', () => {
+  const profileKeys = {
+    'portfolio/cv/engagement/full-time.html': 'full_time',
+    'portfolio/cv/engagement/contract.html': 'contract',
+    'portfolio/cv/engagement/part-time.html': 'part_time',
+    'portfolio/cv/engagement/minimal.html': 'job_application',
+  };
+  for (const [rel, key] of Object.entries(profileKeys)) {
+    const html = CVRenderer.renderEngagement(CV_DATA.cvProfiles[key], CV_DATA);
+    assert.ok(html.includes(BSC.degree), `${rel}: missing canonical BSc degree`);
+    assert.ok(html.includes('University of Cape Town, South Africa'), `${rel}: missing canonical school`);
+    assert.ok(html.includes('Feb 2015 — Nov 2017'), `${rel}: missing canonical BSc date`);
+    assert.ok(html.includes(BSC.details), `${rel}: missing canonical BSc subject list`);
+    assert.ok(html.includes(NSC.degree), `${rel}: missing NSC degree`);
+    assert.ok(html.includes('Jan 2009 — Dec 2014'), `${rel}: missing canonical NSC date`);
+    assert.ok(html.includes(NSC.details), `${rel}: missing NSC subject list`);
   }
 });
 

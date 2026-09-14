@@ -14,10 +14,10 @@ test('print button on a CV page triggers window.print', async ({ page }) => {
   expect(await page.evaluate(() => window.__printed)).toBe(true);
 });
 
-test('cv/engagement/minimal.html is the engagement outlier: print-btn, no toggle, no data-theme', async ({ page }) => {
+test('cv/engagement/minimal.html renders conformed controls without theme toggle', async ({ page }) => {
   await page.goto('/portfolio/cv/engagement/minimal.html');
-  await expect(page.locator('button.print-btn')).toBeVisible();
-  await expect(page.locator('button.control-btn')).toHaveCount(0);
-  expect(await page.locator('html').getAttribute('data-theme')).toBeNull();
-  expect(await page.locator('body').getAttribute('data-theme')).toBeNull();
+  await expect(page.locator('button.control-btn.secondary#print-btn')).toBeVisible();
+  await expect(page.locator('#theme-toggle')).toHaveCount(0);
+  await expect(page.locator('a.control-btn.secondary', { hasText: '← CVs' })).toBeVisible();
+  expect(await page.locator('body').getAttribute('data-theme')).toBe('general');
 });

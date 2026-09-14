@@ -11,11 +11,7 @@ const VALID_THEMES = ['general', 'data-engineer', 'ai-engineer', 'academic', 'fr
 // Pages that intentionally keep the default navy palette (no inline theme block existed).
 const NO_THEME_PAGES = [
   'portfolio/cover-letters/general.html',
-  'portfolio/cv/engagement/minimal.html',
   'portfolio/index.html',
-  'portfolio/cv/engagement/full-time.html',
-  'portfolio/cv/engagement/contract.html',
-  'portfolio/cv/engagement/part-time.html',
 ];
 
 test('no references to the old shared_styles.css remain', () => {
@@ -56,14 +52,19 @@ test('every themed page links themes.css and has a valid data-theme', () => {
     const rel = path.relative(ROOT, file);
     if (!rel.startsWith('portfolio/')) continue;
     const content = fs.readFileSync(file, 'utf8');
-    const themeMatch = content.match(/<body data-theme="([^"]+)">/);
+    const themeMatch = content.match(/<body data-theme="([^"]+)"/);
     if (themeMatch) {
       themed.push(rel);
       assert.ok(VALID_THEMES.includes(themeMatch[1]), `${rel}: invalid theme "${themeMatch[1]}"`);
-      assert.ok(content.includes('themes.css'), `${rel}: themed page missing themes.css link`);
+      // Engagement pages get their accent from cv-minimal.css [data-theme] mapping,
+      // so they do not link themes.css.
+      const isEngagement = rel.startsWith('portfolio/cv/engagement/');
+      if (!isEngagement) {
+        assert.ok(content.includes('themes.css'), `${rel}: themed page missing themes.css link`);
+      }
     }
   }
-  assert.strictEqual(themed.length, 21, 'expected exactly 21 themed pages');
+  assert.strictEqual(themed.length, 25, 'expected exactly 25 themed pages');
 });
 
 test('pages without data-theme are exactly the default-palette set', () => {
