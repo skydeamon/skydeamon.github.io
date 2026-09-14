@@ -21,11 +21,11 @@ const AUDIENCE_PAGES = [
   'portfolio/audience/academic.html',
 ];
 
-const ATS_PAGES = [
-  'portfolio/cv/ats/full-time.html',
-  'portfolio/cv/ats/contract.html',
-  'portfolio/cv/ats/part-time.html',
-  'portfolio/cv/ats/minimal.html',
+const ENGAGEMENT_PAGES = [
+  'portfolio/cv/engagement/full-time.html',
+  'portfolio/cv/engagement/contract.html',
+  'portfolio/cv/engagement/part-time.html',
+  'portfolio/cv/engagement/minimal.html',
 ];
 
 /* ---------- canonical data ---------- */
@@ -60,7 +60,7 @@ test('audience pages are BSc-only (no NSC)', () => {
   }
 });
 
-/* ---------- root + ATS pages (BSc + NSC) ---------- */
+/* ---------- root + engagement pages (BSc + NSC) ---------- */
 
 test('root index.html shows canonical BSc and NSC blocks', () => {
   const content = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
@@ -73,8 +73,8 @@ test('root index.html shows canonical BSc and NSC blocks', () => {
   assert.ok(content.includes(NSC.details), 'root: missing NSC subject list');
 });
 
-test('every ATS page shows canonical BSc and NSC blocks', () => {
-  for (const rel of ATS_PAGES) {
+test('every engagement page shows canonical BSc and NSC blocks', () => {
+  for (const rel of ENGAGEMENT_PAGES) {
     const content = fs.readFileSync(path.join(ROOT, rel), 'utf8');
     assert.ok(content.includes(BSC.degree), `${rel}: missing canonical BSc degree`);
     assert.ok(content.includes('University of Cape Town, South Africa'), `${rel}: missing canonical school`);

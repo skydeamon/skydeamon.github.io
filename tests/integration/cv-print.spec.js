@@ -14,8 +14,8 @@ test('print button on a CV page triggers window.print', async ({ page }) => {
   expect(await page.evaluate(() => window.__printed)).toBe(true);
 });
 
-test('cv/ats/minimal.html is the ATS outlier: print-btn, no toggle, no data-theme', async ({ page }) => {
-  await page.goto('/portfolio/cv/ats/minimal.html');
+test('cv/engagement/minimal.html is the engagement outlier: print-btn, no toggle, no data-theme', async ({ page }) => {
+  await page.goto('/portfolio/cv/engagement/minimal.html');
   await expect(page.locator('button.print-btn')).toBeVisible();
   await expect(page.locator('button.control-btn')).toHaveCount(0);
   expect(await page.locator('html').getAttribute('data-theme')).toBeNull();

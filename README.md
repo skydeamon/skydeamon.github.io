@@ -10,7 +10,7 @@ Personal portfolio site for **Jade Makwela** — Senior Data Engineer · AI/LLM 
 ├── index.html                 # Landing page (theme toggle + audience cards)
 ├── css/                       # main.css, portfolio.css, themes.css, portfolio-hub.css, cv-minimal.css
 ├── js/                        # app.js (DOM wiring), site-logic.js (pure logic, UMD)
-├── portfolio/                 # 27 pages: hub, cv/, cv/ats/, cover-letters/, audience/
+├── portfolio/                 # 27 pages: hub, cv/, cv/engagement/, cover-letters/, audience/
 ├── fontawesome/               # Vendored icon assets
 ├── images/
 ├── testenv/                   # Isolated test environments (unit/integration/e2e)
@@ -21,7 +21,7 @@ Personal portfolio site for **Jade Makwela** — Senior Data Engineer · AI/LLM 
 
 - **Root pages** (`index.html`): dark/light toggle via `#theme-toggle`, persisted in `localStorage['theme']`.
 - **Portfolio pages**: 7 accent themes via `<body data-theme>` (`general`, `data-engineer`, `ai-engineer`, `academic`, `freelance`, `executive`, `modern`); dark mode toggles in-page only.
-- **`cv/ats/` pages** (`minimal.html`, `contract.html`, `full-time.html`, `part-time.html`): no dark mode, print-only.
+- **`cv/engagement/` pages** (`minimal.html`, `contract.html`, `full-time.html`, `part-time.html`): flat, print-ready CVs rendered from cv-data via cv-render; no dark mode.
 
 ## Testing
 

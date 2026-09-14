@@ -21,7 +21,7 @@
 |-------|-------------|------|-------|--------------|
 | Root `index.html` | `#theme-toggle` | `#theme-icon` (i.fas) | — | `<html data-theme>` + `localStorage['theme']` |
 | Portfolio (22 pages: 10 renderer CVs in `cv/`, 5 cover letters in `cover-letters/`, 7 audience in `audience/`) | `button.control-btn` | `#theme-icon` (span 🌙/☀️) | `button.control-btn.secondary` | `<html data-theme>` (in-page only) |
-| ATS + minimal (4 pages in `cv/ats/`: `minimal.html`, `contract.html`, `full-time.html`, `part-time.html`) | none | none | `button.print-btn` | none (no dark mode) |
+| Engagement (4 pages in `cv/engagement/`: `minimal.html`, `contract.html`, `full-time.html`, `part-time.html`) | none | none | `button.control-btn.secondary` | none (no dark mode) |
 
 ## Accent Themes (`<body data-theme>`)
 

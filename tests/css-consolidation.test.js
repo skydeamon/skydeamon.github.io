@@ -11,11 +11,11 @@ const VALID_THEMES = ['general', 'data-engineer', 'ai-engineer', 'academic', 'fr
 // Pages that intentionally keep the default navy palette (no inline theme block existed).
 const NO_THEME_PAGES = [
   'portfolio/cover-letters/general.html',
-  'portfolio/cv/ats/minimal.html',
+  'portfolio/cv/engagement/minimal.html',
   'portfolio/index.html',
-  'portfolio/cv/ats/full-time.html',
-  'portfolio/cv/ats/contract.html',
-  'portfolio/cv/ats/part-time.html',
+  'portfolio/cv/engagement/full-time.html',
+  'portfolio/cv/engagement/contract.html',
+  'portfolio/cv/engagement/part-time.html',
 ];
 
 test('no references to the old shared_styles.css remain', () => {
@@ -84,13 +84,13 @@ test('themes.css defines all 7 theme selectors', () => {
   }
 });
 
-test('portfolio pages link portfolio.css (cv/ats pages link cv-minimal.css instead)', () => {
+test('portfolio pages link portfolio.css (cv/engagement pages link cv-minimal.css instead)', () => {
   for (const file of htmlFiles()) {
     const rel = path.relative(ROOT, file);
     if (!rel.startsWith('portfolio/')) continue;
     const content = fs.readFileSync(file, 'utf8');
-    const isAts = rel.startsWith('portfolio/cv/ats/');
-    if (isAts) {
+    const isEngagement = rel.startsWith('portfolio/cv/engagement/');
+    if (isEngagement) {
       assert.ok(content.includes('cv-minimal.css'), `${rel} must link cv-minimal.css`);
       assert.ok(!content.includes('portfolio.css'), `${rel} must not link portfolio.css`);
     } else {
