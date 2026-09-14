@@ -280,6 +280,156 @@
     return wrapSection('References', '<p style="color: var(--text-muted); font-style: italic;">Available upon request.</p>');
   }
 
+  /* ---------- flat (engagement) renderers ---------- */
+
+  var ENGAGEMENT_SECTION_ORDER = [
+    'summary',
+    'skills',
+    'experience',
+    'projects',
+    'education',
+    'certifications',
+    'languages',
+    'affiliations',
+    'availability',
+    'references',
+  ];
+
+  function flatSection(label, inner) {
+    return '<h2>' + label + '</h2>' + inner;
+  }
+
+  function flatHeader(profile, data) {
+    var c = data.contact;
+    return (
+      '<h1>' + c.name + '</h1>' +
+      '<p class="contact">' +
+      c.location +
+      ' | Email: ' + c.email +
+      ' | LinkedIn: ' + c.linkedin.replace(/^https?:\/\//, '') +
+      ' | GitHub: ' + c.github.replace(/^https?:\/\//, '') +
+      '</p>'
+    );
+  }
+
+  function flatSummary(profile) {
+    return flatSection('Professional Summary', '<p>' + profile.summary + '</p>');
+  }
+
+  function flatSkills(profile, data) {
+    var categories = profile.skills || [];
+    var lines = categories
+      .map(function (cat) {
+        var resolved = typeof cat === 'string' ? data.skills[cat] : cat;
+        if (!resolved) return '';
+        return '<p class="skills-line"><strong>' + resolved.title + ':</strong> ' + resolved.tags.join(', ') + '</p>';
+      })
+      .join('');
+    return flatSection('Technical Skills', lines);
+  }
+
+  function flatExperience(profile, data) {
+    var items = data.experience
+      .map(function (job) {
+        var bullets = (profile.experienceBullets && profile.experienceBullets[job.roleKey]) || job.bullets;
+        return (
+          '<h3>' + job.title + ' — ' + job.company + '</h3>' +
+          '<p class="job-date">' + job.date + ' | ' + job.location + '</p>' +
+          '<ul>' + bulletList(bullets) + '</ul>'
+        );
+      })
+      .join('');
+    return flatSection('Professional Experience', items);
+  }
+
+  function flatProjects(profile, data) {
+    var items = data.projects
+      .map(function (project) {
+        var title = project.url
+          ? project.title + ' (' + project.url.replace(/^https?:\/\//, '') + ')'
+          : project.title;
+        return (
+          '<h3>' + title + '</h3>' +
+          '<p>' + project.description + '</p>' +
+          (project.tech && project.tech.length ? '<p class="job-date">' + project.tech.join(', ') + '</p>' : '')
+        );
+      })
+      .join('');
+    return flatSection('Selected Projects', items);
+  }
+
+  function flatEducation(profile, data) {
+    var items = data.education
+      .map(function (edu) {
+        return (
+          '<h3>' + edu.degree + '</h3>' +
+          '<p>' + edu.school + ' | ' + edu.date + '</p>' +
+          (edu.details ? '<p>' + edu.details + '</p>' : '')
+        );
+      })
+      .join('');
+    return flatSection('Education', items);
+  }
+
+  function flatCertifications(profile, data) {
+    var items = data.certifications
+      .map(function (cert) {
+        return '<li>' + cert.title + ' — ' + cert.detail + '</li>';
+      })
+      .join('');
+    return flatSection('Certifications', '<ul>' + items + '</ul>');
+  }
+
+  function flatLanguages(profile, data) {
+    var items = data.languages
+      .map(function (lang) {
+        return '<li>' + lang.name + ' — ' + lang.level + '</li>';
+      })
+      .join('');
+    return flatSection('Languages', '<ul>' + items + '</ul>');
+  }
+
+  function flatAffiliations(profile, data) {
+    return flatSection('Professional Affiliations', '<ul>' + bulletList(data.affiliations) + '</ul>');
+  }
+
+  function flatAvailability(profile) {
+    if (!profile.availability || profile.availability.length === 0) return '';
+    var rows = profile.availability
+      .map(function (row) {
+        return '<li><strong>' + row.label + ':</strong> ' + row.value + '</li>';
+      })
+      .join('');
+    return flatSection('Availability', '<ul>' + rows + '</ul>');
+  }
+
+  function flatReferences() {
+    return flatSection('References', '<p>Available upon request.</p>');
+  }
+
+  var flatRenderers = {
+    summary: flatSummary,
+    skills: flatSkills,
+    experience: flatExperience,
+    projects: flatProjects,
+    education: flatEducation,
+    certifications: flatCertifications,
+    languages: flatLanguages,
+    affiliations: flatAffiliations,
+    availability: flatAvailability,
+    references: flatReferences,
+  };
+
+  function renderEngagement(profile, data) {
+    var sections = ENGAGEMENT_SECTION_ORDER
+      .map(function (name) {
+        var renderer = flatRenderers[name];
+        return renderer ? renderer(profile, data) : '';
+      })
+      .join('');
+    return flatHeader(profile, data) + sections;
+  }
+
   var sectionRenderers = {
     summary: renderSummary,
     'skills-grid': function (profile, data) {
@@ -343,15 +493,20 @@
 
   /* ---------- controls ---------- */
 
-  function renderControls() {
+  function renderControls(opts) {
+    opts = opts || {};
+    var base = opts.base || '../';
+    var themeToggle = opts.plain
+      ? ''
+      : '<button class="control-btn" id="theme-toggle" aria-label="Toggle dark mode">' +
+        '<span id="theme-icon">🌙</span> Dark' +
+        '</button>';
     return (
       '<div class="controls">' +
-      '<button class="control-btn" id="theme-toggle" aria-label="Toggle dark mode">' +
-      '<span id="theme-icon">🌙</span> Dark' +
-      '</button>' +
+      themeToggle +
       '<button class="control-btn secondary" id="print-btn" aria-label="Print CV">🖨️ Print / PDF</button>' +
-      '<a href="../index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>' +
-      '<a href="../../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>' +
+      '<a href="' + base + 'index.html" class="control-btn secondary">← CVs</a>' +
+      '<a href="' + base + '../index.html" class="control-btn secondary">Home</a>' +
       '</div>'
     );
   }
@@ -395,21 +550,28 @@
 
   /* ---------- DOM-wiring shell ---------- */
 
-  function initCV(profileKey) {
+  function initCV(profileKey, opts) {
     if (typeof window === 'undefined' || !window.CV_DATA) return;
     var profile = window.CV_DATA.cvProfiles[profileKey];
     if (!profile) return;
     var root = document.getElementById('cv-root');
     if (!root) return;
 
-    // Apply persisted/system theme preference (matches app.js behavior).
-    var stored = null;
-    try { stored = localStorage.getItem('theme'); } catch (e) { /* ignore */ }
-    var initial = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : null);
-    if (initial) document.documentElement.setAttribute('data-theme', initial);
+    opts = opts || {};
+    var engagement = opts.format === 'engagement';
 
-    root.insertAdjacentHTML('beforebegin', renderControls());
-    root.innerHTML = renderCV(profile, window.CV_DATA);
+    if (!engagement) {
+      // Apply persisted/system theme preference (matches app.js behavior).
+      var stored = null;
+      try { stored = localStorage.getItem('theme'); } catch (e) { /* ignore */ }
+      var initial = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : null);
+      if (initial) document.documentElement.setAttribute('data-theme', initial);
+    }
+
+    root.insertAdjacentHTML('beforebegin', renderControls({ plain: engagement, base: opts.base }));
+    root.innerHTML = engagement
+      ? renderEngagement(profile, window.CV_DATA)
+      : renderCV(profile, window.CV_DATA);
 
     var toggle = document.getElementById('theme-toggle');
     var icon = document.getElementById('theme-icon');
@@ -435,7 +597,9 @@
     renderControls: renderControls,
     renderSection: renderSection,
     renderCV: renderCV,
+    renderEngagement: renderEngagement,
     initCV: initCV,
     sectionRenderers: sectionRenderers,
+    ENGAGEMENT_SECTION_ORDER: ENGAGEMENT_SECTION_ORDER,
   };
 });
