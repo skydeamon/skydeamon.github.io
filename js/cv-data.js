@@ -78,7 +78,7 @@
       date: 'Dec 2022 — Oct 2023',
       location: 'Cape Town',
       bullets: [
-        'Built ETL pipelines to lift from On-Premises databases (DB2) to object stores (AWS S3)',
+        'Built ETL pipelines to lift from on-premises databases (DB2) to object stores (AWS S3)',
         'Transformed and cleaned data for business use; managed server administration',
         'Technologies: PySpark, Apache Airflow, Python, SQL, DynamoDB, S3, VPC, dbt, Git, GitHub',
       ],
@@ -192,7 +192,7 @@
 
   /* ---------- Affiliations ---------- */
   const affiliations = [
-    'Umuzi.org — Alumni & Mentor (2020–Present)',
+    'Umuzi.org — Alumni & Mentor (2020 — Present)',
     'Open Source Contributor — GitHub (skydeamon)',
     'University of Cape Town — Alumni',
   ];
@@ -226,7 +226,7 @@
       },
       {
         title: 'Consulting',
-        tags: ['Data Strategy', 'Architecture Reviews', 'Team Mentoring', 'Proof of Concept'],
+        tags: ['Data Strategy', 'Architecture Reviews', 'Team Mentoring', 'proof-of-concept'],
         primary: [],
       },
     ],
@@ -261,9 +261,9 @@
       description: 'CV of Jade Makwela — Senior Data Engineer specializing in PySpark, AWS, and data platform engineering',
       employmentType: 'contract',
       availability: [],
-      targetRole: 'Staff / Senior Data Engineer — AI Training Data (Contract)',
+      targetRole: 'Senior Data Engineer — AI Training Data (Contract)',
       summary:
-        'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade, cloud data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, and Athena. Strong in Kafka-driven ingestion, Airflow orchestration, and DataOps (CI/CD, testing, observability). Experienced in medallion/lakehouse patterns (Parquet/Iceberg), large-scale batch and streaming, and rigorous data quality for analytics and ML readiness. Seeking a Staff-level contract to architect and build high-throughput curation systems for AI-training datasets.',
+        'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade cloud data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, and Athena. Strong in Kafka-driven ingestion, Airflow orchestration, and DataOps (CI/CD, testing, observability). Experienced in medallion/lakehouse patterns (Parquet/Iceberg), large-scale batch and streaming, and rigorous data quality for analytics and ML readiness. Seeking a contract role to architect and build high-throughput curation systems for AI-training datasets.',
       sectionOrder: ['target-role', 'summary', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
       impactHighlights: [
@@ -403,7 +403,7 @@
         },
       ],
       teaching: [
-        '<strong>Umuzi.org Alumni Mentor</strong> — Mentoring aspiring data engineers in Python, SQL, and API development (2021–Present)',
+        '<strong>Umuzi.org Alumni Mentor</strong> — Mentoring aspiring data engineers in Python, SQL, and API development (2020 — Present)',
         '<strong>Team Lead & Technical Mentor</strong> — Leading a team of analysts at Old Mutual; mentoring in PySpark, dbt, and data modeling best practices',
         '<strong>Knowledge Sharing</strong> — Internal technical documentation and lineage publishing for downstream consumers',
       ],
@@ -447,7 +447,7 @@
           '<strong>Stakeholders:</strong> Align technical deliverables with business objectives and design specifications',
         ],
         om_analyst: [
-          'Built ETL pipelines from On-Premises databases (DB2) to AWS S3 with transformation and cleaning',
+          'Built ETL pipelines from on-premises databases (DB2) to AWS S3 with transformation and cleaning',
           'Managed server administration and data infrastructure',
         ],
         om_de: [

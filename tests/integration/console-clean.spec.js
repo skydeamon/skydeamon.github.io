@@ -1,37 +1,17 @@
 'use strict';
 
 const { test, expect } = require('@playwright/test');
+const path = require('node:path');
+const { ROOT, htmlFiles } = require('../helpers');
 
-// Every page of the site (root + 27 portfolio pages).
-const PAGES = [
-  '/',
-  '/portfolio/index.html',
-  '/portfolio/audience/general.html',
-  '/portfolio/audience/data-engineer.html',
-  '/portfolio/audience/ai-engineer.html',
-  '/portfolio/audience/academic.html',
-  '/portfolio/audience/freelance.html',
-  '/portfolio/audience/executive.html',
-  '/portfolio/cv/job-application.html',
-  '/portfolio/cv/data-engineer.html',
-  '/portfolio/cv/ai-engineer.html',
-  '/portfolio/cv/academic.html',
-  '/portfolio/cv/freelance-portfolio.html',
-  '/portfolio/cv/executive.html',
-  '/portfolio/cv/modern.html',
-  '/portfolio/cv/engagement/minimal.html',
-  '/portfolio/cv/full-time.html',
-  '/portfolio/cv/contract.html',
-  '/portfolio/cv/part-time.html',
-  '/portfolio/cv/engagement/full-time.html',
-  '/portfolio/cv/engagement/contract.html',
-  '/portfolio/cv/engagement/part-time.html',
-  '/portfolio/cover-letters/general.html',
-  '/portfolio/cover-letters/data-engineer.html',
-  '/portfolio/cover-letters/ai-engineer.html',
-  '/portfolio/cover-letters/freelance.html',
-  '/portfolio/cover-letters/executive.html',
-];
+// Every page of the site, derived from disk: each .html file becomes a URL.
+// ROOT/index.html maps to '/', everything else to '/' + repo-relative path.
+// This reuses the same walk/skip logic as tests/helpers.js (.git, .opencode,
+// node_modules, testenv are excluded), so new pages are picked up automatically.
+const PAGES = htmlFiles().map((file) => {
+  const rel = path.relative(ROOT, file);
+  return rel === 'index.html' ? '/' : '/' + rel.split(path.sep).join('/');
+});
 
 for (const url of PAGES) {
   test(`no console errors or failed requests on ${url}`, async ({ page }) => {

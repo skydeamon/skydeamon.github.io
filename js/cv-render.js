@@ -184,38 +184,47 @@
   }
 
   function renderTargetRole(profile) {
+    if (!profile.targetRole) return '';
     return wrapSection('Target Role', '<p>' + profile.targetRole + '</p>');
   }
 
   function renderImpactHighlights(profile) {
+    if (!profile.impactHighlights) return '';
     return wrapSection('Proven Impact', '<ul>' + bulletList(profile.impactHighlights) + '</ul>');
   }
 
   function renderLeadershipPhilosophy(profile) {
+    if (!profile.leadershipPhilosophy) return '';
     return wrapSection('Leadership Philosophy', '<p>' + profile.leadershipPhilosophy + '</p>');
   }
 
   function renderPublications(profile) {
+    if (!profile.publications) return '';
     return wrapSection('Publications', projectItems(profile.publications));
   }
 
   function renderTeaching(profile) {
+    if (!profile.teaching) return '';
     return wrapSection('Teaching & Mentoring', '<ul>' + bulletList(profile.teaching) + '</ul>');
   }
 
   function renderHealthcareCompliance(profile) {
+    if (!profile.healthcareCompliance) return '';
     return wrapSection('Healthcare & Compliance', '<ul>' + bulletList(profile.healthcareCompliance) + '</ul>');
   }
 
   function renderServices(profile, data) {
+    if (!profile.services) return '';
     return wrapSection('Services Offered', '<div class="skills-grid">' + skillCategories(profile.services, data) + '</div>');
   }
 
   function renderResearchInterests(profile) {
+    if (!profile.researchInterests) return '';
     return wrapSection('Research Interests', '<div class="skill-tags">' + tagList(profile.researchInterests, []) + '</div>');
   }
 
   function renderResearchProjects(profile) {
+    if (!profile.researchProjects) return '';
     return wrapSection('Research Projects', projectItems(profile.researchProjects));
   }
 
@@ -466,6 +475,9 @@
 
     opts = opts || {};
     var engagement = opts.format === 'engagement';
+
+    // Single source of truth: accent theme comes from the profile.
+    if (profile.theme) document.body.setAttribute('data-theme', profile.theme);
 
     if (!engagement) {
       // Apply persisted/system theme preference (matches app.js behavior).

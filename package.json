@@ -4,12 +4,13 @@
   "private": true,
   "description": "Jade Makwela portfolio site — static HTML/CSS/JS",
   "scripts": {
-    "test": "node --test \"tests/*.test.js\" \"tests/unit/*.test.js\"",
+    "test": "node --test \"tests/*.test.js\" \"tests/unit/*.test.js\" \"tests/audit/*.test.js\"",
     "test:unit": "node --test \"tests/unit/*.test.js\"",
     "test:integration": "NODE_PATH=testenv/integration/node_modules npm --prefix testenv/integration exec -- playwright test --config testenv/integration/playwright.config.js --project=integration",
     "test:e2e": "NODE_PATH=testenv/e2e/node_modules npm --prefix testenv/e2e exec -- playwright test --config testenv/e2e/playwright.config.js --project=e2e",
     "test:e2e:deployed": "BASE_URL=https://skydeamon.github.io NODE_PATH=testenv/e2e/node_modules npm --prefix testenv/e2e exec -- playwright test --config testenv/e2e/playwright.config.js --project=e2e",
     "venv:setup": "bash testenv/setup.sh",
-    "test:deployed": "node --test \"tests/deployed/*.test.js\""
+    "test:deployed": "node --test \"tests/deployed/*.test.js\"",
+    "audit:spell": "node scripts/audit-spell.js"
   }
 }

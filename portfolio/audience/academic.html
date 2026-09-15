@@ -10,7 +10,7 @@
   </head>
 <body data-theme="academic">
   <div class="controls">
-    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
+    <button class="control-btn" id="theme-toggle" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
     <button class="control-btn secondary" id="print-btn" aria-label="Print">🖨️ Print / PDF</button>
     <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
     <a href="../../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
@@ -45,8 +45,7 @@
         </div>
       </section>
 
-      <section class="section">
-              <section class="section" aria-label="Experience">
+      <section class="section" aria-label="Experience">
         <h2 class="section-title">Experience</h2>
         <div class="experience-item">
           <div class="experience-header">
@@ -101,7 +100,7 @@
           </div>
           <div class="experience-description">
             <ul>
-              <li>Built ETL pipelines to lift from On-Premises databases (DB2) to object stores (AWS S3)</li>
+              <li>Built ETL pipelines to lift from on-premises databases (DB2) to object stores (AWS S3)</li>
               <li>Transformed and cleaned data for business use; managed server administration</li>
               <li>Technologies: PySpark, Apache Airflow, Python, SQL, DynamoDB, S3, VPC, dbt, Git, GitHub</li>
             </ul>
@@ -146,7 +145,8 @@
         </div>
       </section>
 
-      <h2 class="section-title">Education</h2>
+      <section class="section">
+        <h2 class="section-title">Education</h2>
         <div class="education-item">
           <div class="education-degree">Bachelor of Science (BSc) in Physics and Astrophysics</div>
           <div class="education-school">University of Cape Town, South Africa</div>
@@ -174,7 +174,7 @@
       <section class="section">
         <h2 class="section-title">Teaching &amp; Mentoring</h2>
         <ul style="padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.8;">
-          <li><strong>Umuzi.org Alumni Mentor</strong> — Mentoring aspiring data engineers in Python, SQL, and API development (2021–Present)</li>
+          <li><strong>Umuzi.org Alumni Mentor</strong> — Mentoring aspiring data engineers in Python, SQL, and API development (2020 — Present)</li>
           <li><strong>Team Lead &amp; Technical Mentor</strong> — Leading analysts at Old Mutual; mentoring in PySpark, dbt, and data modeling best practices</li>
           <li><strong>Knowledge Sharing</strong> — Internal technical documentation and lineage publishing for downstream consumers</li>
         </ul>
@@ -234,16 +234,6 @@
     </div>
   </div>
 
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
-      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
-    }
-    document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
-  </script>
+  <script src="../../js/theme.js"></script>
 </body>
 </html>

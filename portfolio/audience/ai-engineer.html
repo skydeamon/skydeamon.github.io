@@ -10,7 +10,7 @@
   </head>
 <body data-theme="ai-engineer">
   <div class="controls">
-    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
+    <button class="control-btn" id="theme-toggle" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
     <button class="control-btn secondary" id="print-btn" aria-label="Print">🖨️ Print / PDF</button>
     <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
     <a href="../../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
@@ -39,8 +39,7 @@
         </p>
       </section>
 
-      <section class="section">
-              <section class="section" aria-label="Experience">
+      <section class="section" aria-label="Experience">
         <h2 class="section-title">Experience</h2>
         <div class="experience-item">
           <div class="experience-header">
@@ -94,7 +93,7 @@
           </div>
           <div class="experience-description">
             <ul>
-              <li>Built ETL pipelines to lift from On-Premises databases (DB2) to object stores (AWS S3)</li>
+              <li>Built ETL pipelines to lift from on-premises databases (DB2) to object stores (AWS S3)</li>
               <li>Transformed and cleaned data for business use; managed server administration</li>
               <li>Technologies: PySpark, Apache Airflow, Python, SQL, DynamoDB, S3, VPC, dbt, Git, GitHub</li>
             </ul>
@@ -138,7 +137,8 @@
         </div>
       </section>
 
-      <h2 class="section-title">AI / LLM Projects</h2>
+      <section class="section">
+        <h2 class="section-title">AI / LLM Projects</h2>
         <div class="project-item">
           <div class="project-title">
             <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank" rel="noopener noreferrer">RAG Service (PoC) — Agentic RAG LLM Demo</a>
@@ -226,16 +226,6 @@
     </div>
   </div>
 
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
-      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
-    }
-    document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
-  </script>
+  <script src="../../js/theme.js"></script>
 </body>
 </html>

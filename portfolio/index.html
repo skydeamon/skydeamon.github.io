@@ -11,7 +11,7 @@
 <body>
   <!-- Controls -->
   <div class="controls">
-    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <button class="control-btn" id="theme-toggle" aria-label="Toggle dark mode">
       <span id="theme-icon">🌙</span> Dark
     </button>
     <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">🏠 Home</a>
@@ -46,7 +46,7 @@
       <a href="audience/ai-engineer.html" class="cv-card">
         <div class="cv-card-icon">🤖</div>
         <h3>AI Engineer Portfolio</h3>
-        <p>RAG, LLM patterns, and AI/ML application experience.</p>
+        <p>RAG, LLM patterns, and AI/LLM application experience.</p>
       </a>
       <a href="audience/academic.html" class="cv-card">
         <div class="cv-card-icon">🎓</div>
@@ -81,7 +81,7 @@
       <a href="cv/ai-engineer.html" class="cv-card">
         <div class="cv-card-icon">🤖</div>
         <h3>AI Engineer CV <span class="badge">AI/LLM Roles</span></h3>
-        <p>Highlights RAG, LLM patterns, FastAPI integration, and AI/ML exploration. For AI-focused positions.</p>
+        <p>Highlights RAG, LLM patterns, FastAPI integration, and AI/LLM exploration. For AI-focused positions.</p>
       </a>
       <a href="cv/academic.html" class="cv-card">
         <div class="cv-card-icon">🎓</div>
@@ -180,15 +180,6 @@
     <p>Last updated: September 2026 · All documents are print-ready (Ctrl+P / Cmd+P)</p>
   </footer>
 
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
-      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
-    }
-  </script>
+  <script src="../js/theme.js"></script>
 </body>
 </html>

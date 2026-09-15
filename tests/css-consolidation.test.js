@@ -14,6 +14,25 @@ const NO_THEME_PAGES = [
   'portfolio/index.html',
 ];
 
+// CV shells resolve their accent theme at runtime from profile.theme via initCV,
+// so they must NOT hardcode a body data-theme.
+const RUNTIME_THEME_PAGES = [
+  'portfolio/cv/academic.html',
+  'portfolio/cv/ai-engineer.html',
+  'portfolio/cv/contract.html',
+  'portfolio/cv/data-engineer.html',
+  'portfolio/cv/engagement/contract.html',
+  'portfolio/cv/engagement/full-time.html',
+  'portfolio/cv/engagement/minimal.html',
+  'portfolio/cv/engagement/part-time.html',
+  'portfolio/cv/executive.html',
+  'portfolio/cv/freelance-portfolio.html',
+  'portfolio/cv/full-time.html',
+  'portfolio/cv/job-application.html',
+  'portfolio/cv/modern.html',
+  'portfolio/cv/part-time.html',
+];
+
 test('no references to the old shared_styles.css remain', () => {
   const offenders = [];
   for (const file of [...htmlFiles(), ...cssFiles()]) {
@@ -64,10 +83,23 @@ test('every themed page links themes.css and has a valid data-theme', () => {
       }
     }
   }
-  assert.strictEqual(themed.length, 24, 'expected exactly 24 themed pages');
+  assert.strictEqual(themed.length, 10, 'expected exactly 10 hardcoded themed pages');
 });
 
-test('pages without data-theme are exactly the default-palette set', () => {
+test('CV shells resolve their theme at runtime (no hardcoded body data-theme)', () => {
+  for (const rel of RUNTIME_THEME_PAGES) {
+    const content = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+    assert.ok(!/<body data-theme=/.test(content), `${rel}: must not hardcode body data-theme`);
+    const isEngagement = rel.startsWith('portfolio/cv/engagement/');
+    if (isEngagement) {
+      assert.ok(content.includes('cv-minimal.css'), `${rel} must link cv-minimal.css`);
+    } else {
+      assert.ok(content.includes('themes.css'), `${rel} must link themes.css`);
+    }
+  }
+});
+
+test('pages without data-theme are exactly the default-palette and runtime-theme sets', () => {
   const untagged = [];
   for (const file of htmlFiles()) {
     const rel = path.relative(ROOT, file);
@@ -75,7 +107,7 @@ test('pages without data-theme are exactly the default-palette set', () => {
     const content = fs.readFileSync(file, 'utf8');
     if (!/<body data-theme=/.test(content)) untagged.push(rel);
   }
-  assert.deepStrictEqual(untagged.sort(), [...NO_THEME_PAGES].sort());
+  assert.deepStrictEqual(untagged.sort(), [...NO_THEME_PAGES, ...RUNTIME_THEME_PAGES].sort());
 });
 
 test('themes.css defines all 7 theme selectors', () => {

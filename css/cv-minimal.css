@@ -15,7 +15,11 @@
 /* Profile-matched accent via body[data-theme] (matches themes.css accents) */
 [data-theme="general"] { --accent: #2563eb; }
 [data-theme="data-engineer"] { --accent: #0d9488; }
+[data-theme="ai-engineer"] { --accent: #7c3aed; }
+[data-theme="academic"] { --accent: #1f2937; }
 [data-theme="freelance"] { --accent: #ea580c; }
+[data-theme="executive"] { --accent: #111827; }
+[data-theme="modern"] { --accent: #2563eb; }
 
 /* Engagement-friendly: flat, parseable, no columns, no grids */
 * { margin: 0; padding: 0; box-sizing: border-box; }

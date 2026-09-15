@@ -10,7 +10,7 @@
   </head>
 <body data-theme="executive">
   <div class="controls">
-    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
+    <button class="control-btn" id="theme-toggle" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
     <button class="control-btn secondary" id="print-btn" aria-label="Print">🖨️ Print / PDF</button>
     <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
     <a href="../../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
@@ -107,7 +107,7 @@
             <ul>
               <li><strong>Strategy:</strong> Implement proof-of-concept evaluations, transition tools to production-ready services</li>
               <li><strong>Architecture:</strong> Own production PySpark pipelines on AWS EMR/Glue with Airflow</li>
-              <li><strong>Impact:</strong> 35% runtime reduction, 22% cost savings, 90%+ data quality, H+1 freshness</li>
+              <li><strong>Impact:</strong> 35% runtime reduction, 22% cost savings, 90%+ data-quality coverage, H+1 freshness</li>
             </ul>
           </div>
         </div>
@@ -184,7 +184,7 @@
             <div class="skill-tags">
               <span class="skill-tag primary">Architecture Strategy</span>
               <span class="skill-tag primary">Technology Roadmapping</span>
-              <span class="skill-tag">Proof of Concept Leadership</span>
+              <span class="skill-tag">proof-of-concept leadership</span>
               <span class="skill-tag">Cost Optimization</span>
             </div>
           </div>
@@ -229,16 +229,6 @@
     </div>
   </div>
 
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
-      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
-    }
-    document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
-  </script>
+  <script src="../../js/theme.js"></script>
 </body>
 </html>

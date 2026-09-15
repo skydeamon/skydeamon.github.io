@@ -123,11 +123,12 @@ test('every engagement page is a thin renderer shell (cv-root + initCV)', () => 
     assert.ok(content.includes('id="cv-root"'), `${rel}: missing cv-root container`);
     assert.ok(content.includes('js/cv-data.js'), `${rel}: missing cv-data.js script`);
     assert.ok(content.includes('js/cv-render.js'), `${rel}: missing cv-render.js script`);
+    assert.ok(content.includes('js/cv-init.js'), `${rel}: missing cv-init.js script`);
     assert.ok(
-      content.includes(`CVRenderer.initCV('${profileKey}', { format: 'engagement', base: '../../' })`),
-      `${rel}: missing initCV('${profileKey}', { format: 'engagement' })`
+      content.includes(`data-profile="${profileKey}"`) && content.includes('data-format="engagement"'),
+      `${rel}: missing data-profile="${profileKey}" data-format="engagement" on cv-init.js`
     );
-    assert.ok(/<body data-theme="[^"]+">/.test(content), `${rel}: missing body data-theme`);
+    assert.ok(!/<body data-theme=/.test(content), `${rel}: body data-theme must be set by initCV from profile.theme`);
     assert.ok(!content.includes('style="--accent'), `${rel}: inline --accent style should be removed`);
   }
 });

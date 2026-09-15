@@ -11,7 +11,7 @@
 <body>
   <!-- Controls -->
   <div class="controls">
-    <button class="control-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <button class="control-btn" id="theme-toggle" aria-label="Toggle dark mode">
       <span id="theme-icon">🌙</span> Dark
     </button>
     <button class="control-btn secondary" id="print-btn" aria-label="Print">
@@ -42,7 +42,7 @@
       <p>Dear Hiring Manager,</p>
 
       <p>
-        I am writing to express my interest in the <span class="highlight">[Position Title]</span> position at <span class="highlight">[Company Name]</span>. With over 5 years of experience building enterprise-grade data platforms and applications on AWS, I bring a unique combination of deep technical expertise, leadership experience, and a passion for leveraging data to drive business outcomes.
+        I am writing to express my interest in the <span class="highlight">[Position Title]</span> position at <span class="highlight">[Company Name]</span>. With <strong>5+ years</strong> of experience building enterprise-grade data platforms and applications on AWS, I bring a unique combination of deep technical expertise, leadership experience, and a passion for leveraging data to drive business outcomes.
       </p>
 
       <p>
@@ -79,16 +79,6 @@
     </div>
   </div>
 
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
-      document.getElementById('theme-icon').parentElement.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
-    }
-    document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
-  </script>
+  <script src="../../js/theme.js"></script>
 </body>
 </html>
