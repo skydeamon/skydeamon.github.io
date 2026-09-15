@@ -300,7 +300,7 @@
       theme: 'ai-engineer',
       title: 'Jade Makwela — AI Engineer CV',
       subtitle: 'Senior Data / AI Engineer — LLM Applications & Data Platforms',
-      description: 'CV of Jade Makwela — AI/LLM Engineer with production data platform experience',
+      description: 'CV of Jade Makwela — AI/LLM Engineer with data platform experience',
       employmentType: 'contract',
       availability: [],
       summary:

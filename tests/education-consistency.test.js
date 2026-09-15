@@ -18,7 +18,6 @@ const AUDIENCE_PAGES = [
   'portfolio/audience/data-engineer.html',
   'portfolio/audience/executive.html',
   'portfolio/audience/freelance.html',
-  'portfolio/audience/modern.html',
   'portfolio/audience/academic.html',
 ];
 

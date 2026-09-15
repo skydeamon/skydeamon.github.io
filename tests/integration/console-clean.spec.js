@@ -12,7 +12,6 @@ const PAGES = [
   '/portfolio/audience/academic.html',
   '/portfolio/audience/freelance.html',
   '/portfolio/audience/executive.html',
-  '/portfolio/audience/modern.html',
   '/portfolio/cv/job-application.html',
   '/portfolio/cv/data-engineer.html',
   '/portfolio/cv/ai-engineer.html',

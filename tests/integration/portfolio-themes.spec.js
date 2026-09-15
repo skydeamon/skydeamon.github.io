@@ -9,7 +9,6 @@ const THEME_EXPECTATIONS = [
   { url: '/portfolio/audience/academic.html', theme: 'academic', primary: '#1f2937' },
   { url: '/portfolio/audience/freelance.html', theme: 'freelance', primary: '#ea580c' },
   { url: '/portfolio/audience/executive.html', theme: 'executive', primary: '#111827' },
-  { url: '/portfolio/audience/modern.html', theme: 'modern', primary: '#2563eb' },
 ];
 
 for (const { url, theme, primary } of THEME_EXPECTATIONS) {

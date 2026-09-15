@@ -64,7 +64,7 @@ test('every themed page links themes.css and has a valid data-theme', () => {
       }
     }
   }
-  assert.strictEqual(themed.length, 25, 'expected exactly 25 themed pages');
+  assert.strictEqual(themed.length, 24, 'expected exactly 24 themed pages');
 });
 
 test('pages without data-theme are exactly the default-palette set', () => {
