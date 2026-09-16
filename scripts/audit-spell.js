@@ -113,7 +113,7 @@ const ALLOW_LIST = new Set(
     'Jupyter lakehouses learnings lifecycle linkedin LinkedIn llm makwela Matillion Matplotlib ' +
     'NumPy onboarding ong parseability pgvector Phusela Prototyped PRs pushdown RESTful ' +
     'Roadmapping rollout scalable SCD SciPy Sepedi SLAs Sotho SQLAlchemy standups templated ' +
-    'Templated UCT Agentic agentic umuzi ' +
+    'Templated UCT Agentic agentic umuzi codebase ' +
     // hunspell affix-splitting artifacts (from lineage/edge in concatenated text)
     'linea ge'
   ).split(/\s+/)
