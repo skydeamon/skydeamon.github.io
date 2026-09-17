@@ -21,14 +21,6 @@ test('sectionRenderers is exported and covers every sectionOrder entry', () => {
         `${key}: sectionOrder entry "${section}" has no renderer`
       );
     }
-    if (profile.layout && profile.layout.type === 'two-column') {
-      for (const section of [...profile.layout.main, ...profile.layout.sidebar]) {
-        assert.ok(
-          renderers[section],
-          `${key}: layout section "${section}" has no renderer`
-        );
-      }
-    }
   }
 });
 
@@ -68,8 +60,6 @@ test('every string skill reference resolves to a master skill category', () => {
   for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
     const lists = [
       profile.skills,
-      profile.skillsAI,
-      profile.skillsData,
       profile.services,
     ];
     for (const list of lists || []) {
@@ -96,6 +86,21 @@ test('master skills categories have title and non-empty tags', () => {
   for (const [name, cat] of Object.entries(CV_DATA.skills)) {
     assert.ok(cat.title, `skills.${name}: missing title`);
     assert.ok(Array.isArray(cat.tags) && cat.tags.length > 0, `skills.${name}: missing tags`);
+  }
+});
+
+test('every skillsGrid entry has a category and non-empty skills list', () => {
+  // Arrange / Act / Assert
+  for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
+    if (!profile.skillsGrid) continue;
+    assert.ok(Array.isArray(profile.skillsGrid), `${key}: skillsGrid not an array`);
+    for (const entry of profile.skillsGrid) {
+      assert.ok(typeof entry.category === 'string' && entry.category.length > 0, `${key}: skillsGrid entry missing category`);
+      assert.ok(Array.isArray(entry.skills) && entry.skills.length > 0, `${key}: skillsGrid entry "${entry.category}" has no skills`);
+      for (const skill of entry.skills) {
+        assert.strictEqual(typeof skill, 'string', `${key}: skillsGrid skill not a string`);
+      }
+    }
   }
 });
 

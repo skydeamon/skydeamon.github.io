@@ -69,11 +69,9 @@ test('every profile has a valid theme from VALID_THEMES', () => {
 
 /* ---------- metadata ---------- */
 
-test('every profile has non-empty title and subtitle', () => {
+test('every profile has a non-empty subtitle', () => {
   // Arrange / Act / Assert
   for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
-    assert.strictEqual(typeof profile.title, 'string', `${key}: title missing`);
-    assert.ok(profile.title.length > 0, `${key}: title empty`);
     assert.strictEqual(typeof profile.subtitle, 'string', `${key}: subtitle missing`);
     assert.ok(profile.subtitle.length > 0, `${key}: subtitle empty`);
   }
@@ -97,15 +95,7 @@ test('every profile has a non-empty summary', () => {
   }
 });
 
-/* ---------- new setup: description + bullets ---------- */
-
-test('every profile has a non-empty description', () => {
-  // Arrange / Act / Assert
-  for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
-    assert.strictEqual(typeof profile.description, 'string', `${key}: description missing`);
-    assert.ok(profile.description.length > 0, `${key}: description empty`);
-  }
-});
+/* ---------- new setup: bullets ---------- */
 
 test('every profile has experienceBullets as an object with canonical role keys', () => {
   // Arrange

@@ -40,15 +40,16 @@ test('contact has all required fields', () => {
 
 /* ---------- experience ---------- */
 
-test('experience array has exactly 5 entries', () => {
+test('experience array has exactly 6 entries', () => {
   // Arrange / Act / Assert
-  assert.strictEqual(CV_DATA.experience.length, 5);
+  assert.strictEqual(CV_DATA.experience.length, 6);
 });
 
 test('canonical role dates are correct', () => {
   // Arrange
   const expected = {
     ibitse: 'Jun 2025 — Present',
+    zelenial: 'Feb 2025 — Present',
     om_lead: 'Oct 2023 — Present',
     om_analyst: 'Dec 2022 — Oct 2023',
     om_de: 'Sep 2021 — Nov 2022',
@@ -64,7 +65,7 @@ test('canonical role dates are correct', () => {
 
 test('experience roles are in reverse chronological order', () => {
   // Arrange
-  const startOrder = ['Jun 2025', 'Oct 2023', 'Dec 2022', 'Sep 2021', 'Dec 2020'];
+  const startOrder = ['Jun 2025', 'Feb 2025', 'Oct 2023', 'Dec 2022', 'Sep 2021', 'Dec 2020'];
   // Act
   const actual = CV_DATA.experience.map((job) => job.date.split(' — ')[0]);
   // Assert
@@ -73,12 +74,11 @@ test('experience roles are in reverse chronological order', () => {
 
 /* ---------- cvProfiles ---------- */
 
-test('cvProfiles has exactly 10 unique keys', () => {
+test('cvProfiles has exactly 17 keys', () => {
   // Arrange / Act
   const keys = Object.keys(CV_DATA.cvProfiles);
   // Assert
-  assert.strictEqual(keys.length, 10);
-  assert.strictEqual(new Set(keys).size, 10, 'duplicate profile keys');
+  assert.strictEqual(keys.length, 17);
 });
 
 test('every profile has experienceBullets keys matching canonical roleKeys', () => {
@@ -166,13 +166,13 @@ test('freelance and contract rates are identical', () => {
   );
 });
 
-test('impact metrics are consistent across experience, highlights, and metrics', () => {
+test('impact metrics are consistent across experience bullets', () => {
   // Arrange
-  const allText = JSON.stringify(CV_DATA);
+  const bullets = CV_DATA.experience.flatMap((job) => job.bullets || []).join(' ');
   const expected = ['35%', '22%', '90%', 'H+1'];
   // Act / Assert
   for (const metric of expected) {
-    assert.ok(allText.includes(metric), `metric "${metric}" missing from cv-data.js`);
+    assert.ok(bullets.includes(metric), `metric "${metric}" missing from experience bullets`);
   }
 });
 
@@ -187,11 +187,12 @@ test('every profile summary claims 5+ years of experience', () => {
 });
 
 test('experience timeline supports the 5+ years claim', () => {
-  // Arrange: earliest role starts Dec 2020, latest is Present (Sep 2026)
+  // Arrange: earliest role starts Dec 2020, latest is Present
   const earliest = CV_DATA.experience[CV_DATA.experience.length - 1];
   assert.strictEqual(earliest.date, 'Dec 2020 — Sep 2021');
-  // Act: months from Dec 2020 to Sep 2026
-  const months = (2026 - 2020) * 12 + (9 - 12);
+  // Act: months from Dec 2020 to today
+  const now = new Date();
+  const months = (now.getFullYear() - 2020) * 12 + (now.getMonth() + 1 - 12);
   // Assert
   assert.ok(months >= 60, `timeline spans ${months} months, expected >= 60 for "5+ years"`);
 });

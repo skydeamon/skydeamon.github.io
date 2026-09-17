@@ -84,6 +84,36 @@
     return wrapSection(title, '<div class="skills-grid">' + skillCategories(categories, data) + '</div>');
   }
 
+  function renderProfileSkillsGrid(profile) {
+    if (!profile.skillsGrid || profile.skillsGrid.length === 0) return '';
+    var items = profile.skillsGrid
+      .map(function (cat) {
+        return (
+          '<div class="skill-category">' +
+          '<h3>' + cat.category + '</h3>' +
+          '<div class="skill-tags">' + tagList(cat.skills, []) + '</div>' +
+          '</div>'
+        );
+      })
+      .join('');
+    return wrapSection('Skills', '<div class="skills-grid">' + items + '</div>');
+  }
+
+  function renderStats(profile) {
+    if (!profile.stats || profile.stats.length === 0) return '';
+    var items = profile.stats
+      .map(function (stat) {
+        return (
+          '<div class="stat-card">' +
+          '<div class="stat-number">' + stat.value + '</div>' +
+          '<div class="stat-label">' + stat.label + '</div>' +
+          '</div>'
+        );
+      })
+      .join('');
+    return wrapSection('Key Metrics', '<div class="stats-grid">' + items + '</div>');
+  }
+
   function renderExperienceList(profile, data) {
     var items = data.experience
       .map(function (job) {
@@ -355,6 +385,92 @@
     return flatSection('Availability', '<ul>' + rows + '</ul>');
   }
 
+  function flatStats(profile) {
+    if (!profile.stats || profile.stats.length === 0) return '';
+    var items = profile.stats
+      .map(function (stat) {
+        return '<li><strong>' + stat.label + ':</strong> ' + stat.value + '</li>';
+      })
+      .join('');
+    return flatSection('Key Metrics', '<ul>' + items + '</ul>');
+  }
+
+  function flatSkillsGrid(profile) {
+    if (!profile.skillsGrid || profile.skillsGrid.length === 0) return '';
+    var lines = profile.skillsGrid
+      .map(function (cat) {
+        return '<p class="skills-line"><strong>' + cat.category + ':</strong> ' + cat.skills.join(', ') + '</p>';
+      })
+      .join('');
+    return flatSection('Skills', lines);
+  }
+
+  function flatInterests(profile, data) {
+    return flatSection('Interests', '<p>' + (data.interests || []).join(', ') + '</p>');
+  }
+
+  function flatTargetRole(profile) {
+    if (!profile.targetRole) return '';
+    return flatSection('Target Role', '<p>' + profile.targetRole + '</p>');
+  }
+
+  function flatImpactHighlights(profile) {
+    if (!profile.impactHighlights) return '';
+    return flatSection('Proven Impact', '<ul>' + bulletList(profile.impactHighlights) + '</ul>');
+  }
+
+  function flatHealthcareCompliance(profile) {
+    if (!profile.healthcareCompliance) return '';
+    return flatSection('Healthcare & Compliance', '<ul>' + bulletList(profile.healthcareCompliance) + '</ul>');
+  }
+
+  function flatResearchInterests(profile) {
+    if (!profile.researchInterests) return '';
+    return flatSection('Research Interests', '<p>' + profile.researchInterests.join(', ') + '</p>');
+  }
+
+  function flatPublications(profile) {
+    if (!profile.publications) return '';
+    var items = profile.publications
+      .map(function (pub) {
+        return '<li>' + pub.title + (pub.url ? ' (' + pub.url.replace(/^https?:\/\//, '') + ')' : '') + ' — ' + pub.description + '</li>';
+      })
+      .join('');
+    return flatSection('Publications', '<ul>' + items + '</ul>');
+  }
+
+  function flatTeaching(profile) {
+    if (!profile.teaching) return '';
+    return flatSection('Teaching & Mentoring', '<ul>' + bulletList(profile.teaching) + '</ul>');
+  }
+
+  function flatResearchProjects(profile) {
+    if (!profile.researchProjects) return '';
+    var items = profile.researchProjects
+      .map(function (proj) {
+        return '<li><strong>' + proj.title + ':</strong> ' + proj.description + '</li>';
+      })
+      .join('');
+    return flatSection('Research Projects', '<ul>' + items + '</ul>');
+  }
+
+  function flatLeadershipPhilosophy(profile) {
+    if (!profile.leadershipPhilosophy) return '';
+    return flatSection('Leadership Philosophy', '<p>' + profile.leadershipPhilosophy + '</p>');
+  }
+
+  function flatServices(profile, data) {
+    if (!profile.services) return '';
+    var lines = profile.services
+      .map(function (cat) {
+        var resolved = typeof cat === 'string' ? data.skills[cat] : cat;
+        if (!resolved) return '';
+        return '<p class="skills-line"><strong>' + resolved.title + ':</strong> ' + resolved.tags.join(', ') + '</p>';
+      })
+      .join('');
+    return flatSection('Services Offered', lines);
+  }
+
   function flatReferences() {
     return flatSection('References', '<p>Available upon request.</p>');
   }
@@ -362,18 +478,33 @@
   var flatRenderers = {
     summary: flatSummary,
     skills: flatSkills,
+    'skills-grid': flatSkillsGrid,
+    stats: flatStats,
     experience: flatExperience,
     projects: flatProjects,
     education: flatEducation,
     certifications: flatCertifications,
     languages: flatLanguages,
     affiliations: flatAffiliations,
+    interests: flatInterests,
     availability: flatAvailability,
     references: flatReferences,
+    'target-role': flatTargetRole,
+    'impact-highlights': flatImpactHighlights,
+    'healthcare-compliance': flatHealthcareCompliance,
+    'research-interests': flatResearchInterests,
+    publications: flatPublications,
+    teaching: flatTeaching,
+    'research-projects': flatResearchProjects,
+    'leadership-philosophy': flatLeadershipPhilosophy,
+    services: flatServices,
   };
 
   function renderEngagement(profile, data) {
-    var sections = ENGAGEMENT_SECTION_ORDER
+    var order = profile.sectionOrder && profile.sectionOrder.length
+      ? profile.sectionOrder
+      : ENGAGEMENT_SECTION_ORDER;
+    var sections = order
       .map(function (name) {
         var renderer = flatRenderers[name];
         return renderer ? renderer(profile, data) : '';
@@ -385,8 +516,10 @@
   var sectionRenderers = {
     summary: renderSummary,
     'skills-grid': function (profile, data) {
+      if (profile.skillsGrid && profile.skillsGrid.length) return renderProfileSkillsGrid(profile);
       return renderSkillsGrid(profile, data, 'skills', 'Technical Skills');
     },
+    stats: renderStats,
     experience: renderExperienceList,
     projects: renderProjects,
     education: renderEducation,
@@ -479,13 +612,11 @@
     // Single source of truth: accent theme comes from the profile.
     if (profile.theme) document.body.setAttribute('data-theme', profile.theme);
 
-    if (!engagement) {
-      // Apply persisted/system theme preference (matches app.js behavior).
-      var stored = null;
-      try { stored = localStorage.getItem('theme'); } catch (e) { /* ignore */ }
-      var initial = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : null);
-      if (initial) document.documentElement.setAttribute('data-theme', initial);
-    }
+    // Apply persisted/system theme preference (matches app.js behavior).
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) { /* ignore */ }
+    var initial = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : null);
+    if (initial) document.documentElement.setAttribute('data-theme', initial);
 
     root.insertAdjacentHTML('beforebegin', renderControls({ plain: engagement, base: opts.base }));
     root.innerHTML = engagement
