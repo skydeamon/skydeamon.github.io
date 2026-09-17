@@ -622,6 +622,7 @@ body {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
+  text-decoration: none;
 }
 
 .control-btn:hover {
@@ -634,6 +635,73 @@ body {
 
 .control-btn.secondary:hover {
   background: var(--gray-700);
+}
+
+/* ---- audience page utility classes ---- */
+
+.quote-box {
+  background: var(--bg-tertiary);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--primary);
+}
+
+.quote-text {
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.bullet-list {
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.cta-box {
+  text-align: center;
+  padding: var(--space-xl);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+}
+
+.cta-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.cta-btn {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.cta-btn + .cta-btn {
+  margin-left: var(--space-sm);
+}
+
+.availability-title {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.availability-detail {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-top: var(--space-xs);
+}
+
+.cover-letter-name {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: var(--space-xs);
+}
+
+.cover-letter-list {
+  padding-left: 1.5rem;
+  margin-bottom: var(--space-md);
+  color: var(--text-secondary);
 }
 
 /* ============================================
@@ -906,5 +974,50 @@ body {
 @media (max-width: 640px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 0;
+  background: var(--primary);
+  color: var(--white);
+  padding: var(--space-sm) var(--space-md);
+  z-index: 2000;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius) 0;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .controls {
+    position: static;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: var(--space-md);
   }
 }

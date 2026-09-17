@@ -66,3 +66,36 @@ footer {
   color: #718096;
   font-size: 0.85rem;
 }
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 0;
+  background: var(--primary, #2563eb);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 2000;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary, #2563eb);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

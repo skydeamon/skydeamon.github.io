@@ -2,6 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../../images/logo/name.png">
   <link rel="stylesheet" href="../../css/portfolio.css">
   <link rel="stylesheet" href="../../css/themes.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,16 @@
   <meta name="description" content="Freelance Data Engineer & AI Consultant — contract engagements, rates, and availability">
   </head>
 <body data-theme="freelance">
+  <a href="#main" class="skip-link">Skip to content</a>
+
   <div class="controls">
     <button class="control-btn" id="theme-toggle" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
     <button class="control-btn secondary" id="print-btn" aria-label="Print">🖨️ Print / PDF</button>
-    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
-    <a href="../../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+    <a href="../index.html" class="control-btn secondary">← CVs</a>
+    <a href="../../index.html" class="control-btn secondary">Home</a>
   </div>
 
-  <div class="cv-container">
+  <div class="cv-container" id="main">
     <header class="cv-header">
       <h1>Jade Makwela</h1>
       <p class="subtitle">Freelance Data Engineer &amp; AI Consultant</p>
@@ -35,9 +38,9 @@
       <!-- Availability Banner -->
       <section class="section">
         <h2 class="section-title">Availability</h2>
-        <div style="background: var(--bg-tertiary); padding: var(--space-md); border-radius: var(--radius-md); border-left: 4px solid var(--primary);">
-          <p style="color: var(--text-primary); font-weight: 600;">✅ Available for contract engagements</p>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: var(--space-xs);">
+        <div class="quote-box">
+          <p class="availability-title">✅ Available for contract engagements</p>
+          <p class="availability-detail">
             <strong>Engagement:</strong> 2–4 month contracts · Full-time (40 hrs/week) or Part-time<br>
             <strong>Rate:</strong> R550–R640/hr (negotiable based on scope)<br>
             <strong>Location:</strong> Remote — time-zone friendly with UK/EU/US overlap<br>
@@ -239,10 +242,10 @@
       </section>
 
       <section class="section">
-        <div style="text-align: center; padding: var(--space-xl); background: var(--bg-tertiary); border-radius: var(--radius-lg);">
-          <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">View the complete Freelance CV</p>
-          <a href="../cv/freelance-portfolio.html" class="control-btn" style="display: inline-flex; text-decoration: none; margin-right: var(--space-sm);">Full CV</a>
-          <a href="mailto:makwela.j.justice@gmail.com?subject=Freelance%20Engagement" class="control-btn secondary" style="display: inline-flex; text-decoration: none;">Contact Me</a>
+        <div class="cta-box">
+          <p class="cta-title">View the complete Freelance CV</p>
+          <a href="../cv/freelance.html" class="control-btn cta-btn">Full CV</a>
+          <a href="mailto:makwela.j.justice@gmail.com?subject=Freelance%20Engagement" class="control-btn secondary cta-btn">Contact Me</a>
         </div>
       </section>
     </div>

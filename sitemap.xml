@@ -49,6 +49,48 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://skydeamon.github.io/portfolio/audience/founder-ceo.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/audience/cto.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/audience/business-ops.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/audience/marketing-growth.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/audience/finance.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/audience/property-manager.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/audience/fullstack-engineer.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://skydeamon.github.io/portfolio/cv/job-application.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -73,7 +115,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skydeamon.github.io/portfolio/cv/freelance-portfolio.html</loc>
+    <loc>https://skydeamon.github.io/portfolio/cv/freelance.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -83,6 +125,48 @@
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/founder-ceo.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/cto.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/business-ops.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/marketing-growth.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/finance.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/property-manager.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/fullstack-engineer.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://skydeamon.github.io/portfolio/cv/modern.html</loc>
@@ -133,6 +217,48 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/engagement/founder-ceo.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/engagement/cto.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/engagement/business-ops.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/engagement/marketing-growth.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/engagement/finance.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/engagement/property-manager.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cv/engagement/fullstack-engineer.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://skydeamon.github.io/portfolio/cover-letters/general.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -161,5 +287,47 @@
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cover-letters/founder-ceo.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cover-letters/cto.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cover-letters/business-ops.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cover-letters/marketing-growth.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cover-letters/finance.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cover-letters/property-manager.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skydeamon.github.io/portfolio/cover-letters/fullstack-engineer.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

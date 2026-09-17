@@ -9,10 +9,18 @@ const THEME_EXPECTATIONS = [
   { url: '/portfolio/audience/academic.html', theme: 'academic', primary: '#1f2937' },
   { url: '/portfolio/audience/freelance.html', theme: 'freelance', primary: '#ea580c' },
   { url: '/portfolio/audience/executive.html', theme: 'executive', primary: '#111827' },
+  { url: '/portfolio/audience/founder-ceo.html', theme: 'executive', primary: '#111827' },
+  { url: '/portfolio/audience/cto.html', theme: 'executive', primary: '#111827' },
+  { url: '/portfolio/audience/business-ops.html', theme: 'general', primary: '#2563eb' },
+  { url: '/portfolio/audience/marketing-growth.html', theme: 'modern', primary: '#2563eb' },
+  { url: '/portfolio/audience/finance.html', theme: 'executive', primary: '#111827' },
+  { url: '/portfolio/audience/property-manager.html', theme: 'freelance', primary: '#ea580c' },
+  { url: '/portfolio/audience/fullstack-engineer.html', theme: 'modern', primary: '#2563eb' },
 ];
 
 for (const { url, theme, primary } of THEME_EXPECTATIONS) {
-  test(`audience page "${theme}" applies its accent palette`, async ({ page }) => {
+  const slug = url.split('/').pop().replace('.html', '');
+  test(`audience page "${slug}" applies its accent palette`, async ({ page }) => {
     await page.goto(url);
     await expect(page.locator('body')).toHaveAttribute('data-theme', theme);
     const primaryVar = await page.evaluate(() =>

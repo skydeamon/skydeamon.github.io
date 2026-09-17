@@ -2,6 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../../images/logo/name.png">
   <link rel="stylesheet" href="../../css/portfolio.css">
   <link rel="stylesheet" href="../../css/themes.css">
   <meta name="description" content="Cover letter of Jade Makwela — AI/LLM Engineer with data platform experience">
@@ -9,6 +10,8 @@
   <title>Jade Makwela — Cover Letter (AI Engineer)</title>
   </head>
 <body data-theme="ai-engineer">
+  <a href="#main" class="skip-link">Skip to content</a>
+
   <!-- Controls -->
   <div class="controls">
     <button class="control-btn" id="theme-toggle" aria-label="Toggle dark mode">
@@ -17,15 +20,15 @@
     <button class="control-btn secondary" id="print-btn" aria-label="Print">
       🖨️ Print / PDF
     </button>
-    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
-    <a href="../../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+    <a href="../index.html" class="control-btn secondary" >← CVs</a>
+    <a href="../../index.html" class="control-btn secondary" >Home</a>
   </div>
 
-  <div class="cover-letter">
+  <div class="cover-letter" id="main">
     <!-- Sender -->
     <div class="cover-letter-header">
-      <h1 style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-xs);">Jade Makwela</h1>
-      <p style="color: var(--text-muted);">
+      <h1 class="cover-letter-name">Jade Makwela</h1>
+      <p class="text-muted">
         Cape Town, South Africa<br>
         📧 makwela.j.justice@gmail.com<br>
         🔗 linkedin.com/in/jade-makwela-6a79111a8<br>
@@ -34,7 +37,7 @@
     </div>
 
     <!-- Subject -->
-    <div style="margin-bottom: var(--space-lg);">
+    <div class="mb-lg">
       <p><strong>RE: Application for AI Engineer / LLM Engineer Position</strong></p>
     </div>
 
@@ -50,8 +53,8 @@
         My AI/LLM experience includes:
       </p>
 
-      <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
-        <li><strong>RAG Service (PoC):</strong> Built a FastAPI endpoint with retrieval pipeline (vector index + metadata filters), templated prompts with deterministic output schema, and an evaluation harness for regression testing — <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">github.com/skydeamon/agentic-rag-llm-demo</a></li>
+      <ul class="cover-letter-list">
+        <li><strong>RAG Service (PoC):</strong> Built a FastAPI endpoint with retrieval pipeline (vector index + metadata filters), templated prompts with deterministic output schema, and an evaluation harness for regression testing — <a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank" rel="noopener noreferrer" class="text-primary">github.com/skydeamon/agentic-rag-llm-demo</a></li>
         <li><strong>Function-Calling Pattern:</strong> Orchestrated tool-use steps with LangChain/LangGraph for structured queries; added guardrails for empty context, fallback paths, and safe defaults</li>
         <li><strong>Traceability & QA:</strong> Implemented citation-style answer formatting, per-response logs (inputs, context chunks, outputs), and required-field checks for auditability</li>
         <li><strong>LLM-Ready Data:</strong> Partnered with analysts and data scientists to prototype LLM-ready datasets and retrieval indexes for future RAG use</li>
@@ -73,7 +76,7 @@
     <!-- Closing -->
     <div class="cover-letter-closing">
       <p>Thank you for your time and consideration.</p>
-      <p style="margin-top: var(--space-md);">
+      <p class="mt-md">
         Sincerely,<br><br>
         <strong>Jade Makwela</strong>
       </p>

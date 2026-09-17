@@ -19,18 +19,32 @@ const NO_THEME_PAGES = [
 const RUNTIME_THEME_PAGES = [
   'portfolio/cv/academic.html',
   'portfolio/cv/ai-engineer.html',
+  'portfolio/cv/business-ops.html',
   'portfolio/cv/contract.html',
+  'portfolio/cv/cto.html',
   'portfolio/cv/data-engineer.html',
+  'portfolio/cv/engagement/business-ops.html',
   'portfolio/cv/engagement/contract.html',
+  'portfolio/cv/engagement/cto.html',
+  'portfolio/cv/engagement/finance.html',
+  'portfolio/cv/engagement/founder-ceo.html',
   'portfolio/cv/engagement/full-time.html',
+  'portfolio/cv/engagement/fullstack-engineer.html',
+  'portfolio/cv/engagement/marketing-growth.html',
   'portfolio/cv/engagement/minimal.html',
   'portfolio/cv/engagement/part-time.html',
+  'portfolio/cv/engagement/property-manager.html',
   'portfolio/cv/executive.html',
-  'portfolio/cv/freelance-portfolio.html',
+  'portfolio/cv/finance.html',
+  'portfolio/cv/founder-ceo.html',
+  'portfolio/cv/freelance.html',
   'portfolio/cv/full-time.html',
+  'portfolio/cv/fullstack-engineer.html',
   'portfolio/cv/job-application.html',
+  'portfolio/cv/marketing-growth.html',
   'portfolio/cv/modern.html',
   'portfolio/cv/part-time.html',
+  'portfolio/cv/property-manager.html',
 ];
 
 test('no references to the old shared_styles.css remain', () => {
@@ -83,7 +97,7 @@ test('every themed page links themes.css and has a valid data-theme', () => {
       }
     }
   }
-  assert.strictEqual(themed.length, 10, 'expected exactly 10 hardcoded themed pages');
+  assert.strictEqual(themed.length, 24, 'expected exactly 24 hardcoded themed pages');
 });
 
 test('CV shells resolve their theme at runtime (no hardcoded body data-theme)', () => {

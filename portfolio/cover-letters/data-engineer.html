@@ -2,6 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../../images/logo/name.png">
   <link rel="stylesheet" href="../../css/portfolio.css">
   <link rel="stylesheet" href="../../css/themes.css">
   <meta name="description" content="Cover letter of Jade Makwela — Senior Data Engineer specializing in PySpark, AWS, and data platform engineering">
@@ -9,6 +10,8 @@
   <title>Jade Makwela — Cover Letter (Data Engineer)</title>
   </head>
 <body data-theme="data-engineer">
+  <a href="#main" class="skip-link">Skip to content</a>
+
   <!-- Controls -->
   <div class="controls">
     <button class="control-btn" id="theme-toggle" aria-label="Toggle dark mode">
@@ -17,15 +20,15 @@
     <button class="control-btn secondary" id="print-btn" aria-label="Print">
       🖨️ Print / PDF
     </button>
-    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
-    <a href="../../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+    <a href="../index.html" class="control-btn secondary" >← CVs</a>
+    <a href="../../index.html" class="control-btn secondary" >Home</a>
   </div>
 
-  <div class="cover-letter">
+  <div class="cover-letter" id="main">
     <!-- Sender -->
     <div class="cover-letter-header">
-      <h1 style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-xs);">Jade Makwela</h1>
-      <p style="color: var(--text-muted);">
+      <h1 class="cover-letter-name">Jade Makwela</h1>
+      <p class="text-muted">
         Cape Town, South Africa<br>
         📧 makwela.j.justice@gmail.com<br>
         🔗 linkedin.com/in/jade-makwela-6a79111a8
@@ -33,7 +36,7 @@
     </div>
 
     <!-- Subject -->
-    <div style="margin-bottom: var(--space-lg);">
+    <div class="mb-lg">
       <p><strong>RE: Application for Senior Data Engineer Position</strong></p>
     </div>
 
@@ -49,7 +52,7 @@
         In my current role as <span class="highlight">Lead Analyst Programmer / Data Engineer at Old Mutual South Africa</span>, I own business-critical data pipelines end-to-end. Key achievements include:
       </p>
 
-      <ul style="padding-left: 1.5rem; margin-bottom: var(--space-md); color: var(--text-secondary);">
+      <ul class="cover-letter-list">
         <li><strong>~35% pipeline runtime reduction</strong> and <strong>~22% EMR cost savings</strong> via partition pruning, predicate pushdown, and join tuning</li>
         <li><strong>Data freshness from D+1 to H+1</strong> by designing event-driven ingestion with Kafka, idempotent S3 landing, and replay strategies</li>
         <li><strong>90%+ critical data-quality coverage</strong> by implementing dbt tests (not_null, unique, relationships) and Airflow monitors</li>
@@ -72,7 +75,7 @@
     <!-- Closing -->
     <div class="cover-letter-closing">
       <p>Thank you for your time and consideration.</p>
-      <p style="margin-top: var(--space-md);">
+      <p class="mt-md">
         Sincerely,<br><br>
         <strong>Jade Makwela</strong>
       </p>

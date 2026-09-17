@@ -12,6 +12,14 @@
   --card-bg: #f0f0f3;
 }
 
+/* Dark mode (opt-in via <html data-theme="dark">) */
+[data-theme="dark"] {
+  --text: #e8e8ec;
+  --muted: #a5a5b5;
+  --bg: #121218;
+  --card-bg: #1e1e26;
+}
+
 /* Profile-matched accent via body[data-theme] (matches themes.css accents) */
 [data-theme="general"] { --accent: #2563eb; }
 [data-theme="data-engineer"] { --accent: #0d9488; }
@@ -133,4 +141,38 @@ a { color: var(--text); text-decoration: none; }
   h2 { border-left-color: #000; color: #000; }
   .skills-line { background: none; padding: 0; border-radius: 0; }
   .contact { border-bottom-color: #ccc; }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 0;
+  background: #2563eb;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 2000;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

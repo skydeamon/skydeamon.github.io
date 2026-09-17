@@ -2,6 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../../images/logo/name.png">
   <link rel="stylesheet" href="../../css/portfolio.css">
   <link rel="stylesheet" href="../../css/themes.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,16 @@
   <meta name="description" content="Data Engineer portfolio — PySpark, AWS, Airflow, Kafka, and data platform engineering showcase">
   </head>
 <body data-theme="data-engineer">
+  <a href="#main" class="skip-link">Skip to content</a>
+
   <div class="controls">
     <button class="control-btn" id="theme-toggle" aria-label="Toggle dark mode"><span id="theme-icon">🌙</span> Dark</button>
     <button class="control-btn secondary" id="print-btn" aria-label="Print">🖨️ Print / PDF</button>
-    <a href="../index.html" class="control-btn secondary" style="text-decoration:none;">← CVs</a>
-    <a href="../../index.html" class="control-btn secondary" style="text-decoration:none;">Home</a>
+    <a href="../index.html" class="control-btn secondary">← CVs</a>
+    <a href="../../index.html" class="control-btn secondary">Home</a>
   </div>
 
-  <div class="cv-container">
+  <div class="cv-container" id="main">
     <header class="cv-header">
       <h1>Jade Makwela</h1>
       <p class="subtitle">Senior Data Engineer — PySpark, AWS &amp; Data Platforms</p>
@@ -232,7 +235,7 @@
 
       <section class="section" aria-label="Impact Highlights">
         <h2 class="section-title">Impact Highlights</h2>
-        <ul style="padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.8;">
+        <ul class="bullet-list">
           <li><strong>~35% pipeline runtime reduction</strong> via partition pruning, predicate pushdown, and join tuning on PySpark/EMR</li>
           <li><strong>~22% monthly compute cost reduction</strong> through optimization of EMR cluster usage and job efficiency</li>
           <li><strong>Data freshness D+1 → H+1</strong> by moving priority domains to event-driven/near-real-time ingestion (Kafka → EMR)</li>
@@ -252,10 +255,10 @@
       </section>
 
       <section class="section">
-        <div style="text-align: center; padding: var(--space-xl); background: var(--bg-tertiary); border-radius: var(--radius-lg);">
-          <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">View the complete Data Engineer CV</p>
-          <a href="../cv/data-engineer.html" class="control-btn" style="display: inline-flex; text-decoration: none; margin-right: var(--space-sm);">Full CV</a>
-          <a href="mailto:makwela.j.justice@gmail.com?subject=Data%20Engineering%20Opportunity" class="control-btn secondary" style="display: inline-flex; text-decoration: none;">Contact Me</a>
+        <div class="cta-box">
+          <p class="cta-title">View the complete Data Engineer CV</p>
+          <a href="../cv/data-engineer.html" class="control-btn cta-btn">Full CV</a>
+          <a href="mailto:makwela.j.justice@gmail.com?subject=Data%20Engineering%20Opportunity" class="control-btn secondary cta-btn">Contact Me</a>
         </div>
       </section>
     </div>

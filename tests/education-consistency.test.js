@@ -19,6 +19,13 @@ const AUDIENCE_PAGES = [
   'portfolio/audience/executive.html',
   'portfolio/audience/freelance.html',
   'portfolio/audience/academic.html',
+  'portfolio/audience/founder-ceo.html',
+  'portfolio/audience/cto.html',
+  'portfolio/audience/business-ops.html',
+  'portfolio/audience/marketing-growth.html',
+  'portfolio/audience/finance.html',
+  'portfolio/audience/property-manager.html',
+  'portfolio/audience/fullstack-engineer.html',
 ];
 
 /* ---------- canonical data ---------- */
@@ -72,6 +79,13 @@ test('every engagement page renders canonical BSc and NSC blocks', () => {
     'portfolio/cv/engagement/contract.html': 'contract',
     'portfolio/cv/engagement/part-time.html': 'part_time',
     'portfolio/cv/engagement/minimal.html': 'job_application',
+    'portfolio/cv/engagement/founder-ceo.html': 'founder_ceo',
+    'portfolio/cv/engagement/cto.html': 'cto',
+    'portfolio/cv/engagement/business-ops.html': 'business_ops',
+    'portfolio/cv/engagement/marketing-growth.html': 'marketing_growth',
+    'portfolio/cv/engagement/finance.html': 'finance',
+    'portfolio/cv/engagement/property-manager.html': 'property_manager',
+    'portfolio/cv/engagement/fullstack-engineer.html': 'fullstack_engineer',
   };
   for (const [rel, key] of Object.entries(profileKeys)) {
     const html = CVRenderer.renderEngagement(CV_DATA.cvProfiles[key], CV_DATA);

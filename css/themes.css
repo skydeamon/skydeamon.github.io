@@ -102,3 +102,10 @@
 [data-theme="modern"] .timeline-item::before {
   background: var(--primary);
 }
+/* ============================================
+   ACCESSIBILITY (shared focus ring)
+   ============================================ */
+:focus-visible {
+  outline: 3px solid var(--primary, #2563eb);
+  outline-offset: 2px;
+}
