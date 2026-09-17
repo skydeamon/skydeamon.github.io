@@ -1,4 +1,4 @@
-<!-- Context: portfolio-site/lookup/test-inventory | Priority: medium | Version: 1.2 | Updated: 2026-09-14 -->
+<!-- Context: portfolio-site/lookup/test-inventory | Priority: medium | Version: 1.3 | Updated: 2026-09-17 -->
 
 # Lookup: Test Inventory & DOM Hooks
 
@@ -8,9 +8,9 @@
 
 | Command | Env | Runs | Count |
 |---------|-----|------|-------|
-| `npm test` | system Node | static contract + unit | 98 |
-| `npm run test:unit` | system Node | unit only | 34 |
-| `npm run test:integration` | `testenv/integration` | browser, local server | 48 |
+| `npm test` | system Node | static contract + unit + audit | 125 |
+| `npm run test:unit` | system Node | unit only | 40 |
+| `npm run test:integration` | `testenv/integration` | browser, local server | 82 |
 | `npm run test:e2e` | `testenv/e2e` | journeys, local server | 4 |
 | `npm run test:e2e:deployed` | `testenv/e2e` | journeys, live site | 4 |
 | `npm run test:deployed` | system Node | asset checks, live site | 2 |
@@ -20,8 +20,8 @@
 | Group | Theme toggle | Icon | Print | Theme target |
 |-------|-------------|------|-------|--------------|
 | Root `index.html` | `#theme-toggle` | `#theme-icon` (i.fas) | — | `<html data-theme>` + `localStorage['theme']` |
-| Portfolio (22 pages: 10 renderer CVs in `cv/`, 5 cover letters in `cover-letters/`, 7 audience in `audience/`) | `button.control-btn` | `#theme-icon` (span 🌙/☀️) | `button.control-btn.secondary` | `<html data-theme>` (in-page only) |
-| Engagement (4 pages in `cv/engagement/`: `minimal.html`, `contract.html`, `full-time.html`, `part-time.html`) | none | none | `button.control-btn.secondary#print-btn` | `<body data-theme>` (accent via cv-minimal.css mapping) |
+| Portfolio (54 pages: 17 CVs in `cv/`, 11 engagement in `cv/engagement/`, 13 audience in `audience/`, 12 cover letters in `cover-letters/`, 1 hub) | `button.control-btn` | `#theme-icon` (span 🌙/☀️) | `button.control-btn.secondary` | `<html data-theme>` + `localStorage['theme']` (persisted via `js/site-logic.js`) |
+| Engagement (11 pages in `cv/engagement/`) | none | none | `button.control-btn.secondary#print-btn` | `<html data-theme>` (stored/system preference) + `<body data-theme>` (accent via cv-minimal.css mapping) |
 
 ## Accent Themes (`<body data-theme>`)
 

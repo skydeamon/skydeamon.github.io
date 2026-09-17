@@ -10,7 +10,7 @@ Personal portfolio site for **Jade Makwela** — Senior Data Engineer · AI/LLM 
 ├── index.html                 # Landing page (theme toggle + audience cards)
 ├── css/                       # main.css, portfolio.css, themes.css, portfolio-hub.css, cv-minimal.css
 ├── js/                        # app.js (DOM wiring), site-logic.js (pure logic, UMD)
-├── portfolio/                 # 27 pages: hub, cv/, cv/engagement/, cover-letters/, audience/
+├── portfolio/                 # 54 pages: hub, cv/, cv/engagement/, cover-letters/, audience/
 ├── fontawesome/               # Vendored icon assets
 ├── images/
 ├── testenv/                   # Isolated test environments (unit/integration/e2e)
@@ -20,8 +20,8 @@ Personal portfolio site for **Jade Makwela** — Senior Data Engineer · AI/LLM 
 ## Theming
 
 - **Root pages** (`index.html`): dark/light toggle via `#theme-toggle`, persisted in `localStorage['theme']`.
-- **Portfolio pages**: 7 accent themes via `<body data-theme>` (`general`, `data-engineer`, `ai-engineer`, `academic`, `freelance`, `executive`, `modern`); dark mode toggles in-page only.
-- **`cv/engagement/` pages** (`minimal.html`, `contract.html`, `full-time.html`, `part-time.html`): flat, print-ready CVs rendered from cv-data via cv-render; no dark mode.
+- **Portfolio pages**: 7 accent themes via `<body data-theme>` (`general`, `data-engineer`, `ai-engineer`, `academic`, `freelance`, `executive`, `modern`); dark mode persisted in `localStorage['theme']` via `js/site-logic.js`.
+- **`cv/engagement/` pages** (`minimal.html`, `contract.html`, `full-time.html`, `part-time.html`, plus 7 profile shells): flat, print-ready CVs rendered from cv-data via cv-render; dark mode follows the stored/system preference.
 
 ## Testing
 
@@ -30,8 +30,8 @@ The repo root is **zero-dependency** — all test tooling lives in isolated venv
 | Command | What it runs | Count |
 |---------|-------------|-------|
 | `npm run venv:setup` | Provision venvs + Chromium (idempotent) | — |
-| `npm test` | Static contract + unit + audit (`node:test`) | 115 |
-| `npm run test:integration` | Browser tests vs local server (Playwright) | 46 |
+| `npm test` | Static contract + unit + audit (`node:test`) | 125 |
+| `npm run test:integration` | Browser tests vs local server (Playwright) | 81 |
 | `npm run test:e2e` | Full user journeys vs local server | 4 |
 | `npm run test:e2e:deployed` | Journeys vs live site (after Pages rebuild) | 4 |
 | `npm run test:deployed` | Asset checks vs live site | 2 |
