@@ -20,9 +20,34 @@
    * @returns {string|null} 'dark' | 'light' | null
    */
   function getInitialTheme(storedTheme, systemDark) {
-    if (storedTheme) return storedTheme;
+    if (storedTheme === 'dark' || storedTheme === 'light') return storedTheme;
     if (systemDark) return 'dark';
     return null;
+  }
+
+  /**
+   * Read the stored theme preference safely.
+   * Returns null when storage is unavailable (privacy mode, blocked storage)
+   * or when the stored value is not a known theme.
+   * @returns {string|null} 'dark' | 'light' | null
+   */
+  function readStoredTheme() {
+    try {
+      var stored = localStorage.getItem('theme');
+      return stored === 'dark' || stored === 'light' ? stored : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /**
+   * Persist the theme preference safely. No-op when storage is unavailable.
+   * @param {string} theme - 'dark' | 'light'
+   */
+  function writeStoredTheme(theme) {
+    try {
+      localStorage.setItem('theme', theme);
+    } catch (e) { /* ignore */ }
   }
 
   /**
@@ -47,5 +72,7 @@
     getInitialTheme: getInitialTheme,
     computeNextTheme: computeNextTheme,
     themeIconClass: themeIconClass,
+    readStoredTheme: readStoredTheme,
+    writeStoredTheme: writeStoredTheme,
   };
 });

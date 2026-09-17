@@ -24,6 +24,13 @@ test('getInitialTheme returns null when no stored theme and system is light', ()
   assert.strictEqual(SiteLogic.getInitialTheme('', false), null);
 });
 
+test('getInitialTheme ignores invalid stored values and falls back to system', () => {
+  assert.strictEqual(SiteLogic.getInitialTheme('blue', true), 'dark');
+  assert.strictEqual(SiteLogic.getInitialTheme('garbage', false), null);
+  assert.strictEqual(SiteLogic.getInitialTheme('dark', false), 'dark');
+  assert.strictEqual(SiteLogic.getInitialTheme('light', true), 'light');
+});
+
 test('getInitialTheme prefers stored theme over system preference', () => {
   assert.strictEqual(SiteLogic.getInitialTheme('light', true), 'light');
   assert.strictEqual(SiteLogic.getInitialTheme('dark', false), 'dark');
@@ -55,12 +62,25 @@ test('themeIconClass returns moon icon when light', () => {
   assert.strictEqual(SiteLogic.themeIconClass(false), 'fas fa-moon');
 });
 
+/* ---------- readStoredTheme / writeStoredTheme ---------- */
+
+test('readStoredTheme returns null when storage is unavailable', () => {
+  // Node has no localStorage; the safe helper must swallow the error.
+  assert.strictEqual(SiteLogic.readStoredTheme(), null);
+});
+
+test('writeStoredTheme is a safe no-op when storage is unavailable', () => {
+  assert.doesNotThrow(() => SiteLogic.writeStoredTheme('dark'));
+});
+
 /* ---------- module shape ---------- */
 
 test('SiteLogic exposes exactly the public API', () => {
   assert.deepStrictEqual(Object.keys(SiteLogic).sort(), [
     'computeNextTheme',
     'getInitialTheme',
+    'readStoredTheme',
     'themeIconClass',
+    'writeStoredTheme',
   ]);
 });

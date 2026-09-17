@@ -14,7 +14,7 @@
   const root = document.documentElement;
 
   // Initial theme: localStorage > system preference > light
-  const storedTheme = localStorage.getItem('theme');
+  const storedTheme = SiteLogic.readStoredTheme();
   const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const initialTheme = SiteLogic.getInitialTheme(storedTheme, systemDark);
 
@@ -33,7 +33,7 @@
     const current = root.getAttribute('data-theme');
     const next = SiteLogic.computeNextTheme(current);
     root.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
+    SiteLogic.writeStoredTheme(next);
     updateThemeIcon();
   });
 

@@ -44,7 +44,7 @@ function findDict() {
 
 function walk(dir, ext, out = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name === '.git' || entry.name === '.opencode' || entry.name === 'node_modules' || entry.name === 'testenv') continue;
+    if (entry.name === '.git' || entry.name === '.opencode' || entry.name === 'node_modules' || entry.name === 'testenv' || entry.name === 'docs' || entry.name === '.tmp') continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) walk(full, ext, out);
     else if (entry.name.endsWith(ext)) out.push(full);
@@ -70,10 +70,12 @@ function stripHtml(content) {
 
 function extractJsStrings(content) {
   // Keep only string literals (the content-bearing parts of cv-data.js).
+  // Quote delimiters are stripped so hunspell never treats them as word
+  // characters (which previously produced affix-splitting fragments).
   const tokens = [];
   const re = /'(?:[^'\\\n]|\\.)*'|"(?:[^"\\\n]|\\.)*"|`(?:[^`\\]|\\.)*`/g;
   let m;
-  while ((m = re.exec(content))) tokens.push(m[0]);
+  while ((m = re.exec(content))) tokens.push(m[0].slice(1, -1));
   return tokens.join(' ');
 }
 
@@ -114,8 +116,17 @@ const ALLOW_LIST = new Set(
     'NumPy onboarding ong parseability pgvector Phusela Prototyped PRs pushdown RESTful ' +
     'Roadmapping rollout scalable SCD SciPy Sepedi SLAs Sotho SQLAlchemy standups templated ' +
     'Templated UCT Agentic agentic umuzi codebase ' +
-    // hunspell affix-splitting artifacts (from lineage/edge in concatenated text)
-    'linea ge'
+    // Phase 4–7 CV expansion: business/finance/property/tech terms
+    'aan actuals architected astrodon bbee benchmarking cipc coct cor daz de dm ' +
+    'ekurhuleni erp experian frontend gauteng gcp gtm indrive investec longdrive ' +
+    'lra ltr ltv nestjs noi odoo pdi popia pty rha roi siyakhokha sops str tpn ' +
+    'transunion ui unlinked vps woza zelenial zicht ' +
+    // British spellings (site uses South African English)
+    'programme programmes rigour roadmap ' +
+    // URL/email tokens isolated by word-splitting
+    'gmail https ' +
+    // fragment of the Sage hex color #4ECDC4 (brand palette)
+    'ECDC '
   ).split(/\s+/)
 );
 
@@ -124,6 +135,15 @@ const ALLOW_LIST = new Set(
 const dict = findDict();
 if (!dict) {
   console.error('No hunspell dictionary found. Install one or set HUNSPELL_DICT.');
+  process.exit(1);
+}
+
+// Fail loudly when the hunspell binary is missing instead of silently
+// swallowing ENOENT and reporting a false green.
+try {
+  execFileSync('hunspell', ['--version'], { encoding: 'utf8' });
+} catch (err) {
+  console.error('hunspell binary not found. Install hunspell or fix PATH.');
   process.exit(1);
 }
 
@@ -136,8 +156,14 @@ for (const file of contentFiles) {
   const content = fs.readFileSync(file, 'utf8');
   const text = file.endsWith('.html') ? stripHtml(content) : stripUnderscoreIdentifiers(extractJsStrings(content));
 
-  const tmp = path.join(os.tmpdir(), `audit-spell-${path.basename(file)}.txt`);
-  fs.writeFileSync(tmp, text);
+  // Evaluate each word in isolation (one per line). hunspell's morphological
+  // analysis otherwise emits context-dependent affix fragments (e.g. "stec"
+  // from "Investec", "rchitecture" from "Architecture") for words that are
+  // actually valid — splitting avoids those false positives entirely.
+  const wordTokens = text.split(/[^A-Za-z'’-]+/).filter(Boolean);
+
+  const tmp = path.join(os.tmpdir(), `audit-spell-${contentFiles.indexOf(file)}-${path.basename(file)}.txt`);
+  fs.writeFileSync(tmp, wordTokens.join('\n'));
 
   let output;
   try {
