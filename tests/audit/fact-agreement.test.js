@@ -64,6 +64,16 @@ const OLDER_AUDIENCE_PAGES = [
   'portfolio/audience/executive.html',
 ];
 
+// Older audience pages map to their canonical profile (general.html -> job_application).
+const OLDER_AUDIENCE_PROFILE_KEYS = {
+  'portfolio/audience/general.html': 'job_application',
+  'portfolio/audience/data-engineer.html': 'data_engineer',
+  'portfolio/audience/ai-engineer.html': 'ai_engineer',
+  'portfolio/audience/academic.html': 'academic',
+  'portfolio/audience/freelance.html': 'freelance',
+  'portfolio/audience/executive.html': 'executive',
+};
+
 const FORBIDDEN_ON_AUDIENCE = [
   'On-Premises',
   'Proof of Concept',
@@ -134,8 +144,8 @@ const COVER_LETTER_ANCHORS = {
     'monolith/tenancy design',
     'co-hosted VPS infrastructure',
     'RAG, function calling',
-    '~35%',
-    '~22%',
+    '35%',
+    '22%',
     '90%+ data-quality coverage',
     'H+1 data freshness',
   ],
@@ -174,8 +184,8 @@ const COVER_LETTER_ANCHORS = {
     'NOI calculation',
   ],
   'portfolio/cover-letters/fullstack-engineer.html': [
-    '~35% reduction',
-    '~22% reduction',
+    '35% reduction',
+    '22% reduction',
     'TypeScript',
     'React',
     'NestJS',
@@ -411,6 +421,25 @@ test('older audience pages reference their canonical fact anchors', () => {
   }
   // Assert
   assert.deepStrictEqual(offenders, [], 'Older audience pages missing canonical fact anchors');
+});
+
+test('older audience pages contain every canonical stat value and label', () => {
+  // Arrange / Act
+  const offenders = [];
+  for (const [rel, key] of Object.entries(OLDER_AUDIENCE_PROFILE_KEYS)) {
+    const profile = CV_DATA.cvProfiles[key];
+    const content = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+    for (const stat of profile.stats) {
+      if (!content.includes(stat.value)) {
+        offenders.push(`${rel}: stat value "${stat.value}" not found`);
+      }
+      if (!content.includes(stat.label)) {
+        offenders.push(`${rel}: stat label "${stat.label}" not found`);
+      }
+    }
+  }
+  // Assert
+  assert.deepStrictEqual(offenders, [], 'Canonical stats missing from older audience pages');
 });
 
 test('every CV shell has a data-profile matching a canonical profile key', () => {

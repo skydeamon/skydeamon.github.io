@@ -7,7 +7,7 @@
 **Steps**:
 1. **Provision venvs** (once, idempotent): `npm run venv:setup`
    - If Linux headless libs missing: `sudo npx --prefix testenv/integration playwright install-deps chromium`
-2. **Static + unit** (no browser): `npm test` → 125 tests (64 static contract + 40 unit + 21 audit)
+2. **Static + unit** (no browser): `npm test` → 127 tests (65 static contract + 40 unit + 22 audit)
 3. **Integration** (local server, auto-started): `npm run test:integration` → 82 tests
 4. **E2E** (local server): `npm run test:e2e` → 4 journeys
 5. **Deployed** (after push): wait for GitHub Pages rebuild, then:

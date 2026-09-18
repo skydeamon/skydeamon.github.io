@@ -83,7 +83,7 @@
         'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena',
         'Design and document data contracts, marts, and SCD Type 2 dimensions; publish dbt docs and lineage for downstream consumers',
         'Build FastAPI services to expose curated data; add request validation and response schema checks',
-        'Impact: Improved critical pipeline runtime by ~35% and reduced EMR compute costs by ~22%',
+        'Impact: Improved critical pipeline runtime by 35% and reduced EMR compute costs by 22%',
         'Impact: Elevated data freshness from D+1 to H+1 via event-driven ingestion',
         'Impact: Increased critical data-quality coverage to 90%+ with dbt tests',
       ],
@@ -192,6 +192,24 @@
         'Introduced dbt source freshness and column contracts, added tests (uniqueness, referential integrity, accepted_values), and blocked publishes on failures. Enabled dependable downstream consumption for analytics and ML feature pipelines.',
       tech: ['dbt', 'Glue Catalog', 'Athena', 'Airflow', 'CloudWatch'],
     },
+    {
+      title: 'Zelenial Portfolio Analytics & Compliance',
+      description:
+        'Built the operating model for a 3-unit residential portfolio at 100% occupancy: per-property P&L, portfolio cash-flow tracking, yield analysis (gross/net yield, ROI, LTV), source-verified budget corrections, and RHA-compliant lease administration.',
+      tech: ['Property Analytics', 'Yield Analysis', 'RHA Compliance'],
+    },
+    {
+      title: 'Ibitse Platform Architecture & GTM',
+      description:
+        'Designed the lift-sharing platform for the Limpopo↔Gauteng corridor: 38-person org blueprint, 10-template contract library, 7-document phantom share scheme, and a 10-persona + 13-competitor research base driving a D1–D8 GTM playbook.',
+      tech: ['Platform Architecture', 'Org Design', 'GTM Research'],
+    },
+    {
+      title: 'POPIA & B-BBEE Compliance Programme',
+      description:
+        'Established a POPIA 10-document library and B-BBEE Level 2 / 52% Black-owned scorecard across two businesses, plus an LRA s200A contractor classification framework (8-document deemed-employment pack and 25-question assessment tool).',
+      tech: ['POPIA', 'B-BBEE', 'LRA s200A'],
+    },
   ];
 
   /* ---------- Certifications ---------- */
@@ -220,7 +238,7 @@
   /* ---------- Shared section content ---------- */
   const sharedSections = {
     impactHighlights: [
-      '<strong>~35% pipeline runtime reduction</strong> and <strong>~22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
+      '<strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
       '<strong>Freshness D+1 → H+1</strong> with event-driven ingestion and robust late-arrival handling',
       '<strong>90%+ data-quality coverage</strong> via dbt source/column contracts and tests (not_null, unique, relationships)',
       '<strong>Deployment: days → hours</strong> with standardized CI/CD (ADO/Git + CodePipeline) and safe rollout/rollback',
@@ -263,8 +281,20 @@
       ],
       summary:
         'Experienced Technology Leader and Lead Developer with <strong>5+ years</strong> building enterprise-grade data platforms and applications on AWS. Proficient in Python, PySpark, and ETL development with deep expertise in AWS services (EMR, Glue, Redshift, Athena, Lambda, Step Functions). Delivers measurable impact: <strong>35% pipeline runtime reduction</strong>, <strong>22% EMR compute cost savings</strong>, and <strong>90%+ data-quality coverage</strong> on business-critical pipelines. Currently leading a team of analysts at Old Mutual while serving as Lead Full Stack Developer at a start-up. Beyond employment, I founded two companies — Ibitse (Pty) Ltd and Zelenial Group — where I designed the operations, compliance, and engineering standards that keep both businesses running. Strong in software architecture, infrastructure setup, and full-stack application development. I\'m driven by turning complex data problems into robust, cloud-ready solutions that move the business forward.',
-      sectionOrder: ['summary', 'skills-grid', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'interests', 'availability', 'references'],
+      sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'interests', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      stats: [
+        { value: 'H+1', label: 'Data Freshness' },
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'Compute Cost Savings' },
+        { value: '90%+', label: 'Data Quality Coverage' },
+      ],
+      impactHighlights: [
+        '<strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
+        '<strong>Freshness D+1 → H+1</strong> with event-driven ingestion and robust late-arrival handling',
+        '<strong>90%+ data-quality coverage</strong> via dbt source/column contracts and tests (not_null, unique, relationships)',
+        '<strong>Founded two companies</strong> — Ibitse (Pty) Ltd and Zelenial Group — bootstrapped with zero external funding',
+      ],
       experienceBullets: {
         ibitse: [
           '<strong>Full Stack Development:</strong> Lead Full Stack Developer at a start-up — TypeScript/Node backend services, React front-end, MySQL/PostgreSQL, Docker, and CI/CD standards',
@@ -286,12 +316,18 @@
       availability: [],
       targetRole: 'Senior Data Engineer — AI Training Data (Contract)',
       summary:
-        'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade cloud data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, and Athena. Proven impact: <strong>~35% pipeline runtime reduction</strong>, <strong>~22% EMR compute cost savings</strong>, <strong>freshness D+1 → H+1</strong>, and <strong>90%+ data-quality coverage</strong> via dbt contracts, tests, and Airflow monitors. Experienced in medallion/lakehouse patterns (Parquet/Iceberg), large-scale batch and streaming, Kafka-driven ingestion, and DataOps (CI/CD, testing, observability). Seeking a contract role to architect and build high-throughput curation systems for AI-training datasets. I care deeply about data quality — building pipelines that others can reliably depend on is what gets me excited.',
-      sectionOrder: ['target-role', 'summary', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+        'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade cloud data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, and Athena. Proven impact: <strong>35% pipeline runtime reduction</strong>, <strong>22% EMR compute cost savings</strong>, <strong>freshness D+1 → H+1</strong>, and <strong>90%+ data-quality coverage</strong> via dbt contracts, tests, and Airflow monitors. Experienced in medallion/lakehouse patterns (Parquet/Iceberg), large-scale batch and streaming, Kafka-driven ingestion, and DataOps (CI/CD, testing, observability). Seeking a contract role to architect and build high-throughput curation systems for AI-training datasets. I care deeply about data quality — building pipelines that others can reliably depend on is what gets me excited.',
+      sectionOrder: ['target-role', 'summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      stats: [
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'Compute Cost Savings' },
+        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: 'H+1', label: 'Data Freshness' },
+      ],
       impactHighlights: [
-        '<strong>~35% pipeline runtime reduction</strong> via partition pruning, predicate pushdown, and join tuning on PySpark/EMR',
-        '<strong>~22% monthly compute cost reduction</strong> through optimization of EMR cluster usage and job efficiency',
+        '<strong>35% pipeline runtime reduction</strong> via partition pruning, predicate pushdown, and join tuning on PySpark/EMR',
+        '<strong>22% monthly compute cost reduction</strong> through optimization of EMR cluster usage and job efficiency',
         '<strong>Data freshness D+1 → H+1</strong> by moving priority domains to event-driven/near-real-time ingestion (Kafka → EMR)',
         '<strong>90%+ critical data-quality coverage</strong> by implementing dbt tests (not_null, unique, relationships) and Airflow monitors',
         '<strong>Deployment lead time: days → hours</strong> by standardizing CI/CD for data (ADO/Git + CodePipeline) with blue/green validation',
@@ -325,11 +361,17 @@
       employmentType: 'contract',
       availability: [],
       summary:
-        'Senior data/AI engineer with <strong>5+ years</strong> building production data platforms and APIs on AWS using Python, PySpark, EMR/Glue, Redshift, Athena, and Airflow. Record of measurable impact: <strong>~35% pipeline runtime reduction</strong>, <strong>~22% compute cost savings</strong>, and <strong>90%+ data-quality coverage</strong> sustaining analytics and ML features. Hands-on with <strong>LLM application patterns</strong> (RAG, function calling, prompt strategies, basic guardrails) and FastAPI integration. Known for end-to-end ownership and cross-functional collaboration with product/analyst teams. Seeking to apply agentic workflows, RAG pipelines, and evaluation practices to deliver safe, traceable AI features in clinical and education contexts — motivated by AI that people can actually depend on.',
-      sectionOrder: ['summary', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'healthcare-compliance', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+        'Senior data/AI engineer with <strong>5+ years</strong> building production data platforms and APIs on AWS using Python, PySpark, EMR/Glue, Redshift, Athena, and Airflow. Record of measurable impact: <strong>35% pipeline runtime reduction</strong>, <strong>22% compute cost savings</strong>, and <strong>90%+ data-quality coverage</strong> sustaining analytics and ML features. Hands-on with <strong>LLM application patterns</strong> (RAG, function calling, prompt strategies, basic guardrails) and FastAPI integration. Known for end-to-end ownership and cross-functional collaboration with product/analyst teams. Seeking to apply agentic workflows, RAG pipelines, and evaluation practices to deliver safe, traceable AI features in clinical and education contexts — motivated by AI that people can actually depend on.',
+      sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'healthcare-compliance', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      stats: [
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'Compute Cost Savings' },
+        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: 'H+1', label: 'Data Freshness' },
+      ],
       impactHighlights: [
-        '<strong>~35% pipeline runtime reduction</strong> and <strong>~22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
+        '<strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
         '<strong>Freshness D+1 → H+1</strong> with event-driven ingestion and robust late-arrival handling',
         '<strong>90%+ data-quality coverage</strong> via dbt source/column contracts and tests (not_null, unique, relationships)',
         '<strong>Deployment: days → hours</strong> with standardized CI/CD (ADO/Git + CodePipeline) and safe rollout/rollback',
@@ -364,10 +406,22 @@
       employmentType: 'full-time',
       availability: [],
       summary:
-        'Data engineering researcher with a BSc in Physics & Astrophysics and <strong>5+ years</strong> building production data platforms on AWS. Delivers measurable results: <strong>~35% pipeline runtime reduction</strong> and <strong>data freshness improved from daily to hourly</strong> on business-critical pipelines. Research interests span machine learning infrastructure, LLM applications & RAG, and data quality & governance. Experienced in mentoring aspiring data engineers and publishing technical documentation for enterprise data platforms. Curiosity about how data systems behave — and teaching that curiosity to the next generation of engineers — keeps me engaged.',
+        'Data engineering researcher with a BSc in Physics & Astrophysics and <strong>5+ years</strong> building production data platforms on AWS. Delivers measurable results: <strong>35% pipeline runtime reduction</strong> and <strong>data freshness improved from daily to hourly</strong> on business-critical pipelines. Research interests span machine learning infrastructure, LLM applications & RAG, and data quality & governance. Experienced in mentoring aspiring data engineers and publishing technical documentation for enterprise data platforms. Curiosity about how data systems behave — and teaching that curiosity to the next generation of engineers — keeps me engaged.',
       researchInterests: ['Data Engineering', 'Machine Learning Infrastructure', 'LLM Applications & RAG', 'Astrophysics Data Analysis', 'Distributed Computing', 'Data Quality & Governance', 'Streaming Data Systems'],
-      sectionOrder: ['summary', 'research-interests', 'skills-grid', 'experience', 'projects', 'publications', 'teaching', 'research-projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      sectionOrder: ['summary', 'stats', 'research-interests', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'publications', 'teaching', 'research-projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      stats: [
+        { value: '5+', label: "Years' Experience" },
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: 'H+1', label: 'Data Freshness' },
+        { value: '90%+', label: 'Data Quality Coverage' },
+      ],
+      impactHighlights: [
+        '<strong>35% pipeline runtime reduction</strong> via partition pruning, predicate pushdown, and join tuning on PySpark/EMR',
+        '<strong>Data freshness D+1 → H+1</strong> by moving priority domains to event-driven ingestion',
+        '<strong>90%+ critical data-quality coverage</strong> via dbt contracts and tests',
+        '<strong>Mentoring & knowledge sharing</strong> — leading analysts and mentoring aspiring data engineers at Umuzi.org',
+      ],
       experienceBullets: {
         om_lead: [
           'Lead a team producing data analytics solutions, data sources, and APIs for business applications',
@@ -463,8 +517,14 @@
         'Technology leader with <strong>5+ years</strong> of experience spanning data engineering, software architecture, and team leadership. Currently leading a team of analysts at Old Mutual while serving as Lead Full Stack Developer for a start-up. Delivers measurable outcomes: <strong>deployment lead time cut from days to hours</strong>, <strong>data freshness improved from D+1 to H+1</strong>, and <strong>90%+ data-quality coverage</strong> across governed pipelines. Proven ability to translate business requirements into scalable technical solutions, establish engineering standards, and drive business results. Combines deep technical expertise in AWS, Python, and data platforms with strong stakeholder management and strategic thinking — clear standards, measurable outcomes, and psychological safety are how great engineering organizations get built.',
       leadershipPhilosophy:
         '"Great engineering organizations are built on three pillars: <strong>clear standards</strong> that everyone follows, <strong>measurable outcomes</strong> that everyone understands, and <strong>psychological safety</strong> that enables everyone to contribute. My role as a leader is to create the conditions where talented people do their best work — then get out of their way."',
-      sectionOrder: ['summary', 'leadership-philosophy', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      sectionOrder: ['summary', 'stats', 'leadership-philosophy', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      stats: [
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'Compute Cost Savings' },
+        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: 'Days → Hours', label: 'Deployment Lead Time' },
+      ],
       impactHighlights: [
         '<strong>Led team of analysts</strong> producing data analytics solutions and APIs for business applications',
         '<strong>Established engineering standards</strong> (coding conventions, CI/CD, Git branching) adopted across the team',
@@ -520,8 +580,14 @@
       rate: 'R550–R640/hr',
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS. Specializing in <strong>PySpark pipelines, lakehouse architecture, streaming ingestion, and AI/LLM data preparation</strong>. Proven track record of delivering measurable impact: 35% pipeline runtime reduction, 22% cost savings, and 90%+ data-quality coverage — plus hands-on property consulting (portfolio analysis, yield/ROI, RHA-compliant lease administration) for clients needing asset-level financial rigour.',
-      sectionOrder: ['summary', 'skills-grid', 'services', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      sectionOrder: ['summary', 'stats', 'skills-grid', 'services', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      stats: [
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'Compute Cost Savings' },
+        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: 'H+1', label: 'Data Freshness' },
+      ],
       services: sharedSections.services.concat([
         {
           title: 'Property Consulting',
@@ -562,8 +628,20 @@
       availability: [],
       summary:
         "Data is everywhere — it's my job to find it, extract it, transform it, and deliver it to the business. With <strong>5+ years</strong> building enterprise data platforms on AWS, I combine deep technical expertise in PySpark, Airflow, and Kafka with a passion for AI/LLM applications. I lead teams, build pipelines, and bridge the gap between technical execution and business outcomes. The same analytical discipline powers my ventures: I founded Ibitse (Pty) Ltd (lift-sharing) and Zelenial Group (property management), where I apply data-driven decisions to portfolio analytics, yield tracking, and rent strategy — proving the arc from data engineering to full-stack development to property investment.",
-      sectionOrder: ['summary', 'skills-grid', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'interests', 'availability', 'references'],
+      sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'interests', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      stats: [
+        { value: '5+', label: "Years' Experience" },
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'Compute Cost Savings' },
+        { value: '90%+', label: 'Data Quality Coverage' },
+      ],
+      impactHighlights: [
+        '<strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
+        '<strong>Freshness D+1 → H+1</strong> with event-driven ingestion and robust late-arrival handling',
+        '<strong>90%+ data-quality coverage</strong> via dbt source/column contracts and tests',
+        '<strong>Founded two companies</strong> — Ibitse (Pty) Ltd and Zelenial Group — applying data-driven decisions to portfolio analytics and yield tracking',
+      ],
       experienceBullets: {
         ibitse: ['Leading engineering standards, CI/CD, and backend services (TypeScript/Node) for a start-up.'],
         om_lead: ['Leading a team building data analytics solutions. PySpark on EMR/Glue, Airflow, Kafka, dbt, FastAPI. 35% runtime reduction, 22% cost savings.'],
@@ -589,8 +667,14 @@
       ],
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, and Athena. Experienced in medallion/lakehouse patterns, streaming ingestion with Kafka, Airflow orchestration, and DataOps. Proven track record: 35% pipeline runtime reduction, 22% cost savings, 90%+ data-quality coverage. Seeking a full-time role where I can lead data platform engineering and deliver measurable business impact.',
-      sectionOrder: ['summary', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      stats: [
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'Compute Cost Savings' },
+        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: 'H+1', label: 'Data Freshness' },
+      ],
       impactHighlights: sharedSections.impactHighlights,
       experienceBullets: {},
     },
@@ -609,8 +693,14 @@
       rate: 'R550–R640/hr',
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS. Specializing in <strong>PySpark pipelines, lakehouse architecture, streaming ingestion, and AI/LLM data preparation</strong>. Proven impact: 35% runtime reduction, 22% cost savings, 90%+ data-quality coverage. Available for 2–4 month contract engagements where rapid, high-quality delivery matters.',
-      sectionOrder: ['summary', 'skills-grid', 'services', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      sectionOrder: ['summary', 'stats', 'skills-grid', 'services', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      stats: [
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'Compute Cost Savings' },
+        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: 'H+1', label: 'Data Freshness' },
+      ],
       services: sharedSections.services,
       impactHighlights: sharedSections.impactHighlights,
       experienceBullets: {
@@ -645,8 +735,20 @@
       ],
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS. Deep expertise in PySpark, AWS, Airflow, Kafka, and data quality, with proven impact: <strong>35% pipeline runtime reduction</strong>, <strong>22% cost savings</strong>, and <strong>90%+ data-quality coverage</strong>. Available for part-time engagements (20–30 hrs/week) with flexible scheduling across time zones. Ideal for teams needing senior data engineering support without a full-time commitment — I enjoy jumping into a messy codebase and leaving it measurably better.',
-      sectionOrder: ['summary', 'skills-grid', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
+      sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      stats: [
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'Compute Cost Savings' },
+        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: '20–30', label: 'Hrs/Week' },
+      ],
+      impactHighlights: [
+        '<strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
+        '<strong>Freshness D+1 → H+1</strong> with event-driven ingestion and robust late-arrival handling',
+        '<strong>90%+ data-quality coverage</strong> via dbt source/column contracts and tests',
+        '<strong>Deployment: days → hours</strong> with standardized CI/CD (ADO/Git + CodePipeline) and safe rollout/rollback',
+      ],
       experienceBullets: {},
     },
 
@@ -704,7 +806,7 @@
           'Lead a team producing data analytics solutions, data sources, and APIs feeding online applications and services',
           'Implement proof-of-concept evaluations of new technologies, transitioning them from experimental tools to production-ready services used by the business',
           'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena',
-          'Impact: Improved critical pipeline runtime by ~35% and reduced EMR compute costs by ~22%',
+          'Impact: Improved critical pipeline runtime by 35% and reduced EMR compute costs by 22%',
         ],
       },
     },
@@ -716,12 +818,12 @@
       employmentType: 'full-time',
       availability: [],
       summary:
-        'Technology executive with <strong>5+ years</strong> of experience spanning software architecture, data platform engineering, and engineering leadership. Currently leading a team of analysts at Old Mutual while serving as Lead Full Stack Developer and architect for a start-up. Owns architecture decisions across monolith/tenancy design, infrastructure cost engineering (from zero to scale-stage projections), and AI/LLM gateway architecture. Delivers measurable outcomes: <strong>~35% pipeline runtime reduction</strong>, <strong>~22% EMR compute cost savings</strong>, and <strong>90%+ data-quality coverage</strong>. Combines deep technical expertise in AWS, Python, and data platforms with strategic planning and stakeholder management.',
+        'Technology executive with <strong>5+ years</strong> of experience spanning software architecture, data platform engineering, and engineering leadership. Currently leading a team of analysts at Old Mutual while serving as Lead Full Stack Developer and architect for a start-up. Owns architecture decisions across monolith/tenancy design, infrastructure cost engineering (from zero to scale-stage projections), and AI/LLM gateway architecture. Delivers measurable outcomes: <strong>35% pipeline runtime reduction</strong>, <strong>22% EMR compute cost savings</strong>, and <strong>90%+ data-quality coverage</strong>. Combines deep technical expertise in AWS, Python, and data platforms with strategic planning and stakeholder management.',
       leadershipPhilosophy:
         '"Technology leadership is about making architecture decisions that survive contact with reality — <strong>clear standards</strong> that teams can follow, <strong>cost engineering</strong> that respects the business, and <strong>measurable outcomes</strong> that prove the platform works."',
       stats: [
-        { value: '~35%', label: 'Pipeline Runtime Reduction' },
-        { value: '~22%', label: 'EMR Compute Cost Savings' },
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'EMR Compute Cost Savings' },
         { value: '90%+', label: 'Data Quality Coverage' },
         { value: 'H+1', label: 'Data Freshness' },
       ],
@@ -752,7 +854,7 @@
           'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena',
           'Design and document data contracts, marts, and SCD Type 2 dimensions; publish dbt docs and lineage for downstream consumers',
           'Implement proof-of-concept evaluations of new technologies, transitioning them from experimental tools to production-ready services',
-          'Impact: Improved critical pipeline runtime by ~35%, reduced EMR compute costs by ~22%, and elevated data freshness from D+1 to H+1',
+          'Impact: Improved critical pipeline runtime by 35%, reduced EMR compute costs by 22%, and elevated data freshness from D+1 to H+1',
         ],
       },
     },
@@ -963,12 +1065,12 @@
       employmentType: 'full-time',
       availability: [],
       summary:
-        'Full stack engineer with <strong>5+ years</strong> of experience building production applications and data platforms. Lead developer for a start-up organization using TypeScript, React, NestJS, and Odoo ERP, with MySQL, PostgreSQL, Docker, Redis, and MongoDB. Built FastAPI services and PySpark pipelines on AWS at Old Mutual, with measurable impact: <strong>~35% pipeline runtime reduction</strong> and <strong>~22% EMR compute cost savings</strong>. Combines frontend, backend, and DevOps skills with strong engineering standards and CI/CD practices.',
+        'Full stack engineer with <strong>5+ years</strong> of experience building production applications and data platforms. Lead developer for a start-up organization using TypeScript, React, NestJS, and Odoo ERP, with MySQL, PostgreSQL, Docker, Redis, and MongoDB. Built FastAPI services and PySpark pipelines on AWS at Old Mutual, with measurable impact: <strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong>. Combines frontend, backend, and DevOps skills with strong engineering standards and CI/CD practices.',
       leadershipPhilosophy:
         '"Great software is built on <strong>clear standards</strong>, <strong>measurable outcomes</strong>, and <strong>continuous delivery</strong>. I write code that ships, set up pipelines that protect it, and measure impact in runtime, cost, and reliability."',
       stats: [
-        { value: '~35%', label: 'Pipeline Runtime Reduction' },
-        { value: '~22%', label: 'EMR Compute Cost Savings' },
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'EMR Compute Cost Savings' },
         { value: '5+', label: "Years' Experience" },
         { value: 'Full', label: 'Stack Coverage' },
       ],
@@ -982,7 +1084,7 @@
         '<strong>Lead developer</strong> for a start-up organization; oversee development team and ensure successful delivery of high-quality software',
         '<strong>Design application architecture</strong> and set up infrastructure for scalable, secure deployments',
         '<strong>Establish coding standards</strong>, implement CI/CD pipelines, enforce Git best practices',
-        '<strong>Measurable impact</strong>: ~35% pipeline runtime reduction and ~22% EMR compute cost savings on production PySpark pipelines',
+        '<strong>Measurable impact</strong>: 35% pipeline runtime reduction and 22% EMR compute cost savings on production PySpark pipelines',
       ],
       sectionOrder: ['summary', 'stats', 'skills-grid', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],

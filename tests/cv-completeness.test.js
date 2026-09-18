@@ -95,6 +95,20 @@ test('every profile has a non-empty summary', () => {
   }
 });
 
+test('every profile declares stats and impactHighlights', () => {
+  // Arrange / Act / Assert
+  for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
+    assert.ok(
+      Array.isArray(profile.stats) && profile.stats.length > 0,
+      `${key}: stats missing or empty`
+    );
+    assert.ok(
+      Array.isArray(profile.impactHighlights) && profile.impactHighlights.length > 0,
+      `${key}: impactHighlights missing or empty`
+    );
+  }
+});
+
 /* ---------- new setup: bullets ---------- */
 
 test('every profile has experienceBullets as an object with canonical role keys', () => {

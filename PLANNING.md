@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-16
 **Owner:** Jade Makwela
-**Status:** Phase 0 complete (meta files) — execution driven by `TASKS.md`
+**Status:** Phases 0–9 complete (expansion shipped). Phases 10–11 planned — see §8 + §9.
 **Scope:** Expand the portfolio site's CV ecosystem to cover entrepreneurship, finance, business, marketing, and all business departments, using evidence from the assessment series 15–28.
 
 ---
@@ -122,7 +122,7 @@ Phase 9  FINAL         Full test suite green + spellcheck          [deps: TEST-*
 
 ## 6. Test Strategy
 
-Baseline (from `docs/audit-2026-09-14.md`): **125 static/unit/audit + 82 integration + 4 e2e green**.
+Baseline (from `docs/audit-2026-09-14.md`): **127 static/unit/audit + 82 integration + 4 e2e green**.
 
 | Test file | Current expectation | After change |
 |---|---|---|
@@ -146,3 +146,91 @@ Baseline (from `docs/audit-2026-09-14.md`): **125 static/unit/audit + 82 integra
 4. 7 new CV shells + 7 engagement shells + 7 audience pages + 7 cover letters render with correct runtime theme.
 5. Full test suite green: `npm test`, `npm run test:integration`, `npm run test:e2e`, `npm run audit:spell`.
 6. **Scope guard:** no scaffolded work presented as shipped in any CV bullet; no new CSS themes; no new section renderers; no changes outside the files listed in §4 without a new task entry.
+
+---
+
+## 8. CV Enrichment Pass (Phase 10)
+
+**Goal:** deepen the 17 profiles' substance — every CV gains Key Metrics, Proven Impact, tailored experience bullets, and the venture projects — without touching the renderer.
+
+**Data note:** `Assessments/` is not checked into the repo — `js/cv-data.js` + audience pages are the single source of truth for enrichment.
+**Tilde convention:** drop the ad-hoc `~` (single no-tilde convention consistent with the homepage and most profiles).
+
+### Architecture decisions
+
+| # | Decision | Rationale |
+|---|----------|-----------|
+| AD-8 | **Data-only enrichment** — `stats`, `impactHighlights`, `experienceBullets`, and new `projects` are added in `js/cv-data.js`; the renderer already supports all of them | Complies with AD-2 / scope guard: no new section renderers, no new themes |
+| AD-9 | **New shared projects are global** — the 3 venture projects (Zelenial analytics, Ibitse platform, POPIA/B-BBEE programme) appear on every profile's Selected Projects | Consistent with the shared base (experience/education/certs are already global); per-profile filtering is out of scope |
+| AD-10 | **Audience pages synced to profile stats** — `general.html` stat swap + stats-grid added to `ai-engineer.html`/`academic.html` | Keeps the data-first contract (fact-agreement) honest between CVs and audience pages |
+
+### Scope
+
+| File | Change |
+|---|---|
+| `js/cv-data.js` | `stats` ×10, `impactHighlights` ×4, `experienceBullets` ×10, `projects` +3 |
+| `portfolio/audience/general.html` | stat card swap (5+ Years → H+1 Data Freshness) |
+| `portfolio/audience/ai-engineer.html` | add stats-grid (4 cards) |
+| `portfolio/audience/academic.html` | add stats-grid (4 cards) |
+| `tests/cv-completeness.test.js` | +1 guard: every profile declares stats + impactHighlights |
+| `tests/audit/fact-agreement.test.js` | +1 guard: older audience pages contain profile stats |
+| `scripts/audit-spell.js` | ALLOW_LIST additions for new content tokens |
+| `TASKS.md` / `PLANNING.md` / count-sync docs | 127 static/unit/audit + 82 integration + 4 e2e |
+
+### Test strategy (after enrichment)
+
+`npm test` → **127** (65 static + 40 unit + 22 audit) · `npm run test:integration` → **82** · `npm run test:e2e` → **4** · `npm run audit:spell` → 0 unknown.
+
+### Exit criteria
+
+1. Every profile declares non-empty `stats` + `impactHighlights`.
+2. Audience pages (all 13) match their profile's canonical stats.
+3. Suite green at 127/82/4; spell 0 unknown.
+4. Scope guard: no new renderers, no new themes, no scaffolded claims shipped.
+
+---
+
+## 9. Homepage Design Refocus (Phase 11)
+
+**Goal:** convert the root `index.html` from a résumé-style page into an aggressive portfolio landing page — a point of view, not a timeline — without touching the renderer or the CV ecosystem.
+
+### Architecture decisions
+
+| # | Decision | Rationale |
+|---|----------|-----------|
+| AD-11 | **Data-first copy** — all homepage claims (numbers, stack, roles) come from canonical facts / keep-list; no new claims invented on the landing page | Enrichment (AD-8) + audit conventions stay honest |
+| AD-12 | **CSS refactor within tokens** — no new themes, no new renderers; prune dead classes/assets, reuse `js/app.js` hooks exactly | `css-consolidation` / `compliance` / e2e scope guard unchanged |
+| AD-13 | **Progressive e2e contract** — `#projects` anchor and the `a.audience-card` ai-engineer link persist | `mobile-manager` + `recruiter-journey` (local + deployed) must stay green |
+| AD-14 | **Phase 10 gates Phase 11** — the 3 venture projects become canonical in `cv-data.js` before the homepage features them | Homepage work cards link to real canonical facts (AD-11) |
+
+### Scope
+
+| File | Change |
+|---|---|
+| `index.html` | restructure to light-first Hero → What I Do (3 pillars) → Impact (dark evidence band) → Selected Work (featured, metric chips) → About → CVs (curated 6) → Contact; remove Experience/Skills/Education + hero photo |
+| `css/main.css` | hero single-column default; `.impact-band`/`.pillar`/`.project-metric` (mono, `tabular-nums`); kill homepage `--gradient-soft` wash + gradient stat-text; homepage-only type system (Archivo + mono, Inter body); prune `.hero-photo`/`.hero-img`/`.timeline-*`/`.education-*`/`.skill-group*` |
+| `images/profile/hero-560.*` | removed (unused after hero-photo removal); `social.jpg` og:image retained |
+| `tests/html-structure.test.js` | id list → home/about/projects/impact/audience/contact + no-experience/skills/education guard |
+| `tests/education-consistency.test.js` | root exemption — root no longer carries full BSc/NSC blocks; engagement pages keep BSc+NSC |
+| `README.md` / `.opencode/context` / `docs/audit-2026-09-14.md` | description + count-sync refresh (counts unchanged: 127/82/4 / 56 pages); fix README integration 81 → 82 |
+
+### Research-verified decisions (2026-09-18)
+
+1. **Hero — light-first, left-aligned** (dark "near-black + one accent" is the documented AI/default tell; the site's designed tokenized dark mode is the differentiator).
+2. **Memorable element — one dark Impact evidence band** with context lines (stats after a claim they prove; 3–4 specific non-round numbers).
+3. **Typography — homepage-only**: Archivo (display) + JetBrains/IBM Plex Mono (labels + stat numbers, `tabular-nums`) + Inter (body unchanged); no site-wide swap.
+4. **Work cards — featured layout** with metric chips + method/context lines; external links only where real, else internal deep-page links.
+5. **Banned anti-patterns**: typewriter/role-cycling heroes, particle/matrix canvases, cursor glow-trails, marquees/auto-scroll, gradient washes as decoration, uniform rounded-shadow grids, mid-dot title strings, "→" on every link.
+6. **CTA/contact — one primary CTA** in hero; `#contact` retains its pinned structure (email as visible text, exact GitHub/LinkedIn hrefs).
+
+### Test strategy (after both phases)
+
+`npm test` → **127** · integration → **82** · e2e → **4** local + **4** deployed · `audit:spell` → 0 unknown.
+
+### Exit criteria
+
+1. Root is an aggressive landing (no résumé sections; no hero photo; curated 6-card CV list).
+2. Every claim traces to a canonical fact; every work card links somewhere real.
+3. Both e2e specs green locally and on the deployed site.
+4. No banned anti-patterns on the new homepage (see Research-verified decisions).
+5. Scope guard: no new renderers/themes; tests counts unchanged at 127/82/4.

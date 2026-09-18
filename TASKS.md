@@ -3,7 +3,7 @@
 **Date:** 2026-09-16
 **Owner:** Jade Makwela
 **Plan:** `PLANNING.md` (same directory)
-**Status:** All phases complete (DOC-1/DOC-2, FIX-*, AS-23..29, M22-*, DATA-1, PROF-*, EXP-*, PAGE-*, DIR-1, TEST-*, DOC-3, FINAL-*)
+**Status:** Phases 0–9 complete (expansion shipped). Phases 10–11 planned (CV enrichment + homepage refocus) — research-verified, see below.
 
 ---
 
@@ -137,13 +137,48 @@
 
 | ID | Task | Deliverable | Depends on | Est. | Status |
 |----|------|-------------|-----------|------|--------|
-| FINAL-1 | `npm test` | 125 static/unit/audit green | TEST-1..6 | 5 min | [x] |
-| FINAL-2 | `npm run test:integration` | 81 integration green | TEST-1..6 | 10 min | [x] |
+| FINAL-1 | `npm test` | 127 static/unit/audit green | TEST-1..6 | 5 min | [x] |
+| FINAL-2 | `npm run test:integration` | 82 integration green | TEST-1..6 | 10 min | [x] |
 | FINAL-3 | `npm run test:e2e` | 4 e2e green | TEST-1..6 | 10 min | [x] |
 | FINAL-4 | `npm run audit:spell` | 0 unknown words | PAGE-* | 5 min | [x] |
 | FINAL-5 | Cross-check: no scaffolded claim shipped; no new themes; no new renderers | Scope-guard sign-off | FINAL-1..4 | 10 min | [x] |
 
 **Acceptance:** all four commands green; scope guard confirmed; `TASKS.md` fully `[x]`.
+
+---
+
+## Phase 10 — CV enrichment pass (deps: none — data + page sync + guards)
+
+| ID | Task | Deliverable | Depends on | Est. | Status |
+|----|------|-------------|-----------|------|--------|
+| ENRICH-1 | `js/cv-data.js`: add `stats` (Key Metrics) to 10 profiles (data_engineer, ai_engineer, executive, freelance, academic, full_time, contract, part_time, modern, job_application); insert `stats` after `summary` in each sectionOrder; harmonize `~` convention (single no-tilde for `35%`/`22%`) | 10 profiles with 4 canonical stats each | — | 30 min | [ ] |
+| ENRICH-2 | `js/cv-data.js`: add `impactHighlights` to job_application, academic, modern, part_time; insert `impact-highlights` after `skills-grid` in sectionOrder | 4 profiles gain Proven Impact | ENRICH-1 | 15 min | [ ] |
+| ENRICH-3 | `js/cv-data.js`: tailored `experienceBullets` for 10 profiles (ai_engineer, freelance, executive, academic, founder_ceo, cto, business_ops, finance, property_manager, fullstack_engineer) — ~2 roles each, canonical-fact sourced | Per-role bullet overrides | — | 60 min | [ ] |
+| ENRICH-4 | `js/cv-data.js`: add 3 shared venture projects (Zelenial portfolio analytics, Ibitse platform architecture, POPIA/B-BBEE compliance programme) to canonical `projects` | 7 shared projects | — | 20 min | [ ] |
+| ENRICH-5 | Sync audience pages: `general.html` stat swap (5+ → H+1); add stats-grid to `ai-engineer.html` + `academic.html` | Audience pages match profile stats | ENRICH-1 | 20 min | [ ] |
+| ENRICH-6 | Regression guards: `tests/cv-completeness.test.js` "every profile declares stats + impactHighlights" (+1); `tests/audit/fact-agreement.test.js` "older audience pages contain profile stats" (+1) | 2 new tests | ENRICH-1..5 | 20 min | [ ] |
+| ENRICH-7 | `scripts/audit-spell.js`: add any newly-flagged content tokens to ALLOW_LIST | 0 unknown words | ENRICH-1..5 | 10 min | [ ] |
+| ENRICH-8 | Count-sync docs (running-tests, test-inventory, README, PLANNING §6, TASKS FINAL) → 127 static/unit/audit + 82 integration + 4 e2e; fix README integration count 81 → 82 (pre-existing drift); commit + push | Docs + push | ENRICH-6..7 | 15 min | [ ] |
+
+**Acceptance:** every profile declares non-empty `stats` + `impactHighlights`; audience pages match profile stats; `npm test` = 127 (64 static + 41 unit + 22 audit); integration 82; e2e 4; spell 0 unknown.
+
+---
+
+## Phase 11 — Homepage design refocus (deps: Phase 10 — venture projects must be canonical before the homepage features them)
+
+> Sequencing: runs after Phase 10 so the 3 venture projects are canonical and linkable on the homepage.
+
+| ID | Task | Deliverable | Depends on | Est. | Status |
+|----|------|-------------|-----------|------|--------|
+| HOMEPAGE-1 | Rewrite `index.html`: light-first left-aligned Hero (role+domain in first words, one primary CTA) → What I Do (3 pillars: Data Platforms · AI/LLM · Ventures) → Impact (`#impact`, one designed dark evidence band, stats with context line) → Selected Work (`#projects`, featured layout; venture cards + metric chips + context lines; external link only where real, else internal deep-page links) → About → CVs (`#audience`, curated 6) → Contact; remove Experience/Skills/Education + hero photo | Aggressive portfolio-landing structure | — | 45 min | [ ] |
+| HOMEPAGE-2 | `css/main.css`: kill homepage `--gradient-soft` hero wash + gradient stat-text (brand gradient only on primary CTA + focus ring); add `.impact-band`/`.pillar`/`.project-metric` (mono, `tabular-nums`); promote 768px single-column hero to default; prune `.hero-photo`/`.hero-img`/`.timeline-*`/`.education-*`/`.skill-group*` + unused `images/profile/hero-560.*`; homepage-only type system (Archivo display + JetBrains/IBM Plex Mono labels, Inter body unchanged) | No dead CSS/assets; new section styles | HOMEPAGE-1 | 45 min | [ ] |
+| HOMEPAGE-3 | Nav `#nav-links`: About · Work · Impact · CVs · Contact; no `app.js` changes (theme/nav hooks untouched) | Updated anchors | HOMEPAGE-1 | 10 min | [ ] |
+| HOMEPAGE-4 | Copy rewrite per recruiter-scan evidence (role+domain in first words, one outcome-bearing line, one primary CTA; 3 pillars; Impact context line; metric chips + method/context lines on work cards); audit conventions respected ("5+ years", em-dash ranges, terminology) | Canonical-fact copy | HOMEPAGE-1 | 30 min | [ ] |
+| HOMEPAGE-5 | `tests/html-structure.test.js`: id list → home/about/projects/impact/audience/contact + guard no `#experience/#skills/#education`; `tests/education-consistency.test.js`: root exemption (root no longer carries full BSc/NSC blocks; engagement pages keep BSc+NSC); keep `#projects` anchor + exact `a.audience-card` ai-engineer href (mobile-manager, recruiter-journey, nav-flows) | Tests updated | HOMEPAGE-1 | 10 min | [ ] |
+| HOMEPAGE-6 | Docs sync: README line 10 description + README integration 81 → 82, `.opencode/context`, audit-2026-09-14 superseded note; no URL/sitemap changes | Docs | HOMEPAGE-1..5 | 10 min | [ ] |
+| HOMEPAGE-7 | Verify: npm test 127, integration 82, e2e 4 local + deployed, audit:spell; commit + push | Green + push | HOMEPAGE-2..6 | 20 min | [ ] |
+
+**Acceptance:** root renders `#home/about/projects/impact/audience/contact`, no résumé sections or photo, no dead CSS/assets, no banned anti-patterns, both e2e specs green.
 
 ---
 
@@ -161,4 +196,6 @@
 | 7 — HTML artifacts | 28 | all [x] |
 | 8 — Test coordination | 6 | all [x] |
 | 9 — Final validation | 5 | all [x] |
-| **Total** | **68** | 68 done, 0 todo |
+| 10 — CV enrichment | 8 | all [ ] |
+| 11 — Homepage refocus | 7 | all [ ] |
+| **Total** | **83** | 68 done, 15 todo |

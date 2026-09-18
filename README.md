@@ -30,8 +30,8 @@ The repo root is **zero-dependency** — all test tooling lives in isolated venv
 | Command | What it runs | Count |
 |---------|-------------|-------|
 | `npm run venv:setup` | Provision venvs + Chromium (idempotent) | — |
-| `npm test` | Static contract + unit + audit (`node:test`) | 125 |
-| `npm run test:integration` | Browser tests vs local server (Playwright) | 81 |
+| `npm test` | Static contract + unit + audit (`node:test`) | 127 |
+| `npm run test:integration` | Browser tests vs local server (Playwright) | 82 |
 | `npm run test:e2e` | Full user journeys vs local server | 4 |
 | `npm run test:e2e:deployed` | Journeys vs live site (after Pages rebuild) | 4 |
 | `npm run test:deployed` | Asset checks vs live site | 2 |
