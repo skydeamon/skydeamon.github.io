@@ -7,7 +7,7 @@ Personal portfolio site for **Jade Makwela** — Senior Data Engineer · AI/LLM 
 ## Structure
 
 ```
-├── index.html                 # Landing page (theme toggle + audience cards)
+├── index.html                 # Landing page (homepage refocus: hero, pillars, impact band, curated work, audience cards)
 ├── css/                       # main.css, portfolio.css, themes.css, portfolio-hub.css, cv-minimal.css
 ├── js/                        # app.js (DOM wiring), site-logic.js (pure logic, UMD)
 ├── portfolio/                 # 54 pages: hub, cv/, cv/engagement/, cover-letters/, audience/
