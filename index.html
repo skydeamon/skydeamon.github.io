@@ -47,7 +47,7 @@
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Archivo:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="./fontawesome/css/all.css">
@@ -66,9 +66,8 @@
 
 			<nav class="nav-links" id="nav-links" aria-label="Primary">
 				<a href="#about" class="nav-link">About</a>
-				<a href="#experience" class="nav-link">Experience</a>
-				<a href="#projects" class="nav-link">Projects</a>
-				<a href="#skills" class="nav-link">Skills</a>
+				<a href="#projects" class="nav-link">Work</a>
+				<a href="#impact" class="nav-link">Impact</a>
 				<a href="#audience" class="nav-link">CVs</a>
 				<a href="#contact" class="nav-link">Contact</a>
 			</nav>
@@ -88,21 +87,14 @@
 	<!-- ===================== HERO ===================== -->
 	<section class="hero" id="home">
 		<div class="hero-inner">
-			<div class="hero-photo">
-				<picture>
-					<source type="image/avif" srcset="./images/profile/hero-560.avif">
-					<img src="./images/profile/hero-560.jpg" alt="Jade Makwela" class="hero-img" width="560" height="560" fetchpriority="high" decoding="async">
-				</picture>
-			</div>
 			<div class="hero-content">
-				<p class="hero-eyebrow">Hello, I'm</p>
+				<p class="hero-eyebrow">Senior Data Engineer &amp; AI/LLM Practitioner</p>
 				<h1 class="hero-name">Jade Makwela</h1>
-				<p class="hero-title">Senior Data Engineer · AI/LLM Practitioner · Full Stack Developer</p>
-				<p class="hero-sub">I build enterprise data platforms on AWS — and the AI applications that run on them. Based in Cape Town, South Africa.</p>
+				<p class="hero-title">I build enterprise data platforms on AWS — and the AI applications that run on them.</p>
+				<p class="hero-sub">5+ years shipping medallion-architecture lakehouses, RAG pipelines, and the teams behind them. Based in Cape Town, South Africa.</p>
 
 				<div class="hero-cta">
 					<a href="#projects" class="btn btn-primary">View Work</a>
-					<a href="#contact" class="btn btn-outline">Contact Me</a>
 				</div>
 
 				<div class="hero-social">
@@ -111,6 +103,34 @@
 					<a href="mailto:makwela.j.justice@gmail.com?subject=Contact" aria-label="Email" class="social-btn"><i class="far fa-envelope"></i></a>
 					<a href="https://www.instagram.com/jademakwela/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-btn"><i class="fab fa-instagram"></i></a>
 				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== WHAT I DO ===================== -->
+	<section class="section" aria-labelledby="what-i-do-title">
+		<div class="container">
+			<h2 class="section-title reveal" id="what-i-do-title">What I Do</h2>
+			<div class="pillars-grid">
+
+				<article class="pillar reveal">
+					<div class="pillar-icon"><i class="fas fa-database"></i></div>
+					<h3>Data Platforms</h3>
+					<p>Medallion-architecture lakehouses on AWS — PySpark on EMR/Glue, Airflow orchestration, Kafka ingestion, dbt contracts. 35% runtime reduction, 22% cost savings, H+1 freshness.</p>
+				</article>
+
+				<article class="pillar reveal">
+					<div class="pillar-icon"><i class="fas fa-robot"></i></div>
+					<h3>AI / LLM</h3>
+					<p>RAG pipelines with evaluation harnesses — FastAPI + LangChain, vector search, function calling. The Agentic RAG LLM Demo ships on GitHub.</p>
+				</article>
+
+				<article class="pillar reveal">
+					<div class="pillar-icon"><i class="fas fa-rocket"></i></div>
+					<h3>Ventures</h3>
+					<p>Two businesses built end-to-end with zero external funding — Ibitse (lift-sharing) and Zelenial Group (property management) — including a POPIA and B-BBEE compliance programme.</p>
+				</article>
+
 			</div>
 		</div>
 	</section>
@@ -141,95 +161,43 @@
 		</div>
 	</section>
 
-	<!-- ===================== IMPACT STATS ===================== -->
-	<section class="section section-alt" id="impact">
+	<!-- ===================== IMPACT ===================== -->
+	<section class="section" id="impact">
 		<div class="container">
 			<h2 class="section-title reveal">Impact</h2>
-			<div class="stats-grid">
-				<div class="stat-card reveal">
-					<div class="stat-number">35%</div>
-					<div class="stat-label">Pipeline Runtime Reduction</div>
-				</div>
-				<div class="stat-card reveal">
-					<div class="stat-number">22%</div>
-					<div class="stat-label">Compute Cost Savings</div>
-				</div>
-				<div class="stat-card reveal">
-					<div class="stat-number">90%+</div>
-					<div class="stat-label">Data Quality Coverage</div>
-				</div>
-				<div class="stat-card reveal">
-					<div class="stat-number">H+1</div>
-					<div class="stat-label">Data Freshness</div>
+			<div class="impact-band reveal">
+				<p class="impact-context">Measured outcomes from platform work — not aspirations.</p>
+				<div class="impact-stats">
+					<div class="impact-stat">
+						<div class="impact-stat-number">35%</div>
+						<div class="impact-stat-label">Pipeline runtime reduction</div>
+						<div class="impact-stat-context">PySpark + EMR/Glue tuning on the analytics platform</div>
+					</div>
+					<div class="impact-stat">
+						<div class="impact-stat-number">22%</div>
+						<div class="impact-stat-label">Compute cost savings</div>
+						<div class="impact-stat-context">Right-sized clusters and smarter partitioning</div>
+					</div>
+					<div class="impact-stat">
+						<div class="impact-stat-number">90%+</div>
+						<div class="impact-stat-label">Data quality coverage</div>
+						<div class="impact-stat-context">dbt contracts and gates blocking bad publishes</div>
+					</div>
+					<div class="impact-stat">
+						<div class="impact-stat-number">H+1</div>
+						<div class="impact-stat-label">Data freshness</div>
+						<div class="impact-stat-context">Kafka → lakehouse ingestion with replay</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- ===================== EXPERIENCE ===================== -->
-	<section class="section" id="experience">
-		<div class="container">
-			<h2 class="section-title reveal">Experience</h2>
-			<div class="timeline">
-
-				<div class="timeline-item reveal">
-					<div class="timeline-dot"></div>
-					<div class="timeline-card">
-						<div class="timeline-date">Jun 2025 — Present</div>
-						<h3 class="timeline-role">Lead Full Stack Developer</h3>
-						<div class="timeline-company">Ibitse · Remote</div>
-						<p>Leading engineering standards, CI/CD, and backend services (TypeScript/Node) for a start-up. Aligning product and engineering on release scope and acceptance criteria.</p>
-					</div>
-				</div>
-
-				<div class="timeline-item reveal">
-					<div class="timeline-dot"></div>
-					<div class="timeline-card">
-						<div class="timeline-date">Oct 2023 — Present</div>
-						<h3 class="timeline-role">Lead Analyst Programmer / Data Engineer</h3>
-						<div class="timeline-company">Old Mutual South Africa · Cape Town, Hybrid</div>
-						<p>Leading a team building data analytics solutions. PySpark on EMR/Glue, Airflow, Kafka, dbt, FastAPI. Delivered 35% runtime reduction and 22% cost savings.</p>
-					</div>
-				</div>
-
-				<div class="timeline-item reveal">
-					<div class="timeline-dot"></div>
-					<div class="timeline-card">
-						<div class="timeline-date">Dec 2022 — Oct 2023</div>
-						<h3 class="timeline-role">Analyst Programmer</h3>
-						<div class="timeline-company">Old Mutual South Africa · Cape Town</div>
-						<p>ETL pipelines from on-premises DB2 to AWS S3. PySpark, Airflow, dbt, and server administration.</p>
-					</div>
-				</div>
-
-				<div class="timeline-item reveal">
-					<div class="timeline-dot"></div>
-					<div class="timeline-card">
-						<div class="timeline-date">Sep 2021 — Nov 2022</div>
-						<h3 class="timeline-role">Data Engineer</h3>
-						<div class="timeline-company">Old Mutual South Africa · Cape Town</div>
-						<p>Data quality pipelines in the golden layer of a medallion architecture. AWS, Airflow, Spark.</p>
-					</div>
-				</div>
-
-				<div class="timeline-item reveal">
-					<div class="timeline-dot"></div>
-					<div class="timeline-card">
-						<div class="timeline-date">Dec 2020 — Sep 2021</div>
-						<h3 class="timeline-role">Data Engineer (Internship)</h3>
-						<div class="timeline-company">Umuzi.org · Johannesburg</div>
-						<p>RESTful APIs with Django/FastAPI. Data wrangling pipelines and analytics endpoints.</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-
-	<!-- ===================== PROJECTS ===================== -->
+	<!-- ===================== SELECTED WORK ===================== -->
 	<section class="section section-alt" id="projects">
 		<div class="container">
-			<h2 class="section-title reveal">Projects</h2>
+			<h2 class="section-title reveal">Selected Work</h2>
+			<p class="section-sub reveal">Platform engineering, AI applications, and the ventures they came from.</p>
 			<div class="projects-grid">
 
 				<article class="project-card reveal">
@@ -238,117 +206,64 @@
 							<a href="https://github.com/skydeamon/agentic-rag-llm-demo" target="_blank" rel="noopener noreferrer">Agentic RAG LLM Demo <i class="fas fa-external-link-alt"></i></a>
 						</h3>
 					</div>
-					<p class="project-desc">FastAPI + LangChain RAG pipeline with vector search, function calling, and an evaluation harness for regression testing.</p>
-					<div class="project-tech">
-						<span>Python</span><span>FastAPI</span><span>LangChain</span><span>RAG</span>
-					</div>
+					<span class="project-metric">RAG + function calling</span>
+					<p class="project-desc">FastAPI + LangChain pipeline with vector search, templated prompts, and an evaluation harness for regression testing.</p>
 				</article>
 
 				<article class="project-card reveal">
 					<div class="project-top">
 						<h3 class="project-title">High-Throughput PySpark Curation</h3>
 					</div>
-					<p class="project-desc">Multi-TB dataset curation into Parquet/Iceberg with window-based deduping, semantic validations, and incremental MERGE.</p>
-					<div class="project-tech">
-						<span>PySpark</span><span>EMR</span><span>Iceberg</span>
-					</div>
+					<span class="project-metric">Multi-TB → Iceberg</span>
+					<p class="project-desc">Window-based deduping, semantic validations, and incremental MERGE into Parquet/Iceberg on S3 with Athena access.</p>
 				</article>
 
 				<article class="project-card reveal">
 					<div class="project-top">
 						<h3 class="project-title">Kafka → Lakehouse Ingestion</h3>
 					</div>
-					<p class="project-desc">Event-driven ingestion with idempotent S3 landing, watermarking for late events, and Airflow-managed replay. H+1 freshness.</p>
-					<div class="project-tech">
-						<span>Kafka</span><span>Airflow</span><span>S3</span>
-					</div>
+					<span class="project-metric">H+1 freshness</span>
+					<p class="project-desc">Idempotent S3 landing, watermarking for late events, and Airflow-managed replay for deterministic backfills.</p>
 				</article>
 
 				<article class="project-card reveal">
 					<div class="project-top">
 						<h3 class="project-title">Data Contracts &amp; Quality Gates</h3>
 					</div>
-					<p class="project-desc">dbt source freshness, column contracts, and tests (not_null, unique, relationships) blocking publishes on failure.</p>
-					<div class="project-tech">
-						<span>dbt</span><span>Glue Catalog</span><span>Athena</span>
-					</div>
+					<span class="project-metric">90%+ coverage</span>
+					<p class="project-desc">dbt source freshness, column contracts, and tests that block publishes on failure.</p>
 				</article>
 
-			</div>
-		</div>
-	</section>
-
-	<!-- ===================== SKILLS ===================== -->
-	<section class="section" id="skills">
-		<div class="container">
-			<h2 class="section-title reveal">Skills</h2>
-			<div class="skills-grid">
-
-				<div class="skill-group reveal">
-					<h3 class="skill-group-title">Core Stack</h3>
-					<div class="skill-tags">
-						<span class="skill-tag primary">Python</span>
-						<span class="skill-tag primary">PySpark</span>
-						<span class="skill-tag primary">SQL</span>
-						<span class="skill-tag">TypeScript</span>
+				<article class="project-card reveal">
+					<div class="project-top">
+						<h3 class="project-title">
+							<a href="portfolio/audience/founder-ceo.html">Zelenial Portfolio Analytics &amp; Compliance</a>
+						</h3>
 					</div>
-				</div>
+					<span class="project-metric">100% occupancy</span>
+					<p class="project-desc">Per-property P&amp;L, portfolio cash-flow tracking, yield analysis, and RHA-compliant lease administration for a 3-unit portfolio.</p>
+				</article>
 
-				<div class="skill-group reveal">
-					<h3 class="skill-group-title">AWS</h3>
-					<div class="skill-tags">
-						<span class="skill-tag primary">EMR</span>
-						<span class="skill-tag primary">Glue</span>
-						<span class="skill-tag primary">S3</span>
-						<span class="skill-tag">Redshift</span>
-						<span class="skill-tag">Athena</span>
-						<span class="skill-tag">Lambda</span>
-						<span class="skill-tag">Step Functions</span>
+				<article class="project-card reveal">
+					<div class="project-top">
+						<h3 class="project-title">
+							<a href="portfolio/audience/founder-ceo.html">Ibitse Platform Architecture &amp; GTM</a>
+						</h3>
 					</div>
-				</div>
+					<span class="project-metric">D1–D8 GTM</span>
+					<p class="project-desc">Lift-sharing platform for the Limpopo↔Gauteng corridor: org blueprint, contract library, phantom share scheme, and a 10-persona research base.</p>
+				</article>
 
-				<div class="skill-group reveal">
-					<h3 class="skill-group-title">Data Tools</h3>
-					<div class="skill-tags">
-						<span class="skill-tag primary">Airflow</span>
-						<span class="skill-tag primary">Kafka</span>
-						<span class="skill-tag">dbt</span>
-						<span class="skill-tag">Iceberg</span>
-						<span class="skill-tag">Parquet</span>
+				<article class="project-card reveal">
+					<div class="project-top">
+						<h3 class="project-title">
+							<a href="portfolio/audience/founder-ceo.html">POPIA &amp; B-BBEE Compliance Programme</a>
+						</h3>
 					</div>
-				</div>
+					<span class="project-metric">B-BBEE L2</span>
+					<p class="project-desc">POPIA 10-document library, B-BBEE Level 2 / 52% Black-owned scorecard, and an LRA s200A contractor classification framework.</p>
+				</article>
 
-				<div class="skill-group reveal">
-					<h3 class="skill-group-title">AI / LLM</h3>
-					<div class="skill-tags">
-						<span class="skill-tag">LangChain</span>
-						<span class="skill-tag">LangGraph</span>
-						<span class="skill-tag">FastAPI</span>
-						<span class="skill-tag">Vector Search</span>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-
-	<!-- ===================== EDUCATION ===================== -->
-	<section class="section section-alt" id="education">
-		<div class="container">
-			<h2 class="section-title reveal">Education</h2>
-			<div class="education-grid">
-				<div class="education-card reveal">
-					<h3 class="education-degree">Bachelor of Science (BSc) in Physics and Astrophysics</h3>
-					<div class="education-school">University of Cape Town, South Africa</div>
-					<div class="education-date">Feb 2015 — Nov 2017</div>
-					<p class="education-detail">Physics, Astrophysics, Mathematics, Applied Mathematics, Computer Science, Astronomy</p>
-				</div>
-				<div class="education-card reveal">
-					<h3 class="education-degree">National Senior Certificate</h3>
-					<div class="education-school">Phusela High School</div>
-					<div class="education-date">Jan 2009 — Dec 2014</div>
-					<p class="education-detail">Mathematics, Physical Science, English, Sepedi</p>
-				</div>
 			</div>
 		</div>
 	</section>
