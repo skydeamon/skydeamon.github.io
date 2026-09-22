@@ -20,8 +20,11 @@ test('every HTML file has doctype, html, head, non-empty title, and body', () =>
 
 test('root index.html contains all required page sections', () => {
   const content = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-  for (const id of ['home', 'about', 'experience', 'projects', 'skills', 'audience', 'contact']) {
+  for (const id of ['home', 'about', 'projects', 'impact', 'audience', 'contact']) {
     assert.ok(content.includes(`id="${id}"`), `index.html missing section #${id}`);
+  }
+  for (const id of ['experience', 'skills', 'education']) {
+    assert.ok(!content.includes(`id="${id}"`), `index.html must not contain #${id}`);
   }
 });
 

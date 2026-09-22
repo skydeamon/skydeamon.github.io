@@ -62,15 +62,10 @@ test('audience pages are BSc-only (no NSC)', () => {
 
 /* ---------- root + engagement pages (BSc + NSC) ---------- */
 
-test('root index.html shows canonical BSc and NSC blocks', () => {
+test('root index.html links education canonical data without full blocks', () => {
   const content = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-  assert.ok(content.includes(BSC.degree), 'root: missing canonical BSc degree');
-  assert.ok(content.includes('University of Cape Town, South Africa'), 'root: missing canonical school');
-  assert.ok(content.includes('Feb 2015 — Nov 2017'), 'root: missing canonical BSc date');
-  assert.ok(content.includes(BSC.details), 'root: missing canonical BSc subject list');
-  assert.ok(content.includes(NSC.degree), 'root: missing NSC degree');
-  assert.ok(content.includes('Jan 2009 — Dec 2014'), 'root: missing canonical NSC date');
-  assert.ok(content.includes(NSC.details), 'root: missing NSC subject list');
+  assert.ok(!content.includes(NSC.degree), 'root: must not render NSC block (homepage refocus)');
+  assert.ok(!content.includes(BSC.degree), 'root: must not render full BSc block (homepage refocus)');
 });
 
 test('every engagement page renders canonical BSc and NSC blocks', () => {
