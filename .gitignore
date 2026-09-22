@@ -9,3 +9,7 @@ testenv/browsers/
 
 # Session scratch space
 .tmp/
+
+*
+PLANNING.md
+TASKS.md
