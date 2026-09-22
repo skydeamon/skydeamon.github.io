@@ -147,6 +147,8 @@
 
 **Acceptance:** all four commands green; scope guard confirmed; `TASKS.md` fully `[x]`.
 
+> **Re-validated 2026-09-22 at close:** FINAL-1..4 re-run on the final tree after Phases 10–11 — `npm test` 127 (65 static + 40 unit + 22 audit), integration 82, e2e 4, spell 0 unknown. FINAL-5 scope guard re-confirmed: no scaffolded claims shipped (homepage copy traces to canonical `js/cv-data.js`), no new themes, no new renderers.
+
 ---
 
 ## Phase 10 — CV enrichment pass (deps: none — data + page sync + guards)
