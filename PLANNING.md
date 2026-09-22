@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-16
 **Owner:** Jade Makwela
-**Status:** Phases 0–9 complete (expansion shipped). Phases 10–11 planned — see §8 + §9.
+**Status:** Phases 0–10 complete (expansion + enrichment shipped). Phase 11 planned — see §9.
 **Scope:** Expand the portfolio site's CV ecosystem to cover entrepreneurship, finance, business, marketing, and all business departments, using evidence from the assessment series 15–28.
 
 ---
@@ -146,6 +146,8 @@ Baseline (from `docs/audit-2026-09-14.md`): **127 static/unit/audit + 82 integra
 4. 7 new CV shells + 7 engagement shells + 7 audience pages + 7 cover letters render with correct runtime theme.
 5. Full test suite green: `npm test`, `npm run test:integration`, `npm run test:e2e`, `npm run audit:spell`.
 6. **Scope guard:** no scaffolded work presented as shipped in any CV bullet; no new CSS themes; no new section renderers; no changes outside the files listed in §4 without a new task entry.
+
+> **Reproducibility note:** the `Assessments/` series (files 15–29) is maintained outside this repository as external working documents and is not tracked in git. Exit Criteria 1–2 are therefore satisfied by reference — the repo ships the distilled, tagged claims in `js/cv-data.js` and the rendered portfolio pages.
 
 ---
 

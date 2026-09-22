@@ -3,7 +3,7 @@
 **Date:** 2026-09-16
 **Owner:** Jade Makwela
 **Plan:** `PLANNING.md` (same directory)
-**Status:** Phases 0–9 complete (expansion shipped). Phases 10–11 planned (CV enrichment + homepage refocus) — research-verified, see below.
+**Status:** Phases 0–10 complete (expansion + enrichment shipped). Phase 11 planned (homepage refocus) — see below.
 
 ---
 
@@ -85,7 +85,9 @@
 | PROF-6 | `property_manager` | Property / Asset Manager | freelance | summary, skills-grid, services, impact-highlights, experience, projects | DATA-1, AS-29 | 30 min | [x] |
 | PROF-7 | `fullstack_engineer` | IC / Staff | modern | summary, skills-grid, experience, projects | DATA-1, AS-23 | 30 min | [x] |
 
-**Acceptance:** each profile has theme/title/subtitle/description/employmentType/availability/summary/sectionOrder/skills/experienceBullets; `experienceBullets` keys ⊆ canonical roleKeys; summary contains "5+ years"; no scaffolded claims presented as shipped.
+**Acceptance:** each profile has theme/subtitle/employmentType/availability/summary/sectionOrder/skills/experienceBullets; `experienceBullets` keys ⊆ canonical roleKeys; summary contains "5+ years"; no scaffolded claims presented as shipped.
+
+> **Note:** the original acceptance named `title`/`description` fields; these were removed as redundant in `b7c187e` (superseded by `subtitle` + rendered headings). `skills`/`skillsGrid` satisfy the skills requirement.
 
 ---
 
@@ -151,16 +153,16 @@
 
 | ID | Task | Deliverable | Depends on | Est. | Status |
 |----|------|-------------|-----------|------|--------|
-| ENRICH-1 | `js/cv-data.js`: add `stats` (Key Metrics) to 10 profiles (data_engineer, ai_engineer, executive, freelance, academic, full_time, contract, part_time, modern, job_application); insert `stats` after `summary` in each sectionOrder; harmonize `~` convention (single no-tilde for `35%`/`22%`) | 10 profiles with 4 canonical stats each | — | 30 min | [ ] |
-| ENRICH-2 | `js/cv-data.js`: add `impactHighlights` to job_application, academic, modern, part_time; insert `impact-highlights` after `skills-grid` in sectionOrder | 4 profiles gain Proven Impact | ENRICH-1 | 15 min | [ ] |
-| ENRICH-3 | `js/cv-data.js`: tailored `experienceBullets` for 10 profiles (ai_engineer, freelance, executive, academic, founder_ceo, cto, business_ops, finance, property_manager, fullstack_engineer) — ~2 roles each, canonical-fact sourced | Per-role bullet overrides | — | 60 min | [ ] |
-| ENRICH-4 | `js/cv-data.js`: add 3 shared venture projects (Zelenial portfolio analytics, Ibitse platform architecture, POPIA/B-BBEE compliance programme) to canonical `projects` | 7 shared projects | — | 20 min | [ ] |
-| ENRICH-5 | Sync audience pages: `general.html` stat swap (5+ → H+1); add stats-grid to `ai-engineer.html` + `academic.html` | Audience pages match profile stats | ENRICH-1 | 20 min | [ ] |
-| ENRICH-6 | Regression guards: `tests/cv-completeness.test.js` "every profile declares stats + impactHighlights" (+1); `tests/audit/fact-agreement.test.js` "older audience pages contain profile stats" (+1) | 2 new tests | ENRICH-1..5 | 20 min | [ ] |
-| ENRICH-7 | `scripts/audit-spell.js`: add any newly-flagged content tokens to ALLOW_LIST | 0 unknown words | ENRICH-1..5 | 10 min | [ ] |
-| ENRICH-8 | Count-sync docs (running-tests, test-inventory, README, PLANNING §6, TASKS FINAL) → 127 static/unit/audit + 82 integration + 4 e2e; fix README integration count 81 → 82 (pre-existing drift); commit + push | Docs + push | ENRICH-6..7 | 15 min | [ ] |
+| ENRICH-1 | `js/cv-data.js`: add `stats` (Key Metrics) to 10 profiles (data_engineer, ai_engineer, executive, freelance, academic, full_time, contract, part_time, modern, job_application); insert `stats` after `summary` in each sectionOrder; harmonize `~` convention (single no-tilde for `35%`/`22%`) | 10 profiles with 4 canonical stats each | — | 30 min | [x] |
+| ENRICH-2 | `js/cv-data.js`: add `impactHighlights` to job_application, academic, modern, part_time; insert `impact-highlights` after `skills-grid` in sectionOrder | 4 profiles gain Proven Impact | ENRICH-1 | 15 min | [x] |
+| ENRICH-3 | `js/cv-data.js`: tailored `experienceBullets` for 10 profiles (ai_engineer, freelance, executive, academic, founder_ceo, cto, business_ops, finance, property_manager, fullstack_engineer) — ~2 roles each, canonical-fact sourced | Per-role bullet overrides | — | 60 min | [x] |
+| ENRICH-4 | `js/cv-data.js`: add 3 shared venture projects (Zelenial portfolio analytics, Ibitse platform architecture, POPIA/B-BBEE compliance programme) to canonical `projects` | 7 shared projects | — | 20 min | [x] |
+| ENRICH-5 | Sync audience pages: `general.html` stat swap (5+ → H+1); add stats-grid to `ai-engineer.html` + `academic.html` | Audience pages match profile stats | ENRICH-1 | 20 min | [x] |
+| ENRICH-6 | Regression guards: `tests/cv-completeness.test.js` "every profile declares stats + impactHighlights" (+1); `tests/audit/fact-agreement.test.js` "older audience pages contain profile stats" (+1) | 2 new tests | ENRICH-1..5 | 20 min | [x] |
+| ENRICH-7 | `scripts/audit-spell.js`: add any newly-flagged content tokens to ALLOW_LIST | 0 unknown words | ENRICH-1..5 | 10 min | [x] |
+| ENRICH-8 | Count-sync docs (running-tests, test-inventory, README, PLANNING §6, TASKS FINAL) → 127 static/unit/audit + 82 integration + 4 e2e; fix README integration count 81 → 82 (pre-existing drift); commit + push | Docs + push | ENRICH-6..7 | 15 min | [x] |
 
-**Acceptance:** every profile declares non-empty `stats` + `impactHighlights`; audience pages match profile stats; `npm test` = 127 (64 static + 41 unit + 22 audit); integration 82; e2e 4; spell 0 unknown.
+**Acceptance:** every profile declares non-empty `stats` + `impactHighlights`; audience pages match profile stats; `npm test` = 127 (65 static + 40 unit + 22 audit); integration 82; e2e 4; spell 0 unknown.
 
 ---
 
@@ -196,6 +198,6 @@
 | 7 — HTML artifacts | 28 | all [x] |
 | 8 — Test coordination | 6 | all [x] |
 | 9 — Final validation | 5 | all [x] |
-| 10 — CV enrichment | 8 | all [ ] |
+| 10 — CV enrichment | 8 | all [x] |
 | 11 — Homepage refocus | 7 | all [ ] |
-| **Total** | **83** | 68 done, 15 todo |
+| **Total** | **83** | 76 done, 7 todo |
