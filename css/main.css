@@ -160,8 +160,23 @@ img {
   gap: var(--space-md);
 }
 
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  line-height: 0;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.nav-brand:hover {
+  color: var(--primary);
+}
+
+/* Logo lockup: largest size that keeps breathing room inside the navbar. */
 .nav-logo {
-  height: 34px;
+  height: auto;
+  max-height: calc(var(--navbar-height) - 2 * var(--space-sm)); /* 48px */
   width: auto;
 }
 
@@ -236,6 +251,11 @@ img {
   padding: calc(var(--navbar-height) + var(--space-3xl)) var(--space-lg) var(--space-3xl);
   background: var(--bg-tertiary);
   border-bottom: 1px solid var(--border-color);
+}
+
+.hero-content {
+  max-width: 640px;
+  text-align: left;
 }
 
 .hero-inner {
@@ -444,50 +464,19 @@ img {
   text-align: right;
 }
 
-/* ---------- Stats ---------- */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-md);
-}
-
-.stat-card {
-  text-align: center;
-  padding: var(--space-xl) var(--space-md);
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.stat-number {
-  font-family: var(--font-mono);
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  color: var(--text-primary);
-  line-height: 1.2;
-  margin-bottom: var(--space-xs);
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
 /* ---------- Projects ---------- */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-lg);
+}
+
+.project-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 
 .project-card {
@@ -606,6 +595,11 @@ img {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-lg);
+}
+
+.impact-stat {
+  display: flex;
+  flex-direction: column;
 }
 
 .impact-stat-number {
@@ -838,7 +832,12 @@ img {
 }
 
 .error-page h1 {
-  font-size: 5rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
