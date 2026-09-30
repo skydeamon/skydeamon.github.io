@@ -52,6 +52,15 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="./fontawesome/css/all.css">
 	<link rel="stylesheet" href="./css/main.css">
+
+	<!--
+		Scroll-reveal elements start at opacity:0 and are revealed by
+		IntersectionObserver in js/app.js. If JS is unavailable they would
+		stay invisible, so .reveal ships a no-JS fallback in css/main.css.
+	-->
+	<noscript>
+		<link rel="stylesheet" href="./css/no-js.css">
+	</noscript>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>

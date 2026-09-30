@@ -173,10 +173,15 @@ img {
   color: var(--primary);
 }
 
-/* Logo lockup: largest size that keeps breathing room inside the navbar. */
+/*
+ * Logo lockup. The source PNG is 800x200, so an `auto` height would render it
+ * at its full 200px intrinsic size. Size from a fixed height instead, with
+ * max-height only as headroom against future navbar growth — never as the
+ * sizing mechanism.
+ */
 .nav-logo {
-  height: auto;
-  max-height: calc(var(--navbar-height) - 2 * var(--space-sm)); /* 48px */
+  height: 34px;
+  max-height: calc(var(--navbar-height) - 2 * var(--space-sm));
   width: auto;
 }
 
@@ -908,7 +913,6 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .stats-grid,
   .impact-stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -937,7 +941,6 @@ img {
     padding: var(--space-2xl) var(--space-md);
   }
 
-  .stats-grid,
   .impact-stats {
     grid-template-columns: 1fr;
   }

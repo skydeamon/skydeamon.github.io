@@ -1,0 +1,15 @@
+/* ============================================
+   NO-JS FALLBACK
+   Loaded only via <noscript> (index.html).
+
+   Scroll-reveal elements (.reveal) are authored at opacity:0 and are
+   switched to visible by the IntersectionObserver in js/app.js. With JS
+   unavailable the observer never runs, so those elements would render as
+   blank gaps. This file forces them visible and is ignored whenever JS is
+   enabled, because <noscript> content is not parsed at all then.
+   ============================================ */
+
+.reveal {
+  opacity: 1;
+  transform: none;
+}
