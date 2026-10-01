@@ -72,6 +72,7 @@
 
 /* Light Mode Variables (Default) */
 [data-theme="light"], :root {
+  color-scheme: light;
   --bg-primary: var(--white);
   --bg-secondary: var(--gray-50);
   --bg-tertiary: var(--gray-100);
@@ -79,10 +80,14 @@
   --text-secondary: var(--gray-700);
   --text-muted: var(--gray-500);
   --border-color: var(--gray-200);
+  /* Text colour on a --primary fill. Dark mode retunes this to a dark ink
+     because themes.css lightens --primary for contrast on dark surfaces. */
+  --on-primary: var(--white);
 }
 
 /* Dark Mode Variables (after light so it wins the cascade) */
 [data-theme="dark"] {
+  color-scheme: dark;
   --bg-primary: var(--gray-900);
   --bg-secondary: var(--gray-800);
   --bg-tertiary: var(--gray-700);
@@ -167,7 +172,7 @@ body {
    ============================================ */
 .cv-header {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: var(--white);
+  color: var(--on-primary, var(--white));
   padding: var(--space-2xl);
   text-align: center;
 }
@@ -333,7 +338,7 @@ body {
 
 .skill-tag.primary {
   background: var(--primary);
-  color: var(--white);
+  color: var(--on-primary, var(--white));
   border-color: var(--primary);
 }
 
@@ -439,7 +444,7 @@ body {
 
 .project-tech span {
   background: var(--primary);
-  color: var(--white);
+  color: var(--on-primary, var(--white));
   padding: 2px 8px;
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
@@ -459,7 +464,7 @@ body {
   width: 40px;
   height: 40px;
   background: var(--primary);
-  color: var(--white);
+  color: var(--on-primary, var(--white));
   border-radius: var(--radius);
   display: flex;
   align-items: center;
@@ -612,7 +617,7 @@ body {
 
 .control-btn {
   background: var(--primary);
-  color: var(--white);
+  color: var(--on-primary, var(--white));
   border: none;
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius);
@@ -985,7 +990,7 @@ body {
   top: -48px;
   left: 0;
   background: var(--primary);
-  color: var(--white);
+  color: var(--on-primary, var(--white));
   padding: var(--space-sm) var(--space-md);
   z-index: 2000;
   text-decoration: none;

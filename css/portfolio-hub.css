@@ -7,6 +7,13 @@ body {
   background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
   min-height: 100vh;
 }
+
+/* Dark mode: the gradient above is hardcoded light, which would render
+   portfolio.css's light-theme text colours unreadable. Swap to the dark
+   surface tokens (see portfolio.css [data-theme="dark"]). */
+[data-theme="dark"] body {
+  background: linear-gradient(135deg, #171923 0%, #1a202c 100%);
+}
 .hero {
   text-align: center;
   padding: 4rem 2rem 3rem;
@@ -46,14 +53,16 @@ body {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #718096;
+  color: var(--text-secondary, #4a5568);
   margin: 2rem 0 1rem;
   font-weight: 600;
 }
+/* Fixed blue rather than var(--primary): this page does not load themes.css,
+   so --primary stays the light-only navy and has no dark-mode step. */
 .badge {
   display: inline-block;
-  background: #3182ce;
-  color: white;
+  background: #2b6cb0;
+  color: #fff;
   padding: 2px 8px;
   border-radius: 9999px;
   font-size: 0.7rem;
@@ -63,7 +72,7 @@ body {
 footer {
   text-align: center;
   padding: 2rem;
-  color: #718096;
+  color: var(--text-secondary, #4a5568);
   font-size: 0.85rem;
 }
 /* ============================================
