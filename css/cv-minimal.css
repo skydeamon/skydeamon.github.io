@@ -27,10 +27,10 @@
 
 /* Profile-matched accent via body[data-theme] (matches themes.css accents) */
 [data-theme="general"] { --accent: #2563eb; }
-[data-theme="data-engineer"] { --accent: #0d9488; }
+[data-theme="data-engineer"] { --accent: #0f766e; }
 [data-theme="ai-engineer"] { --accent: #7c3aed; }
 [data-theme="academic"] { --accent: #1f2937; }
-[data-theme="freelance"] { --accent: #ea580c; }
+[data-theme="freelance"] { --accent: #c2410c; }
 [data-theme="executive"] { --accent: #111827; }
 [data-theme="modern"] { --accent: #2563eb; }
 
@@ -142,17 +142,25 @@ a { color: var(--text); text-decoration: none; }
   gap: 4px;
   text-decoration: none;
 }
-.control-btn:hover { background: var(--text); }
+/* --bg, not --text, for the alternate fills: --on-accent is white in light mode
+   and dark ink in dark mode, so it is only guaranteed to clear AA against
+   --accent, never against --text. */
+.control-btn:hover {
+  background: var(--text);
+  color: var(--bg);
+}
 .control-btn.secondary {
   background: var(--text);
-  color: var(--on-accent);
+  color: var(--bg);
 }
 .control-btn.secondary:hover { background: var(--accent); }
 
 /* --- Print --- */
 @media print {
   :root { --accent: #000; --text: #000; --muted: #333; --bg: #fff; --card-bg: #f5f5f5; }
-  .controls { display: none !important; }
+  /* .control-btn is reused for on-page navigation links, which are
+     meaningless on paper. */
+  .controls, .control-btn, .cta-box { display: none !important; }
   body { padding: 0; background: #fff; }
   h1 { border-bottom-color: #000; }
   h2 { border-left-color: #000; color: #000; }
@@ -193,3 +201,16 @@ a { color: var(--text); text-decoration: none; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================
+   NO-JS FALLBACK
+   The CV body is assembled by js/cv-render.js into #cv-root. With JavaScript
+   unavailable that container is empty, so each CV page carries a <noscript>
+   fallback inside it. These rules are only ever reached for a no-JS reader,
+   because <noscript> content is not parsed when scripts run.
+   ============================================ */
+.noscript-fallback { max-width: 46rem; margin: 0 auto; padding: 2rem; }
+.noscript-fallback .noscript-name { margin: 0 0 0.5rem; }
+.noscript-fallback .noscript-variant { font-size: 1.05rem; font-weight: 600; color: var(--accent, #000); }
+.noscript-notice { margin: 0 0 1.5rem; color: var(--muted, #333); }
+.noscript-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }

@@ -78,7 +78,8 @@
   --bg-tertiary: var(--gray-100);
   --text-primary: var(--gray-900);
   --text-secondary: var(--gray-700);
-  --text-muted: var(--gray-500);
+  /* gray-600, not gray-500: #718096 is only 3.56:1 on --bg-tertiary (#edf2f7). */
+  --text-muted: var(--gray-600);
   --border-color: var(--gray-200);
   /* Text colour on a --primary fill. Dark mode retunes this to a dark ink
      because themes.css lightens --primary for contrast on dark surfaces. */
@@ -95,6 +96,10 @@
   --text-secondary: var(--gray-300);
   --text-muted: var(--gray-400);
   --border-color: var(--gray-600);
+  /* Required: portfolio pages load portfolio.css + themes.css but not
+     main.css, so this block is the only source of --on-primary. Dark palettes
+     lighten --primary, so white ink is unreadable on a --primary fill. */
+  --on-primary: var(--gray-900);
 }
 
 /* ============================================
@@ -189,6 +194,16 @@ body {
   font-weight: 400;
   opacity: 0.9;
   margin-bottom: var(--space-lg);
+}
+
+.cv-header .target-role {
+  font-size: 0.95rem;
+  font-weight: 500;
+  /* A token-based colour, not a fixed grey: this must clear AA on both the
+     light and dark --bg/--text pair it sits on. */
+  color: var(--text-secondary);
+  margin-top: calc(-1 * var(--space-sm));
+  margin-bottom: var(--space-md);
 }
 
 .contact-info {
@@ -631,7 +646,10 @@ body {
 }
 
 .control-btn:hover {
-  background: var(--primary-light);
+  /* --primary-dark, not --primary-light: --primary-light is a *lighter* step
+     than --primary, so white text on it drops to 2.49:1 on the teal palette.
+     Darkening on hover keeps the fill legible in both themes. */
+  background: var(--primary-dark);
 }
 
 .control-btn.secondary {
@@ -723,7 +741,12 @@ body {
     font-size: 11pt;
   }
   
-  .controls {
+  /* .control-btn is reused outside .controls for the on-page navigation
+     ("← CVs", "Home", the "View Full CV" CTA). Those are meaningless on paper,
+     so hide the control surface itself rather than only its wrapper. */
+  .controls,
+  .control-btn,
+  .cta-box {
     display: none !important;
   }
   
@@ -772,6 +795,10 @@ body {
   
   .cv-header .subtitle {
     font-size: 1rem;
+  }
+  
+  .cv-header .target-role {
+    font-size: 0.88rem;
   }
   
   .contact-info {
@@ -862,8 +889,12 @@ body {
 .cv-card-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  color: var(--white);
+  /* Solid --primary, not a --primary→--accent gradient: no single ink colour
+     clears AA against both endpoints in every palette (white on freelance
+     --accent is 2.26:1; dark ink on the dark general --primary is 9.90:1 but
+     white is 1.80:1). A solid fill stays consistent with --on-primary. */
+  background: var(--primary);
+  color: var(--on-primary, var(--white));
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -1025,4 +1056,39 @@ body {
     justify-content: center;
     margin-bottom: var(--space-md);
   }
+}
+
+/* ============================================
+   NO-JS FALLBACK
+   The CV body is assembled by js/cv-render.js into #cv-root. With JavaScript
+   unavailable that container is empty, so each CV page carries a <noscript>
+   fallback inside it. These rules are only ever reached for a no-JS reader,
+   because <noscript> content is not parsed when scripts run.
+   ============================================ */
+.noscript-fallback {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: var(--space-lg, 2rem);
+}
+.noscript-fallback .noscript-name {
+  margin: 0 0 var(--space-xs, 0.5rem);
+}
+.noscript-fallback .noscript-variant {
+  margin: 0 0 var(--space-md, 1.25rem);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent, #2563eb);
+  border: 0;
+  padding: 0;
+}
+.noscript-notice {
+  margin: 0 0 var(--space-lg, 1.5rem);
+  color: var(--muted, #555);
+  max-width: 34rem;
+}
+.noscript-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm, 0.75rem);
+  margin: 0;
 }

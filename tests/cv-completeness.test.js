@@ -18,11 +18,35 @@ test('every cvProfile key is unique', () => {
   assert.strictEqual(new Set(keys).size, keys.length, 'duplicate profile keys found');
 });
 
-test('every profile has a unique config key', () => {
-  // Arrange / Act
-  const keys = Object.keys(CV_DATA.cvProfiles);
-  // Assert
-  assert.strictEqual(keys.length, new Set(keys).size);
+test('no two profiles resolve to the same rendered document', () => {
+  // The previous 'unique config key' test compared Object.keys against itself,
+  // which is a tautology: an object cannot have duplicate keys. The real risk
+  // is two profile keys rendering identical output, where one page silently
+  // duplicates another. Distinguish on the content that actually renders.
+  const signatures = new Map();
+
+  for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
+    const signature = JSON.stringify({
+      subtitle: profile.subtitle,
+      summary: profile.summary,
+      sectionOrder: profile.sectionOrder,
+      skills: profile.skills,
+    });
+    if (signatures.has(signature)) {
+      assert.fail(
+        `${key} renders identically to ${signatures.get(signature)}; ` +
+          'one of them is redundant'
+      );
+    }
+    signatures.set(signature, key);
+  }
+
+  // Guard against the comparison collapsing to a single fingerprint.
+  assert.strictEqual(
+    signatures.size,
+    Object.keys(CV_DATA.cvProfiles).length,
+    'signatures did not distinguish every profile'
+  );
 });
 
 /* ---------- section completeness ---------- */

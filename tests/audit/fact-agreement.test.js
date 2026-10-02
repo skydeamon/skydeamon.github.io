@@ -8,8 +8,10 @@ const { ROOT } = require('../helpers');
 
 const CV_DATA = require(path.join(ROOT, 'js', 'cv-data.js'));
 
-// The "general" audience profile is cvProfiles.data_engineer — the profile whose
-// targetRole/summary carry the canonical general-audience facts.
+// portfolio/audience/general.html renders the contract data-engineer profile.
+// It previously rendered cvProfiles.job_application (full-time) while this
+// file's "general profile" tests asserted against data_engineer (contract),
+// so the tests passed without protecting the page they claimed to cover.
 const GENERAL = CV_DATA.cvProfiles.data_engineer;
 
 const AUDIENCE_PAGES = [
@@ -64,9 +66,10 @@ const OLDER_AUDIENCE_PAGES = [
   'portfolio/audience/executive.html',
 ];
 
-// Older audience pages map to their canonical profile (general.html -> job_application).
+// Older audience pages map to their canonical profile. general.html is the
+// contract data_engineer profile, matching GENERAL above.
 const OLDER_AUDIENCE_PROFILE_KEYS = {
-  'portfolio/audience/general.html': 'job_application',
+  'portfolio/audience/general.html': 'data_engineer',
   'portfolio/audience/data-engineer.html': 'data_engineer',
   'portfolio/audience/ai-engineer.html': 'ai_engineer',
   'portfolio/audience/academic.html': 'academic',
@@ -319,6 +322,73 @@ test('general profile summary contains "enterprise-grade cloud data platforms" (
   );
 });
 
+test('general.html renders the contract profile it claims, not the full-time one', () => {
+  // The regression guard for the mapping bug: the page and GENERAL must agree
+  // on the facts a reader actually sees.
+  const content = fs.readFileSync(path.join(ROOT, 'portfolio/audience/general.html'), 'utf8');
+
+  // The contract target role is on the page...
+  assert.ok(
+    content.includes(GENERAL.targetRole),
+    'general.html does not render the contract targetRole'
+  );
+  assert.ok(
+    content.includes('Seeking a contract role'),
+    'general.html does not signal contract availability'
+  );
+
+  // ...and it must not still be selling the full-time framing.
+  assert.strictEqual(GENERAL.employmentType, 'contract');
+  assert.ok(
+    !content.includes('Technology Leader and Lead Developer'),
+    'general.html still renders the job_application full-time summary'
+  );
+});
+
+test('the general-audience page stays distinct from the data-engineer page', () => {
+  // Two live URLs must not become near-duplicates: a recruiter comparing them
+  // should see different framing, not a copy with a different title.
+  const shared = (rel) =>
+    fs
+      .readFileSync(path.join(ROOT, rel), 'utf8')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+  const general = shared('portfolio/audience/general.html');
+  const dataEng = shared('portfolio/audience/data-engineer.html');
+
+  // The two pages must differ in the claims they make, not merely in wording.
+  // Compare distinctive phrases rather than length: a length assertion would
+  // only lock in an arbitrary character count, and it silently passed before
+  // because one section heading is "Summary" and the other
+  // "Professional Summary".
+  const claims = [
+    'RAG',      // AI/LLM depth -> belongs on the broad page
+    'end to end', // cross-stack framing -> general
+  ];
+
+  for (const claim of claims) {
+    assert.ok(
+      general.includes(claim),
+      `general.html is missing its own distinguishing claim "${claim}"`
+    );
+  }
+
+  assert.ok(
+    dataEng.includes('high-throughput curation'),
+    'data-engineer.html lost its depth-specific framing'
+  );
+  assert.ok(
+    !general.includes('high-throughput curation'),
+    'general.html copied the data-engineer.html summary verbatim'
+  );
+  assert.ok(
+    general !== dataEng && general.length > 0 && dataEng.length > 0,
+    'both pages must be readable for this comparison to mean anything'
+  );
+});
+
 /* ---------- audience page cross-check ---------- */
 
 test('audience pages avoid all forbidden glossary terms', () => {
@@ -486,4 +556,41 @@ test('no redacted personal/financial tokens appear in public pages or canonical 
   }
   // Assert
   assert.deepStrictEqual(offenders, [], 'Redacted tokens found in public files');
+});
+
+test('an audience page that names a target role links to the CV that fills it', () => {
+  // 12 of the 13 audience pages pair audience/<role>.html with cv/<role>.html.
+  // general.html is the catch-all entry point, so nothing about its filename
+  // pins it -- but once it states a target role, "View Full CV" has to lead to a
+  // CV that actually targets that role, or the page contradicts its own CTA.
+  const offenders = [];
+  const pages = fs
+    .readdirSync(path.join(ROOT, 'portfolio', 'audience'))
+    .filter((f) => f.endsWith('.html'));
+
+  for (const file of pages) {
+    const rel = `portfolio/audience/${file}`;
+    const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+
+    const stated = /Target role:\s*<strong>([\s\S]*?)<\/strong>/.exec(html);
+    const cta = /href="\.\.\/cv\/([a-z_-]+)\.html" class="control-btn cta-btn"/.exec(html);
+    if (!stated || !cta) continue; // pages that do not name a target role
+
+    const statedRole = stated[1].replace(/\s+/g, ' ').trim();
+
+    const cvRel = `portfolio/cv/${cta[1]}.html`;
+    const cvHtml = fs.readFileSync(path.join(ROOT, cvRel), 'utf8');
+    const profile = /data-profile="([a-z_]+)"/.exec(cvHtml);
+    assert.ok(profile, `${cvRel}: no data-profile attribute`);
+
+    const cvProfile = CV_DATA.cvProfiles[profile[1]];
+    assert.ok(cvProfile, `${cvRel}: unknown profile "${profile[1]}"`);
+
+    const cvRole = String(cvProfile.targetRole ?? '').replace(/\s+/g, ' ').trim();
+    if (cvRole !== statedRole) {
+      offenders.push(`${rel} states "${statedRole}" but its CTA opens ${cvRel} ("${cvRole}")`);
+    }
+  }
+
+  assert.deepStrictEqual(offenders, [], 'audience pages whose CTA contradicts their stated target role');
 });

@@ -13,27 +13,22 @@
   const themeIcon = document.getElementById('theme-icon');
   const root = document.documentElement;
 
-  // Initial theme: localStorage > system preference > light
-  const storedTheme = SiteLogic.readStoredTheme();
-  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = SiteLogic.getInitialTheme(storedTheme, systemDark);
-
-  if (initialTheme) {
-    root.setAttribute('data-theme', initialTheme);
-  }
+  // ThemeStore is the single source of truth for the theme: it already
+  // applied the resolved theme pre-paint from <head>, so this only re-asserts
+  // it and provides the toggle. No localStorage access lives here.
+  const store = window.ThemeStore;
 
   function updateThemeIcon() {
     const isDark = root.getAttribute('data-theme') === 'dark';
-    themeIcon.className = SiteLogic.themeIconClass(isDark);
+    themeIcon.className = store.iconClass(isDark);
   }
 
   updateThemeIcon();
 
   themeToggle.addEventListener('click', function () {
-    const current = root.getAttribute('data-theme');
-    const next = SiteLogic.computeNextTheme(current);
+    const next = store.computeNextTheme(root.getAttribute('data-theme'));
     root.setAttribute('data-theme', next);
-    SiteLogic.writeStoredTheme(next);
+    store.writeStoredTheme(next);
     updateThemeIcon();
   });
 
@@ -41,21 +36,45 @@
   const navBurger = document.getElementById('nav-burger');
   const navLinks = document.getElementById('nav-links');
 
+  /**
+   * Single source of truth for the nav's open state.
+   *
+   * The closed state has to be restated in four places: the class, the
+   * aria-expanded value, the icon, and the accessible name. Updating them
+   * together is the only way to keep them from drifting apart, which is how the
+   * button ends up reading "Open menu" while the menu is already open.
+   *
+   * @param {boolean} open
+   * @param {boolean} restoreFocus - return focus to the burger after closing
+   */
+  function setNavOpen(open, restoreFocus) {
+    navLinks.classList.toggle('open', open);
+    navBurger.setAttribute('aria-expanded', String(open));
+    navBurger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    navBurger.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    if (!open && restoreFocus) navBurger.focus();
+  }
+
   navBurger.addEventListener('click', function () {
-    const isOpen = navLinks.classList.toggle('open');
-    navBurger.setAttribute('aria-expanded', String(isOpen));
-    navBurger.innerHTML = isOpen
-      ? '<i class="fas fa-times"></i>'
-      : '<i class="fas fa-bars"></i>';
+    setNavOpen(!navLinks.classList.contains('open'), false);
   });
 
   // Close mobile nav when a link is clicked
   navLinks.querySelectorAll('.nav-link').forEach(function (link) {
     link.addEventListener('click', function () {
-      navLinks.classList.remove('open');
-      navBurger.setAttribute('aria-expanded', 'false');
-      navBurger.innerHTML = '<i class="fas fa-bars"></i>';
+      // The click is navigating, so focus is not restored to the burger.
+      setNavOpen(false, false);
     });
+  });
+
+  // Escape dismisses the menu and hands focus back to the control that opened
+  // it. Without this, a keyboard user who opens the menu can only close it by
+  // reaching the burger again, and a menu that covers the page leaves no other
+  // way out.
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape' && event.key !== 'Esc') return;
+    if (!navLinks.classList.contains('open')) return;
+    setNavOpen(false, true);
   });
 
   /* ---------- Navbar Shadow on Scroll ---------- */

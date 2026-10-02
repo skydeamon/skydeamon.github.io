@@ -30,10 +30,12 @@ test('dark mode is applied before the stylesheet loads, with no light flash', as
   // Record network order and the attribute as soon as the head is parsed.
   // If the theme were applied by scripts at the end of <body>, the stylesheet
   // would already have been fetched and the browser would paint light first.
+  // theme-store.js is the pre-paint entry point; theme-init.js was the
+  // predecessor that this replaced.
   const order = [];
   page.on('request', (req) => {
     const url = req.url();
-    if (url.endsWith('theme-init.js')) order.push('theme-init');
+    if (url.endsWith('/js/theme-store.js')) order.push('theme-store');
     else if (/\/css\/(main|portfolio|themes|cv-minimal|portfolio-hub)\.css$/.test(url)) {
       order.push('css');
     } else if (url.endsWith('/js/app.js') || url.endsWith('/js/theme.js')) {
@@ -51,8 +53,10 @@ test('dark mode is applied before the stylesheet loads, with no light flash', as
 
   // The theme script must be fetched first, and must run before any
   // stylesheet that could paint the light default.
-  expect(order[0], `resource order was ${order.join(' -> ')}`).toBe('theme-init');
-  expect(order.indexOf('theme-init')).toBeLessThan(order.indexOf('css'));
+  expect(order[0], `resource order was ${order.join(' -> ')}`).toBe('theme-store');
+  expect(order.indexOf('theme-store')).toBeLessThan(order.indexOf('css'));
+  // theme-store must not merely be fetched first; it must have applied the
+  // theme by the time the DOM is ready, which is what prevents the flash.
   expect(await page.evaluate(() => window.__themeAtDCL)).toBe('dark');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
 });

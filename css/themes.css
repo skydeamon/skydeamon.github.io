@@ -20,13 +20,15 @@
 
 /* ---------- Data Engineer — teal ---------- */
 [data-theme="data-engineer"] {
-  --primary: #0d9488;
-  --primary-light: #14b8a6;
-  --primary-dark: #0f766e;
-  --accent: #06b6d4;
+  --primary: #0f766e;
+  --primary-light: #0d9488;
+  --primary-dark: #134e4a;
+  /* Darkened from #06b6d4: --accent is exposed as text by .text-accent and
+     cv-minimal, and on --bg-tertiary (#edf2f7) the cyan was 2.16:1. */
+  --accent: #0e7490;
 }
 [data-theme="data-engineer"] .cv-header {
-  background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+  background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
 }
 
 /* ---------- AI Engineer — purple ---------- */
@@ -34,7 +36,8 @@
   --primary: #7c3aed;
   --primary-light: #8b5cf6;
   --primary-dark: #6d28d9;
-  --accent: #a78bfa;
+  /* Darkened from #a78bfa, which was 2.42:1 as text on #edf2f7. */
+  --accent: #6d28d9;
 }
 [data-theme="ai-engineer"] .cv-header {
   background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
@@ -53,13 +56,17 @@
 
 /* ---------- Freelance — orange ---------- */
 [data-theme="freelance"] {
-  --primary: #ea580c;
-  --primary-light: #f97316;
-  --primary-dark: #c2410c;
-  --accent: #fb923c;
+  --primary: #c2410c;
+  --primary-light: #ea580c;
+  --primary-dark: #7c2d12;
+  /* Darkened from #fb923c, which was 2.01:1 as text on #edf2f7.
+     #9a3412 is distinct from --primary (which was its value, making the accent
+     token dead weight) and is the gradient's end stop, so the header and the
+     accent now read as one ramp: 6.49:1 on --bg, 7.31:1 on --surface. */
+  --accent: #9a3412;
 }
 [data-theme="freelance"] .cv-header {
-  background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%);
+  background: linear-gradient(135deg, #c2410c 0%, #9a3412 100%);
 }
 
 /* ---------- Executive — black ---------- */
@@ -78,7 +85,9 @@
   --primary: #2563eb;
   --primary-light: #3b82f6;
   --primary-dark: #1d4ed8;
-  --accent: #8b5cf6;
+  /* #7c3aed, not #8b5cf6: --accent lands on the .cv-card-icon fill, and white
+     on #8b5cf6 is only 4.23:1. */
+  --accent: #7c3aed;
   --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
 }
 [data-theme="modern"] .cv-header {
@@ -153,6 +162,11 @@
   --primary-dark: #94a3b8;
   --accent: #d1d5db;
   --on-primary: #0f172a;
+}
+
+/* ---------- Dark-mode header gradient ---------- */
+[data-theme="dark"] .cv-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
 }
 
 /* ============================================

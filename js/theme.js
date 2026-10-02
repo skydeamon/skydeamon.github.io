@@ -1,22 +1,21 @@
 /**
  * Theme toggle + print handler for portfolio pages.
  * Expects: <button id="theme-toggle"> with <span id="theme-icon">🌙</span> " Dark"
+ *
+ * The theme itself is already applied pre-paint by ThemeStore, which is loaded
+ * in <head>. This file only drives the toggle UI, so it holds no theme state
+ * and reads no storage directly.
  */
 (function () {
   'use strict';
+
+  var store = window.ThemeStore;
 
   var btn = document.getElementById('theme-toggle');
   var icon = document.getElementById('theme-icon');
   var root = document.documentElement;
 
   if (btn && icon) {
-    /* Apply stored or system theme on load */
-    var stored = null;
-    try { stored = localStorage.getItem('theme'); } catch (e) { /* ignore */ }
-    var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var initial = stored || (systemDark ? 'dark' : null);
-    if (initial) root.setAttribute('data-theme', initial);
-
     function syncIcon() {
       var isDark = root.getAttribute('data-theme') === 'dark';
       icon.textContent = isDark ? '\u2600\uFE0F' : '\uD83C\uDF19';
@@ -34,9 +33,9 @@
     syncIcon();
 
     btn.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      var next = store.computeNextTheme(root.getAttribute('data-theme'));
       root.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) { /* ignore */ }
+      store.writeStoredTheme(next);
       syncIcon();
     });
   }

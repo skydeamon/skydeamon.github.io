@@ -2,19 +2,22 @@
 
 const { test, expect } = require('@playwright/test');
 
+// Literal hex per theme, so a change to css/themes.css cannot silently drift
+// from the pages that consume it. Values are the remediated light-mode ramps;
+// these are the accessibility fixes, not the pre-remediation palette.
 const THEME_EXPECTATIONS = [
   { url: '/portfolio/audience/general.html', theme: 'general', primary: '#2563eb' },
-  { url: '/portfolio/audience/data-engineer.html', theme: 'data-engineer', primary: '#0d9488' },
+  { url: '/portfolio/audience/data-engineer.html', theme: 'data-engineer', primary: '#0f766e' },
   { url: '/portfolio/audience/ai-engineer.html', theme: 'ai-engineer', primary: '#7c3aed' },
   { url: '/portfolio/audience/academic.html', theme: 'academic', primary: '#1f2937' },
-  { url: '/portfolio/audience/freelance.html', theme: 'freelance', primary: '#ea580c' },
+  { url: '/portfolio/audience/freelance.html', theme: 'freelance', primary: '#c2410c' },
   { url: '/portfolio/audience/executive.html', theme: 'executive', primary: '#111827' },
   { url: '/portfolio/audience/founder-ceo.html', theme: 'executive', primary: '#111827' },
   { url: '/portfolio/audience/cto.html', theme: 'executive', primary: '#111827' },
   { url: '/portfolio/audience/business-ops.html', theme: 'general', primary: '#2563eb' },
   { url: '/portfolio/audience/marketing-growth.html', theme: 'modern', primary: '#2563eb' },
   { url: '/portfolio/audience/finance.html', theme: 'executive', primary: '#111827' },
-  { url: '/portfolio/audience/property-manager.html', theme: 'freelance', primary: '#ea580c' },
+  { url: '/portfolio/audience/property-manager.html', theme: 'freelance', primary: '#c2410c' },
   { url: '/portfolio/audience/fullstack-engineer.html', theme: 'modern', primary: '#2563eb' },
 ];
 

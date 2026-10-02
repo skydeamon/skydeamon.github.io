@@ -612,11 +612,12 @@
     // Single source of truth: accent theme comes from the profile.
     if (profile.theme) document.body.setAttribute('data-theme', profile.theme);
 
-    // Apply persisted/system theme preference (matches app.js behavior).
-    var stored = null;
-    try { stored = localStorage.getItem('theme'); } catch (e) { /* ignore */ }
-    var initial = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : null);
-    if (initial) document.documentElement.setAttribute('data-theme', initial);
+    // The dark/light mode is already applied pre-paint by ThemeStore, which
+    // every CV page loads in <head>. This used to read localStorage directly
+    // and wrote the raw value, so a stale or hand-edited entry ("neon")
+    // became data-theme="neon" and matched no token block. Read no storage
+    // here; the store owns it.
+    var store = window.ThemeStore;
 
     root.insertAdjacentHTML('beforebegin', renderControls({ plain: engagement, base: opts.base }));
     root.innerHTML = engagement
@@ -628,11 +629,12 @@
     if (toggle && icon) {
       toggle.addEventListener('click', function () {
         var html = document.documentElement;
-        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        var current = html.getAttribute('data-theme');
+        var next = store.computeNextTheme(current);
         html.setAttribute('data-theme', next);
         icon.textContent = next === 'dark' ? '☀️' : '🌙';
         toggle.lastChild.textContent = next === 'dark' ? ' Light' : ' Dark';
-        try { localStorage.setItem('theme', next); } catch (e) { /* ignore */ }
+        store.writeStoredTheme(next);
       });
     }
 

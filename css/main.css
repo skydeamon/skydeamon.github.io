@@ -74,7 +74,8 @@
   --bg-tertiary: var(--gray-100);
   --text-primary: var(--gray-900);
   --text-secondary: var(--gray-600);
-  --text-muted: var(--gray-500);
+  /* gray-600, not gray-500: #64748b is only 4.34:1 on --bg-tertiary (#f1f5f9). */
+  --text-muted: var(--gray-600);
   --border-color: var(--gray-200);
   --card-bg: var(--white);
   --navbar-bg: rgba(255, 255, 255, 0.85);
@@ -805,6 +806,23 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Neutralize motion site-wide, not just the scroll reveal. main.css declares
+     ~14 transitions (buttons, nav links, cards, the skip link, the theme
+     toggle) and this block previously suppressed only .reveal, so every other
+     one still animated for a reduced-motion reader. The other three
+     stylesheets already use this universal pattern. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* .reveal must also land in its final state, not merely lose its
+     transition: at 0.01ms it would still sit at opacity 0 if the observer
+     never fires. */
   .reveal {
     opacity: 1;
     transform: none;
@@ -889,6 +907,11 @@ img {
 }
 
 @media (max-width: 768px) {
+  /* `visibility` is what takes the closed menu out of the tab order and out of
+     the accessibility tree. transform alone only moves it off-screen, which
+     leaves every link still focusable behind the page -- a keyboard user tabs
+     into an invisible menu. visibility animates with the slide, so the
+     transition still reads. */
   .nav-links {
     position: fixed;
     top: var(--navbar-height);
@@ -901,12 +924,14 @@ img {
     padding: var(--space-md) var(--space-lg);
     gap: var(--space-sm);
     transform: translateY(-120%);
-    transition: transform var(--transition-slow);
+    visibility: hidden;
+    transition: transform var(--transition-slow), visibility var(--transition-slow);
     box-shadow: var(--shadow-lg);
   }
 
   .nav-links.open {
     transform: translateY(0);
+    visibility: visible;
   }
 
   .nav-link {
@@ -984,8 +1009,12 @@ img {
     padding: var(--space-lg) 0;
   }
 
+  /* transition: none matters here as much as opacity: 1. Without it the switch
+     to print media starts a 0.6s fade, and printing immediately can capture a
+     half-faded document. */
   .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
   }
 }
