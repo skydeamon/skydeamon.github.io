@@ -4,15 +4,22 @@ const { test } = require('node:test');
 const assert = require('node:assert');
 const fs = require('node:fs');
 const path = require('node:path');
+const { assertNonEmpty, readHtml } = require('./helpers');
 
 const AUDIENCE_DIR = path.join(__dirname, '..', 'portfolio', 'audience');
-const PAGES = fs
-  .readdirSync(AUDIENCE_DIR)
-  .filter((f) => f.endsWith('.html'))
-  .sort();
+// Guarded: every test below is a loop over PAGES, so an empty set would make the
+// whole file report success having asserted nothing. readHtml does the same for
+// each file's contents, since most of these assertions are absence checks.
+const PAGES = assertNonEmpty(
+  fs
+    .readdirSync(AUDIENCE_DIR)
+    .filter((f) => f.endsWith('.html'))
+    .sort(),
+  'audience pages in portfolio/audience'
+);
 
 function readPage(name) {
-  return fs.readFileSync(path.join(AUDIENCE_DIR, name), 'utf-8');
+  return readHtml(path.join(AUDIENCE_DIR, name));
 }
 
 /* ---------- heading validity ---------- */

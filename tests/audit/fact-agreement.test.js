@@ -4,7 +4,7 @@ const { test } = require('node:test');
 const assert = require('node:assert');
 const fs = require('node:fs');
 const path = require('node:path');
-const { ROOT } = require('../helpers');
+const { ROOT, assertNonEmpty, readHtml } = require('../helpers');
 
 const CV_DATA = require(path.join(ROOT, 'js', 'cv-data.js'));
 
@@ -514,13 +514,18 @@ test('older audience pages contain every canonical stat value and label', () => 
 
 test('every CV shell has a data-profile matching a canonical profile key', () => {
   // Arrange
-  const shells = fs
-    .readdirSync(path.join(ROOT, 'portfolio', 'cv'))
-    .filter((f) => f.endsWith('.html'));
+  // Guarded: the loop below is the whole test, so an empty walk would report
+  // success having checked nothing.
+  const shells = assertNonEmpty(
+    fs
+      .readdirSync(path.join(ROOT, 'portfolio', 'cv'))
+      .filter((f) => f.endsWith('.html')),
+    'CV shells in portfolio/cv'
+  );
   // Act
   const offenders = [];
   for (const f of shells) {
-    const content = fs.readFileSync(path.join(ROOT, 'portfolio', 'cv', f), 'utf8');
+    const content = readHtml(path.join(ROOT, 'portfolio', 'cv', f));
     const m = content.match(/data-profile="([^"]+)"/);
     if (!m) {
       offenders.push(`${f}: no data-profile attribute`);
@@ -564,13 +569,16 @@ test('an audience page that names a target role links to the CV that fills it', 
   // pins it -- but once it states a target role, "View Full CV" has to lead to a
   // CV that actually targets that role, or the page contradicts its own CTA.
   const offenders = [];
-  const pages = fs
-    .readdirSync(path.join(ROOT, 'portfolio', 'audience'))
-    .filter((f) => f.endsWith('.html'));
+  const pages = assertNonEmpty(
+    fs
+      .readdirSync(path.join(ROOT, 'portfolio', 'audience'))
+      .filter((f) => f.endsWith('.html')),
+    'audience pages in portfolio/audience'
+  );
 
   for (const file of pages) {
     const rel = `portfolio/audience/${file}`;
-    const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+    const html = readHtml(path.join(ROOT, rel));
 
     const stated = /Target role:\s*<strong>([\s\S]*?)<\/strong>/.exec(html);
     const cta = /href="\.\.\/cv\/([a-z_-]+)\.html" class="control-btn cta-btn"/.exec(html);

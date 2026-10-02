@@ -14,7 +14,7 @@ const { test } = require('node:test');
 const assert = require('node:assert');
 const fs = require('node:fs');
 const path = require('node:path');
-const { ROOT } = require('../helpers');
+const { ROOT, assertNonEmpty, readHtml } = require('../helpers');
 const { createHarness } = require('../helpers/dom-harness');
 
 const CV_DATA = require(path.join(ROOT, 'js', 'cv-data.js'));
@@ -120,7 +120,7 @@ test('every CV shell declares a data-profile that resolves to a real profile', (
   assert.ok(shells.length > 0, 'no CV shells found');
 
   for (const shell of shells) {
-    const html = fs.readFileSync(shell, 'utf8');
+    const html = readHtml(shell);
     const m = html.match(/js\/cv-init\.js"([^>]*)>/);
     assert.ok(m, `${path.relative(ROOT, shell)}: does not load cv-init.js`);
 
@@ -140,7 +140,7 @@ test('engagement-format shells declare both data-format and data-base', () => {
   let engagementCount = 0;
 
   for (const shell of cvShells()) {
-    const html = fs.readFileSync(shell, 'utf8');
+    const html = readHtml(shell);
     const tag = /js\/cv-init\.js"([^>]*)>/.exec(html);
     if (!tag || !/data-format="engagement"/.test(tag[1])) continue;
     engagementCount += 1;
@@ -155,8 +155,11 @@ test('engagement-format shells declare both data-format and data-base', () => {
 
 test('non-engagement shells do not pass a stray data-format', () => {
   const offenders = [];
-  for (const shell of cvShells()) {
-    const html = fs.readFileSync(shell, 'utf8');
+  // Guarded: the two tests below share cvShells(), and only one of the three
+  // walk-based tests in this file asserted that it found anything. An empty
+  // walk here would pass regardless of what the shells contain.
+  for (const shell of assertNonEmpty(cvShells(), 'CV shells under portfolio/cv')) {
+    const html = readHtml(shell);
     const tag = /js\/cv-init\.js"([^>]*)>/.exec(html);
     if (!tag) continue;
     const format = /data-format="([^"]+)"/.exec(tag[1]);

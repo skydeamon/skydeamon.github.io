@@ -29,9 +29,36 @@ function walk(dir, ext, out = []) {
   return out;
 }
 
-const htmlFiles = () => walk(ROOT, '.html').sort();
+/**
+ * Refuse to hand back an empty file set.
+ *
+ * This is the set-level counterpart to readFixture below. A test that loops over
+ * htmlFiles() or cssFiles() and asserts on each entry does nothing at all when
+ * the walk comes back empty, so it reports success having checked nothing. That
+ * is not hypothetical: an unguarded `for (const f of shells)` in
+ * fact-agreement.test.js and audience-pages.test.js would both have gone green
+ * against an empty portfolio/ directory.
+ *
+ * Guarding inside htmlFiles()/cssFiles() fixes every one of the 13 test files
+ * that iterate them, rather than relying on each caller to remember.
+ *
+ * @param {Array} list - the discovered paths
+ * @param {string} what - human-readable description for the failure message
+ * @returns {Array} the same list, unchanged
+ */
+function assertNonEmpty(list, what) {
+  if (list.length === 0) {
+    throw new Error(
+      `no ${what} found. The walk matched nothing, so every assertion over this ` +
+        'set would pass vacuously. Check the path and the extension filter.'
+    );
+  }
+  return list;
+}
 
-const cssFiles = () => walk(ROOT, '.css').sort();
+const htmlFiles = () => assertNonEmpty(walk(ROOT, '.html').sort(), 'HTML files');
+
+const cssFiles = () => assertNonEmpty(walk(ROOT, '.css').sort(), 'CSS files');
 
 /**
  * Refuse to run content assertions against an empty or implausibly small
@@ -254,6 +281,8 @@ const contrastRatioHex = (a, b) => Math.round(contrastRatio(a, b) * 100) / 100;
 
 module.exports = {
   ROOT,
+  walk,
+  assertNonEmpty,
   AA_TEXT,
   htmlFiles,
   cssFiles,
