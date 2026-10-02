@@ -1,15 +1,77 @@
-*.Zone.Identifier
-.DS_Store
-Thumbs.db
+# ---------- default deny ----------
+# Blanket-ignore first, then re-include the tracked source surface below.
+#
+# With only `*`, every NEW file is invisible to `git status` and is skipped by
+# `git add -A`, so a commit silently omits work. Five files in the theme and
+# accessibility pass needed `git add -f` before this was written, and nothing in
+# the output distinguished "already tracked" from "about to be lost".
+#
+# This is default-deny plus an explicit allowlist. Because a .gitignore never
+# affects an already-tracked file, the re-inclusions below cannot untrack
+# anything: the worst case is a gap in the list, which shows up as a new file
+# staying ignored, not as a deletion.
+#
+# Git applies the LAST matching pattern, so the order in this file matters:
+#   1. `*`                    — deny everything
+#   2. the re-inclusions      — un-ignore the source surface
+#   3. the junk rules at the end — win over the re-inclusions
+*
 
-# Test virtual environments (manifests/configs are tracked; heavy artifacts are not)
+# ---------- re-include the tracked source surface ----------
+#
+# Directories. Each one needs BOTH forms, and this is the part that is easy to
+# get wrong: `!dir/**` alone has no effect, because git refuses to descend into a
+# directory it considers excluded, so the contents are never examined and never
+# match. `!dir/` un-ignores the directory itself, which is what lets git descend;
+# `!dir/**` then un-ignores what is inside it.
+!css/
+!css/**
+!docs/
+!docs/**
+!fontawesome/
+!fontawesome/**
+!images/
+!images/**
+!js/
+!js/**
+!.opencode/
+!.opencode/**
+!portfolio/
+!portfolio/**
+!scripts/
+!scripts/**
+!testenv/
+!testenv/**
+!tests/
+!tests/**
+
+# Root-level files, matched by extension. A pattern with no slash matches at any
+# depth, so these also cover nested files of the same type.
+!*.cjs
+!*.html
+!*.json
+!*.md
+!*.sh
+!*.txt
+!*.xml
+!.gitignore
+
+# ---------- artifacts: these come last so they win ----------
+# Test dependencies and generated reports. These sit after `!testenv/**` on
+# purpose — without that ordering the re-inclusion would expose node_modules.
 testenv/*/node_modules/
 testenv/*/test-results/
+testenv/*/playwright-report/
 testenv/browsers/
 
-# Session scratch space
+# Session scratch space.
 .tmp/
 
-*
+# Local planning files.
 PLANNING.md
 TASKS.md
+
+# Editor and OS droppings, including inside re-included directories.
+.DS_Store
+Thumbs.db
+*.Zone.Identifier
