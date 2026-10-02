@@ -89,20 +89,42 @@ test('reduced-motion still lands scroll-reveal content in its visible state', ()
   // Suppressing the transition is not enough: at a 0.01ms duration the element
   // stays at its start value if nothing observes it. The start value is
   // opacity 0, which would hide the content entirely.
+  //
+  // The reveal selector is matched as a *trailing compound* rather than by exact
+  // string, so that qualifying it (`.reveal` -> `html.js .reveal`) keeps this
+  // test attached to the rule instead of quietly detaching from it. That is not
+  // hypothetical: the earlier exact match made `base` undefined, the guard below
+  // turned it into a skip, and the whole test went green while asserting nothing.
+  const isReveal = (selector) => /(^|[\s>+~])\.reveal$/.test(selector.trim());
+
   for (const name of STYLESHEETS) {
     const css = readStylesheet(name);
     if (!/\.reveal\b/.test(css)) continue;
 
     const base = ruleBodies(css).find(
-      (rule) => rule.selectors.includes('.reveal') && rule.atRules.length === 0
+      (rule) => rule.selectors.some(isReveal) && rule.atRules.length === 0
     );
-    if (!base) continue;
+    // No `continue` here. A stylesheet that hides .reveal must be found and
+    // checked; failing to locate the rule is a failure, not a skip.
+    assert.ok(base, `${name}: no top-level .reveal rule found; update this test`);
+
     const startsHidden = /opacity\s*:\s*0\b/.test(base.body);
     assert.ok(startsHidden, `${name}: .reveal is expected to start hidden; update this test`);
 
+    // The hidden state must be gated on html.js, which js/app.js adds as its
+    // first statement. Ungated, a reader whose app.js never runs is left with
+    // every .reveal element invisible and no way to reveal them; the <noscript>
+    // fallback cannot help, because it only covers scripting being *disabled*.
+    const gated = base.selectors.some((s) => /html\.js\s/.test(s));
+    assert.ok(
+      gated,
+      `${name}: .reveal starts at opacity 0 without the html.js gate — a failed ` +
+        'app.js load would leave the content permanently invisible'
+    );
+
     const guarded = ruleBodies(css).find(
       (rule) =>
-        rule.selectors.includes('.reveal') &&
+        rule.selectors.some(isReveal) &&
         rule.atRules.some((a) => a.includes('prefers-reduced-motion'))
     );
     assert.ok(guarded, `${name}: .reveal starts at opacity 0 with no reduced-motion override`);
@@ -111,6 +133,35 @@ test('reduced-motion still lands scroll-reveal content in its visible state', ()
       /opacity\s*:\s*1/,
       `${name}: reduced-motion .reveal must be forced visible, not left at opacity 0`
     );
+    // Same specificity trap as the base rule: the override has to repeat the
+    // html.js prefix or `html.js .reveal` outranks it and the guarantee is void.
+    assert.ok(
+      guarded.selectors.some((s) => /html\.js\s/.test(s)),
+      `${name}: reduced-motion .reveal override is not gated on html.js, so it ` +
+        'cannot outrank the gated base rule'
+    );
+  }
+});
+
+test('no stylesheet hides .reveal outside the html.js gate', () => {
+  // Belt-and-braces for the rule above: an ungated opacity:0 anywhere would
+  // reintroduce the blank-page failure, and the reduced-motion/print overrides
+  // legitimately do set opacity 1 so they are not at risk.
+  const isReveal = (selector) => /(^|[\s>+~])\.reveal$/.test(selector.trim());
+
+  for (const name of STYLESHEETS) {
+    const css = readStylesheet(name);
+    if (!/\.reveal\b/.test(css)) continue;
+
+    for (const rule of ruleBodies(css)) {
+      if (!rule.selectors.some(isReveal)) continue;
+      if (!/opacity\s*:\s*0\b/.test(rule.body)) continue;
+      assert.ok(
+        rule.selectors.some((s) => /html\.js\s/.test(s)),
+        `${name}: an ungated .reveal rule sets opacity 0 ` +
+          `(${[...new Set(rule.selectors.filter(isReveal))].join(', ')})`
+      );
+    }
   }
 });
 

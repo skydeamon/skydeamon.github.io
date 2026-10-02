@@ -412,6 +412,70 @@ function CVRendererFor(h) {
   return h.context.window.CVRenderer || h.context.CVRenderer;
 }
 
+/* ---------- app.js: resilience of the single IIFE ---------- */
+
+test('app.js flags the document as scripted so .reveal can hide', () => {
+  // main.css gates the pre-reveal hidden state on html.js. This class is the
+  // only signal that a reveal is coming, so it has to be set by this file —
+  // the CSS gate and this assignment are a pair.
+  const h = appHarness();
+  h.run(APP);
+  assert.ok(
+    h.html.classList.contains('js'),
+    'app.js did not mark the document as scripted; .reveal would never be gated'
+  );
+});
+
+test('app.js runs, and keeps every other feature, when ThemeStore never loaded', () => {
+  // The failure this guards against: ThemeStore is fetched in <head> as a
+  // separate request, so it can 404 or be blocked on its own. app.js used to
+  // read store.iconClass() unguarded on the first line of one shared IIFE, so
+  // a missing store took the nav, the navbar shadow, the reveal observer and
+  // the footer year down with it — leaving 30 .reveal elements invisible.
+  const h = appHarness({ withThemeStore: false });
+
+  assert.doesNotThrow(() => h.run(APP), 'app.js threw without a ThemeStore');
+
+  // The theme is still correct: ThemeStore applies it pre-paint from <head>,
+  // before this file runs, so only the toggle UI is unavailable.
+  assert.strictEqual(h.currentTheme(), 'light', 'the pre-applied theme was disturbed');
+
+  const burger = h.byId.get('nav-burger');
+  const links = h.byId.get('nav-links');
+  h.fire(burger, 'click');
+  assert.ok(links.classList.contains('open'), 'the mobile nav died with the store');
+  assert.strictEqual(burger.getAttribute('aria-expanded'), 'true');
+
+  h.window.scrollY = 50;
+  h.window._listeners.scroll.forEach((fn) => fn({ type: 'scroll' }));
+  assert.ok(h.byId.get('navbar').classList.contains('scrolled'), 'the navbar shadow died too');
+
+  assert.strictEqual(
+    h.byId.get('year').textContent,
+    String(new Date().getFullYear()),
+    'the footer year died too'
+  );
+});
+
+test('app.js is inert on a page with none of its markup, not a crash', () => {
+  // Same single-IIFE hazard, from the other direction: a page that loads
+  // app.js without the nav or theme markup must not throw on the first
+  // getElementById.
+  const h = createHarness({ ids: [], classes: [] });
+  assert.doesNotThrow(() => h.run(APP));
+});
+
+test('app.js is inert with only part of its markup present', () => {
+  const h = createHarness({
+    ids: ['nav-burger', 'nav-links'],
+    classes: ['nav-link'],
+    children: { 'nav-links': ['nav-link'] },
+  });
+  assert.doesNotThrow(() => h.run(APP));
+  h.fire(h.byId.get('nav-burger'), 'click');
+  assert.ok(h.byId.get('nav-links').classList.contains('open'), 'the nav that does exist should work');
+});
+
 /* ---------- structural guards worth keeping ---------- */
 
 test('app.js is syntactically valid', () => {

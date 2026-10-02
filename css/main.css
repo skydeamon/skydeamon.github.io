@@ -794,13 +794,25 @@ img {
 }
 
 /* ---------- Scroll Reveal ---------- */
-.reveal {
+/* The hidden pre-reveal state is gated on `html.js`, which js/app.js adds as
+   its first statement. Gating matters because the reveal is JS-driven: authored
+   unconditionally at opacity 0, a reader whose app.js never runs — blocked,
+   404, parse error, or an extension that kills the script — is left with 30
+   invisible elements across all 7 sections and no way to reveal them. The
+   <noscript> fallback cannot cover this case, because it only applies when
+   scripting is disabled, not when a script fails.
+
+   Every rule that must beat this one therefore repeats the `html.js` prefix.
+   `html.js .reveal` is 0-2-1, which outranks a bare `.reveal` (0-1-0) and also
+   outranks `.reveal.visible` (0-2-0) — so the visible state has to be
+   `html.js .reveal.visible` (0-3-1) to win. */
+html.js .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.reveal.visible {
+html.js .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -822,8 +834,9 @@ img {
 
   /* .reveal must also land in its final state, not merely lose its
      transition: at 0.01ms it would still sit at opacity 0 if the observer
-     never fires. */
-  .reveal {
+     never fires. The `html.js` prefix is required to outrank the gated base
+     rule above. */
+  html.js .reveal {
     opacity: 1;
     transform: none;
     transition: none;
@@ -1012,7 +1025,7 @@ img {
   /* transition: none matters here as much as opacity: 1. Without it the switch
      to print media starts a 0.6s fade, and printing immediately can capture a
      half-faded document. */
-  .reveal {
+  html.js .reveal {
     opacity: 1;
     transform: none;
     transition: none;
