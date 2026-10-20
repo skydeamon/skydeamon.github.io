@@ -26,8 +26,6 @@
 # `!dir/**` then un-ignores what is inside it.
 !css/
 !css/**
-!docs/
-!docs/**
 !fontawesome/
 !fontawesome/**
 !images/
