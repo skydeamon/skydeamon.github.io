@@ -536,7 +536,7 @@ test('every CV shell has a data-profile matching a canonical profile key', () =>
     }
   }
   // Assert
-  assert.strictEqual(shells.length, 17, 'expected 17 CV shells');
+  assert.strictEqual(shells.length, 18, 'expected 18 CV shells');
   assert.deepStrictEqual(offenders, [], 'CV shells with invalid data-profile');
 });
 

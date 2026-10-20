@@ -44,6 +44,7 @@ const RUNTIME_THEME_PAGES = [
   'portfolio/cv/marketing-growth.html',
   'portfolio/cv/modern.html',
   'portfolio/cv/part-time.html',
+  'portfolio/cv/platform-engineer.html',
   'portfolio/cv/property-manager.html',
 ];
 

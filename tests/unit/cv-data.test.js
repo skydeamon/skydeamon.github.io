@@ -74,11 +74,11 @@ test('experience roles are in reverse chronological order', () => {
 
 /* ---------- cvProfiles ---------- */
 
-test('cvProfiles has exactly 17 keys', () => {
+test('cvProfiles has exactly 18 keys', () => {
   // Arrange / Act
   const keys = Object.keys(CV_DATA.cvProfiles);
   // Assert
-  assert.strictEqual(keys.length, 17);
+  assert.strictEqual(keys.length, 18);
 });
 
 test('every profile has experienceBullets keys matching canonical roleKeys', () => {

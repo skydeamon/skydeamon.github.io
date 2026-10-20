@@ -66,7 +66,7 @@ test('every profile includes the canonical common sections', () => {
 });
 
 test('every profile skills resolve to canonical master categories', () => {
-  const canonical = ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'];
+  const canonical = ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'platform_engineering', 'ai_llm'];
   for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
     assert.ok(Array.isArray(profile.skills), `${key}: skills not an array`);
     for (const ref of profile.skills) {

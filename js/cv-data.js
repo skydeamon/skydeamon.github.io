@@ -158,6 +158,11 @@
       tags: ['Git', 'GitHub', 'GitLab', 'Azure DevOps', 'AWS CodePipeline', 'Docker', 'Terraform', 'Linux', 'Jira', 'Agile/Scrum'],
       primary: [],
     },
+    platform_engineering: {
+      title: 'Platform & Developer Enablement',
+      tags: ['Platform as a Product', 'Golden Paths', 'Self-Service Provisioning', 'CI/CD Standards', 'GitOps', 'Observability (SLIs/SLOs)', 'Cost Engineering', 'Developer Experience'],
+      primary: ['Platform as a Product', 'Golden Paths'],
+    },
     ai_llm: {
       title: 'AI/LLM',
       tags: ['RAG', 'Function Calling', 'Prompt Engineering', 'Vector Search (FAISS, pgvector)', 'Evaluation Harnesses', 'Guardrails'],
@@ -1102,6 +1107,64 @@
           'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena',
           'Design and document data contracts, marts, and SCD Type 2 dimensions; publish dbt docs and lineage',
           'Implement proof-of-concept evaluations of new technologies, transitioning them from experimental tools to production-ready services',
+        ],
+      },
+    },
+
+    /* ---- Platform Engineer ---- */
+    platform_engineer: {
+      theme: 'modern',
+      subtitle: 'Platform Engineer · Internal Developer Platform · Developer Experience',
+      employmentType: 'full-time',
+      availability: [],
+      summary:
+        'Platform-oriented engineer with <strong>5+ years</strong> building the shared foundations other engineers ship on: an <strong>internal developer platform (IDP)</strong> mindset applied as a product for internal teams. Standardized CI/CD and Git workflows cut deployment lead time <strong>from days to hours</strong>, provisioned reproducible AWS infrastructure as code with <strong>Terraform and Docker</strong>, and instrumented pipelines with <strong>CloudWatch metrics, alarms, and dataset SLAs</strong>. At Old Mutual I automated PySpark/EMR delivery — <strong>35% pipeline runtime reduction</strong> and <strong>22% compute cost savings</strong> — while treating the platform as a product: self-service templates, golden paths, documentation, and observability that let teams ship without filing tickets. Seeking a platform engineering role where developer enablement and measurable adoption are the job.',
+      leadershipPhilosophy:
+        '"A platform succeeds when the easy path is also the safe path. I build <strong>golden paths</strong> that teams actually choose, <strong>self-service</strong> that removes tickets instead of moving them, and <strong>SLIs and dashboards</strong> that turn platform health into something everyone can see."',
+      stats: [
+        { value: 'Days → Hours', label: 'Deployment Lead Time' },
+        { value: '35%', label: 'Pipeline Runtime Reduction' },
+        { value: '22%', label: 'Compute Cost Savings' },
+        { value: '90%+', label: 'Data Quality Coverage' },
+      ],
+      skillsGrid: [
+        { category: 'Platform & DX', skills: ['Platform as a Product', 'Internal Developer Platform', 'Golden Paths', 'Self-Service Provisioning'] },
+        { category: 'Cloud & IaC', skills: ['AWS', 'Terraform', 'Docker', 'Infrastructure as Code'] },
+        { category: 'CI/CD & GitOps', skills: ['CI/CD Standards', 'Azure DevOps', 'GitHub Actions', 'Git Workflows'] },
+        { category: 'Containers & Linux', skills: ['Docker', 'Linux', 'Server Administration', 'VPC Networking'] },
+        { category: 'Observability & Reliability', skills: ['CloudWatch', 'Dataset SLAs', 'SLIs/SLOs', 'Incident Response'] },
+        { category: 'Automation', skills: ['Python', 'Bash', 'PySpark / EMR', 'Apache Airflow'] },
+      ],
+      sectionOrder: ['summary', 'stats', 'leadership-philosophy', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'references'],
+      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'platform_engineering'],
+      impactHighlights: [
+        '<strong>Deployment lead time: days → hours</strong> by standardizing CI/CD (Azure DevOps/Git + AWS CodePipeline) with safe rollout and rollback',
+        '<strong>35% pipeline runtime reduction</strong> and <strong>22% compute cost savings</strong> through platform-level tuning of shared PySpark/EMR workloads',
+        '<strong>Self-service data delivery</strong> via FastAPI services, request validation, and schema contracts — reducing manual hand-offs for consuming teams',
+        '<strong>Observability by default</strong>: CloudWatch metrics and alarms, dataset SLAs, and dbt docs/lineage so downstream teams can monitor what they depend on',
+        '<strong>Golden-path provisioning</strong>: Docker-based, infrastructure-as-code (Terraform) environments for scalable, secure and reproducible deployments',
+      ],
+      experienceBullets: {
+        ibitse: [
+          '<strong>Platform foundations:</strong> Established coding standards, CI/CD pipelines, and Git best practices adopted across the development team',
+          '<strong>Infrastructure as code:</strong> Designed application architecture and provisioned scalable, secure deployments (Docker, Linux) for a start-up platform',
+          '<strong>Cost engineering:</strong> Ran GCP/AWS feasibility studies with cost projections to defer cloud spend until post-revenue — a co-hosted VPS shared across two independent entities',
+        ],
+        om_lead: [
+          '<strong>Platform ownership:</strong> Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets as a service to Redshift/Athena consumers',
+          '<strong>Delivery automation:</strong> Instituted platform guardrails — Git PRs, slim CI for dbt (state:modified), automated tests in CI/CD, and safe rollout/rollback',
+          '<strong>Observability:</strong> Added CloudWatch metrics/alarms, dataset SLAs, and published dbt docs and lineage so downstream teams can monitor their dependencies',
+          '<strong>Self-service APIs:</strong> Built FastAPI services to expose curated data with request validation and response schema checks, removing manual hand-offs',
+          '<strong>Impact:</strong> Improved critical pipeline runtime by 35% and reduced EMR compute costs by 22% through platform-level optimization',
+          '<strong>Technologies:</strong> AWS EMR, Glue, S3, Redshift, Athena, Lambda, Step Functions, IAM, VPC, Terraform, Docker, Linux, Python, PySpark, Airflow, dbt',
+        ],
+        om_analyst: [
+          '<strong>Infrastructure:</strong> Managed server administration and data infrastructure; built ETL pipelines lifting on-premises DB2 data to AWS S3',
+          '<strong>Technologies:</strong> PySpark, Apache Airflow, Python, SQL, DynamoDB, S3, VPC, dbt, Git, GitHub',
+        ],
+        om_de: [
+          '<strong>Reliability:</strong> Built robust data pipelines with consistency, validity, and completeness checks in the golden layer of the medallion architecture',
+          '<strong>Technologies:</strong> AWS, Apache Airflow, Apache Spark, Linux, Python, REST API Design',
         ],
       },
     },

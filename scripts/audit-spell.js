@@ -123,6 +123,8 @@ const ALLOW_LIST = new Set(
     'transunion ui unlinked vps woza zelenial zicht ' +
     // British spellings (site uses South African English)
     'programme programmes rigour roadmap ' +
+    // Platform engineering terms (Phase 8 platform-engineer CV)
+    'DX IDP SLIs SLOs enablement Enablement ' +
     // URL/email tokens isolated by word-splitting
     'gmail https ' +
     // fragment of the Sage hex color #4ECDC4 (brand palette)
