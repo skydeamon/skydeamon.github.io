@@ -158,13 +158,26 @@
     return wrapSection('Education', items);
   }
 
-  function renderCertifications(profile, data) {
+  /* Prefix for site-root-relative links (certificates, etc.):
+     pages live at portfolio/cv/ (default base '../') or
+     portfolio/cv/engagement/ (base '../../' from data-base), so the
+     site root is always one level above the controls' base. */
+  function siteRoot(opts) {
+    var base = (opts && opts.base) || '../';
+    return base + '../';
+  }
+
+  function renderCertifications(profile, data, opts) {
+    var root = siteRoot(opts);
     var items = data.certifications
       .map(function (cert) {
+        var title = cert.link
+          ? '<a href="' + root + cert.link + '" target="_blank" rel="noopener">' + cert.title + '</a>'
+          : cert.title;
         return (
           '<div class="cert-item">' +
           '<div class="cert-icon">' + cert.icon + '</div>' +
-          '<div class="cert-info"><h3>' + cert.title + '</h3><p>' + cert.detail + '</p></div>' +
+          '<div class="cert-info"><h3>' + title + '</h3><p>' + cert.detail + '</p></div>' +
           '</div>'
         );
       })
@@ -353,10 +366,14 @@
     return flatSection('Education', items);
   }
 
-  function flatCertifications(profile, data) {
+  function flatCertifications(profile, data, opts) {
+    var root = siteRoot(opts);
     var items = data.certifications
       .map(function (cert) {
-        return '<li>' + cert.title + ' — ' + cert.detail + '</li>';
+        var title = cert.link
+          ? '<a href="' + root + cert.link + '" target="_blank" rel="noopener">' + cert.title + '</a>'
+          : cert.title;
+        return '<li>' + title + ' — ' + cert.detail + '</li>';
       })
       .join('');
     return flatSection('Certifications', '<ul>' + items + '</ul>');
@@ -500,14 +517,14 @@
     services: flatServices,
   };
 
-  function renderEngagement(profile, data) {
+  function renderEngagement(profile, data, opts) {
     var order = profile.sectionOrder && profile.sectionOrder.length
       ? profile.sectionOrder
       : ENGAGEMENT_SECTION_ORDER;
     var sections = order
       .map(function (name) {
         var renderer = flatRenderers[name];
-        return renderer ? renderer(profile, data) : '';
+        return renderer ? renderer(profile, data, opts) : '';
       })
       .join('');
     return flatHeader(profile, data) + sections;
@@ -540,9 +557,9 @@
     'research-projects': renderResearchProjects,
   };
 
-  function renderSection(sectionName, profile, data) {
+  function renderSection(sectionName, profile, data, opts) {
     var renderer = sectionRenderers[sectionName];
-    return renderer ? renderer(profile, data) : '';
+    return renderer ? renderer(profile, data, opts) : '';
   }
 
   /* ---------- header ---------- */
@@ -588,10 +605,10 @@
 
   /* ---------- renderCV ---------- */
 
-  function renderCV(profile, data) {
+  function renderCV(profile, data, opts) {
     var header = renderHeader(profile, data);
     var sections = profile.sectionOrder
-      .map(function (name) { return renderSection(name, profile, data); })
+      .map(function (name) { return renderSection(name, profile, data, opts); })
       .join('');
     var content = '<div class="cv-content">' + sections + '</div>';
     return header + content;
@@ -621,8 +638,8 @@
 
     root.insertAdjacentHTML('beforebegin', renderControls({ plain: engagement, base: opts.base }));
     root.innerHTML = engagement
-      ? renderEngagement(profile, window.CV_DATA)
-      : renderCV(profile, window.CV_DATA);
+      ? renderEngagement(profile, window.CV_DATA, opts)
+      : renderCV(profile, window.CV_DATA, opts);
 
     var toggle = document.getElementById('theme-toggle');
     var icon = document.getElementById('theme-icon');

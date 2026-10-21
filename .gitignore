@@ -42,6 +42,8 @@
 !testenv/**
 !tests/
 !tests/**
+!certificates/
+!certificates/**
 
 # Root-level files, matched by extension. A pattern with no slash matches at any
 # depth, so these also cover nested files of the same type.

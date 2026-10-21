@@ -219,6 +219,8 @@
 
   /* ---------- Certifications ---------- */
   const certifications = [
+    { icon: '🧱', title: 'Get Started with Databricks for Data Engineering', detail: 'Databricks — Issued Sep 2026', link: 'certificates/get-started-with-databricks-for-data-engineering.pdf' },
+    { icon: '🧱', title: 'Catalog Management and Data Organization', detail: 'Databricks — Issued Sep 2026', link: 'certificates/catalog-management-and-data-organization.pdf' },
     { icon: '☁️', title: 'AWS Cloud Practitioner', detail: 'Amazon Web Services — Self-study' },
     { icon: '📊', title: 'dbt Fundamentals', detail: 'dbt Labs — Online course' },
     { icon: '🤖', title: 'LangChain & LLM Application Patterns', detail: 'Self-study — PoC development' },
