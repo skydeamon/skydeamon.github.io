@@ -1004,8 +1004,7 @@ test('portfolio-hub.css does not force a light page background in dark mode', ()
 
 /* ---------- browser-side check of the theme contract ---------- */
 
-test('live contrast of key text clears AA in both modes (headless)', { skip: process.env.SKIP_BROWSER }, () => {
-  // Deferred to the e2e suite, which has a real browser; this placeholder keeps
-  // the node suite free of a Playwright dependency.
-  assert.ok(true);
-});
+// Live computed-style contrast is checked in
+// tests/integration/theme-contrast.spec.js. Keeping a node:test placeholder
+// here would assert nothing while reporting success under a title that claimed
+// a real browser check.

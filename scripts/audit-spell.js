@@ -124,12 +124,14 @@ const ALLOW_LIST = new Set(
     // British spellings (site uses South African English)
     'programme programmes rigour roadmap ' +
     // Platform engineering terms (Phase 8 platform-engineer CV)
-    'DX IDP SLIs SLOs enablement Enablement ' +
+    'DX IDP SLIs SLOs enablement Enablement pdf ' +
     // URL/email tokens isolated by word-splitting
     'gmail https ' +
     // fragment of the Sage hex color #4ECDC4 (brand palette)
     'ECDC '
-  ).split(/\s+/)
+  )
+    .split(/\s+/)
+    .map((word) => word.toLowerCase())
 );
 
 /* ---------- main ---------- */
@@ -180,7 +182,7 @@ for (const file of contentFiles) {
   for (const word of words) {
     // Skip tokens that are not alphabetic words (emoji, hex colors, numbers, code).
     if (!/^[A-Za-z][A-Za-z'’-]*$/.test(word)) continue;
-    if (ALLOW_LIST.has(word) || ALLOW_LIST.has(word.toLowerCase())) continue;
+    if (ALLOW_LIST.has(word.toLowerCase())) continue;
     if (!unknown.has(word)) unknown.set(word, new Set());
     unknown.get(word).add(rel);
   }

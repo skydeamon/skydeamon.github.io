@@ -19,6 +19,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { ROOT } = require('../helpers');
 
+const CV_DATA = require(path.join(ROOT, 'js', 'cv-data.js'));
+
 const BASE = process.env.DEPLOY_BASE || 'https://skydeamon.github.io';
 
 /** Probe once so a genuine outage skips the suite instead of half-running it. */
@@ -50,13 +52,39 @@ async function getStatus(url) {
   return res.status;
 }
 
+async function getResponse(url) {
+  const res = await fetch(url, { signal: AbortSignal.timeout(20000) });
+  const body = Buffer.from(await res.arrayBuffer());
+  return { res, body };
+}
+
 /**
- * Every stylesheet and page the working tree actually declares. Deriving the
- * list means a new asset cannot ship without being smoke-tested, and a deleted
- * one cannot linger in the expectations.
+ * Every deployable file the working tree actually contains. Deriving the list
+ * means a new asset cannot ship without being smoke-tested, and a deleted one
+ * cannot linger in the expectations.
+ *
+ * The old walker only covered HTML and CSS under portfolio/, which is why the
+ * certificate PDFs — the exact assets added by the platform-engineering
+ * branch — were invisible to the deployed suite. JS, images, fonts, PDFs, and
+ * the root-level robots/sitemap files are all part of the deployed surface.
  */
+const ASSET_EXTENSIONS = /\.(?:html|css|js|pdf|png|jpe?g|webp|gif|svg|ico|woff2?|ttf|eot|xml|txt)$/i;
+const ASSET_DIRS = ['css', 'portfolio', 'js', 'images', 'fontawesome', 'certificates'];
+const ROOT_ASSETS = ['index.html', '404.html', 'robots.txt', 'sitemap.xml'];
+
 function declaredAssetPaths() {
   const paths = new Set();
+
+  const add = (full) => {
+    const rel = `/${path.relative(ROOT, full).split(path.sep).join('/')}`;
+    paths.add(rel);
+  };
+
+  for (const rel of ROOT_ASSETS) {
+    const full = path.join(ROOT, rel);
+    if (fs.existsSync(full)) add(full);
+  }
+
   const walk = (dir) => {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       if (entry.name === 'node_modules' || entry.name.startsWith('.')) continue;
@@ -65,13 +93,15 @@ function declaredAssetPaths() {
         walk(full);
         continue;
       }
-      if (/\.(css|html)$/.test(entry.name)) {
-        const rel = `/${path.relative(ROOT, full).split(path.sep).join('/')}`;
-        if (!/index\.html$/.test(rel)) paths.add(rel);
-      }
+      if (ASSET_EXTENSIONS.test(entry.name)) add(full);
     }
   };
-  for (const dir of ['css', 'portfolio']) walk(path.join(ROOT, dir));
+
+  for (const dir of ASSET_DIRS) {
+    const full = path.join(ROOT, dir);
+    if (fs.existsSync(full)) walk(full);
+  }
+
   return [...paths].sort();
 }
 
@@ -90,7 +120,7 @@ test('deployed serves every asset and page the working tree declares', async (t)
   if (!requireNetwork(t)) return;
 
   const paths = declaredAssetPaths();
-  assert.ok(paths.length > 20, `expected a real asset inventory, found ${paths.length}`);
+  assert.ok(paths.length > 50, `expected a real asset inventory, found ${paths.length}`);
 
   // Check everything, then assert. A failure on one URL must not mask the
   // status of the rest.
@@ -104,6 +134,62 @@ test('deployed serves every asset and page the working tree declares', async (t)
     [],
     'Deployed assets returning a non-200 status'
   );
+});
+
+test('deployed certificate PDFs are live, downloadable, and served as PDFs', async (t) => {
+  if (!requireNetwork(t)) return;
+
+  const certifications = CV_DATA.certifications.filter((cert) => cert.link);
+  assert.ok(certifications.length > 0, 'no linked certificates in the CV data');
+
+  const failures = [];
+
+  for (const cert of certifications) {
+    const url = `${BASE}/${cert.link}`;
+    const { res, body } = await getResponse(url);
+    const contentType = res.headers.get('content-type') || '';
+
+    if (res.status !== 200) {
+      failures.push(`${url}: status ${res.status}`);
+      continue;
+    }
+    if (!/^application\/pdf\b/i.test(contentType)) {
+      failures.push(`${url}: content-type "${contentType}"`);
+    }
+    if (body.subarray(0, 5).toString('ascii') !== '%PDF-') {
+      failures.push(`${url}: body is not a PDF`);
+    }
+    if (body.length < 1024) {
+      failures.push(`${url}: only ${body.length} bytes`);
+    }
+  }
+
+  assert.deepStrictEqual(failures, [], 'Certificate PDF deployment failures');
+});
+
+test('deployed .js, .css, .pdf, and .xml assets use the expected content types', async (t) => {
+  if (!requireNetwork(t)) return;
+
+  const checks = [
+    { path: '/js/theme-store.js', match: /(?:javascript|ecmascript)/i },
+    { path: '/css/main.css', match: /text\/css/i },
+    { path: '/sitemap.xml', match: /(?:application|text)\/xml/i },
+  ];
+
+  for (const cert of CV_DATA.certifications.filter((entry) => entry.link)) {
+    checks.push({ path: `/${cert.link}`, match: /application\/pdf/i });
+  }
+
+  const failures = [];
+
+  for (const { path: assetPath, match } of checks) {
+    const { res } = await getResponse(`${BASE}${assetPath}`);
+    const contentType = res.headers.get('content-type') || '';
+    if (res.status !== 200) failures.push(`${assetPath}: status ${res.status}`);
+    else if (!match.test(contentType)) failures.push(`${assetPath}: content-type "${contentType}"`);
+  }
+
+  assert.deepStrictEqual(failures, [], 'Deployed content-type failures');
 });
 
 test('deployed build is the consolidated theme architecture', async (t) => {

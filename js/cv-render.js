@@ -643,7 +643,10 @@
 
     var toggle = document.getElementById('theme-toggle');
     var icon = document.getElementById('theme-icon');
-    if (toggle && icon) {
+    // ThemeStore is a separate request. If it failed to load, the profile
+    // accent was still applied above, but the toggle has nothing to compute or
+    // persist with. Leave it inert instead of throwing on click.
+    if (toggle && icon && store) {
       toggle.addEventListener('click', function () {
         var html = document.documentElement;
         var current = html.getAttribute('data-theme');

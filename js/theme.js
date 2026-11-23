@@ -32,12 +32,17 @@
 
     syncIcon();
 
-    btn.addEventListener('click', function () {
-      var next = store.computeNextTheme(root.getAttribute('data-theme'));
-      root.setAttribute('data-theme', next);
-      store.writeStoredTheme(next);
-      syncIcon();
-    });
+    // ThemeStore is a separate request; if it failed to load, the theme was
+    // still applied pre-paint but toggling has no source of truth to read or
+    // persist. Leave the toggle inert rather than throwing inside the handler.
+    if (store) {
+      btn.addEventListener('click', function () {
+        var next = store.computeNextTheme(root.getAttribute('data-theme'));
+        root.setAttribute('data-theme', next);
+        store.writeStoredTheme(next);
+        syncIcon();
+      });
+    }
   }
 
   var printBtn = document.getElementById('print-btn');

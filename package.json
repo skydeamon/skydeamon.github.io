@@ -11,6 +11,8 @@
     "test:e2e:deployed": "BASE_URL=https://skydeamon.github.io NODE_PATH=testenv/e2e/node_modules npm --prefix testenv/e2e exec -- playwright test --config testenv/e2e/playwright.config.js --project=e2e",
     "venv:setup": "bash testenv/setup.sh",
     "test:deployed": "node --test \"tests/deployed/*.test.js\"",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-include='js/**/*.js' --test-coverage-lines=99 --test-coverage-functions=99 --test-coverage-branches=80 \"tests/*.test.js\" \"tests/unit/*.test.js\" \"tests/audit/*.test.js\"",
+    "test:all": "npm test && npm run test:integration && npm run test:e2e && npm run audit:spell",
     "audit:spell": "node scripts/audit-spell.js"
   }
 }

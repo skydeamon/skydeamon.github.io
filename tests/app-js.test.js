@@ -346,6 +346,23 @@ test('theme.js is inert without a toggle, not a crash', () => {
   assert.doesNotThrow(() => h.run(THEME));
 });
 
+test('theme.js survives a missing ThemeStore and keeps print working', () => {
+  const h = createHarness({
+    ids: ['theme-toggle', 'theme-icon', 'print-btn'],
+    withThemeStore: false,
+  });
+
+  assert.doesNotThrow(() => h.run(THEME), 'theme.js threw without a ThemeStore');
+
+  // The pre-paint store never ran in this harness, so the theme remains
+  // unset. Clicking the now-inert toggle must not throw or invent a mode.
+  assert.doesNotThrow(() => h.fire(h.themeToggle, 'click'));
+  assert.strictEqual(h.currentTheme(), null, 'a store-less toggle changed the theme');
+
+  h.fire(h.byId.get('print-btn'), 'click');
+  assert.strictEqual(h.window._printed, true, 'print died with the store');
+});
+
 /* ---------- cv-render.js ---------- */
 
 test('cv-render.js applies the profile accent to body, not the mode to html', () => {

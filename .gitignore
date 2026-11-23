@@ -24,6 +24,8 @@
 # directory it considers excluded, so the contents are never examined and never
 # match. `!dir/` un-ignores the directory itself, which is what lets git descend;
 # `!dir/**` then un-ignores what is inside it.
+!.github/
+!.github/**
 !css/
 !css/**
 !fontawesome/

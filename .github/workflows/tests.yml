@@ -1,0 +1,68 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+      - 'feat/**'
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Unit, static, audit, browser
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install isolated test environments
+        run: npm run venv:setup
+
+      - name: Unit, static, and audit suites
+        run: npm test
+
+      - name: Coverage thresholds
+        run: npm run test:coverage
+
+      - name: Browser integration suite
+        run: npm run test:integration
+
+      - name: End-to-end journeys
+        run: npm run test:e2e
+
+      - name: Spell audit
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y hunspell hunspell-en-us
+          npm run audit:spell
+
+  deployed:
+    name: Deployed smoke tests
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify the live site
+        run: npm run test:deployed
