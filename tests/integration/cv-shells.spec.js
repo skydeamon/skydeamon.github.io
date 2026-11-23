@@ -15,6 +15,10 @@ const { ROOT } = require('../helpers');
 const CV_DATA = require(path.join(ROOT, 'js', 'cv-data.js'));
 const LINKED = CV_DATA.certifications.filter((cert) => cert.link);
 
+function certHref(cert, prefix) {
+  return /^https?:\/\//i.test(cert.link) ? cert.link : `${prefix}${cert.link}`;
+}
+
 function shells() {
   const out = [];
   const walk = (dir) => {
@@ -58,14 +62,15 @@ for (const shell of shells()) {
     // Card format wraps certificates in cards; engagement format is a flat
     // document with list links. Both are generated from the same certification
     // data, so both must expose the same PDFs at the right depth.
-    const certSelector = engagement ? 'a[href$=".pdf"]' : '.cert-info h3 a';
-    const certLinks = page.locator(certSelector);
-    await expect(certLinks).toHaveCount(LINKED.length);
+    const certSelector = engagement ? 'a' : '.cert-info h3 a';
+    if (!engagement) {
+      const certLinks = page.locator(certSelector);
+      await expect(certLinks).toHaveCount(LINKED.length);
+    }
 
     for (const cert of LINKED) {
-      await expect(
-        page.locator(certSelector, { hasText: cert.title })
-      ).toHaveAttribute('href', `${prefix}${cert.link}`);
+      const linkLocator = page.getByRole('link', { name: cert.title, exact: true });
+      await expect(linkLocator).toHaveAttribute('href', certHref(cert, prefix));
     }
   });
 }

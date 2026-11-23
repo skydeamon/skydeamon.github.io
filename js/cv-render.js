@@ -115,7 +115,12 @@
   }
 
   function renderExperienceList(profile, data) {
-    var items = data.experience
+    var jobs = data.experience;
+    if (profile.experienceRoles && Array.isArray(profile.experienceRoles)) {
+      var allowed = profile.experienceRoles;
+      jobs = data.experience.filter(function (job) { return allowed.indexOf(job.roleKey) !== -1; });
+    }
+    var items = jobs
       .map(function (job) {
         var bullets = (profile.experienceBullets && profile.experienceBullets[job.roleKey]) || job.bullets;
         return (
@@ -139,7 +144,16 @@
   }
 
   function renderProjects(profile, data) {
-    return wrapSection('Selected Projects', projectItems(data.projects));
+    var projects = data.projects;
+    if (profile.projects && Array.isArray(profile.projects)) {
+      var titles = profile.projects;
+      projects = titles
+        .map(function (title) {
+          return data.projects.find(function (project) { return project.title === title; });
+        })
+        .filter(Boolean);
+    }
+    return wrapSection('Selected Projects', projectItems(projects));
   }
 
   function renderEducation(profile, data) {
@@ -171,8 +185,10 @@
     var root = siteRoot(opts);
     var items = data.certifications
       .map(function (cert) {
-        var title = cert.link
-          ? '<a href="' + root + cert.link + '" target="_blank" rel="noopener">' + cert.title + '</a>'
+        var href = cert.link;
+        if (href && !/^https?:\/\//i.test(href)) href = root + href;
+        var title = href
+          ? '<a href="' + href + '" target="_blank" rel="noopener">' + cert.title + '</a>'
           : cert.title;
         return (
           '<div class="cert-item">' +
@@ -320,11 +336,16 @@
         return '<p class="skills-line"><strong>' + resolved.title + ':</strong> ' + resolved.tags.join(', ') + '</p>';
       })
       .join('');
-    return flatSection('Technical Skills', lines);
+    return flatSection('Skills', lines);
   }
 
   function flatExperience(profile, data) {
-    var items = data.experience
+    var jobs = data.experience;
+    if (profile.experienceRoles && Array.isArray(profile.experienceRoles)) {
+      var allowed = profile.experienceRoles;
+      jobs = data.experience.filter(function (job) { return allowed.indexOf(job.roleKey) !== -1; });
+    }
+    var items = jobs
       .map(function (job) {
         var bullets = (profile.experienceBullets && profile.experienceBullets[job.roleKey]) || job.bullets;
         return (
@@ -338,7 +359,16 @@
   }
 
   function flatProjects(profile, data) {
-    var items = data.projects
+    var projects = data.projects;
+    if (profile.projects && Array.isArray(profile.projects)) {
+      var titles = profile.projects;
+      projects = titles
+        .map(function (title) {
+          return data.projects.find(function (project) { return project.title === title; });
+        })
+        .filter(Boolean);
+    }
+    var items = projects
       .map(function (project) {
         var title = project.url
           ? project.title + ' (' + project.url.replace(/^https?:\/\//, '') + ')'
@@ -370,8 +400,10 @@
     var root = siteRoot(opts);
     var items = data.certifications
       .map(function (cert) {
-        var title = cert.link
-          ? '<a href="' + root + cert.link + '" target="_blank" rel="noopener">' + cert.title + '</a>'
+        var href = cert.link;
+        if (href && !/^https?:\/\//i.test(href)) href = root + href;
+        var title = href
+          ? '<a href="' + href + '" target="_blank" rel="noopener">' + cert.title + '</a>'
           : cert.title;
         return '<li>' + title + ' — ' + cert.detail + '</li>';
       })

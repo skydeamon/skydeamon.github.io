@@ -41,15 +41,11 @@ test('every certification has the icon, title, and detail the renderers read', (
   }
 });
 
-test('certifications exercise both the linked and unlinked render paths', () => {
-  // Both branches are user-visible: a linked cert is an anchor, an unlinked one
-  // is plain text. Data that only ever uses one branch leaves the other broken
-  // until someone adds a PDF.
+test('every certification now has a verification link', () => {
+  // The unlinked (plain-text) render path is no longer used by the data, but
+  // it is still covered by tests/unit/cv-render.test.js and the renderer.
+  assert.strictEqual(LINKED.length, CV_DATA.certifications.length);
   assert.ok(LINKED.length > 0, 'no certification has a link');
-  assert.ok(
-    CV_DATA.certifications.length > LINKED.length,
-    'no certification exercises the unlinked render path'
-  );
 });
 
 test('every certification link is a safe, repository-relative PDF path', () => {
@@ -57,13 +53,21 @@ test('every certification link is a safe, repository-relative PDF path', () => {
 
   for (const cert of LINKED) {
     assert.strictEqual(typeof cert.link, 'string', `${cert.title}: link is not a string`);
-    assert.match(
-      cert.link,
-      SAFE_PDF_PATH,
-      `${cert.title}: link must be certificates/<slug>.pdf, got "${cert.link}"`
-    );
-    assert.ok(!cert.link.includes('..'), `${cert.title}: link contains path traversal`);
-    assert.ok(!cert.link.includes('\\'), `${cert.title}: link contains a backslash`);
+    if (/^https?:\/\//i.test(cert.link)) {
+      assert.match(
+        cert.link,
+        /^https:\/\/(www\.)?(credly\.com|coursera\.org|sololearn\.com)\//i,
+        `${cert.title}: external link must point at an approved credential host`
+      );
+    } else {
+      assert.match(
+        cert.link,
+        SAFE_PDF_PATH,
+        `${cert.title}: link must be certificates/<slug>.pdf, got "${cert.link}"`
+      );
+      assert.ok(!cert.link.includes('..'), `${cert.title}: link contains path traversal`);
+      assert.ok(!cert.link.includes('\\'), `${cert.title}: link contains a backslash`);
+    }
     assert.ok(!seen.has(cert.link), `${cert.title}: duplicate link "${cert.link}"`);
     seen.add(cert.link);
   }
@@ -71,6 +75,7 @@ test('every certification link is a safe, repository-relative PDF path', () => {
 
 test('every certification link points at a real, non-trivial PDF', () => {
   for (const cert of LINKED) {
+    if (/^https?:\/\//i.test(cert.link)) continue;
     const target = path.join(ROOT, cert.link);
     assert.ok(fs.existsSync(target), `${cert.title}: missing PDF at ${cert.link}`);
 
@@ -92,7 +97,9 @@ test('card view links certificate titles at the CV page depth', () => {
   const html = CVRenderer.renderCV(CV_DATA.cvProfiles.data_engineer, CV_DATA);
 
   for (const cert of LINKED) {
-    const href = `href="../../${cert.link}"`;
+    const href = /^https?:\/\//i.test(cert.link)
+      ? `href="${cert.link}"`
+      : `href="../../${cert.link}"`;
     assert.ok(
       html.includes(href),
       `card view is missing ${href} for "${cert.title}"`
@@ -137,13 +144,11 @@ test('engagement view links certificates at the engagement page depth', () => {
   );
 
   for (const cert of LINKED) {
-    const target = `../../../${cert.link}`;
+    const target = /^https?:\/\//i.test(cert.link)
+      ? cert.link
+      : `../../../${cert.link}`;
     const href = `href="${target}"`;
     assert.ok(html.includes(href), `engagement view is missing ${href}`);
-    assert.ok(
-      html.includes(`<li><a href="${target}"`),
-      `engagement view did not use a list link for "${cert.title}"`
-    );
   }
 });
 
@@ -178,14 +183,13 @@ test('every profile renders every certification, with links at the right depth',
     }
 
     for (const cert of LINKED) {
-      assert.ok(
-        card.includes(`href="../../${cert.link}"`),
-        `${key}: card link has the wrong depth`
-      );
-      assert.ok(
-        engagement.includes(`href="../../../${cert.link}"`),
-        `${key}: engagement link has the wrong depth`
-      );
+      if (/^https?:\/\//i.test(cert.link)) {
+        assert.ok(card.includes(`href="${cert.link}"`), `${key}: card link has the wrong URL`);
+        assert.ok(engagement.includes(`href="${cert.link}"`), `${key}: engagement link has the wrong URL`);
+      } else {
+        assert.ok(card.includes(`href="../../${cert.link}"`), `${key}: card link has the wrong depth`);
+        assert.ok(engagement.includes(`href="../../../${cert.link}"`), `${key}: engagement link has the wrong depth`);
+      }
     }
   }
 });

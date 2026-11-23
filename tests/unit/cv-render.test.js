@@ -149,7 +149,7 @@ test('renderControls supports the engagement base depth and plain mode', () => {
 
 const FLAT_SECTION_LABELS = {
   summary: 'Professional Summary',
-  skills: 'Technical Skills',
+  skills: 'Skills',
   'skills-grid': 'Skills',
   stats: 'Key Metrics',
   experience: 'Professional Experience',
@@ -232,7 +232,7 @@ test('renderEngagement keeps flat cert links at the engagement depth', () => {
     base: '../../',
   });
 
-  for (const cert of CV_DATA.certifications.filter((entry) => entry.link)) {
+  for (const cert of CV_DATA.certifications.filter((entry) => entry.link && !/^https?:\/\//i.test(entry.link))) {
     assert.ok(
       html.includes(`href="../../../${cert.link}"`),
       `flat cert link has the wrong depth for "${cert.title}"`

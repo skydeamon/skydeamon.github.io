@@ -169,6 +169,7 @@ test('deployed certificate PDFs are live, downloadable, and served as PDFs', asy
   const failures = [];
 
   for (const cert of certifications) {
+    if (/^https?:\/\//i.test(cert.link)) continue;
     const url = `${BASE}/${cert.link}`;
     const { res, body } = await getResponse(url);
     const contentType = res.headers.get('content-type') || '';
@@ -200,7 +201,7 @@ test('deployed .js, .css, .pdf, and .xml assets use the expected content types',
     { path: '/sitemap.xml', match: /(?:application|text)\/xml/i },
   ];
 
-  for (const cert of CV_DATA.certifications.filter((entry) => entry.link)) {
+  for (const cert of CV_DATA.certifications.filter((entry) => entry.link && !/^https?:\/\//i.test(entry.link))) {
     checks.push({ path: `/${cert.link}`, match: /application\/pdf/i });
   }
 

@@ -7,6 +7,10 @@ const { ROOT } = require('../helpers');
 const CV_DATA = require(path.join(ROOT, 'js', 'cv-data.js'));
 const LINKED = CV_DATA.certifications.filter((cert) => cert.link);
 
+function certHref(cert, prefix) {
+  return /^https?:\/\//i.test(cert.link) ? cert.link : `${prefix}${cert.link}`;
+}
+
 test('platform engineering journey: root -> hub -> Platform Engineer CV -> certificate links', async ({ page, request }) => {
   const problems = [];
   page.on('pageerror', (err) => problems.push(`pageerror: ${err.message}`));
@@ -23,12 +27,14 @@ test('platform engineering journey: root -> hub -> Platform Engineer CV -> certi
   await expect(page.locator('h2.section-title', { hasText: 'Certifications' })).toBeVisible();
 
   for (const cert of LINKED) {
-    const link = page.locator('.cert-info h3 a', { hasText: cert.title });
-    await expect(link).toHaveAttribute('href', `../../${cert.link}`);
+    const link = page.getByRole('link', { name: cert.title, exact: true });
+    await expect(link).toHaveAttribute('href', certHref(cert, '../../'));
 
-    const response = await request.get(`/${cert.link}`);
-    expect(response.status(), `${cert.link} status`).toBe(200);
-    expect(response.headers()['content-type']).toMatch(/^application\/pdf\b/i);
+    if (!/^https?:\/\//i.test(cert.link)) {
+      const response = await request.get(`/${cert.link}`);
+      expect(response.status(), `${cert.link} status`).toBe(200);
+      expect(response.headers()['content-type']).toMatch(/^application\/pdf\b/i);
+    }
   }
 
   await page.click('a.control-btn[href="../index.html"]');
