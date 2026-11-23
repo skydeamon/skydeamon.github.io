@@ -269,6 +269,7 @@
 
   /* ---------- Affiliations ---------- */
   const affiliations = [
+    'Old Mutual South Africa — Lead Analyst Programmer / Data Engineer (Oct 2023 — Present)',
     'Umuzi.org — Alumni & Mentor (2020 — Present)',
     'Open Source Contributor — GitHub (skydeamon)',
     'University of Cape Town — Alumni',
