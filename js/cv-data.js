@@ -86,6 +86,7 @@
         'Impact: Improved critical pipeline runtime by 35% and reduced EMR compute costs by 22%',
         'Impact: Elevated data freshness from D+1 to H+1 via event-driven ingestion',
         'Impact: Increased critical data-quality coverage to 90%+ with dbt tests',
+        'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse: vendor engagement with Databricks, Unity Catalog governance, Delta Lake vs Apache Iceberg decisions, metadata-driven pipelines, and team capacity/task management',
       ],
     },
     {
@@ -140,7 +141,7 @@
     },
     data_engineering: {
       title: 'Data & Analytics',
-      tags: ['Apache Airflow', 'Apache Kafka', 'dbt', 'Apache Flink', 'Medallion Architecture', 'SCD Type 2', 'Data Quality'],
+      tags: ['Apache Airflow', 'Apache Kafka', 'dbt', 'Apache Flink', 'Medallion Architecture', 'SCD Type 2', 'Data Quality', 'Databricks', 'Unity Catalog', 'Delta Lake', 'Apache Iceberg', 'Data Governance', 'PII Masking', 'Metadata-Driven Pipelines'],
       primary: ['Apache Airflow', 'Apache Kafka'],
     },
     frameworks: {
@@ -160,7 +161,7 @@
     },
     platform_engineering: {
       title: 'Platform & Developer Enablement',
-      tags: ['Platform as a Product', 'Golden Paths', 'Self-Service Provisioning', 'CI/CD Standards', 'GitOps', 'Observability (SLIs/SLOs)', 'Cost Engineering', 'Developer Experience'],
+      tags: ['Platform as a Product', 'Golden Paths', 'Self-Service Provisioning', 'CI/CD Standards', 'GitOps', 'Observability (SLIs/SLOs)', 'Cost Engineering', 'Developer Experience', 'Catalog Governance', 'Platform Guardrails', 'Multi-Business-Unit Enablement', 'Vendor Engagement', 'Capacity Planning', 'Task Sizing', 'Blocker Removal'],
       primary: ['Platform as a Product', 'Golden Paths'],
     },
     ai_llm: {
@@ -214,6 +215,12 @@
       description:
         'Established a POPIA 10-document library and B-BBEE Level 2 / 52% Black-owned scorecard across two businesses, plus an LRA s200A contractor classification framework (8-document deemed-employment pack and 25-question assessment tool).',
       tech: ['POPIA', 'B-BBEE', 'LRA s200A'],
+    },
+    {
+      title: 'Enterprise Databricks Lakehouse Platform',
+      description:
+        'Led migration from AWS-only data infrastructure to a governed Databricks lakehouse. Defined medallion architecture and data-product model, metadata-driven pipeline standards, and shared catalog, tagging, PII, masking, workspace, and role-based access conventions. Engaged Databricks as a vendor partner: gathered requirements, collaborated on pipeline design, CI/CD, Databricks Bundles, and orchestration, and supported capacity planning, task sizing, expectation management, and blocker removal for the delivery team. Current warehouse tables are Apache Iceberg, with an active evaluation of Delta Lake vs Iceberg for the platform\'s future table format. Rolled out a reusable platform operating model across business units, giving data engineers, ML practitioners, analysts, and executive stakeholders a common set of guardrails for delivering use cases safely.',
+      tech: ['Databricks', 'Unity Catalog', 'Delta Lake', 'Apache Iceberg', 'Medallion Architecture', 'Metadata-Driven Pipelines', 'Data Governance', 'PII Masking', 'RBAC', 'CI/CD', 'Databricks Bundles', 'Orchestration', 'AWS'],
     },
   ];
 
@@ -341,6 +348,7 @@
       ],
       experienceBullets: {
         om_lead: [
+          'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           '<strong>Data Pipelines:</strong> Owned and operated business-critical PySpark data pipelines on AWS EMR/Glue with Airflow orchestration, delivering conformed datasets to Redshift and Athena',
           '<strong>Streaming:</strong> Designed Kafka-enabled ingestion patterns and idempotent S3 landing with deterministic keys; implemented late-arrival handling and replay strategies',
           '<strong>Lakehouse:</strong> Applied lakehouse practices on S3 with Parquet/Iceberg tables accessible via Athena/Trino; optimized file sizes, partitioning, and metadata for pruning',
@@ -385,6 +393,7 @@
       ],
       experienceBullets: {
         om_lead: [
+          'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           'Owned production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena for analytics and ML features',
           'Designed and documented data contracts, marts, and SCD Type 2 dimensions; published dbt docs and lineage for downstream consumers and auditability',
           'Built FastAPI services to expose curated data and enable downstream applications; added request validation and response schema checks',
@@ -431,6 +440,7 @@
       ],
       experienceBullets: {
         om_lead: [
+          'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           'Lead a team producing data analytics solutions, data sources, and APIs for business applications',
           'Owned production PySpark pipelines on AWS EMR/Glue with Airflow orchestration',
           'Designed data contracts, marts, and SCD Type 2 dimensions; published dbt docs and lineage',
@@ -543,6 +553,7 @@
       ],
       experienceBullets: {
         om_lead: [
+          'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           '<strong>Leadership:</strong> Lead a team producing data analytics solutions, data sources, and APIs feeding online applications and services',
           '<strong>Strategy:</strong> Implement proof-of-concept evaluations of new technologies, transitioning them from experimental tools to production-ready services used by the business',
           '<strong>Architecture:</strong> Own production PySpark pipelines on AWS EMR/Glue with Airflow orchestration, delivering conformed datasets to Redshift/Athena',
@@ -605,6 +616,7 @@
       impactHighlights: sharedSections.impactHighlights,
       experienceBullets: {
         om_lead: [
+          'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           'Owned production PySpark pipelines on AWS EMR/Glue with Airflow orchestration',
           'Designed Kafka-enabled ingestion with idempotent S3 landing and replay strategies',
           'Applied lakehouse practices with Parquet/Iceberg tables via Athena/Trino',
@@ -651,7 +663,7 @@
       ],
       experienceBullets: {
         ibitse: ['Leading engineering standards, CI/CD, and backend services (TypeScript/Node) for a start-up.'],
-        om_lead: ['Leading a team building data analytics solutions. PySpark on EMR/Glue, Airflow, Kafka, dbt, FastAPI. 35% runtime reduction, 22% cost savings.'],
+        om_lead: ['Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.', 'Leading a team building data analytics solutions. PySpark on EMR/Glue, Airflow, Kafka, dbt, FastAPI. 35% runtime reduction, 22% cost savings.'],
         om_analyst: ['ETL pipelines from DB2 to S3. PySpark, Airflow, dbt, server administration.'],
         om_de: ['Data quality pipelines in medallion architecture golden layer. AWS, Airflow, Spark.'],
         umuzi: ['RESTful APIs with Django/FastAPI. Data wrangling pipelines.'],
@@ -712,6 +724,7 @@
       impactHighlights: sharedSections.impactHighlights,
       experienceBullets: {
         om_lead: [
+          'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           'Owned production PySpark pipelines on AWS EMR/Glue with Airflow orchestration',
           'Designed Kafka-enabled ingestion with idempotent S3 landing and replay strategies',
           'Applied lakehouse practices with Parquet/Iceberg tables via Athena/Trino',
@@ -810,6 +823,7 @@
           'Built a 10-persona research base and 13-profile competitor register to drive GTM strategy (D1–D8 playbook)',
         ],
         om_lead: [
+          'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           'Lead a team producing data analytics solutions, data sources, and APIs feeding online applications and services',
           'Implement proof-of-concept evaluations of new technologies, transitioning them from experimental tools to production-ready services used by the business',
           'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena',
@@ -857,6 +871,7 @@
           'Prototyped LLM application patterns (RAG, function calling, prompt strategies) with FastAPI integration and evaluation harnesses',
         ],
         om_lead: [
+          'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           'Lead a team producing data analytics solutions, data sources, and APIs feeding online applications and services',
           'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena',
           'Design and document data contracts, marts, and SCD Type 2 dimensions; publish dbt docs and lineage for downstream consumers',
@@ -1105,6 +1120,7 @@
           'Technologies: TypeScript, React, NestJS, MySQL, PostgreSQL, Docker, Redis, MongoDB, Linux',
         ],
         om_lead: [
+          'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           'Build FastAPI services to expose curated data; add request validation and response schema checks',
           'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena',
           'Design and document data contracts, marts, and SCD Type 2 dimensions; publish dbt docs and lineage',
@@ -1120,7 +1136,7 @@
       employmentType: 'full-time',
       availability: [],
       summary:
-        'Platform-oriented engineer with <strong>5+ years</strong> building the shared foundations other engineers ship on: an <strong>internal developer platform (IDP)</strong> mindset applied as a product for internal teams. Standardized CI/CD and Git workflows cut deployment lead time <strong>from days to hours</strong>, provisioned reproducible AWS infrastructure as code with <strong>Terraform and Docker</strong>, and instrumented pipelines with <strong>CloudWatch metrics, alarms, and dataset SLAs</strong>. At Old Mutual I automated PySpark/EMR delivery — <strong>35% pipeline runtime reduction</strong> and <strong>22% compute cost savings</strong> — while treating the platform as a product: self-service templates, golden paths, documentation, and observability that let teams ship without filing tickets. Seeking a platform engineering role where developer enablement and measurable adoption are the job.',
+        'Platform-oriented engineer with <strong>5+ years</strong> building the shared foundations other engineers ship on: an <strong>internal developer platform (IDP)</strong> mindset applied as a product for internal teams. Standardized CI/CD and Git workflows cut deployment lead time <strong>from days to hours</strong>, provisioned reproducible AWS infrastructure as code with <strong>Terraform and Docker</strong>, and instrumented pipelines with <strong>CloudWatch metrics, alarms, and dataset SLAs</strong>. At Old Mutual I automated PySpark/EMR delivery — <strong>35% pipeline runtime reduction</strong> and <strong>22% compute cost savings</strong> — while treating the platform as a product: self-service templates, golden paths, documentation, and observability that let teams ship without filing tickets. Seeking a platform engineering role where developer enablement and measurable adoption are the job. Currently leading an Old Mutual migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement, delivery management, and organisation-wide platform adoption.',
       leadershipPhilosophy:
         '"A platform succeeds when the easy path is also the safe path. I build <strong>golden paths</strong> that teams actually choose, <strong>self-service</strong> that removes tickets instead of moving them, and <strong>SLIs and dashboards</strong> that turn platform health into something everyone can see."',
       stats: [
@@ -1136,10 +1152,14 @@
         { category: 'Containers & Linux', skills: ['Docker', 'Linux', 'Server Administration', 'VPC Networking'] },
         { category: 'Observability & Reliability', skills: ['CloudWatch', 'Dataset SLAs', 'SLIs/SLOs', 'Incident Response'] },
         { category: 'Automation', skills: ['Python', 'Bash', 'PySpark / EMR', 'Apache Airflow'] },
+        { category: 'Lakehouse & Governance', skills: ['Databricks', 'Unity Catalog', 'Delta Lake', 'Apache Iceberg', 'Catalog Management', 'PII Masking', 'Metadata-Driven Pipelines', 'Databricks Bundles', 'Orchestration'] },
       ],
       sectionOrder: ['summary', 'stats', 'leadership-philosophy', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'references'],
       skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'platform_engineering'],
       impactHighlights: [
+        '<strong>Governed Databricks lakehouse foundation</strong> for organisation-wide business units, with shared catalog, tagging, PII, masking, and role-based access standards',
+        '<strong>Metadata-driven pipeline standards</strong> and medallion data-product model to make onboarding reusable across teams',
+        '<strong>Current tables on Apache Iceberg</strong>, with an active Delta Lake vs Iceberg evaluation for the platform\'s future table format',
         '<strong>Deployment lead time: days → hours</strong> by standardizing CI/CD (Azure DevOps/Git + AWS CodePipeline) with safe rollout and rollback',
         '<strong>35% pipeline runtime reduction</strong> and <strong>22% compute cost savings</strong> through platform-level tuning of shared PySpark/EMR workloads',
         '<strong>Self-service data delivery</strong> via FastAPI services, request validation, and schema contracts — reducing manual hand-offs for consuming teams',
@@ -1153,6 +1173,9 @@
           '<strong>Cost engineering:</strong> Ran GCP/AWS feasibility studies with cost projections to defer cloud spend until post-revenue — a co-hosted VPS shared across two independent entities',
         ],
         om_lead: [
+          'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
+          '<strong>Platform migration:</strong> Led Old Mutual\'s move from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks',
+          '<strong>Delivery management:</strong> Gathered requirements, collaborated on pipeline design, CI/CD, Databricks Bundles, and orchestration, and managed capacity, task sizing, expectations, and blockers',
           '<strong>Platform ownership:</strong> Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets as a service to Redshift/Athena consumers',
           '<strong>Delivery automation:</strong> Instituted platform guardrails — Git PRs, slim CI for dbt (state:modified), automated tests in CI/CD, and safe rollout/rollback',
           '<strong>Observability:</strong> Added CloudWatch metrics/alarms, dataset SLAs, and published dbt docs and lineage so downstream teams can monitor their dependencies',

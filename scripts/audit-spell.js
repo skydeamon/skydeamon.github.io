@@ -122,9 +122,9 @@ const ALLOW_LIST = new Set(
     'lra ltr ltv nestjs noi odoo pdi popia pty rha roi siyakhokha sops str tpn ' +
     'transunion ui unlinked vps woza zelenial zicht ' +
     // British spellings (site uses South African English)
-    'programme programmes rigour roadmap ' +
+    'programme programmes rigour roadmap organisation organisations prioritised prioritise ' +
     // Platform engineering terms (Phase 8 platform-engineer CV)
-    'DX IDP SLIs SLOs enablement Enablement pdf ' +
+    'DX IDP SLIs SLOs enablement Enablement pdf Iceberg Delta Unity catalog Bundles PII RBAC ' +
     // URL/email tokens isolated by word-splitting
     'gmail https ' +
     // fragment of the Sage hex color #4ECDC4 (brand palette)
