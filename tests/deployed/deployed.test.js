@@ -46,10 +46,16 @@ function requireNetwork(t) {
 }
 
 async function getStatus(url) {
-  const res = await fetch(url, { signal: AbortSignal.timeout(20000) });
-  // Drain the body so the connection is not left open.
-  await res.arrayBuffer();
-  return res.status;
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(20000) });
+    // Drain the body so the connection is not left open.
+    await res.arrayBuffer();
+    return res.status;
+  } catch (err) {
+    // A dropped connection is still a deployment failure worth naming, but
+    // reporting it as status 0 keeps one blip from aborting the whole walk.
+    return 0;
+  }
 }
 
 async function getResponse(url) {
@@ -69,7 +75,15 @@ async function getResponse(url) {
  * the root-level robots/sitemap files are all part of the deployed surface.
  */
 const ASSET_EXTENSIONS = /\.(?:html|css|js|pdf|png|jpe?g|webp|gif|svg|ico|woff2?|ttf|eot|xml|txt)$/i;
-const ASSET_DIRS = ['css', 'portfolio', 'js', 'images', 'fontawesome', 'certificates'];
+const ASSET_DIRS = [
+  'css',
+  'portfolio',
+  'js',
+  'images',
+  'certificates',
+  'fontawesome/css',
+  'fontawesome/webfonts',
+];
 const ROOT_ASSETS = ['index.html', '404.html', 'robots.txt', 'sitemap.xml'];
 
 function declaredAssetPaths() {
@@ -124,11 +138,21 @@ test('deployed serves every asset and page the working tree declares', async (t)
 
   // Check everything, then assert. A failure on one URL must not mask the
   // status of the rest.
-  const failures = await Promise.all(
-    paths.map(async (p) => ({ p, status: await getStatus(`${BASE}${p}`) }))
-  );
+  // GitHub Pages (and the local connection pool) start dropping requests when
+  // hundreds of them are in flight at once. Walk the inventory in a small
+  // number of concurrent lanes so a transient reset is not mistaken for a
+  // missing asset.
+  const results = new Array(paths.length);
+  let cursor = 0;
+  async function lane() {
+    while (cursor < paths.length) {
+      const index = cursor++;
+      results[index] = { p: paths[index], status: await getStatus(`${BASE}${paths[index]}`) };
+    }
+  }
+  await Promise.all(Array.from({ length: 8 }, lane));
 
-  const broken = failures.filter((f) => f.status !== 200);
+  const broken = results.filter((f) => f.status !== 200);
   assert.deepStrictEqual(
     broken.map((f) => `${f.p} -> ${f.status}`),
     [],
