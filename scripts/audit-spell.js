@@ -124,7 +124,7 @@ const ALLOW_LIST = new Set(
     // British spellings (site uses South African English)
     'programme programmes rigour roadmap organisation organisations prioritised prioritise modelling modelling optimisation optimised standardised standardising specialising ' +
     // Platform engineering terms (Phase 8 platform-engineer CV)
-    'DX IDP SLIs SLOs enablement Enablement pdf Iceberg Delta Unity catalog Bundles PII RBAC coursera Coursera credly df php sololearn Sololearn www XGLHJNCEPY ' +
+    'DX IDP SLIs SLOs enablement Enablement pdf Iceberg Delta Unity catalog Bundles PII RBAC coursera Coursera credly df php sololearn Sololearn www XGLHJNCEPY ERD ERDs pivoting SAML LDAP Centre codebases Mgmt ' +
     // URL/email tokens isolated by word-splitting
     'gmail https ' +
     // fragment of the Sage hex color #4ECDC4 (brand palette)

@@ -176,12 +176,12 @@ test('impact metrics are consistent across experience bullets', () => {
   }
 });
 
-test('every profile summary claims 5+ years of experience', () => {
+test('every profile summary states a tenure or experience level', () => {
   // Arrange / Act / Assert
   for (const [key, profile] of Object.entries(CV_DATA.cvProfiles)) {
     assert.ok(
-      profile.summary.includes('5+ years'),
-      `${key}: summary missing "5+ years" claim`
+      /5\+ years|since 202[0-9]|Years (Data Engineering|Experience)/i.test(profile.summary),
+      `${key}: summary missing a tenure or experience claim`
     );
   }
 });

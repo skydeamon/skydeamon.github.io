@@ -53,20 +53,20 @@
       <!-- Impact Metrics -->
       <div class="stats-grid">
         <div class="stat-card">
+          <div class="stat-number">32h → 55m/30m</div>
+          <div class="stat-label">Legacy Pipeline Rebuild</div>
+        </div>
+        <div class="stat-card">
           <div class="stat-number">35%</div>
-          <div class="stat-label">Pipeline Runtime Reduction</div>
+          <div class="stat-label">Faster Pipelines</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">22%</div>
-          <div class="stat-label">Compute Cost Savings</div>
+          <div class="stat-label">Lower EMR Cost</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">90%+</div>
-          <div class="stat-label">Data Quality Coverage</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">H+1</div>
-          <div class="stat-label">Data Freshness</div>
+          <div class="stat-label">Data-Quality Coverage</div>
         </div>
       </div>
 
@@ -182,19 +182,19 @@
       <section class="section">
         <h2 class="section-title">Key Projects</h2>
         <div class="project-item">
-          <div class="project-title">High-Throughput PySpark Curation on EMR/Glue</div>
-          <p class="project-description">Architected PySpark jobs to cleanse, deduplicate, and conform multi-TB datasets into Parquet/Iceberg tables. Window-based deduping, semantic validations, incremental MERGE.</p>
-          <div class="project-tech"><span>PySpark</span><span>EMR</span><span>Iceberg</span></div>
+          <div class="project-title">Pipeline Rebuild: 32-Hour Process to Two Pipelines</div>
+          <p class="project-description">Rebuilt a legacy AWS Glue process that ran 32 hours into two pipelines (55 and 30 minutes). Pivots key-value source data, then applies completeness, validity, and consistency checks to PII columns.</p>
+          <div class="project-tech"><span>AWS Glue</span><span>Spark</span><span>PySpark</span><span>Data Quality</span></div>
         </div>
         <div class="project-item">
-          <div class="project-title">Event-Driven Ingestion with Kafka → Lakehouse</div>
-          <p class="project-description">Kafka-first ingestion with idempotent S3 landing, watermarking for late events, and Airflow-managed replay. H+1 freshness.</p>
-          <div class="project-tech"><span>Kafka</span><span>EMR</span><span>Airflow</span></div>
+          <div class="project-title">CI/CD Migration: AWS CodePipeline to Azure DevOps</div>
+          <p class="project-description">Moved tens of codebases and CI/CD from AWS to Azure DevOps after CodeCommit closed to new customers. Designed Git flow, linting, code standards, and enforced tests. Standardised run scripts, Airflow DAG code, pipeline templates, and naming conventions.</p>
+          <div class="project-tech"><span>Azure DevOps</span><span>Git Flow</span><span>CI/CD</span><span>AWS CodePipeline</span><span>Apache Airflow</span></div>
         </div>
         <div class="project-item">
-          <div class="project-title">Data Contracts &amp; Quality Gates</div>
-          <p class="project-description">dbt source freshness and column contracts, tests blocking publishes on failure. 90%+ critical data-quality coverage.</p>
-          <div class="project-tech"><span>dbt</span><span>Glue Catalog</span><span>Athena</span></div>
+          <div class="project-title">Data Governance Platform: Alation Catalog Rollout</div>
+          <p class="project-description">Introduced data governance at Old Mutual by running the Alation catalog: upgrades, onboarding data sources and business units, and enabling data stewards on cataloging, lineage, and curation. Set up SAML authentication against LDAP, database connections as data sources, and AWS IAM roles for multi-unit access.</p>
+          <div class="project-tech"><span>Alation</span><span>Data Governance</span><span>SAML</span><span>LDAP</span><span>Tableau</span></div>
         </div>
       </section>
 

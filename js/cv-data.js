@@ -80,7 +80,7 @@
       bullets: [
         'Lead a team to produce data analytics solutions, data sources, and APIs feeding online applications and services',
         'Implement proof-of-concept evaluations of new technologies, transitioning them from experimental tools to production-ready services used by the business',
-        'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena',
+        'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to AWS Redshift/Athena',
         'Design and document data contracts, marts, and SCD Type 2 dimensions; publish dbt docs and lineage for downstream consumers',
         'Build FastAPI services to expose curated data; add request validation and response schema checks',
         'Impact: Improved critical pipeline runtime by 35% and reduced EMR compute costs by 22%',
@@ -98,7 +98,7 @@
       bullets: [
         'Built ETL pipelines to lift from on-premises databases (DB2) to object stores (AWS S3)',
         'Transformed and cleaned data for business use; managed server administration',
-        'Technologies: PySpark, Apache Airflow, Python, SQL, DynamoDB, S3, VPC, dbt, Git, GitHub',
+        'Technologies: PySpark, Apache Airflow, Python, SQL, AWS DynamoDB, AWS S3, AWS VPC, dbt, Git, GitHub',
       ],
     },
     {
@@ -136,32 +136,42 @@
     },
     cloud_aws: {
       title: 'Cloud & Infrastructure',
-      tags: ['AWS EMR', 'AWS Glue', 'AWS Redshift', 'AWS S3', 'AWS Athena', 'AWS Lambda', 'AWS EC2', 'AWS DynamoDB', 'AWS IAM', 'AWS VPC', 'Docker'],
-      primary: ['AWS EMR', 'AWS Glue', 'AWS Redshift', 'AWS S3'],
+      tags: ['AWS EMR', 'AWS Glue', 'AWS Redshift', 'AWS S3', 'AWS Athena', 'AWS Lambda', 'AWS EC2', 'AWS DynamoDB', 'AWS IAM', 'AWS VPC', 'AWS CodeCommit', 'Docker', 'Terraform', 'Linux'],
+      primary: ['AWS EMR', 'AWS Glue', 'AWS S3', 'Docker'],
     },
-    data_engineering: {
-      title: 'Data & Analytics',
-      tags: ['Apache Airflow', 'Apache Kafka', 'dbt', 'Apache Flink', 'Medallion Architecture', 'SCD Type 2', 'Data Quality', 'Databricks', 'Unity Catalog', 'Delta Lake', 'Apache Iceberg', 'Data Governance', 'PII Masking', 'Metadata-Driven Pipelines'],
+    data_pipelines: {
+      title: 'Data Pipelines & Orchestration',
+      tags: ['Apache Airflow', 'Apache Kafka', 'Apache Flink', 'dbt', 'PySpark', 'Apache Spark', 'SCD Type 2'],
       primary: ['Apache Airflow', 'Apache Kafka'],
+    },
+    lakehouse: {
+      title: 'Lakehouse & Table Formats',
+      tags: ['Databricks', 'Delta Lake', 'Apache Iceberg', 'Unity Catalog', 'Medallion Architecture', 'Metadata-Driven Pipelines', 'Databricks Bundles'],
+      primary: ['Databricks', 'Medallion Architecture'],
+    },
+    data_governance: {
+      title: 'Data Governance & Quality',
+      tags: ['Alation', 'Data Cataloging', 'Data Lineage', 'Data Governance', 'PII Masking', 'Data Quality', 'Data Quality Specifications', 'Requirements Gathering', 'Catalog Governance'],
+      primary: ['Data Governance', 'Data Quality'],
     },
     frameworks: {
       title: 'Frameworks & Tools',
-      tags: ['FastAPI', 'Django', 'LangChain', 'Git/GitHub', 'Azure DevOps', 'Jira', 'Alation', 'Matillion'],
-      primary: [],
+      tags: ['FastAPI', 'Django', 'LangChain', 'Matillion'],
+      primary: ['FastAPI', 'Django'],
     },
     databases: {
       title: 'Databases',
-      tags: ['Redshift', 'Athena', 'DynamoDB', 'MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'DB2', 'SQLAlchemy'],
-      primary: [],
+      tags: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'DB2', 'SQLAlchemy'],
+      primary: ['PostgreSQL', 'MySQL'],
     },
     devops: {
       title: 'DevOps',
-      tags: ['Git', 'GitHub', 'GitLab', 'Azure DevOps', 'AWS CodePipeline', 'Docker', 'Terraform', 'Linux', 'Jira', 'Agile/Scrum'],
-      primary: [],
+      tags: ['Git', 'GitHub', 'GitLab', 'Azure DevOps', 'AWS CodePipeline', 'AWS CodeCommit', 'Terraform', 'Linux', 'Jira', 'Agile/Scrum', 'Docker', 'Git Flow', 'Linting and Code Formatting', 'Artifact Versioning'],
+      primary: ['Git', 'CI/CD'],
     },
     platform_engineering: {
       title: 'Platform & Developer Enablement',
-      tags: ['Platform as a Product', 'Golden Paths', 'Self-Service Provisioning', 'CI/CD Standards', 'GitOps', 'Observability (SLIs/SLOs)', 'Cost Engineering', 'Developer Experience', 'Catalog Governance', 'Platform Guardrails', 'Multi-Business-Unit Enablement', 'Vendor Engagement', 'Capacity Planning', 'Task Sizing', 'Blocker Removal'],
+      tags: ['Platform as a Product', 'Golden Paths', 'Self-Service Provisioning', 'CI/CD', 'GitOps', 'Observability (SLIs/SLOs)', 'Cost Engineering', 'Developer Experience', 'Platform Guardrails', 'Multi-Business-Unit Enablement'],
       primary: ['Platform as a Product', 'Golden Paths'],
     },
     ai_llm: {
@@ -171,8 +181,8 @@
     },
     operations: {
       title: 'Operations & Process',
-      tags: ['SOP Design', 'Process Mapping', 'Capacity Planning', 'Stakeholder Management', 'Vendor Management', 'Compliance (POPIA, LRA s200A)', 'Contract Management', 'Risk Management'],
-      primary: ['SOP Design', 'Stakeholder Management'],
+      tags: ['SOP Design', 'Compliance (POPIA, LRA s200A)', 'Contract Management', 'Risk Management'],
+      primary: ['SOP Design', 'Compliance (POPIA, LRA s200A)'],
     },
     marketing: {
       title: 'Marketing & Growth',
@@ -186,12 +196,12 @@
     },
     property: {
       title: 'Property & Asset Management',
-      tags: ['Lease Administration (RHA)', 'Tenant Screening', 'Municipal Arrears Resolution', 'Portfolio Analytics', 'Yield/ROI Analysis', 'Vendor Management', 'Compliance'],
+      tags: ['Lease Administration (RHA)', 'Tenant Screening', 'Municipal Arrears Resolution', 'Portfolio Analytics', 'Yield/ROI Analysis', 'Compliance'],
       primary: ['Lease Administration (RHA)', 'Portfolio Analytics'],
     },
     leadership: {
       title: 'Leadership & Strategy',
-      tags: ['Org Design', 'Team Leadership', 'Stakeholder Management', 'Vendor Management', 'Capacity Planning', 'Risk Management', 'Governance'],
+      tags: ['Org Design', 'Team Leadership', 'Stakeholder Management', 'Vendor Management', 'Capacity Planning', 'Risk Management', 'Governance', 'Corporate Governance'],
       primary: ['Team Leadership', 'Stakeholder Management'],
     },
   };
@@ -204,24 +214,6 @@
       description:
         'FastAPI endpoint with retrieval pipeline (vector index + metadata filters). Templated prompts with deterministic output schema. Basic evaluation harness for regression testing of responses. Function-calling pattern with LangChain/LangGraph for structured queries.',
       tech: ['Python', 'FastAPI', 'LangChain', 'RAG', 'LLM'],
-    },
-    {
-      title: 'High-Throughput PySpark Curation on EMR/Glue',
-      description:
-        'Architected and optimised PySpark jobs to cleanse, deduplicate, and conform multi-TB datasets into columnar Parquet/Iceberg tables on S3 with Athena/Trino access. Added window-based deduping, semantic validations, and incremental MERGE patterns.',
-      tech: ['PySpark', 'AWS EMR', 'Iceberg', 'Athena'],
-    },
-    {
-      title: 'Event-Driven Ingestion with Kafka → Lakehouse',
-      description:
-        'Designed Kafka-first ingestion for priority domains with idempotent S3 landing, watermarking for late events, and Airflow-managed replay. Improved freshness to H+1 while maintaining deterministic batch reprocessing for backfills.',
-      tech: ['Kafka', 'EMR', 'Airflow', 'S3'],
-    },
-    {
-      title: 'Data Contracts & Quality Gates for Analytics/ML',
-      description:
-        'Introduced dbt source freshness and column contracts, added tests (uniqueness, referential integrity, accepted_values), and blocked publishes on failures. Enabled dependable downstream consumption for analytics and ML feature pipelines.',
-      tech: ['dbt', 'Glue Catalog', 'Athena', 'Airflow', 'CloudWatch'],
     },
     {
       title: 'Zelenial Portfolio Analytics & Compliance',
@@ -246,6 +238,24 @@
       description:
         'Led migration from AWS-only data infrastructure to a governed Databricks lakehouse. Defined medallion architecture, metadata-driven pipeline standards, and shared catalog, tagging, PII, masking, workspace, and role-based access conventions. Engaged Databricks as a vendor partner on pipeline design, CI/CD, Databricks Bundles, and orchestration, and supported capacity planning, task sizing, and blocker removal. Current tables are Apache Iceberg, with an active Delta Lake vs Iceberg evaluation. Rolled out a reusable platform operating model across business units.',
       tech: ['Databricks', 'Unity Catalog', 'Delta Lake', 'Apache Iceberg', 'Medallion Architecture', 'Metadata-Driven Pipelines', 'Data Governance', 'PII Masking', 'RBAC', 'CI/CD', 'Databricks Bundles', 'Orchestration', 'AWS'],
+    },
+    {
+      title: 'Pipeline Rebuild: 32-Hour Process to Two Pipelines',
+      description:
+        'Rebuilt a legacy AWS Glue process that ran 32 hours into two pipelines (55 and 30 minutes), improving SLAs and reporting. The pipelines pivot key-value source data, then apply completeness, validity, and consistency checks to multiple PII columns. Interpreted ERDs, specifications, and SQL scripts, and gathered requirements with the data quality team.',
+      tech: ['AWS Glue', 'Apache Spark', 'PySpark', 'Python', 'SQL', 'Data Quality', 'PII Masking', 'Requirements Gathering'],
+    },
+    {
+      title: 'Data Governance Platform: Alation Catalog Rollout',
+      description:
+        'Introduced data governance at Old Mutual by running the Alation catalog: upgrades, onboarding data sources and business units, and enabling data stewards on cataloging, lineage, and curation. Set up SAML authentication against LDAP, database connections as data sources, and AWS IAM roles for multi-unit access. Built API processes between Alation and tools such as Tableau, and worked with Alation\'s technical team on connector and feature issues.',
+      tech: ['Alation', 'Data Governance', 'Data Lineage', 'Data Cataloging', 'SAML', 'LDAP', 'AWS IAM', 'Tableau', 'REST APIs'],
+    },
+    {
+      title: 'CI/CD Migration: AWS CodePipeline to Azure DevOps',
+      description:
+        'Following AWS\'s 2024 decision to close CodeCommit to new customers, moved tens of codebases and the platform\'s CI/CD from AWS to a new Azure DevOps organisation. Set up the account with the Cloud Centre of Excellence and stakeholders, designed the Git flow and CI/CD process with linting, code formatting, code standards, and enforced tests. Standardised the migrated artifacts (run scripts, Apache Airflow DAG code, pipeline templates, and naming conventions), with AWS EMR running code packaged as versioned zip files from AWS S3.',
+      tech: ['Azure DevOps', 'Git Flow', 'CI/CD', 'Linting', 'Code Formatting', 'AWS CodePipeline', 'AWS CodeCommit', 'Apache Airflow', 'AWS EMR', 'AWS S3'],
     },
   ];
 
@@ -284,7 +294,6 @@
       '<strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
       '<strong>Freshness D+1 → H+1</strong> with event-driven ingestion and robust late-arrival handling',
       '<strong>90%+ data-quality coverage</strong> via dbt source/column contracts and tests (not_null, unique, relationships)',
-      '<strong>Deployment: days → hours</strong> with standardised CI/CD (ADO/Git + CodePipeline) and safe rollout/rollback',
     ],
     services: [
       {
@@ -323,25 +332,20 @@
         { label: 'Location', value: 'Cape Town, South Africa (Remote-friendly)' },
       ],
       summary:
-        'Senior Data Engineer and AI/LLM practitioner with <strong>5+ years</strong> building enterprise-grade data platforms and applications on AWS. Owns PySpark pipelines on EMR/Glue, Airflow orchestration, Kafka ingestion, dbt contracts, and FastAPI services. Delivers <strong>35% faster pipelines</strong>, <strong>22% lower EMR costs</strong>, <strong>90%+ data-quality coverage</strong>, and hourly data freshness. Leads analysts at Old Mutual and serves as Lead Full Stack Developer at a start-up; founded Ibitse (Pty) Ltd and Zelenial Group. Strong in software architecture, infrastructure setup, and full-stack delivery.',
+        'Senior Data Engineer and AI/LLM practitioner with <strong>5+ years</strong> building enterprise-grade data platforms and applications on AWS. Owns PySpark pipelines on EMR/Glue, Apache Airflow orchestration, Kafka ingestion, dbt contracts, and FastAPI services. Delivers <strong>35% faster pipelines</strong>, <strong>22% lower EMR costs</strong>, <strong>90%+ data-quality coverage</strong>, and hourly data freshness. Leads analysts at Old Mutual and serves as Lead Full Stack Developer at a start-up; founded Ibitse (Pty) Ltd and Zelenial Group. Strong in software architecture, infrastructure setup, and full-stack delivery.',
       sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'interests', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      skills: ['programming', 'cloud_aws', 'data_pipelines', 'lakehouse', 'data_governance', 'frameworks', 'databases', 'devops', 'ai_llm', 'leadership'],
       stats: [
-        { value: 'H+1', label: 'Data Freshness' },
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'Compute Cost Savings' },
-        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: '32h \u2192 55m/30m', label: 'Legacy Pipeline Rebuild' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '22%', label: 'Lower EMR Cost' },
+        { value: '90%+', label: 'Data-Quality Coverage' },
       ],
-      impactHighlights: [
-        '<strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
-        '<strong>Freshness D+1 → H+1</strong> with event-driven ingestion and robust late-arrival handling',
-        '<strong>90%+ data-quality coverage</strong> via dbt source/column contracts and tests (not_null, unique, relationships)',
-        '<strong>Founded two companies</strong> — Ibitse (Pty) Ltd and Zelenial Group — bootstrapped with zero external funding',
-      ],
+      impactHighlights: sharedSections.impactHighlights,
       experienceBullets: {
         ibitse: [
           '<strong>Full Stack Development:</strong> Lead Full Stack Developer at a start-up — TypeScript/Node backend services, React front-end, MySQL/PostgreSQL, Docker, and CI/CD standards',
-          '<strong>Entrepreneurship:</strong> Co-founded Ibitse (Pty) Ltd — lift-sharing platform — bootstrapped with zero external funding; designed a 38-person org blueprint and 10-template contract library',
+          '<strong>Entrepreneurship:</strong> Co-founded Ibitse (Pty) Ltd — lift-sharing platform — ; designed a 38-person org blueprint and 10-template contract library',
           '<strong>Operations Design:</strong> Established engineering standards (coding guidelines, CI/CD, Git branching) and aligned technical delivery with stakeholder expectations',
         ],
         zelenial: [
@@ -362,30 +366,30 @@
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade cloud data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, and Athena. Proven impact: <strong>35% pipeline runtime reduction</strong>, <strong>22% EMR compute cost savings</strong>, <strong>freshness D+1 → H+1</strong>, and <strong>90%+ data-quality coverage</strong> via dbt contracts, tests, and Airflow monitors. Experienced in medallion/lakehouse patterns (Parquet/Iceberg), large-scale batch and streaming, Kafka-driven ingestion, and DataOps (CI/CD, testing, observability). Seeking a contract role to architect and build high-throughput curation systems for AI-training datasets.',
       sectionOrder: ['target-role', 'summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      skills: ['programming', 'cloud_aws', 'data_pipelines', 'lakehouse', 'data_governance', 'frameworks', 'databases', 'devops'],
       stats: [
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'Compute Cost Savings' },
-        { value: '90%+', label: 'Data Quality Coverage' },
-        { value: 'H+1', label: 'Data Freshness' },
+        { value: '32h \u2192 55m/30m', label: 'Legacy Pipeline Rebuild' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '22%', label: 'Lower EMR Cost' },
+        { value: '90%+', label: 'Data-Quality Coverage' },
       ],
       impactHighlights: [
+        '<strong>Legacy pipeline rebuilt:</strong> 32-hour process split into two pipelines running 55 and 30 minutes, improving SLAs and reporting',
         '<strong>35% pipeline runtime reduction</strong> via partition pruning, predicate pushdown, and join tuning on PySpark/EMR',
         '<strong>22% monthly compute cost reduction</strong> through optimisation of EMR cluster usage and job efficiency',
         '<strong>Data freshness D+1 → H+1</strong> by moving priority domains to event-driven/near-real-time ingestion (Kafka → EMR)',
         '<strong>90%+ critical data-quality coverage</strong> by implementing dbt tests (not_null, unique, relationships) and Airflow monitors',
-        '<strong>Deployment lead time: days → hours</strong> by standardising CI/CD for data (ADO/Git + CodePipeline) with blue/green validation',
       ],
       experienceBullets: {
         om_lead: [
           'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
-          '<strong>Data Pipelines:</strong> Owned and operated business-critical PySpark data pipelines on AWS EMR/Glue with Airflow orchestration, delivering conformed datasets to Redshift and Athena',
+          '<strong>Data Pipelines:</strong> Owned and operated business-critical PySpark data pipelines on AWS EMR/Glue with Apache Airflow orchestration, delivering conformed datasets to Redshift and Athena',
           '<strong>Streaming:</strong> Designed Kafka-enabled ingestion patterns and idempotent S3 landing with deterministic keys; implemented late-arrival handling and replay strategies',
           '<strong>Lakehouse:</strong> Applied lakehouse practices on S3 with Parquet/Iceberg tables accessible via Athena/Trino; optimised file sizes, partitioning, and metadata for pruning',
           '<strong>DataOps:</strong> Instituted guardrails: Git PRs, slim CI for dbt (state:modified), automated tests in CI/CD, CloudWatch metrics/alarms, and dataset SLAs',
           '<strong>Modelling:</strong> Partnered with analysts and data scientists to define grains, marts, and SCD Type 2 dimensions; documented lineage/definitions in dbt docs and Alation',
           '<strong>APIs:</strong> Built FastAPI services to expose curated data; added request validation and response schema checks',
-          '<strong>Technologies:</strong> AWS Glue, EMR, S3, Redshift, Athena, Lambda, Step Functions, IAM, VPC, Python, PySpark, Airflow, Kafka, dbt, Docker, Terraform (exposure)',
+          '<strong>Technologies:</strong> AWS Glue, AWS EMR, AWS S3, AWS Redshift, AWS Athena, AWS Lambda, AWS Step Functions, AWS IAM, AWS VPC, Python, PySpark, Apache Airflow, Apache Kafka, dbt, Docker, Terraform (exposure)',
         ],
         ibitse: [
           'Led engineering standards (coding guidelines, CI/CD, Git) and contributed to backend services (Node.js/TypeScript) interfacing with data services and APIs',
@@ -409,27 +413,26 @@
       summary:
         'Senior data/AI engineer with <strong>5+ years</strong> building production data platforms and APIs on AWS using Python, PySpark, EMR/Glue, Redshift, Athena, and Airflow. Record of measurable impact: <strong>35% pipeline runtime reduction</strong>, <strong>22% compute cost savings</strong>, and <strong>90%+ data-quality coverage</strong> sustaining analytics and ML features. Hands-on with <strong>LLM application patterns</strong> (RAG, function calling, prompt strategies, basic guardrails) and FastAPI integration. Known for end-to-end ownership and cross-functional collaboration with product/analyst teams. Seeking to apply agentic workflows, RAG pipelines, and evaluation practices to deliver safe, traceable AI features in clinical and education contexts — motivated by AI that people can actually depend on.',
       sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'healthcare-compliance', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      skills: ['programming', 'cloud_aws', 'data_pipelines', 'data_governance', 'ai_llm', 'frameworks', 'databases', 'devops'],
       stats: [
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'Compute Cost Savings' },
-        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '22%', label: 'Lower EMR Cost' },
+        { value: '90%+', label: 'Data-Quality Coverage' },
         { value: 'H+1', label: 'Data Freshness' },
       ],
       impactHighlights: [
         '<strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
         '<strong>Freshness D+1 → H+1</strong> with event-driven ingestion and robust late-arrival handling',
         '<strong>90%+ data-quality coverage</strong> via dbt source/column contracts and tests (not_null, unique, relationships)',
-        '<strong>Deployment: days → hours</strong> with standardised CI/CD (ADO/Git + CodePipeline) and safe rollout/rollback',
       ],
       experienceBullets: {
         om_lead: [
           'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
-          'Owned production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena for analytics and ML features',
+          'Owned production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to AWS Redshift/Athena for analytics and ML features',
           'Designed and documented data contracts, marts, and SCD Type 2 dimensions; published dbt docs and lineage for downstream consumers and auditability',
           'Built FastAPI services to expose curated data and enable downstream applications; added request validation and response schema checks',
           'Partnered with analysts/DS to prototype LLM-ready datasets and retrieval indexes for future RAG use; introduced evaluation harnesses to compare prompt variants (format and basic factual checks)',
-          'Technologies: Python, PySpark, AWS EMR/Glue/S3/Redshift/Athena, Airflow, Kafka, dbt, FastAPI, Docker, Terraform',
+          'Technologies: Python, PySpark, AWS EMR, AWS Glue, AWS S3, AWS Redshift, AWS Athena, Apache Airflow, Apache Kafka, dbt, FastAPI, Docker, Terraform',
         ],
         ibitse: [
           'Led engineering standards (coding conventions, CI/CD, Git branching) and contributed to backend services (TypeScript/Node) integrating with data/AI endpoints',
@@ -457,12 +460,12 @@
         'Data engineering researcher with a BSc in Physics & Astrophysics and <strong>5+ years</strong> building production data platforms on AWS. Delivers measurable results: <strong>35% pipeline runtime reduction</strong> and <strong>data freshness improved from daily to hourly</strong> on business-critical pipelines. Research interests span machine learning infrastructure, LLM applications & RAG, and data quality & governance. Experienced in mentoring aspiring data engineers and publishing technical documentation for enterprise data platforms. Curiosity about how data systems behave — and teaching that curiosity to the next generation of engineers — keeps me engaged.',
       researchInterests: ['Data Engineering', 'Machine Learning Infrastructure', 'LLM Applications & RAG', 'Astrophysics Data Analysis', 'Distributed Computing', 'Data Quality & Governance', 'Streaming Data Systems'],
       sectionOrder: ['summary', 'stats', 'research-interests', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'publications', 'teaching', 'research-projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      skills: ['programming', 'cloud_aws', 'data_pipelines', 'data_governance', 'frameworks', 'databases', 'ai_llm'],
       stats: [
-        { value: '5+', label: "Years' Experience" },
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: 'H+1', label: 'Data Freshness' },
-        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: '5+', label: 'Years Data Engineering' },
+        { value: '32h \u2192 55m/30m', label: 'Legacy Pipeline Rebuild' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '90%+', label: 'Data-Quality Coverage' },
       ],
       impactHighlights: [
         '<strong>35% pipeline runtime reduction</strong> via partition pruning, predicate pushdown, and join tuning on PySpark/EMR',
@@ -474,7 +477,7 @@
         om_lead: [
           'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           'Lead a team producing data analytics solutions, data sources, and APIs for business applications',
-          'Owned production PySpark pipelines on AWS EMR/Glue with Airflow orchestration',
+          'Owned production PySpark pipelines on AWS EMR/Glue with Apache Airflow orchestration',
           'Designed data contracts, marts, and SCD Type 2 dimensions; published dbt docs and lineage',
           'Built FastAPI services exposing curated data with validation and schema checks',
           'Prototyped LLM-ready datasets and retrieval indexes for RAG applications',
@@ -510,18 +513,6 @@
           description:
             'FastAPI endpoint with retrieval pipeline (vector index + metadata filters). Templated prompts with deterministic output schema. Evaluation harness for regression testing. Function-calling with LangChain/LangGraph.',
           tech: ['Python', 'FastAPI', 'LangChain', 'RAG'],
-        },
-        {
-          title: 'High-Throughput PySpark Curation on EMR/Glue',
-          description:
-            'Architected PySpark jobs to cleanse, deduplicate, and conform multi-TB datasets into Parquet/Iceberg tables. Window-based deduping, semantic validations, incremental MERGE patterns.',
-          tech: ['PySpark', 'EMR', 'Iceberg'],
-        },
-        {
-          title: 'Event-Driven Ingestion with Kafka → Lakehouse',
-          description:
-            'Kafka-first ingestion with idempotent S3 landing, watermarking for late events, and Airflow-managed replay. Improved freshness to H+1.',
-          tech: ['Kafka', 'EMR', 'Airflow'],
         },
         {
           title: 'Corridor Intelligence Field Research',
@@ -562,12 +553,12 @@
       leadershipPhilosophy:
         '"Great engineering organisations are built on three pillars: <strong>clear standards</strong> that everyone follows, <strong>measurable outcomes</strong> that everyone understands, and <strong>psychological safety</strong> that enables everyone to contribute. My role as a leader is to create the conditions where talented people do their best work — then get out of their way."',
       sectionOrder: ['summary', 'stats', 'leadership-philosophy', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm', 'leadership'],
+      skills: ['leadership', 'platform_engineering', 'programming', 'cloud_aws', 'data_pipelines', 'lakehouse', 'data_governance', 'ai_llm', 'devops'],
       stats: [
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'Compute Cost Savings' },
-        { value: '90%+', label: 'Data Quality Coverage' },
-        { value: 'Days → Hours', label: 'Deployment Lead Time' },
+        { value: '2', label: 'Companies Founded' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '22%', label: 'Lower EMR Cost' },
+        { value: 'Tens', label: 'Codebases Migrated' },
       ],
       impactHighlights: [
         '<strong>Led team of analysts</strong> producing data analytics solutions and APIs for business applications',
@@ -575,7 +566,7 @@
         '<strong>Reduced deployment lead time from days to hours</strong> through standardised CI/CD with safe rollout/rollback',
         '<strong>Improved data freshness from D+1 to H+1</strong> via event-driven architecture decisions',
         '<strong>Drove 90%+ data-quality coverage</strong> through dbt contracts, tests, and governance practices',
-        '<strong>Founded two companies</strong> — Ibitse (Pty) Ltd and Zelenial Group — bootstrapped with zero external funding',
+        '<strong>Founded two companies</strong> — Ibitse (Pty) Ltd and Zelenial Group — ',
         '<strong>Built a 3-unit property portfolio</strong> at 100% occupancy with RHA-compliant lease administration',
       ],
       experienceBullets: {
@@ -583,7 +574,7 @@
           'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           '<strong>Leadership:</strong> Lead a team producing data analytics solutions, data sources, and APIs feeding online applications and services',
           '<strong>Strategy:</strong> Implement proof-of-concept evaluations of new technologies, transitioning them from experimental tools to production-ready services used by the business',
-          '<strong>Architecture:</strong> Own production PySpark pipelines on AWS EMR/Glue with Airflow orchestration, delivering conformed datasets to Redshift/Athena',
+          '<strong>Architecture:</strong> Own production PySpark pipelines on AWS EMR/Glue with Apache Airflow orchestration, delivering conformed datasets to AWS Redshift/Athena',
           '<strong>Standards:</strong> Design and document data contracts, marts, and SCD Type 2 dimensions; publish dbt docs and lineage for downstream consumers',
           '<strong>Innovation:</strong> Prototype LLM-ready datasets and retrieval indexes for RAG applications; introduce evaluation harnesses',
           '<strong>Impact:</strong> 35% pipeline runtime reduction, 22% cost savings, 90%+ data-quality coverage, H+1 freshness',
@@ -627,12 +618,12 @@
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS. Specialising in <strong>PySpark pipelines, lakehouse architecture, streaming ingestion, and AI/LLM data preparation</strong>. Proven track record of delivering measurable impact: 35% pipeline runtime reduction, 22% cost savings, and 90%+ data-quality coverage — plus hands-on property consulting (portfolio analysis, yield/ROI, RHA-compliant lease administration) for clients needing asset-level financial rigour.',
       sectionOrder: ['summary', 'stats', 'skills-grid', 'services', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      skills: ['programming', 'cloud_aws', 'data_pipelines', 'lakehouse', 'ai_llm', 'frameworks', 'databases', 'devops'],
       stats: [
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'Compute Cost Savings' },
-        { value: '90%+', label: 'Data Quality Coverage' },
-        { value: 'H+1', label: 'Data Freshness' },
+        { value: '32h \u2192 55m/30m', label: 'Legacy Pipeline Rebuild' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '22%', label: 'Lower EMR Cost' },
+        { value: '90%+', label: 'Data-Quality Coverage' },
       ],
       services: sharedSections.services.concat([
         {
@@ -645,7 +636,7 @@
       experienceBullets: {
         om_lead: [
           'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
-          'Owned production PySpark pipelines on AWS EMR/Glue with Airflow orchestration',
+          'Owned production PySpark pipelines on AWS EMR/Glue with Apache Airflow orchestration',
           'Designed Kafka-enabled ingestion with idempotent S3 landing and replay strategies',
           'Applied lakehouse practices with Parquet/Iceberg tables via Athena/Trino',
           'Instituted DataOps guardrails: Git PRs, dbt CI, CloudWatch metrics, dataset SLAs',
@@ -677,12 +668,12 @@
       summary:
         "Data is everywhere — it's my job to find it, extract it, transform it, and deliver it to the business. With <strong>5+ years</strong> building enterprise data platforms on AWS, I combine deep technical expertise in PySpark, Airflow, and Kafka with a passion for AI/LLM applications. I lead teams, build pipelines, and bridge the gap between technical execution and business outcomes. The same analytical discipline powers my ventures: I founded Ibitse (Pty) Ltd (lift-sharing) and Zelenial Group (property management), where I apply data-driven decisions to portfolio analytics, yield tracking, and rent strategy — proving the arc from data engineering to full-stack development to property investment.",
       sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'interests', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      skills: ['programming', 'cloud_aws', 'data_pipelines', 'lakehouse', 'ai_llm', 'frameworks', 'databases', 'devops'],
       stats: [
-        { value: '5+', label: "Years' Experience" },
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'Compute Cost Savings' },
-        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: '5+', label: 'Years Data Engineering' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '22%', label: 'Lower EMR Cost' },
+        { value: '90%+', label: 'Data-Quality Coverage' },
       ],
       impactHighlights: [
         '<strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
@@ -714,14 +705,14 @@
         { label: 'Location', value: 'Cape Town, South Africa (Remote-friendly)' },
       ],
       summary:
-        'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, and Athena. Experienced in medallion/lakehouse patterns, streaming ingestion with Kafka, Airflow orchestration, and DataOps. Proven track record: 35% pipeline runtime reduction, 22% cost savings, 90%+ data-quality coverage. Seeking a full-time role where I can lead data platform engineering and deliver measurable business impact.',
+        'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS using Python, PySpark, EMR/Glue, Redshift, and Athena. Experienced in medallion/lakehouse patterns, streaming ingestion with Kafka, Apache Airflow orchestration, and DataOps. Proven track record: 35% pipeline runtime reduction, 22% cost savings, 90%+ data-quality coverage. Seeking a full-time role where I can lead data platform engineering and deliver measurable business impact.',
       sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      skills: ['programming', 'cloud_aws', 'data_pipelines', 'lakehouse', 'data_governance', 'frameworks', 'databases', 'devops'],
       stats: [
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'Compute Cost Savings' },
-        { value: '90%+', label: 'Data Quality Coverage' },
-        { value: 'H+1', label: 'Data Freshness' },
+        { value: '32h \u2192 55m/30m', label: 'Legacy Pipeline Rebuild' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '22%', label: 'Lower EMR Cost' },
+        { value: '90%+', label: 'Data-Quality Coverage' },
       ],
       impactHighlights: sharedSections.impactHighlights,
       experienceBullets: {},
@@ -743,19 +734,19 @@
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS. Specialising in <strong>PySpark pipelines, lakehouse architecture, streaming ingestion, and AI/LLM data preparation</strong>. Proven impact: 35% runtime reduction, 22% cost savings, 90%+ data-quality coverage. Available for 2–4 month contract engagements where rapid, high-quality delivery matters.',
       sectionOrder: ['summary', 'stats', 'skills-grid', 'services', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      skills: ['programming', 'cloud_aws', 'data_pipelines', 'lakehouse', 'data_governance', 'ai_llm', 'frameworks', 'databases', 'devops'],
       stats: [
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'Compute Cost Savings' },
-        { value: '90%+', label: 'Data Quality Coverage' },
-        { value: 'H+1', label: 'Data Freshness' },
+        { value: '32h \u2192 55m/30m', label: 'Legacy Pipeline Rebuild' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '22%', label: 'Lower EMR Cost' },
+        { value: '90%+', label: 'Data-Quality Coverage' },
       ],
       services: sharedSections.services,
       impactHighlights: sharedSections.impactHighlights,
       experienceBullets: {
         om_lead: [
           'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
-          'Owned production PySpark pipelines on AWS EMR/Glue with Airflow orchestration',
+          'Owned production PySpark pipelines on AWS EMR/Glue with Apache Airflow orchestration',
           'Designed Kafka-enabled ingestion with idempotent S3 landing and replay strategies',
           'Applied lakehouse practices with Parquet/Iceberg tables via Athena/Trino',
           'Instituted DataOps guardrails: Git PRs, dbt CI, CloudWatch metrics, dataset SLAs',
@@ -786,18 +777,17 @@
       summary:
         'Senior Data Engineer with <strong>5+ years</strong> building enterprise-grade data platforms on AWS. Deep expertise in PySpark, AWS, Airflow, Kafka, and data quality, with proven impact: <strong>35% pipeline runtime reduction</strong>, <strong>22% cost savings</strong>, and <strong>90%+ data-quality coverage</strong>. Available for part-time engagements (20–30 hrs/week) with flexible scheduling across time zones. Suited to teams needing senior data engineering support without a full-time commitment.',
       sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      skills: ['programming', 'cloud_aws', 'data_pipelines', 'lakehouse', 'data_governance', 'frameworks', 'databases', 'devops'],
       stats: [
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'Compute Cost Savings' },
-        { value: '90%+', label: 'Data Quality Coverage' },
-        { value: '20–30', label: 'Hrs/Week' },
+        { value: '32h \u2192 55m/30m', label: 'Legacy Pipeline Rebuild' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '22%', label: 'Lower EMR Cost' },
+        { value: '90%+', label: 'Data-Quality Coverage' },
       ],
       impactHighlights: [
         '<strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong> via partition pruning, predicate pushdown, and join tuning',
         '<strong>Freshness D+1 → H+1</strong> with event-driven ingestion and robust late-arrival handling',
         '<strong>90%+ data-quality coverage</strong> via dbt source/column contracts and tests',
-        '<strong>Deployment: days → hours</strong> with standardised CI/CD (ADO/Git + CodePipeline) and safe rollout/rollback',
       ],
       experienceBullets: {},
     },
@@ -813,13 +803,13 @@
         { label: 'Location', value: 'Cape Town, South Africa (Remote-friendly)' },
       ],
       summary:
-        'Founder and CEO with <strong>5+ years</strong> building technology and property businesses. Founded Ibitse (Pty) Ltd (lift-sharing platform) and Zelenial Group (property management), and built a 3-unit property portfolio at 100% occupancy. Prepared an Investec loan proposal. Led a 10-persona GTM research base, established POPIA and B-BBEE Level 2 compliance programmes, and designed a 38-person org blueprint. Combines hands-on technical depth (data engineering, full stack development) with governance, risk management, and evidence-based decision-making.',
+        'Founder and CEO building technology and property businesses since 2020. Founded Ibitse (Pty) Ltd (lift-sharing platform) and Zelenial Group (property management), and built a 3-unit property portfolio at 100% occupancy. Prepared an Investec loan proposal. Led a 10-persona GTM research base, established POPIA and B-BBEE Level 2 compliance programmes, and designed a 38-person org blueprint. Combines hands-on technical depth (data engineering, full stack development) with governance, risk management, and evidence-based decision-making.',
       leadershipPhilosophy:
         '"Building companies requires <strong>clear standards</strong> that everyone can follow, <strong>risk management</strong> that names problems before they become crises, and <strong>evidence-based decisions</strong> that let data — not optimism — carry the argument. My role as founder is to create the conditions where talented people do their best work, then get out of their way."',
       stats: [
         { value: '2', label: 'Companies Founded' },
-        { value: '100%', label: 'Portfolio Occupancy' },
         { value: '3', label: 'Residential Units' },
+        { value: '100%', label: 'Portfolio Occupancy' },
         { value: '10 / 13', label: 'Personas / Competitors' },
       ],
       skillsGrid: [
@@ -831,7 +821,7 @@
       sectionOrder: ['summary', 'stats', 'leadership-philosophy', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
       skills: ['leadership', 'operations', 'marketing', 'finance', 'property', 'programming', 'cloud_aws', 'frameworks', 'devops'],
       impactHighlights: [
-        '<strong>Bootstrapped to funded:</strong> founded two companies with zero external funding and secured an Investec loan proposal with Month-4 profitability projection',
+        '<strong>Bootstrapped to funded:</strong> founded two companies and prepared an Investec loan proposal with Month-4 profitability projection',
         '<strong>3-unit property portfolio</strong> at 100% occupancy with RHA-compliant lease administration',
         '<strong>10-persona + 13-competitor research base</strong> driving a D1–D8 GTM playbook for the Limpopo↔Gauteng corridor',
         '<strong>POPIA (10-doc library) and B-BBEE Level 2 compliance programme</strong> across two businesses',
@@ -856,7 +846,7 @@
           'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           'Lead a team producing data analytics solutions, data sources, and APIs feeding online applications and services',
           'Implement proof-of-concept evaluations of new technologies, transitioning them from experimental tools to production-ready services used by the business',
-          'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena',
+          'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to AWS Redshift/Athena',
           'Impact: Improved critical pipeline runtime by 35% and reduced EMR compute costs by 22%',
         ],
       },
@@ -874,10 +864,10 @@
       leadershipPhilosophy:
         '"Technology leadership is about making architecture decisions that survive contact with reality — <strong>clear standards</strong> that teams can follow, <strong>cost engineering</strong> that respects the business, and <strong>measurable outcomes</strong> that prove the platform works."',
       stats: [
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'EMR Compute Cost Savings' },
-        { value: '90%+', label: 'Data Quality Coverage' },
-        { value: 'H+1', label: 'Data Freshness' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '90%+', label: 'Data-Quality Coverage' },
+        { value: '2', label: 'Companies on One Platform' },
+        { value: 'Tens', label: 'Codebases Migrated' },
       ],
       skillsGrid: [
         { category: 'Architecture', skills: ['System Design', 'Monolith/Tenancy', 'Cloud Architecture', 'Cost Engineering'] },
@@ -886,7 +876,7 @@
         { category: 'AI/LLM', skills: ['RAG Pipelines', 'Function Calling', 'Evaluation Harnesses', 'FastAPI Integration'] },
       ],
       sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm', 'leadership'],
+      skills: ['leadership', 'platform_engineering', 'programming', 'cloud_aws', 'data_pipelines', 'lakehouse', 'data_governance', 'ai_llm', 'devops'],
       impactHighlights: [
         '<strong>Architecture decisions</strong> across monolith/tenancy design for a multi-company platform (Ibitse + Zelenial Group)',
         '<strong>Infrastructure cost engineering</strong> from zero to scale-stage projections via GCP/AWS feasibility studies',
@@ -904,7 +894,7 @@
         om_lead: [
           'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           'Lead a team producing data analytics solutions, data sources, and APIs feeding online applications and services',
-          'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena',
+          'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to AWS Redshift/Athena',
           'Design and document data contracts, marts, and SCD Type 2 dimensions; publish dbt docs and lineage for downstream consumers',
           'Implement proof-of-concept evaluations of new technologies, transitioning them from experimental tools to production-ready services',
           'Impact: Improved critical pipeline runtime by 35%, reduced EMR compute costs by 22%, and elevated data freshness from D+1 to H+1',
@@ -920,7 +910,7 @@
       employmentType: 'full-time',
       availability: [],
       summary:
-        'Operations leader with <strong>5+ years</strong> designing and running business operations across two companies. Built a 38-person org blueprint with a 17-person trim path, implemented LRA s200A contractor classification, created a 10-template contract library with an 8-stage lifecycle, and documented 11 SOPs across HR, Legal, Marketing, and Properties. Manages a 3-unit property portfolio at 100% occupancy. Combines operational discipline with capacity planning and evidence-based process design.',
+        'Operations leader designing and running business operations across two companies since 2025. Built a 38-person org blueprint with a 17-person trim path, implemented LRA s200A contractor classification, created a 10-template contract library with an 8-stage lifecycle, and documented 11 SOPs across HR, Legal, Marketing, and Properties. Manages a 3-unit property portfolio at 100% occupancy. Combines operational discipline with capacity planning and evidence-based process design.',
       leadershipPhilosophy:
         '"Operations is where strategy becomes reality. I build <strong>clear processes</strong> that scale, <strong>capacity plans</strong> that name constraints, and <strong>evidence-based systems</strong> that let the business run without me in the room."',
       stats: [
@@ -942,7 +932,7 @@
         '<strong>11 SOPs documented</strong> across HR, Legal, Marketing, and Properties — exceeding the 9+ target',
       ],
       sectionOrder: ['summary', 'stats', 'skills-grid', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['leadership', 'operations', 'finance', 'property', 'frameworks', 'devops'],
+      skills: ['leadership', 'operations', 'finance', 'property'],
       experienceBullets: {
         om_lead: [
           'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
@@ -974,14 +964,14 @@
       employmentType: 'full-time',
       availability: [],
       summary:
-        'Marketing and growth strategist with <strong>5+ years</strong> building go-to-market systems. Built a 10-persona research base validated by an n=15 user survey, a 13-profile competitor register, and a D1–D8 GTM playbook. Defined a 4-pillar messaging framework (Safety, Transparency, Reliability, Community) with SA-specific positioning, and established a KPI framework with first/last-touch attribution and R/Y/G thresholds. Combines research-driven strategy with hands-on campaign design and brand governance.',
+        'Marketing and growth strategist building go-to-market systems since 2025. Built a 10-persona research base validated by an n=15 user survey, a 13-profile competitor register, and a D1–D8 GTM playbook. Defined a 4-pillar messaging framework (Safety, Transparency, Reliability, Community) with SA-specific positioning, and established a KPI framework with first/last-touch attribution and R/Y/G thresholds. Combines research-driven strategy with hands-on campaign design and brand governance.',
       leadershipPhilosophy:
         '"Growth is a system, not a campaign. I build <strong>research-driven foundations</strong> that everyone can trust, <strong>messaging frameworks</strong> that stay consistent, and <strong>KPI cadences</strong> that turn activity into learning."',
       stats: [
         { value: '10', label: 'Personas Researched' },
         { value: '13', label: 'Competitor Profiles' },
         { value: '4', label: 'Messaging Pillars' },
-        { value: 'D1–D8', label: 'GTM Playbook' },
+        { value: 'n=15', label: 'User Survey' },
       ],
       skillsGrid: [
         { category: 'GTM Strategy', skills: ['Go-To-Market Planning', 'Launch Playbooks', 'Market Sizing', 'Channel Strategy'] },
@@ -990,7 +980,7 @@
         { category: 'Measurement', skills: ['KPI Frameworks', 'Attribution Models', 'R/Y/G Thresholds', 'Reporting Cadence'] },
       ],
       sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['marketing', 'leadership', 'frameworks', 'devops'],
+      skills: ['marketing', 'leadership'],
       impactHighlights: [
         '<strong>10-persona research base</strong> (demographics, pain points, journey maps) validated by an n=15 user survey',
         '<strong>13-profile competitor register</strong> with pricing intelligence and market sizing (~R3B/year corridor TAM, ~550,000+ lift-club members)',
@@ -1026,14 +1016,20 @@
       employmentType: 'full-time',
       availability: [],
       summary:
-        'Finance professional with <strong>5+ years</strong> managing unit economics, property P&L, portfolio cash flow, and tax compliance. Manages a 3-unit property portfolio at 100% occupancy, tracks per-property P&L and yield analysis (gross/net yield, ROI, LTV), and applies source-verified budget corrections. Prepared an Investec loan proposal with a Month-4 profitability projection and maintains VAT201/SARS quarterly compliance. Combines rigorous financial modelling with candid reporting of negative results.',
+        'Finance professional managing unit economics, property P&L, portfolio cash flow, and tax compliance since 2025. Manages a 3-unit property portfolio at 100% occupancy, tracks per-property P&L and yield analysis (gross/net yield, ROI, LTV), and applies source-verified budget corrections. Prepared an Investec loan proposal with a Month-4 profitability projection and maintains VAT201/SARS quarterly compliance. Combines rigorous financial modelling with candid reporting of negative results.',
       leadershipPhilosophy:
         '"Finance is honesty with numbers. I build <strong>rigorous models</strong> that everyone can audit, <strong>source-verified budgets</strong> that survive scrutiny, and <strong>candid reporting</strong> that names negative results before they compound."',
       stats: [
         { value: '3', label: 'Unit Portfolio' },
         { value: '100%', label: 'Occupancy' },
-        { value: 'VAT201', label: 'Quarterly SARS Compliance' },
-        { value: '5+', label: "Years' Experience" },
+        { value: '2025', label: 'Property Finance Since' },
+        { value: 'VAT201', label: 'Quarterly SARS Filing' },
+      ],
+      impactHighlights: [
+        '<strong>3-unit property portfolio</strong> at 100% occupancy with RHA-compliant lease administration',
+        '<strong>Source-verified budget corrections</strong> (levy and rates) ensuring P&L reflects actuals, not estimates',
+        '<strong>Investec loan proposal</strong> with Month-4 profitability projection',
+        '<strong>VAT/SARS compliance</strong>: quarterly VAT201 data preparation with input/output reconciliation and verification cadence',
       ],
       skillsGrid: [
         { category: 'Financial Modelling', skills: ['Unit Economics', 'P&L Management', 'Cash-Flow Statements', 'Forecast vs Actual'] },
@@ -1042,7 +1038,7 @@
         { category: 'Analysis', skills: ['Commission Reconciliation', 'Municipal Accounts', 'Cost Modelling', 'Variance Tracking'] },
       ],
       sectionOrder: ['summary', 'stats', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['finance', 'property', 'leadership', 'programming', 'databases'],
+      skills: ['finance', 'property', 'leadership', 'databases'],
       impactHighlights: [
         '<strong>3-unit property portfolio</strong> at 100% occupancy with RHA-compliant lease administration',
         '<strong>Source-verified budget corrections</strong> (levy and rates) ensuring P&L reflects actuals, not estimates',
@@ -1083,14 +1079,14 @@
       ],
       rate: 'R550–R640/hr',
       summary:
-        'Property manager with <strong>5+ years</strong> running a 3-unit residential portfolio at 100% occupancy. Completed the University of Cape Town Property Development & Investment short course (8 modules). Administers RHA-compliant leases, runs tenant screening (TPN/Experian/TransUnion, income verification, FICA), and performs yield analysis (NOI, gross/net yield, ROI, LTV). Investigates and resolves municipal arrears with root-cause analysis. Available for contract and advisory engagements.',
+        'Property manager running a 3-unit residential portfolio at 100% occupancy since 2025. Completed the University of Cape Town Property Development & Investment short course (8 modules). Administers RHA-compliant leases, runs tenant screening (TPN/Experian/TransUnion, income verification, FICA), and performs yield analysis (NOI, gross/net yield, ROI, LTV). Investigates and resolves municipal arrears with root-cause analysis. Available for contract and advisory engagements.',
       leadershipPhilosophy:
         '"Property management is a discipline of <strong>compliance</strong> and <strong>cash flow</strong>. I run portfolios with RHA-compliant processes, evidence-based screening, and yield analysis that tells the truth about every unit."',
       stats: [
         { value: '3', label: 'Unit Portfolio' },
         { value: '100%', label: 'Occupancy' },
+        { value: '2025', label: 'Property Mgmt Since' },
         { value: 'RHA', label: 'Compliant Leases' },
-        { value: '8', label: 'UCT PDI Modules' },
       ],
       skillsGrid: [
         { category: 'Property Management', skills: ['Portfolio Management', 'LTR/STR Operations', 'Managing-Agent Oversight', 'Rent Collection'] },
@@ -1139,14 +1135,14 @@
       employmentType: 'full-time',
       availability: [],
       summary:
-        'Full stack engineer with <strong>5+ years</strong> of experience building production applications and data platforms. Lead developer for a start-up organisation using TypeScript, React, NestJS, and Odoo ERP, with MySQL, PostgreSQL, Docker, Redis, and MongoDB. Built FastAPI services and PySpark pipelines on AWS at Old Mutual, with measurable impact: <strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong>. Combines frontend, backend, and DevOps skills with strong engineering standards and CI/CD practices.',
+        'Full stack engineer with experience building production applications and data platforms since 2020. Lead developer for a start-up organisation using TypeScript, React, NestJS, and Odoo ERP, with MySQL, PostgreSQL, Docker, Redis, and MongoDB. Built FastAPI services and PySpark pipelines on AWS at Old Mutual, with measurable impact: <strong>35% pipeline runtime reduction</strong> and <strong>22% EMR compute cost savings</strong>. Combines frontend, backend, and DevOps skills with strong engineering standards and CI/CD practices.',
       leadershipPhilosophy:
         '"Great software is built on <strong>clear standards</strong>, <strong>measurable outcomes</strong>, and <strong>continuous delivery</strong>. I write code that ships, set up pipelines that protect it, and measure impact in runtime, cost, and reliability."',
       stats: [
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'EMR Compute Cost Savings' },
-        { value: '5+', label: "Years' Experience" },
-        { value: 'Full Stack', label: 'Frontend + Backend + DevOps' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '22%', label: 'Lower EMR Cost' },
+        { value: '2020', label: 'Full Stack Since' },
+        { value: 'Tens', label: 'Codebases Migrated' },
       ],
       skillsGrid: [
         { category: 'Frontend', skills: ['React', 'React Native', 'TypeScript', 'Responsive UI'] },
@@ -1161,7 +1157,7 @@
         '<strong>Measurable impact</strong>: 35% pipeline runtime reduction and 22% EMR compute cost savings on production PySpark pipelines',
       ],
       sectionOrder: ['summary', 'stats', 'skills-grid', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'availability', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'ai_llm'],
+      skills: ['programming', 'cloud_aws', 'frameworks', 'databases', 'devops', 'ai_llm'],
       experienceBullets: {
         ibitse: [
           'Lead developer for a start-up organisation; oversee development team and ensure successful delivery of high-quality software',
@@ -1174,7 +1170,7 @@
         om_lead: [
           'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           'Build FastAPI services to expose curated data; add request validation and response schema checks',
-          'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to Redshift/Athena',
+          'Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets to AWS Redshift/Athena',
           'Design and document data contracts, marts, and SCD Type 2 dimensions; publish dbt docs and lineage',
           'Implement proof-of-concept evaluations of new technologies, transitioning them from experimental tools to production-ready services',
         ],
@@ -1193,10 +1189,10 @@
       leadershipPhilosophy:
         '"A platform succeeds when the easy path is also the safe path. I build <strong>golden paths</strong> that teams actually choose, <strong>self-service</strong> that removes tickets instead of moving them, and <strong>SLIs and dashboards</strong> that turn platform health into something everyone can see."',
       stats: [
-        { value: 'Days → Hours', label: 'Deployment Lead Time' },
-        { value: '35%', label: 'Pipeline Runtime Reduction' },
-        { value: '22%', label: 'Compute Cost Savings' },
-        { value: '90%+', label: 'Data Quality Coverage' },
+        { value: '32h \u2192 55m/30m', label: 'Legacy Pipeline Rebuild' },
+        { value: '35%', label: 'Faster Pipelines' },
+        { value: '22%', label: 'Lower EMR Cost' },
+        { value: 'Tens', label: 'Codebases Migrated' },
       ],
       skillsGrid: [
         { category: 'Platform & DX', skills: ['Platform as a Product', 'Internal Developer Platform', 'Golden Paths', 'Self-Service Provisioning'] },
@@ -1208,12 +1204,12 @@
         { category: 'Lakehouse & Governance', skills: ['Databricks', 'Unity Catalog', 'Delta Lake', 'Apache Iceberg', 'Catalog Management', 'PII Masking', 'Metadata-Driven Pipelines', 'Databricks Bundles', 'Orchestration'] },
       ],
       sectionOrder: ['summary', 'stats', 'leadership-philosophy', 'skills-grid', 'impact-highlights', 'experience', 'projects', 'education', 'certifications', 'languages', 'affiliations', 'references'],
-      skills: ['programming', 'cloud_aws', 'data_engineering', 'frameworks', 'databases', 'devops', 'platform_engineering'],
+      skills: ['programming', 'cloud_aws', 'data_pipelines', 'lakehouse', 'data_governance', 'platform_engineering', 'devops'],
       impactHighlights: [
         '<strong>Governed Databricks lakehouse foundation</strong> for organisation-wide business units, with shared catalog, tagging, PII, masking, and role-based access standards',
+        '<strong>CI/CD migration:</strong> moved tens of codebases from AWS to Azure DevOps with standardised Git flow, linting, and code standards',
         '<strong>Metadata-driven pipeline standards</strong> and medallion data-product model to make onboarding reusable across teams',
         '<strong>Current tables on Apache Iceberg</strong>, with an active Delta Lake vs Iceberg evaluation for the platform\'s future table format',
-        '<strong>Deployment lead time: days → hours</strong> by standardising CI/CD (Azure DevOps/Git + AWS CodePipeline) with safe rollout and rollback',
         '<strong>35% pipeline runtime reduction</strong> and <strong>22% compute cost savings</strong> through platform-level tuning of shared PySpark/EMR workloads',
         '<strong>Self-service data delivery</strong> via FastAPI services, request validation, and schema contracts — reducing manual hand-offs for consuming teams',
         '<strong>Observability by default</strong>: CloudWatch metrics and alarms, dataset SLAs, and dbt docs/lineage so downstream teams can monitor what they depend on',
@@ -1229,12 +1225,12 @@
           'Led Old Mutual\'s migration from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks, Unity Catalog governance, and Delta Lake vs Apache Iceberg decisions.',
           '<strong>Platform migration:</strong> Led Old Mutual\'s move from AWS-only infrastructure to a governed Databricks lakehouse, including vendor engagement with Databricks',
           '<strong>Delivery management:</strong> Gathered requirements, collaborated on pipeline design, CI/CD, Databricks Bundles, and orchestration, and managed capacity, task sizing, expectations, and blockers',
-          '<strong>Platform ownership:</strong> Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets as a service to Redshift/Athena consumers',
+          '<strong>Platform ownership:</strong> Own production PySpark pipelines on AWS EMR/Glue orchestrated via Airflow, delivering conformed datasets as a service to AWS Redshift/Athena consumers',
           '<strong>Delivery automation:</strong> Instituted platform guardrails — Git PRs, slim CI for dbt (state:modified), automated tests in CI/CD, and safe rollout/rollback',
           '<strong>Observability:</strong> Added CloudWatch metrics/alarms, dataset SLAs, and published dbt docs and lineage so downstream teams can monitor their dependencies',
           '<strong>Self-service APIs:</strong> Built FastAPI services to expose curated data with request validation and response schema checks, removing manual hand-offs',
           '<strong>Impact:</strong> Improved critical pipeline runtime by 35% and reduced EMR compute costs by 22% through platform-level optimisation',
-          '<strong>Technologies:</strong> AWS EMR, Glue, S3, Redshift, Athena, Lambda, Step Functions, IAM, VPC, Terraform, Docker, Linux, Python, PySpark, Airflow, dbt',
+          '<strong>Technologies:</strong> AWS EMR, AWS Glue, AWS S3, AWS Redshift, AWS Athena, AWS Lambda, AWS Step Functions, AWS IAM, AWS VPC, Terraform, Docker, Linux, Python, PySpark, Apache Airflow, dbt',
         ],
         om_analyst: [
           '<strong>Infrastructure:</strong> Managed server administration and data infrastructure; built ETL pipelines lifting on-premises DB2 data to AWS S3',
@@ -1249,24 +1245,24 @@
   };
 
   const profileProjects = {
-    job_application: ['Agentic RAG LLM Demo', 'Enterprise Databricks Lakehouse Platform', 'High-Throughput PySpark Curation on EMR/Glue', 'Event-Driven Ingestion with Kafka → Lakehouse', 'Data Contracts & Quality Gates for Analytics/ML', 'Zelenial Portfolio Analytics & Compliance', 'Ibitse Platform Architecture & GTM', 'POPIA & B-BBEE Compliance Programme'],
-    data_engineer: ['High-Throughput PySpark Curation on EMR/Glue', 'Event-Driven Ingestion with Kafka → Lakehouse', 'Data Contracts & Quality Gates for Analytics/ML', 'Enterprise Databricks Lakehouse Platform', 'Agentic RAG LLM Demo'],
-    ai_engineer: ['Agentic RAG LLM Demo', 'Data Contracts & Quality Gates for Analytics/ML', 'Enterprise Databricks Lakehouse Platform', 'High-Throughput PySpark Curation on EMR/Glue'],
-    academic: ['Agentic RAG LLM Demo', 'Data Contracts & Quality Gates for Analytics/ML', 'Enterprise Databricks Lakehouse Platform', 'High-Throughput PySpark Curation on EMR/Glue'],
-    executive: ['Enterprise Databricks Lakehouse Platform', 'Ibitse Platform Architecture & GTM', 'Zelenial Portfolio Analytics & Compliance', 'POPIA & B-BBEE Compliance Programme'],
-    freelance: ['Agentic RAG LLM Demo', 'Enterprise Databricks Lakehouse Platform', 'High-Throughput PySpark Curation on EMR/Glue', 'Zelenial Portfolio Analytics & Compliance'],
-    modern: ['Agentic RAG LLM Demo', 'Enterprise Databricks Lakehouse Platform', 'High-Throughput PySpark Curation on EMR/Glue', 'Event-Driven Ingestion with Kafka → Lakehouse'],
-    full_time: ['High-Throughput PySpark Curation on EMR/Glue', 'Event-Driven Ingestion with Kafka → Lakehouse', 'Data Contracts & Quality Gates for Analytics/ML', 'Enterprise Databricks Lakehouse Platform'],
-    contract: ['High-Throughput PySpark Curation on EMR/Glue', 'Event-Driven Ingestion with Kafka → Lakehouse', 'Data Contracts & Quality Gates for Analytics/ML', 'Enterprise Databricks Lakehouse Platform', 'Agentic RAG LLM Demo'],
-    part_time: ['High-Throughput PySpark Curation on EMR/Glue', 'Event-Driven Ingestion with Kafka → Lakehouse', 'Data Contracts & Quality Gates for Analytics/ML', 'Enterprise Databricks Lakehouse Platform'],
+    job_application: [ 'CI/CD Migration: AWS CodePipeline to Azure DevOps', 'Data Governance Platform: Alation Catalog Rollout', 'Pipeline Rebuild: 32-Hour Process to Two Pipelines', 'Agentic RAG LLM Demo', 'Enterprise Databricks Lakehouse Platform', 'Zelenial Portfolio Analytics & Compliance', 'Ibitse Platform Architecture & GTM', 'POPIA & B-BBEE Compliance Programme'],
+    data_engineer: [ 'CI/CD Migration: AWS CodePipeline to Azure DevOps', 'Data Governance Platform: Alation Catalog Rollout', 'Pipeline Rebuild: 32-Hour Process to Two Pipelines', 'Enterprise Databricks Lakehouse Platform', 'Agentic RAG LLM Demo'],
+    ai_engineer: [ 'Data Governance Platform: Alation Catalog Rollout', 'Pipeline Rebuild: 32-Hour Process to Two Pipelines', 'Agentic RAG LLM Demo', 'Enterprise Databricks Lakehouse Platform'],
+    academic: [ 'Pipeline Rebuild: 32-Hour Process to Two Pipelines', 'Agentic RAG LLM Demo', 'Enterprise Databricks Lakehouse Platform'],
+    executive: [ 'CI/CD Migration: AWS CodePipeline to Azure DevOps','Enterprise Databricks Lakehouse Platform', 'Ibitse Platform Architecture & GTM', 'Zelenial Portfolio Analytics & Compliance', 'POPIA & B-BBEE Compliance Programme'],
+    freelance: [ 'CI/CD Migration: AWS CodePipeline to Azure DevOps', 'Pipeline Rebuild: 32-Hour Process to Two Pipelines', 'Agentic RAG LLM Demo', 'Enterprise Databricks Lakehouse Platform', 'Zelenial Portfolio Analytics & Compliance'],
+    modern: [ 'CI/CD Migration: AWS CodePipeline to Azure DevOps', 'Data Governance Platform: Alation Catalog Rollout', 'Pipeline Rebuild: 32-Hour Process to Two Pipelines', 'Agentic RAG LLM Demo', 'Enterprise Databricks Lakehouse Platform'],
+    full_time: [ 'CI/CD Migration: AWS CodePipeline to Azure DevOps', 'Data Governance Platform: Alation Catalog Rollout', 'Pipeline Rebuild: 32-Hour Process to Two Pipelines', 'Enterprise Databricks Lakehouse Platform'],
+    contract: [ 'CI/CD Migration: AWS CodePipeline to Azure DevOps', 'Data Governance Platform: Alation Catalog Rollout', 'Pipeline Rebuild: 32-Hour Process to Two Pipelines', 'Enterprise Databricks Lakehouse Platform', 'Agentic RAG LLM Demo'],
+    part_time: [ 'Data Governance Platform: Alation Catalog Rollout', 'Pipeline Rebuild: 32-Hour Process to Two Pipelines', 'Enterprise Databricks Lakehouse Platform'],
     founder_ceo: ['Ibitse Platform Architecture & GTM', 'Zelenial Portfolio Analytics & Compliance', 'POPIA & B-BBEE Compliance Programme', 'Enterprise Databricks Lakehouse Platform'],
-    cto: ['Enterprise Databricks Lakehouse Platform', 'Ibitse Platform Architecture & GTM', 'Zelenial Portfolio Analytics & Compliance', 'POPIA & B-BBEE Compliance Programme', 'Agentic RAG LLM Demo'],
+    cto: [ 'CI/CD Migration: AWS CodePipeline to Azure DevOps','Enterprise Databricks Lakehouse Platform', 'Ibitse Platform Architecture & GTM', 'Zelenial Portfolio Analytics & Compliance', 'POPIA & B-BBEE Compliance Programme', 'Agentic RAG LLM Demo'],
     business_ops: ['Ibitse Platform Architecture & GTM', 'Zelenial Portfolio Analytics & Compliance', 'POPIA & B-BBEE Compliance Programme', 'Enterprise Databricks Lakehouse Platform'],
     marketing_growth: ['Ibitse Platform Architecture & GTM', 'Zelenial Portfolio Analytics & Compliance', 'POPIA & B-BBEE Compliance Programme'],
     finance: ['Zelenial Portfolio Analytics & Compliance', 'POPIA & B-BBEE Compliance Programme', 'Enterprise Databricks Lakehouse Platform'],
     property_manager: ['Zelenial Portfolio Analytics & Compliance', 'POPIA & B-BBEE Compliance Programme'],
-    fullstack_engineer: ['Agentic RAG LLM Demo', 'Ibitse Platform Architecture & GTM', 'Enterprise Databricks Lakehouse Platform', 'High-Throughput PySpark Curation on EMR/Glue'],
-    platform_engineer: ['Enterprise Databricks Lakehouse Platform', 'Data Contracts & Quality Gates for Analytics/ML', 'Event-Driven Ingestion with Kafka → Lakehouse', 'High-Throughput PySpark Curation on EMR/Glue', 'Agentic RAG LLM Demo'],
+    fullstack_engineer: [ 'CI/CD Migration: AWS CodePipeline to Azure DevOps', 'Data Governance Platform: Alation Catalog Rollout', 'Pipeline Rebuild: 32-Hour Process to Two Pipelines', 'Agentic RAG LLM Demo', 'Ibitse Platform Architecture & GTM', 'Enterprise Databricks Lakehouse Platform'],
+    platform_engineer: [ 'CI/CD Migration: AWS CodePipeline to Azure DevOps', 'Data Governance Platform: Alation Catalog Rollout', 'Pipeline Rebuild: 32-Hour Process to Two Pipelines', 'Enterprise Databricks Lakehouse Platform', 'Agentic RAG LLM Demo'],
   };
   for (const key of Object.keys(cvProfiles)) {
     if (profileProjects[key]) cvProfiles[key].projects = profileProjects[key];
